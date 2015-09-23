@@ -19,3 +19,5 @@ Membership Sys - normal (10% OFF)
 Promotion - Manager (set a discount to promotion items, such as credit card specials -> additional 5% OFF)
 
 Invioce - Staff (print out the invoice after registration)
+
+==============================================================================================================================================
