@@ -38,7 +38,12 @@ namespace FunHomeClub
             if (dt.Rows.Count != 1)
                 MessageBox.Show("Username Incorrect!");
             else if (dt.Rows[0].ItemArray[2].Equals(txtPassword.Text))
+            {
                 MessageBox.Show("Login Successful!");
+                MainForm loginForm = new MainForm(this, dt.Rows[0].ItemArray[2].ToString(), dt.Rows[0].ItemArray[3].ToString());
+                loginForm.Show();
+                this.Hide();
+            }
             else
                 MessageBox.Show("Password Incorrect!");
 

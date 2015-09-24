@@ -7,3 +7,4 @@ C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.exe
 C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.pdb
 C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.LoginForm.resources
 C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.exe.config
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MainForm.resources
