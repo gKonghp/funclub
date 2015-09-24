@@ -1,0 +1,9 @@
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.exe
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.pdb
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.csprojResolveAssemblyReference.cache
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.Properties.Resources.resources
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.csproj.GenerateResource.Cache
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.exe
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.pdb
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.LoginForm.resources
+C:\Users\Jack\Desktop\GUI\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.exe.config
