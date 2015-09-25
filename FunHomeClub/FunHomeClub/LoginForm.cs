@@ -23,14 +23,7 @@ namespace FunHomeClub
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            if (Utility.checkFieldPresense(errLogin, txtUsername, "Username cannot be null"))
-            {
-                btnLogin.Enabled = false;
-            }
-            else
-            {
-                btnLogin.Enabled = true;
-            }
+            Utility.checkFieldPresense(errLogin, txtUsername, "Username cannot be null");
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -42,6 +35,14 @@ namespace FunHomeClub
         {
             string errUsernameIncorrect = "Incorrect Username";
             string errPasswordIncorrect = "Incorrect Password";
+            if (errLogin.GetError(txtUsername).Trim().Length > 0)
+            {
+                return;
+            }
+            if (errLogin.GetError(txtPassword).Trim().Length > 0)
+            {
+                return;
+            }
             employeeTableAdapter1.Fill(masterDBDataSet1.employee);
             string selectUsernameSql = string.Format("username = \'{0}\'", txtUsername.Text);
             DataRow[] passwordRows = masterDBDataSet1.employee.Select(selectUsernameSql);
@@ -80,14 +81,15 @@ namespace FunHomeClub
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            if (Utility.checkFieldPresense(errLogin, txtPassword, "Password cannot be null"))
-            {
-                btnLogin.Enabled = false;
-            }
-            else
-            {
-                btnLogin.Enabled = true;
-            }
+            Utility.checkFieldPresense(errLogin, txtPassword, "Password cannot be null");
+        }
+
+        private void Reset_Click(object sender, EventArgs e)
+        {
+            txtPassword.Clear();
+            txtUsername.Clear();
+            errLogin.SetError(txtUsername, "");
+            errLogin.SetError(txtPassword, "");
         }
     }
 }

@@ -37,6 +37,7 @@
             this.errLogin = new System.Windows.Forms.ErrorProvider(this.components);
             this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
             this.employeeTableAdapter1 = new FunHomeClub.res.db.masterDBDataSetTableAdapters.employeeTableAdapter();
+            this.Reset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +79,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(105, 175);
+            this.btnLogin.Location = new System.Drawing.Point(156, 175);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 4;
@@ -99,11 +100,22 @@
             // 
             this.employeeTableAdapter1.ClearBeforeFill = true;
             // 
+            // Reset
+            // 
+            this.Reset.Location = new System.Drawing.Point(55, 175);
+            this.Reset.Name = "Reset";
+            this.Reset.Size = new System.Drawing.Size(75, 23);
+            this.Reset.TabIndex = 5;
+            this.Reset.Text = "Reset";
+            this.Reset.UseVisualStyleBackColor = true;
+            this.Reset.Click += new System.EventHandler(this.Reset_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.Reset);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -129,6 +141,7 @@
         private System.Windows.Forms.ErrorProvider errLogin;
         private res.db.masterDBDataSet masterDBDataSet1;
         private res.db.masterDBDataSetTableAdapters.employeeTableAdapter employeeTableAdapter1;
+        private System.Windows.Forms.Button Reset;
     }
 }
 
