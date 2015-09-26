@@ -49,9 +49,10 @@
             this.EndMonth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Quota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuota)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +60,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 67);
+            this.label1.Location = new System.Drawing.Point(9, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 12);
             this.label1.TabIndex = 0;
@@ -78,7 +79,7 @@
             "Friday",
             "Saturday",
             "Sunday"});
-            this.cboWeekday.Location = new System.Drawing.Point(105, 64);
+            this.cboWeekday.Location = new System.Drawing.Point(67, 61);
             this.cboWeekday.Name = "cboWeekday";
             this.cboWeekday.Size = new System.Drawing.Size(157, 20);
             this.cboWeekday.TabIndex = 3;
@@ -99,30 +100,30 @@
             this.groupBox1.Controls.Add(this.cboWeekday);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(369, 169);
+            this.groupBox1.Size = new System.Drawing.Size(720, 99);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Filter";
             // 
             // txtPrice2
             // 
-            this.txtPrice2.Location = new System.Drawing.Point(195, 97);
+            this.txtPrice2.Location = new System.Drawing.Point(423, 27);
             this.txtPrice2.Name = "txtPrice2";
             this.txtPrice2.Size = new System.Drawing.Size(67, 22);
             this.txtPrice2.TabIndex = 14;
             // 
             // txtPrice1
             // 
-            this.txtPrice1.Location = new System.Drawing.Point(105, 97);
+            this.txtPrice1.Location = new System.Drawing.Point(333, 27);
             this.txtPrice1.Name = "txtPrice1";
             this.txtPrice1.Size = new System.Drawing.Size(67, 22);
             this.txtPrice1.TabIndex = 7;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(282, 96);
+            this.btnReset.Location = new System.Drawing.Point(540, 57);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 50);
+            this.btnReset.Size = new System.Drawing.Size(75, 33);
             this.btnReset.TabIndex = 13;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -130,9 +131,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(282, 27);
+            this.btnSearch.Location = new System.Drawing.Point(639, 57);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 52);
+            this.btnSearch.Size = new System.Drawing.Size(75, 35);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -141,7 +142,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 134);
+            this.label6.Location = new System.Drawing.Point(246, 61);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 12);
             this.label6.TabIndex = 10;
@@ -150,7 +151,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(178, 100);
+            this.label4.Location = new System.Drawing.Point(406, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(11, 12);
             this.label4.TabIndex = 6;
@@ -158,7 +159,7 @@
             // 
             // nudQuota
             // 
-            this.nudQuota.Location = new System.Drawing.Point(105, 130);
+            this.nudQuota.Location = new System.Drawing.Point(333, 57);
             this.nudQuota.Maximum = new decimal(new int[] {
             10,
             0,
@@ -171,11 +172,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(88, 100);
+            this.label2.Location = new System.Drawing.Point(290, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(11, 12);
+            this.label2.Size = new System.Drawing.Size(37, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "$";
+            this.label2.Text = "Price $";
             // 
             // cboMonth
             // 
@@ -195,7 +196,7 @@
             "October",
             "November",
             "December "});
-            this.cboMonth.Location = new System.Drawing.Point(105, 27);
+            this.cboMonth.Location = new System.Drawing.Point(67, 24);
             this.cboMonth.Name = "cboMonth";
             this.cboMonth.Size = new System.Drawing.Size(157, 20);
             this.cboMonth.TabIndex = 8;
@@ -203,7 +204,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(60, 30);
+            this.label5.Location = new System.Drawing.Point(22, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 12);
             this.label5.TabIndex = 7;
@@ -222,12 +223,13 @@
             this.Price,
             this.Quota,
             this.Room});
-            this.lstCourseDetail.Location = new System.Drawing.Point(12, 187);
+            this.lstCourseDetail.Location = new System.Drawing.Point(14, 117);
             this.lstCourseDetail.Name = "lstCourseDetail";
-            this.lstCourseDetail.Size = new System.Drawing.Size(720, 433);
+            this.lstCourseDetail.Size = new System.Drawing.Size(720, 329);
             this.lstCourseDetail.TabIndex = 6;
             this.lstCourseDetail.UseCompatibleStateImageBehavior = false;
             this.lstCourseDetail.View = System.Windows.Forms.View.Details;
+            this.lstCourseDetail.DoubleClick += new System.EventHandler(this.lstCourseDetail_DoubleClick);
             // 
             // Category
             // 
@@ -270,6 +272,11 @@
             this.EndTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.EndTime.Width = 63;
             // 
+            // Price
+            // 
+            this.Price.Text = "Price";
+            this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Quota
             // 
             this.Quota.Text = "Quota";
@@ -281,24 +288,31 @@
             this.Room.Text = "Room";
             this.Room.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Price
+            // label3
             // 
-            this.Price.Text = "Price";
-            this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 459);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(208, 12);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "(Double Click to View More Course Detail)";
             // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 633);
+            this.ClientSize = new System.Drawing.Size(746, 483);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lstCourseDetail);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SearchForm";
-            this.Text = "Form1";
+            this.Text = "Search Course";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuota)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -328,6 +342,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader Price;
+        private System.Windows.Forms.Label label3;
     }
 }
 

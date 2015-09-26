@@ -23,6 +23,10 @@ namespace Search
         public SearchForm()
         {
             InitializeComponent();
+            lstCourseDetail.FullRowSelect = true;
+            lstCourseDetail.GridLines = true;
+            lstCourseDetail.MultiSelect = false;
+
             connection = new OleDbConnection(connectionString);
             dt = new DataTable();
             string sql = "SELECT percentage FROM profitMargin";
@@ -32,7 +36,7 @@ namespace Search
 
             dt.Clear();
             showAllCourse = "SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime, ((teacherRate + operatingCharges) * "+
-              profitMargin + ") / 10 as Price, quota, room FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID";
+              profitMargin + ") / 10 as Price, quota, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID";
             dataAdapter.SelectCommand.CommandText = showAllCourse;
             dataAdapter.Fill(dt);
             FillListView();
@@ -57,7 +61,7 @@ namespace Search
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string selectString = "SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime,  ((teacherRate + operatingCharges) * " +
-              profitMargin + ") / 10 as Price, quota, room FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID"
+              profitMargin + ") / 10 as Price, quota, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID"
                 + " AND quota >= " + Convert.ToInt32(nudQuota.Value.ToString());
 
             if (cboMonth.SelectedIndex>0)
@@ -87,6 +91,12 @@ namespace Search
             dt.Clear();
             dataAdapter.Fill(dt);
             FillListView();
+        }
+
+        private void lstCourseDetail_DoubleClick(object sender, EventArgs e)
+        {
+            CourseDetail cd = new CourseDetail(connection, dt.Rows[lstCourseDetail.SelectedItems[0].Index]["courseID"].ToString(), profitMargin);
+            cd.ShowDialog();
         }
     }
 }

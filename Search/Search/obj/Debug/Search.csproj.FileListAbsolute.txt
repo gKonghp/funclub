@@ -16,3 +16,5 @@ C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.csprojResolveAssemblyRe
 C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.SearchForm.resources
 C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.Properties.Resources.resources
 C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.csproj.GenerateResource.Cache
+C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.MainForm.resources
+C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.CourseDetail.resources
