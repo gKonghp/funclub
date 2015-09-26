@@ -60,10 +60,10 @@ namespace Search
               profitMargin + ") / 10 as Price, quota, room FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID"
                 + " AND quota >= " + Convert.ToInt32(nudQuota.Value.ToString());
 
-            if (cboMonth.SelectedIndex != 0)
+            if (cboMonth.SelectedIndex>0)
                 selectString += " AND " + cboMonth.SelectedIndex + " BETWEEN startMonth AND endMonth";
 
-            if (cboWeekday.SelectedIndex != 0)
+            if (cboWeekday.SelectedIndex>0)
                 selectString += " AND weekday =" + cboWeekday.SelectedIndex;
 
             if(!(txtPrice1.Text.Equals("") || txtPrice2.Text.Equals("")))
