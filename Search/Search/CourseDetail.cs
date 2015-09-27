@@ -87,7 +87,8 @@ namespace Search
 
         private void FilllstPromotion()
         {
-            string sql = "SELECT name, additionalDiscount, additionalDiscount * " + currentBasicPrice + " as totalPrice FROM promotion WHERE active = TRUE";
+            string sql = "SELECT name, additionalDiscount, additionalDiscount * " + currentBasicPrice + " as totalPrice FROM promotion WHERE #"
+                + DateTime.Today.ToString("yyyy-M-d") + "# BETWEEN startTime AND endTime";
             lstPromotion.Items.Clear();
             dt.Clear();
             dataAdapter.SelectCommand.CommandText = sql;
