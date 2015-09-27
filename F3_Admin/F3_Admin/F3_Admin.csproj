@@ -56,11 +56,35 @@
     <Compile Include="MaintainCourse.Designer.cs">
       <DependentUpon>MaintainCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaintainMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintainMembership.designer.cs">
+      <DependentUpon>MaintainMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainPromotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintainPromotion.Designer.cs">
+      <DependentUpon>MaintainPromotion.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaintainStaff.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MaintainStaff.Designer.cs">
       <DependentUpon>MaintainStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintainStudent.Designer.cs">
+      <DependentUpon>MaintainStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintainTeacher.Designer.cs">
+      <DependentUpon>MaintainTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +94,20 @@
     <EmbeddedResource Include="MaintainCourse.resx">
       <DependentUpon>MaintainCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MaintainMembership.resx">
+      <DependentUpon>MaintainMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainPromotion.resx">
+      <DependentUpon>MaintainPromotion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MaintainStaff.resx">
       <DependentUpon>MaintainStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainStudent.resx">
+      <DependentUpon>MaintainStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainTeacher.resx">
+      <DependentUpon>MaintainTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
