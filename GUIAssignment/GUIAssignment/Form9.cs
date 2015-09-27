@@ -31,6 +31,7 @@ namespace GUIAssignment
         string teacherID = "";
         string startMonth = "";
         string endMonth = "";
+        string description = "";
 
         public Form9(DataSet ds, OleDbDataAdapter oledbAdapter, DataGridView dataGridView4)
         {
@@ -51,7 +52,7 @@ namespace GUIAssignment
             this.teacherID = dataGridView4.CurrentRow.Cells[10].Value.ToString();
             this.startMonth = dataGridView4.CurrentRow.Cells[11].Value.ToString();
             this.endMonth = dataGridView4.CurrentRow.Cells[12].Value.ToString();
-
+            this.description = dataGridView4.CurrentRow.Cells[13].Value.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,14 +67,17 @@ namespace GUIAssignment
             textBox3.Text = quota;
             textBox4.Text = weekday;
             textBox5.Text = room;
-            textBox6.Text = startTime;
-            textBox7.Text = endTime;
+            //textBox6.Text = startTime;
+            //textBox7.Text = endTime;
+            dateTimePicker1.Text = startTime;
+            dateTimePicker2.Text = endTime;
             textBox8.Text = teacherRate;
             textBox9.Text = operatingCharges;
             textBox10.Text = categoryID;
             textBox11.Text = teacherID;
             textBox12.Text = startMonth;
             textBox13.Text = endMonth;
+            textBox14.Text = description;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,14 +87,17 @@ namespace GUIAssignment
             dataGridView4.CurrentRow.Cells[2].Value = textBox3.Text;
             dataGridView4.CurrentRow.Cells[3].Value = textBox4.Text;
             dataGridView4.CurrentRow.Cells[4].Value = textBox5.Text;
-            dataGridView4.CurrentRow.Cells[5].Value = textBox6.Text;
-            dataGridView4.CurrentRow.Cells[6].Value = textBox7.Text;
+            //dataGridView4.CurrentRow.Cells[5].Value = textBox6.Text;
+            //dataGridView4.CurrentRow.Cells[6].Value = textBox7.Text;
+            dataGridView4.CurrentRow.Cells[5].Value = dateTimePicker1.Text;
+            dataGridView4.CurrentRow.Cells[6].Value = dateTimePicker2.Text;
             dataGridView4.CurrentRow.Cells[7].Value = textBox8.Text;
             dataGridView4.CurrentRow.Cells[8].Value = textBox9.Text;
             dataGridView4.CurrentRow.Cells[9].Value = textBox10.Text;
             dataGridView4.CurrentRow.Cells[10].Value = textBox11.Text;
             dataGridView4.CurrentRow.Cells[11].Value = textBox12.Text;
             dataGridView4.CurrentRow.Cells[12].Value = textBox13.Text;
+            dataGridView4.CurrentRow.Cells[13].Value = textBox14.Text;
             oledbAdapter.Update(ds.Tables["course"]);
             this.Close();
         }

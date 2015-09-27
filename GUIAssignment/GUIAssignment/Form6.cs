@@ -36,14 +36,17 @@ namespace GUIAssignment
             row.SetField("quota", Convert.ToInt32(textBox3.Text));
             row.SetField("weekday", Convert.ToInt32(textBox4.Text));
             row.SetField("room", textBox5.Text);
-            row.SetField("startTime", textBox6.Text);
-            row.SetField("endTime", textBox7.Text);
+            //row.SetField("startTime", textBox6.Text);
+            //row.SetField("endTime", textBox7.Text);
+            row.SetField("startTime", dateTimePicker1.Text);
+            row.SetField("endTime", dateTimePicker2.Text);
             row.SetField("teacherRate", Convert.ToInt32(textBox8.Text));
             row.SetField("operatingCharges", Convert.ToInt32(textBox9.Text));
             row.SetField("categoryID", textBox10.Text);
             row.SetField("teacherID", textBox11.Text);
-            row.SetField("startMonth", Convert.ToInt32(textBox12.Text));
-            row.SetField("endMonth", Convert.ToInt32(textBox13.Text));
+            row.SetField("startMonth", Convert.ToInt32(textBox6.Text));
+            row.SetField("endMonth", Convert.ToInt32(textBox7.Text));
+            row.SetField("description", textBox14.Text);
             ds.Tables["course"].Rows.Add(row);
             oledbAdapter.Update(ds.Tables["course"]);
 
@@ -53,16 +56,22 @@ namespace GUIAssignment
                 + "\nQuota: " + Convert.ToInt32(textBox3.Text)
                 + "\nWeekday: " + Convert.ToInt32(textBox4.Text)
                 + "\nRoom: " + textBox5.Text
-                + "\nStart Time: " + textBox6.Text
-                + "\nEnd Time: " + textBox7.Text
+                + "\nStart Time: " + dateTimePicker1.Text
+                + "\nEnd Time: " + dateTimePicker2.Text
                 + "\nTeacher Rate: " + Convert.ToInt32(textBox8.Text)
                 + "\nOperating Charges: " + Convert.ToInt32(textBox9.Text)
                 + "\nCategory ID: " + textBox10.Text
                 + "\nTeacherID: " + textBox11.Text
-                + "\nStart Month: " + Convert.ToInt32(textBox12.Text)
-                + "\nEnd Month: " + Convert.ToInt32(textBox13.Text)
-                );
+                + "\nStart Month: " + Convert.ToInt32(textBox6.Text)
+                + "\nEnd Month: " + Convert.ToInt32(textBox7.Text)
+                + "\nDescription: " + textBox14.Text);
             this.Close();
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+            dateTimePicker1.Format = DateTimePickerFormat.Time;
+            dateTimePicker2.Format = DateTimePickerFormat.Time;
         }
     }
 }
