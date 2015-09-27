@@ -13,12 +13,13 @@ namespace Search
 {
     public partial class SearchForm : Form
     {
-        OleDbConnection connection;
-        OleDbDataAdapter dataAdapter;
-        DataTable dt;
-        string showAllCourse;
-        double profitMargin;
-        string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=masterDB.accdb";
+        public OleDbConnection connection;
+        public OleDbDataAdapter dataAdapter;
+        public DataTable dt;
+        public string showAllCourse;
+        public double profitMargin;
+        public string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=masterDB.accdb";
+        public SearchFilterForm sff;
 
         public SearchForm()
         {
@@ -35,16 +36,18 @@ namespace Search
             profitMargin = Convert.ToDouble(dt.Rows[0]["percentage"].ToString());
 
             dt.Clear();
-            showAllCourse = "SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime, ((teacherRate + operatingCharges) * "+
+            showAllCourse = "SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime, ((teacherRate + operatingCharges) * " +
               profitMargin + ") / 10 as Price, quota, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID";
             dataAdapter.SelectCommand.CommandText = showAllCourse;
             dataAdapter.Fill(dt);
+
             FillListView();
+            sff = new SearchFilterForm(this);
         }
-        private void FillListView()
+        public void FillListView()
         {
-            lstCourseDetail.Items.Clear();
-            for (int i = 0; i < dt.Rows.Count; i++)
+           lstCourseDetail.Items.Clear();
+           for (int i = 0; i < dt.Rows.Count; i++)
             {
                 lstCourseDetail.Items.Add(dt.Rows[i]["cc.name"].ToString());
                 lstCourseDetail.Items[i].SubItems.Add(dt.Rows[i]["c.name"].ToString());
@@ -58,7 +61,8 @@ namespace Search
                 lstCourseDetail.Items[i].SubItems.Add(dt.Rows[i]["room"].ToString());
             }
         }
-        private void btnSearch_Click(object sender, EventArgs e)
+
+        /*private void btnSearch_Click(object sender, EventArgs e)
         {
             string selectString = "SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime,  ((teacherRate + operatingCharges) * " +
               profitMargin + ") / 10 as Price, quota, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID"
@@ -73,6 +77,9 @@ namespace Search
             if(!(txtPrice1.Text.Equals("") || txtPrice2.Text.Equals("")))
                 selectString += " AND ((teacherRate + operatingCharges) * " + profitMargin + ") / 10 BETWEEN " + txtPrice1.Text + " AND " + txtPrice2.Text;
 
+            if (cboCategory.SelectedIndex >= 0)
+                selectString += " AND cc.categoryID = '" + category.Rows[cboCategory.SelectedIndex]["categoryID"].ToString() + "'";
+
             dataAdapter.SelectCommand.CommandText = selectString;
             dt.Clear();
             dataAdapter.Fill(dt);
@@ -83,6 +90,7 @@ namespace Search
         {
             cboMonth.SelectedIndex = 0;
             cboWeekday.SelectedIndex = 0;
+            cboCategory.SelectedIndex = -1;
             txtPrice1.Text = "";
             txtPrice2.Text = "";
             nudQuota.Value = 0;
@@ -91,12 +99,42 @@ namespace Search
             dt.Clear();
             dataAdapter.Fill(dt);
             FillListView();
-        }
+        }*/
 
         private void lstCourseDetail_DoubleClick(object sender, EventArgs e)
         {
             CourseDetail cd = new CourseDetail(connection, dt.Rows[lstCourseDetail.SelectedItems[0].Index]["courseID"].ToString(), profitMargin);
             cd.ShowDialog();
+        }
+
+        private void txtKeyword_TextChanged(object sender, EventArgs e)
+        {
+            string selectString = "";
+            if (txtKeyword.Text.Length > 0)
+            {
+                selectString = "SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime,  ((teacherRate + operatingCharges) * " +
+                  profitMargin + ") / 10 as Price, quota, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID" +
+                  " AND (cc.name like '%" + txtKeyword.Text + "%' OR c.name = '%" + txtKeyword.Text + "%' OR weekday like '%" + txtKeyword.Text +
+                  "%' OR startMonth like '%" + txtKeyword.Text + "%' OR endMonth like '%" + txtKeyword.Text + "%' OR startTime like '%" + txtKeyword.Text +
+                  "%' OR endTime like '%" + txtKeyword.Text + "%' OR ((teacherRate + operatingCharges) * " + profitMargin + ") / 10 like '%" + txtKeyword.Text + "%')";
+            }
+            else
+            {
+                selectString = showAllCourse;
+            }
+
+            dataAdapter.SelectCommand.CommandText = selectString;
+            Console.WriteLine(txtKeyword.Text.Length);
+            Console.WriteLine(dataAdapter.SelectCommand.CommandText);
+            dt.Clear();
+            dataAdapter.Fill(dt);
+            Console.WriteLine(dt.Rows.Count.ToString());
+            FillListView();
+        }
+
+        private void btnAdvanced_Click(object sender, EventArgs e)
+        {
+            sff.ShowDialog();
         }
     }
 }

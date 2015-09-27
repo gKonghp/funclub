@@ -18,3 +18,6 @@ C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.Properties.Resources.re
 C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.csproj.GenerateResource.Cache
 C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.MainForm.resources
 C:\Users\Jack\Desktop\GUI\Search\Search\obj\Debug\Search.CourseDetail.resources
+C:\Users\Jack\Desktop\Search\Search\obj\Debug\Search.CourseDetail.resources
+C:\Users\Jack\Desktop\Search\Search\obj\Debug\Search.MainForm.resources
+C:\Users\Jack\Desktop\Search\Search\obj\Debug\Search.SearchFilterForm.resources

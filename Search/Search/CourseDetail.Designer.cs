@@ -177,11 +177,11 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(30, 362);
+            this.label13.Location = new System.Drawing.Point(40, 362);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 12);
+            this.label13.Size = new System.Drawing.Size(70, 12);
             this.label13.TabIndex = 12;
-            this.label13.Text = "Lesson material:";
+            this.label13.Text = "Material Cost:";
             // 
             // txtMaterial
             // 
@@ -354,9 +354,9 @@
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.chbAddional);
             this.groupBox2.Controls.Add(this.lstPromotion);
-            this.groupBox2.Location = new System.Drawing.Point(22, 164);
+            this.groupBox2.Location = new System.Drawing.Point(22, 95);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(336, 218);
+            this.groupBox2.Size = new System.Drawing.Size(336, 287);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Additional Discount";
@@ -364,7 +364,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 197);
+            this.label15.Location = new System.Drawing.Point(159, 23);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(92, 12);
             this.label15.TabIndex = 32;
@@ -390,7 +390,7 @@
             this.lstPromotion.Enabled = false;
             this.lstPromotion.Location = new System.Drawing.Point(11, 44);
             this.lstPromotion.Name = "lstPromotion";
-            this.lstPromotion.Size = new System.Drawing.Size(318, 147);
+            this.lstPromotion.Size = new System.Drawing.Size(318, 219);
             this.lstPromotion.TabIndex = 30;
             this.lstPromotion.UseCompatibleStateImageBehavior = false;
             this.lstPromotion.View = System.Windows.Forms.View.Details;
@@ -424,7 +424,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Location = new System.Drawing.Point(22, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 126);
+            this.groupBox1.Size = new System.Drawing.Size(336, 60);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Basic Month Fee";
@@ -432,7 +432,7 @@
             // rdoGold
             // 
             this.rdoGold.AutoSize = true;
-            this.rdoGold.Location = new System.Drawing.Point(64, 97);
+            this.rdoGold.Location = new System.Drawing.Point(224, 27);
             this.rdoGold.Name = "rdoGold";
             this.rdoGold.Size = new System.Drawing.Size(46, 16);
             this.rdoGold.TabIndex = 30;
@@ -443,7 +443,7 @@
             // rdoNormal
             // 
             this.rdoNormal.AutoSize = true;
-            this.rdoNormal.Location = new System.Drawing.Point(64, 63);
+            this.rdoNormal.Location = new System.Drawing.Point(138, 27);
             this.rdoNormal.Name = "rdoNormal";
             this.rdoNormal.Size = new System.Drawing.Size(58, 16);
             this.rdoNormal.TabIndex = 29;
