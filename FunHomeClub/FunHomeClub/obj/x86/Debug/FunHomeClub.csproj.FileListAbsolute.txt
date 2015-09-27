@@ -1,0 +1,14 @@
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.exe.config
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.exe
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.pdb
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.LoginForm.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MainForm.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.Properties.Resources.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.UserControlStaff.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.csproj.GenerateResource.Cache
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.exe
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.pdb
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\res\db\masterDB.accdb
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MenuForm.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.csprojResolveAssemblyReference.cache
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.CourseRegForm.resources
