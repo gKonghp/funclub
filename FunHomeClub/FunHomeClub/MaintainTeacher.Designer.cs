@@ -43,9 +43,9 @@
             // fRadio
             // 
             this.fRadio.AutoSize = true;
-            this.fRadio.Location = new System.Drawing.Point(122, 106);
+            this.fRadio.Location = new System.Drawing.Point(122, 115);
             this.fRadio.Name = "fRadio";
-            this.fRadio.Size = new System.Drawing.Size(56, 16);
+            this.fRadio.Size = new System.Drawing.Size(59, 17);
             this.fRadio.TabIndex = 13;
             this.fRadio.TabStop = true;
             this.fRadio.Text = "Female";
@@ -54,9 +54,9 @@
             // mRadio
             // 
             this.mRadio.AutoSize = true;
-            this.mRadio.Location = new System.Drawing.Point(68, 106);
+            this.mRadio.Location = new System.Drawing.Point(68, 115);
             this.mRadio.Name = "mRadio";
-            this.mRadio.Size = new System.Drawing.Size(46, 16);
+            this.mRadio.Size = new System.Drawing.Size(48, 17);
             this.mRadio.TabIndex = 12;
             this.mRadio.TabStop = true;
             this.mRadio.Text = "Male";
@@ -64,51 +64,50 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(68, 17);
+            this.txtName.Location = new System.Drawing.Point(68, 18);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(181, 22);
+            this.txtName.Size = new System.Drawing.Size(181, 20);
             this.txtName.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 108);
+            this.label3.Location = new System.Drawing.Point(12, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 12);
+            this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Gender:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 20);
+            this.label2.Location = new System.Drawing.Point(12, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 12);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Name:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 64);
+            this.label1.Location = new System.Drawing.Point(12, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 12);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 14;
             this.label1.Text = "Contact:";
             // 
             // txtContact
             // 
-            this.txtContact.Location = new System.Drawing.Point(68, 61);
+            this.txtContact.Location = new System.Drawing.Point(68, 66);
             this.txtContact.Name = "txtContact";
-            this.txtContact.Size = new System.Drawing.Size(181, 22);
+            this.txtContact.Size = new System.Drawing.Size(181, 20);
             this.txtContact.TabIndex = 15;
             // 
             // btnSave
             // 
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(28, 138);
+            this.btnSave.Location = new System.Drawing.Point(28, 150);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 41);
+            this.btnSave.Size = new System.Drawing.Size(100, 44);
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -117,20 +116,18 @@
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(149, 138);
+            this.button2.Location = new System.Drawing.Point(149, 150);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 41);
+            this.button2.Size = new System.Drawing.Size(100, 44);
             this.button2.TabIndex = 17;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAdd.Location = new System.Drawing.Point(28, 138);
+            this.btnAdd.Location = new System.Drawing.Point(28, 150);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 41);
+            this.btnAdd.Size = new System.Drawing.Size(100, 44);
             this.btnAdd.TabIndex = 18;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -138,9 +135,9 @@
             // 
             // MaintainTeacher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(268, 190);
+            this.ClientSize = new System.Drawing.Size(268, 206);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtContact);
             this.Controls.Add(this.label1);

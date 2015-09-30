@@ -7,7 +7,7 @@ namespace FunHomeClub
 {
     public class Employee
     {
-        public string name { get; set; }
+        public string username { get; set; }
         public string password { get; set; }
         public string position { get; set; }
         public string employeeID { get; set; }
@@ -17,9 +17,9 @@ namespace FunHomeClub
 
         }
 
-        public Employee(string employeeID, string name, string password, string position) {
+        public Employee(string employeeID, string username, string password, string position) {
             this.employeeID = employeeID;
-            this.name = name;
+            this.username = username;
             this.password = password;
             this.position = position;
         }

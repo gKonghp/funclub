@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -56,25 +57,72 @@ namespace FunHomeClub
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            String gender = (mRadio.Checked ? "m" : "f");
-            String sql = "insert into teacher values('" + getNextValidTeacherID() + "','" + txtName.Text + "','" + gender + "','" + txtContact.Text + "')";
-            OleDbCommand cmd = new OleDbCommand(sql, connection);
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtContact, txtName))
+            {
+                String gender = (mRadio.Checked ? "m" : "f");
+                String sql = "insert into teacher values('" + getNextValidTeacherID() + "','" + txtName.Text + "','" + gender + "','" + txtContact.Text + "')";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            String gender = (mRadio.Checked ? "m" : "f");
-            String sql = "update teacher set name='" + txtName.Text + "',contact='" + txtContact.Text + "',gender='"+gender + "' where teacherID = '" + teacherID + "'";
-            OleDbCommand cmd = new OleDbCommand(sql, connection);
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtContact, txtName))
+            {
+                String gender = (mRadio.Checked ? "m" : "f");
+                String sql = "update teacher set name='" + txtName.Text + "',contact='" + txtContact.Text + "',gender='" + gender + "' where teacherID = '" + teacherID + "'";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private Boolean checkStringValid(params object[] para)
         {
+            for (int i = 0; i < para.Length; i++)
+            {
+                switch (para[i].GetType().Name)
+                {
+                    case "TextBox":
+                        TextBox tb = (TextBox)para[i];
+                        if (tb.Text == "")
+                        {
+                            MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else
+                        {
+                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            {
+                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return false;
+                            }
+                        }
+                        break;
+                    case "ComboBox":
+                        ComboBox cb = (ComboBox)para[i];
+                        if (cb.SelectedIndex < 0)
+                        {
+                            MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        break;
+                    case "NumericUpDown":
+                        NumericUpDown numeric = (NumericUpDown)para[i];
+                        if (numeric.Value == 0)
+                        {
+                            MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                            return false;
+                        }
+                        break;
+                }
+            }
+            return true;
         }
     }
 }

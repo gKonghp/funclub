@@ -49,6 +49,7 @@ namespace FunHomeClub
             this.cost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.discount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.employeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -167,7 +168,7 @@ namespace FunHomeClub
             this.employeeID});
             this.ltvInvoice.FullRowSelect = true;
             this.ltvInvoice.GridLines = true;
-            this.ltvInvoice.Location = new System.Drawing.Point(12, 144);
+            this.ltvInvoice.Location = new System.Drawing.Point(4, 144);
             this.ltvInvoice.Name = "ltvInvoice";
             this.ltvInvoice.Size = new System.Drawing.Size(561, 150);
             this.ltvInvoice.TabIndex = 12;
@@ -209,6 +210,15 @@ namespace FunHomeClub
             this.employeeID.Text = "employeeID";
             this.employeeID.Width = 92;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(490, 300);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.TabIndex = 14;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            // 
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(406, 88);
@@ -222,7 +232,7 @@ namespace FunHomeClub
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 305);
+            this.label6.Location = new System.Drawing.Point(2, 305);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(208, 12);
             this.label6.TabIndex = 16;
@@ -288,7 +298,7 @@ namespace FunHomeClub
             this.groupBox1.Controls.Add(this.dtpDateTo);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(4, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(561, 120);
             this.groupBox1.TabIndex = 34;
@@ -305,9 +315,10 @@ namespace FunHomeClub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 332);
+            this.ClientSize = new System.Drawing.Size(577, 332);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.ltvInvoice);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InvoiceHistoryForm";
@@ -337,6 +348,7 @@ namespace FunHomeClub
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDateTo;
         private System.Windows.Forms.ListView ltvInvoice;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ColumnHeader invoiceID;

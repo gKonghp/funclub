@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -57,18 +58,74 @@ namespace FunHomeClub
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            String sql = "insert into promotion values('" + getNextValidPromotionID() + "','" + txtName.Text + "','" + txtDescription.Text + "','" + numDiscount.Value.ToString() + "','" + dtpStartTime.Value.ToString("dd/MM/yyyy") + "','" + dtpEndTime.Value.ToString("dd/MM/yyyy") + "')";
-            OleDbCommand cmd = new OleDbCommand(sql, connection);
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtName, numDiscount, txtDescription))
+            {
+                String sql = "insert into promotion values('" + getNextValidPromotionID() + "','" + txtName.Text + "','" + txtDescription.Text + "','" + numDiscount.Value.ToString() + "','" + dtpStartTime.Value.ToString("dd/MM/yyyy") + "','" + dtpEndTime.Value.ToString("dd/MM/yyyy") + "')";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            String sql = "update promotion set name='" + txtName.Text + "',description='" + txtDescription.Text + "',additionalDiscount='" + numDiscount.Value.ToString() + "',startTime='" + dtpStartTime.Value.ToString("dd/MM/yyyy") + "',endTime='" + dtpEndTime.Value.ToString("dd/MM/yyyy") + "' where promotionID = '" + this.promotionID + "'";
-            OleDbCommand cmd = new OleDbCommand(sql, connection);
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtName, numDiscount, txtDescription))
+            {
+                String sql = "update promotion set name='" + txtName.Text + "',description='" + txtDescription.Text + "',additionalDiscount='" + numDiscount.Value.ToString() + "',startTime='" + dtpStartTime.Value.ToString("dd/MM/yyyy") + "',endTime='" + dtpEndTime.Value.ToString("dd/MM/yyyy") + "' where promotionID = '" + this.promotionID + "'";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+        private Boolean checkStringValid(params object[] para)
+        {
+            for (int i = 0; i < para.Length; i++)
+            {
+                switch (para[i].GetType().Name)
+                {
+                    case "TextBox":
+                        TextBox tb = (TextBox)para[i];
+                        if (tb.Text == "")
+                        {
+                            MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else
+                        {
+                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            {
+                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return false;
+                            }
+                        }
+                        break;
+                    case "ComboBox":
+                        ComboBox cb = (ComboBox)para[i];
+                        if (cb.SelectedIndex < 0)
+                        {
+                            MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        break;
+                    case "NumericUpDown":
+                        NumericUpDown numeric = (NumericUpDown)para[i];
+                        if (numeric.Value == 0)
+                        {
+                            MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            return false;
+                        }
+                        break;
+                }
+            }
+            if (dtpStartTime.Value > dtpEndTime.Value)
+            {
+                MessageBox.Show("Start time must smaller than end time!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }

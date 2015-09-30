@@ -16,9 +16,13 @@ namespace FunHomeClub
         private MainForm frmMain;
         private Employee emp;
         private MenuForm frmMenu;
+        private OleDbConnection connection;
+
         public LoginForm()
         {
             InitializeComponent();
+            connection = connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["FunHomeClub.Properties.Settings.masterDBConnectionString"].ToString());
+            connection.Open();
         }
 
 
@@ -67,9 +71,8 @@ namespace FunHomeClub
                     emp = new Employee(tmpEmployeeID, tmpUsername, tmpPassword, tmpPosition);
                     errLogin.Clear();
                     this.Hide();
-                    frmMain = new MainForm(emp);
-                    frmMenu = new MenuForm(emp);
-                    Utility.repaintFrameSize(frmMain, frmMenu);
+                    frmMain = new MainForm(emp, connection);
+                    frmMenu = new MenuForm(emp, connection);
                     frmMenu.MdiParent = frmMain;
                     frmMenu.Dock = DockStyle.Fill;
                     frmMenu.Show();

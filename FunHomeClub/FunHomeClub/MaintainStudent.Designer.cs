@@ -46,25 +46,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Location = new System.Drawing.Point(12, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 12);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(84, 13);
+            this.txtName.Location = new System.Drawing.Point(84, 14);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(172, 22);
+            this.txtName.Size = new System.Drawing.Size(172, 20);
             this.txtName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 120);
+            this.label2.Location = new System.Drawing.Point(12, 130);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 12);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Membership:";
             // 
@@ -72,58 +72,57 @@
             // 
             this.cboMembership.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMembership.FormattingEnabled = true;
-            this.cboMembership.Location = new System.Drawing.Point(84, 117);
+            this.cboMembership.Location = new System.Drawing.Point(84, 127);
             this.cboMembership.Name = "cboMembership";
-            this.cboMembership.Size = new System.Drawing.Size(172, 20);
+            this.cboMembership.Size = new System.Drawing.Size(172, 21);
             this.cboMembership.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 86);
+            this.label3.Location = new System.Drawing.Point(12, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 12);
+            this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Email:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(84, 83);
+            this.txtEmail.Location = new System.Drawing.Point(84, 90);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(172, 22);
+            this.txtEmail.Size = new System.Drawing.Size(172, 20);
             this.txtEmail.TabIndex = 5;
             // 
             // txtContact
             // 
-            this.txtContact.Location = new System.Drawing.Point(84, 48);
+            this.txtContact.Location = new System.Drawing.Point(84, 52);
             this.txtContact.Name = "txtContact";
-            this.txtContact.Size = new System.Drawing.Size(172, 22);
+            this.txtContact.Size = new System.Drawing.Size(172, 20);
             this.txtContact.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 54);
+            this.label4.Location = new System.Drawing.Point(12, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 12);
+            this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Contact:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 154);
+            this.label5.Location = new System.Drawing.Point(10, 167);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 12);
+            this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "EnrollDay:";
             // 
             // btnSave
             // 
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(41, 197);
+            this.btnSave.Location = new System.Drawing.Point(41, 213);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 36);
+            this.btnSave.Size = new System.Drawing.Size(84, 39);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -132,29 +131,27 @@
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(158, 197);
+            this.button2.Location = new System.Drawing.Point(158, 213);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 36);
+            this.button2.Size = new System.Drawing.Size(84, 39);
             this.button2.TabIndex = 11;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // lblEnrollDay
             // 
             this.lblEnrollDay.AutoSize = true;
-            this.lblEnrollDay.Location = new System.Drawing.Point(82, 154);
+            this.lblEnrollDay.Location = new System.Drawing.Point(82, 167);
             this.lblEnrollDay.Name = "lblEnrollDay";
-            this.lblEnrollDay.Size = new System.Drawing.Size(34, 12);
+            this.lblEnrollDay.Size = new System.Drawing.Size(38, 13);
             this.lblEnrollDay.TabIndex = 12;
             this.lblEnrollDay.Text = "#day#";
             // 
             // btnAdd
             // 
-            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAdd.Location = new System.Drawing.Point(41, 197);
+            this.btnAdd.Location = new System.Drawing.Point(41, 213);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(84, 36);
+            this.btnAdd.Size = new System.Drawing.Size(84, 39);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -162,9 +159,9 @@
             // 
             // MaintainStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 261);
+            this.ClientSize = new System.Drawing.Size(285, 283);
             this.Controls.Add(this.lblEnrollDay);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);

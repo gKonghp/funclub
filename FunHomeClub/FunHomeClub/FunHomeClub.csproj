@@ -120,7 +120,7 @@
     <Compile Include="AdminMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminMainForm.designer.cs">
+    <Compile Include="AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ComboBoxItem.cs" />
@@ -129,6 +129,12 @@
     </Compile>
     <Compile Include="CourseConfirmForm.Designer.cs">
       <DependentUpon>CourseConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseControl.Designer.cs">
+      <DependentUpon>CourseControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CourseDetail.cs">
       <SubType>Form</SubType>
@@ -184,6 +190,24 @@
     <Compile Include="MaintainTeacher.designer.cs">
       <DependentUpon>MaintainTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="MembershipControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MembershipControl.Designer.cs">
+      <DependentUpon>MembershipControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfitMarginControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfitMarginControl.Designer.cs">
+      <DependentUpon>ProfitMarginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PromotionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PromotionControl.Designer.cs">
+      <DependentUpon>PromotionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="res\db\masterDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -214,6 +238,24 @@
     <Compile Include="CourseRegForm.Designer.cs">
       <DependentUpon>CourseRegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StaffControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffControl.Designer.cs">
+      <DependentUpon>StaffControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentControl.Designer.cs">
+      <DependentUpon>StudentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TeacherControl.Designer.cs">
+      <DependentUpon>TeacherControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -237,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseConfirmForm.resx">
       <DependentUpon>CourseConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseControl.resx">
+      <DependentUpon>CourseControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseDetail.resx">
       <DependentUpon>CourseDetail.cs</DependentUpon>
@@ -271,8 +316,17 @@
     <EmbeddedResource Include="MaintainTeacher.resx">
       <DependentUpon>MaintainTeacher.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MembershipControl.resx">
+      <DependentUpon>MembershipControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfitMarginControl.resx">
+      <DependentUpon>ProfitMarginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PromotionControl.resx">
+      <DependentUpon>PromotionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -293,6 +347,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffControl.resx">
+      <DependentUpon>StaffControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentControl.resx">
+      <DependentUpon>StudentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherControl.resx">
+      <DependentUpon>TeacherControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -326,8 +389,8 @@
     <None Include="Resources\reset.png" />
     <None Include="Resources\Administration.png" />
     <None Include="Resources\CourseReg.png" />
-    <None Include="Resources\View_Course.png" />
     <None Include="Resources\invoice_history.png" />
+    <None Include="Resources\View_Course.png" />
     <Content Include="res\db\masterDB.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

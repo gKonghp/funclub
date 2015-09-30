@@ -39,10 +39,10 @@
             this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Reset = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Reset = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).BeginInit();
@@ -54,22 +54,22 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblUsername.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblUsername.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblUsername.Location = new System.Drawing.Point(72, 19);
+            this.lblUsername.Location = new System.Drawing.Point(84, 25);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(92, 21);
+            this.lblUsername.Size = new System.Drawing.Size(73, 17);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblPassword.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblPassword.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblPassword.Location = new System.Drawing.Point(72, 52);
+            this.lblPassword.Location = new System.Drawing.Point(84, 58);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(88, 21);
+            this.lblPassword.Size = new System.Drawing.Size(70, 17);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password:";
             // 
@@ -77,10 +77,9 @@
             // 
             this.txtUsername.BackColor = System.Drawing.SystemColors.Control;
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsername.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtUsername.Location = new System.Drawing.Point(173, 18);
+            this.txtUsername.Location = new System.Drawing.Point(173, 25);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(99, 22);
+            this.txtUsername.Size = new System.Drawing.Size(99, 15);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
@@ -88,10 +87,9 @@
             // 
             this.txtPassword.BackColor = System.Drawing.SystemColors.Control;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPassword.Location = new System.Drawing.Point(173, 52);
+            this.txtPassword.Location = new System.Drawing.Point(173, 58);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(99, 22);
+            this.txtPassword.Size = new System.Drawing.Size(99, 15);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
@@ -130,22 +128,44 @@
             this.panel3.Controls.Add(this.lblUsername);
             this.panel3.Controls.Add(this.txtUsername);
             this.panel3.Controls.Add(this.lblPassword);
-            this.panel3.Location = new System.Drawing.Point(0, 164);
+            this.panel3.Location = new System.Drawing.Point(0, 151);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(356, 142);
+            this.panel3.Size = new System.Drawing.Size(356, 155);
             this.panel3.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(72, 125);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(221, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Course Registration System";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(94, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 26);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Fun-Home Club ";
             // 
             // Reset
             // 
             this.Reset.BackColor = System.Drawing.Color.Salmon;
             this.Reset.FlatAppearance.BorderSize = 0;
             this.Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Reset.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Reset.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Reset.ForeColor = System.Drawing.Color.White;
             this.Reset.Image = global::FunHomeClub.Properties.Resources.reset;
-            this.Reset.Location = new System.Drawing.Point(75, 102);
+            this.Reset.Location = new System.Drawing.Point(76, 102);
             this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(85, 27);
+            this.Reset.Size = new System.Drawing.Size(75, 27);
             this.Reset.TabIndex = 5;
             this.Reset.Text = "Reset";
             this.Reset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -158,44 +178,22 @@
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnLogin.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
-            this.btnLogin.Location = new System.Drawing.Point(187, 101);
+            this.btnLogin.Location = new System.Drawing.Point(208, 102);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(85, 28);
+            this.btnLogin.Size = new System.Drawing.Size(85, 27);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(51, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(263, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Course Registration System";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(81, 94);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Fun-Home Club ";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FunHomeClub.Properties.Resources.GUI_Assignment_smallIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(139, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(139, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(81, 76);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

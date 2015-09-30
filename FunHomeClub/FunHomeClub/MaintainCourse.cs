@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -33,13 +34,13 @@ namespace FunHomeClub
             {
                 txtCourseName.Text = lstItem.SubItems[1].Text;
                 numQuota.Value = Int32.Parse(lstItem.SubItems[2].Text);
-                cboWeekday.SelectedIndex = Int32.Parse(lstItem.SubItems[3].Text);
+                cboWeekday.SelectedIndex = Int32.Parse(lstItem.SubItems[3].Text) - 1;
                 txtRoom.Text = lstItem.SubItems[4].Text;
                 txtDescription.Text = lstItem.SubItems[13].Text;
                 fillTeacherName(lstItem.SubItems[10].Text);
-                txtTeacherRate.Text = lstItem.SubItems[7].Text;
+                numericRate.Value = Int32.Parse(lstItem.SubItems[7].Text);
                 fillCategory(lstItem.SubItems[9].Text);
-                txtOperation.Text = lstItem.SubItems[8].Text;
+                numericOperating.Value = Int32.Parse(lstItem.SubItems[8].Text);
                 String[] StartTime = lstItem.SubItems[5].Text.Split(':');
                 String[] EndTime = lstItem.SubItems[6].Text.Split(':');
                 dtpStartTime.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Int32.Parse(StartTime[0].ToString()), Int32.Parse(StartTime[1].ToString()), 0);
@@ -91,25 +92,62 @@ namespace FunHomeClub
         {
             String categoryID = String.Format("ca{0:D4}",cboCategory.SelectedIndex+1);
             String teacherID = String.Format("te{0:D4}", cboTeacherName.SelectedIndex + 1);
-            String sql = "update course set name='" + txtCourseName.Text + "',quota='" + numQuota.Value + "',weekday='" + (cboWeekday.SelectedIndex+1) + "',room='" + txtRoom.Text + "',startTime='" + dtpStartTime.Value.ToString("hh:mm") + "',endTime='" + dtpEndTime.Value.ToString("hh:mm") + "',teacherRate='" + txtTeacherRate.Text + "',operatingCharges='" + txtOperation.Text + "',categoryID='" + categoryID + "',teacherID='" + teacherID + "',startMonth='" + cboStartMonth.Text + "',endMonth='" + cboEndMonth.Text + "',description='" + txtDescription.Text + "' where courseID = '" + this.courseID + "'";
+            String sql = "update course set name='" + txtCourseName.Text + "',quota='" + numQuota.Value + "',weekday='" + (cboWeekday.SelectedIndex + 1) + "',room='" + txtRoom.Text + "',startTime='" + dtpStartTime.Value.ToString("hh:mm") + "',endTime='" + dtpEndTime.Value.ToString("hh:mm") + "',teacherRate='" + numericRate.Value + "',operatingCharges='" + numericOperating.Value + "',categoryID='" + categoryID + "',teacherID='" + teacherID + "',startMonth='" + cboStartMonth.Text + "',endMonth='" + cboEndMonth.Text + "',description='" + txtDescription.Text + "' where courseID = '" + this.courseID + "'";
             OleDbCommand cmd = new OleDbCommand(sql,connection);
             cmd.ExecuteNonQuery();
             this.Close();
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private Boolean checkStringValid(params object[] para)
         {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-        
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            for (int i = 0; i < para.Length; i++)
+            {
+                switch (para[i].GetType().Name)
+                {
+                    case "TextBox":
+                        TextBox tb = (TextBox)para[i];
+                        if (tb.Text == "")
+                        {
+                            MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else
+                        {
+                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            {
+                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return false;
+                            }
+                        }
+                        break;
+                    case "ComboBox":
+                        ComboBox cb = (ComboBox)para[i];
+                        if (cb.SelectedIndex < 0)
+                        {
+                            MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        break;
+                    case "NumericUpDown":
+                        NumericUpDown numeric = (NumericUpDown)para[i];
+                        if (numeric.Value == 0)
+                        {
+                            MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        break;
+                }
+            }
+            if (cboStartMonth.SelectedIndex > cboEndMonth.SelectedIndex)
+            {
+                MessageBox.Show("Start month must smaller than end month!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (dtpStartTime.Value > dtpEndTime.Value)
+            {
+                MessageBox.Show("Start time must smaller than end time!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
         private String getNextValidCourseID()
         {
@@ -125,14 +163,16 @@ namespace FunHomeClub
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            String categoryID = String.Format("ca{0:D4}", cboCategory.SelectedIndex + 1);
-            String teacherID = String.Format("te{0:D4}", cboTeacherName.SelectedIndex + 1);
-
-            String sql = "insert into course values('" + getNextValidCourseID() + "','" + txtCourseName.Text + "','" + numQuota.Value + "','" + (cboWeekday.SelectedIndex+1) + "','" + txtRoom.Text + "','" + dtpStartTime.Value.ToString("hh:mm") + "','" + dtpEndTime.Value.ToString("hh:mm") + "','" + txtTeacherRate.Text + "','" + txtOperation.Text + "','" + categoryID + "','" + teacherID + "','" + cboStartMonth.Text + "','" + cboEndMonth.Text + "','" + txtDescription.Text + "')";
-            OleDbCommand cmd = new OleDbCommand(sql, connection);
-            txtTeacherRate.Text = sql;
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtCourseName, txtRoom, numericOperating, txtDescription, numQuota, cboCategory, cboEndMonth, cboStartMonth, cboTeacherName, cboWeekday))
+            {
+                String categoryID = String.Format("ca{0:D4}", cboCategory.SelectedIndex + 1);
+                String teacherID = String.Format("te{0:D4}", cboTeacherName.SelectedIndex + 1);
+                String sql = "insert into course values('" + getNextValidCourseID() + "','" + txtCourseName.Text + "','" + numQuota.Value + "','" + (cboWeekday.SelectedIndex + 1) + "','" + txtRoom.Text + "','" + dtpStartTime.Value.ToString("hh:mm") + "','" + dtpEndTime.Value.ToString("hh:mm") + "','" + numericRate.Value + "','" + numericOperating.Value + "','" + categoryID + "','" + teacherID + "','" + cboStartMonth.Text + "','" + cboEndMonth.Text + "','" + txtDescription.Text + "')";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

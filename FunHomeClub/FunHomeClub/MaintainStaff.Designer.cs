@@ -42,41 +42,41 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 23);
+            this.label1.Location = new System.Drawing.Point(24, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 12);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(84, 20);
+            this.txtUsername.Location = new System.Drawing.Point(84, 22);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(169, 22);
+            this.txtUsername.Size = new System.Drawing.Size(169, 20);
             this.txtUsername.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 66);
+            this.label2.Location = new System.Drawing.Point(24, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 12);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Password:";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(84, 63);
+            this.txtPassword.Location = new System.Drawing.Point(84, 68);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(169, 22);
+            this.txtPassword.Size = new System.Drawing.Size(169, 20);
             this.txtPassword.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 107);
+            this.label3.Location = new System.Drawing.Point(24, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 12);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Position:";
             // 
@@ -87,17 +87,16 @@
             this.cboPosition.Items.AddRange(new object[] {
             "Manager",
             "Staff"});
-            this.cboPosition.Location = new System.Drawing.Point(84, 104);
+            this.cboPosition.Location = new System.Drawing.Point(84, 113);
             this.cboPosition.Name = "cboPosition";
-            this.cboPosition.Size = new System.Drawing.Size(169, 20);
+            this.cboPosition.Size = new System.Drawing.Size(169, 21);
             this.cboPosition.TabIndex = 5;
             // 
             // btnSave
             // 
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(52, 143);
+            this.btnSave.Location = new System.Drawing.Point(52, 155);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 36);
+            this.btnSave.Size = new System.Drawing.Size(84, 39);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -106,19 +105,18 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(160, 143);
+            this.btnCancel.Location = new System.Drawing.Point(160, 155);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(84, 36);
+            this.btnCancel.Size = new System.Drawing.Size(84, 39);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
-            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAdd.Location = new System.Drawing.Point(52, 143);
+            this.btnAdd.Location = new System.Drawing.Point(52, 155);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(84, 36);
+            this.btnAdd.Size = new System.Drawing.Size(84, 39);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -126,9 +124,9 @@
             // 
             // MaintainStaff
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 194);
+            this.ClientSize = new System.Drawing.Size(279, 210);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cboPosition);
             this.Controls.Add(this.label3);

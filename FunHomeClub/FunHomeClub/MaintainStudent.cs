@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -76,10 +77,14 @@ namespace FunHomeClub
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String sql = "update student set name='" + txtName.Text + "',phoneNumber='" + txtContact.Text + "',email='" + txtEmail.Text + "',membershipID='" + getMembershipIDByName(cboMembership.Text) + "' where studentID='" + this.studentID + "'";
-            OleDbCommand cmd = new OleDbCommand(sql, connection);
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtContact, txtEmail, txtName, cboMembership))
+            {
+                String sql = "update student set name='" + txtName.Text + "',phoneNumber='" + txtContact.Text + "',email='" + txtEmail.Text + "',membershipID='" + getMembershipIDByName(cboMembership.Text) + "' where studentID='" + this.studentID + "'";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
         private String getNextValidStudentID()
         {
@@ -95,14 +100,58 @@ namespace FunHomeClub
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            String sql = "insert into student values('" + getNextValidStudentID() + "','" + getMembershipIDByName(cboMembership.Text) + "','" + txtContact.Text + "','" + txtEmail.Text + "','" + lblEnrollDay.Text.Split(' ')[0] + "','" + txtName.Text + "')";
-            OleDbCommand cmd = new OleDbCommand(sql, connection);
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtContact, txtEmail, txtName, cboMembership))
+            {
+                String sql = "insert into student values('" + getNextValidStudentID() + "','" + getMembershipIDByName(cboMembership.Text) + "','" + txtContact.Text + "','" + txtEmail.Text + "','" + lblEnrollDay.Text.Split(' ')[0] + "','" + txtName.Text + "')";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private Boolean checkStringValid(params object[] para)
         {
+            for (int i = 0; i < para.Length; i++)
+            {
+                switch (para[i].GetType().Name)
+                {
+                    case "TextBox":
+                        TextBox tb = (TextBox)para[i];
+                        if (tb.Text == "")
+                        {
+                            MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else
+                        {
+                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            {
+                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return false;
+                            }
+                        }
+                        break;
+                    case "ComboBox":
+                        ComboBox cb = (ComboBox)para[i];
+                        if (cb.SelectedIndex < 0)
+                        {
+                            MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        break;
+                    case "NumericUpDown":
+                        NumericUpDown numeric = (NumericUpDown)para[i];
+                        if (numeric.Value == 0)
+                        {
+                            MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            return false;
+                        }
+                        break;
+                }
+            }
+            return true;
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -42,11 +43,15 @@ namespace FunHomeClub
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            String position = cboPosition.Text.Substring(0, 1).ToLower();
-            String sql = "update employee set username='" + txtUsername.Text + "',[password]='" + txtPassword.Text + "',[position]='" + position + "' where employeeID='" + employeeID + "'";
-            OleDbCommand cmd = new OleDbCommand(sql,connection);
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtPassword, txtUsername, cboPosition))
+            {
+                String position = cboPosition.Text.Substring(0, 1).ToLower();
+                String sql = "update employee set username='" + txtUsername.Text + "',[password]='" + txtPassword.Text + "',[position]='" + position + "' where employeeID='" + employeeID + "'";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
         private String getNextValidEmployeeID()
         {
@@ -62,11 +67,58 @@ namespace FunHomeClub
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            String position = cboPosition.Text.Substring(0, 1).ToLower();
-            String sql = "insert into employee values('" + getNextValidEmployeeID() + "','" + txtUsername.Text + "','" + txtPassword.Text + "','" + position + "')";
-            OleDbCommand cmd = new OleDbCommand(sql, connection);
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtPassword, txtUsername, cboPosition))
+            {
+                String position = cboPosition.Text.Substring(0, 1).ToLower();
+                String sql = "insert into employee values('" + getNextValidEmployeeID() + "','" + txtUsername.Text + "','" + txtPassword.Text + "','" + position + "')";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+        private Boolean checkStringValid(params object[] para)
+        {
+            for (int i = 0; i < para.Length; i++)
+            {
+                switch (para[i].GetType().Name)
+                {
+                    case "TextBox":
+                        TextBox tb = (TextBox)para[i];
+                        if (tb.Text == "")
+                        {
+                            MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else
+                        {
+                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            {
+                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return false;
+                            }
+                        }
+                        break;
+                    case "ComboBox":
+                        ComboBox cb = (ComboBox)para[i];
+                        if (cb.SelectedIndex < 0)
+                        {
+                            MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        break;
+                    case "NumericUpDown":
+                        NumericUpDown numeric = (NumericUpDown)para[i];
+                        if (numeric.Value == 0)
+                        {
+                            MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            return false;
+                        }
+                        break;
+                }
+            }
+            return true;
         }
     }
 }

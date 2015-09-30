@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -75,26 +76,30 @@ namespace FunHomeClub
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (btnSave.Text.Equals("Add")){
-                String id = findAvailableID();
-                if (id.Equals("ERROR"))
+            if (checkStringValid(txtStatus, txtDiscount))
+            {
+                if (btnSave.Text.Equals("Add"))
                 {
-                    MessageBox.Show("Do not have any Available ID!");
+                    String id = findAvailableID();
+                    if (id.Equals("ERROR"))
+                    {
+                        MessageBox.Show("Do not have any Available ID!");
+                    }
+                    else
+                    {
+                        new OleDbCommand("Insert into membership values('" + id + "', '" + txtStatus.Text + "', " + txtDiscount.Text + ")", connection).ExecuteNonQuery();
+                        MessageBox.Show("Adding membership successul!");
+                        this.DialogResult = DialogResult.OK;
+                    }
                 }
                 else
                 {
-                    new OleDbCommand("Insert into membership values('" + id + "', '" + txtStatus.Text + "', " + txtDiscount.Text + ")", connection).ExecuteNonQuery();
-                    MessageBox.Show("Adding membership successul!");
+                    new OleDbCommand("Update membership set status = '" + txtStatus.Text + "', discount = " + txtDiscount.Text + " WHERE membershipID = '" + msID + "'", connection).ExecuteNonQuery();
+                    MessageBox.Show("Changing successul!");
                     this.DialogResult = DialogResult.OK;
                 }
+                this.Close();
             }
-            else
-            {
-                new OleDbCommand("Update membership set status = '" + txtStatus.Text + "', discount = " + txtDiscount.Text + " WHERE membershipID = '" + msID + "'", connection).ExecuteNonQuery();
-                MessageBox.Show("Changing successul!");
-                this.DialogResult = DialogResult.OK;
-            }
-            this.Close();
         }
 
         private void MaintainMembership_Load(object sender, EventArgs e)
@@ -106,6 +111,49 @@ namespace FunHomeClub
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+        private Boolean checkStringValid(params object[] para)
+        {
+            for (int i = 0; i < para.Length; i++)
+            {
+                switch (para[i].GetType().Name)
+                {
+                    case "TextBox":
+                        TextBox tb = (TextBox)para[i];
+                        if (tb.Text == "")
+                        {
+                            MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else
+                        {
+                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            {
+                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return false;
+                            }
+                        }
+                        break;
+                    case "ComboBox":
+                        ComboBox cb = (ComboBox)para[i];
+                        if (cb.SelectedIndex < 0)
+                        {
+                            MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        break;
+                    case "NumericUpDown":
+                        NumericUpDown numeric = (NumericUpDown)para[i];
+                        if (numeric.Value == 0)
+                        {
+                            MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            return false;
+                        }
+                        break;
+                }
+            }
+            return true;
         }
     }
 }
