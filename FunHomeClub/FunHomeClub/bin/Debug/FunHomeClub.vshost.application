@@ -8,14 +8,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="FunHomeClub.exe.manifest" size="15026">
+    <dependentAssembly dependencyType="install" codebase="FunHomeClub.exe.manifest" size="14704">
       <assemblyIdentity name="FunHomeClub.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>NsEOD9oPJrqVtYLaXWj3KasZJAg=</dsig:DigestValue>
+        <dsig:DigestValue>sYM2qq5bkHxFr9xbCzztCPQXGeQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
