@@ -17,6 +17,7 @@ namespace FunHomeClub
         private CourseRegForm frmCourseReg;
         private SearchForm frmSearch;
         private InvoiceHistoryForm frmInvoiceHistory;
+        public bool enableAdvanceRight { get; set; }
         public MainForm()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace FunHomeClub
         {
             InitializeComponent();
             this.employee = employee;
+            this.enableAdvanceRight = IsEnableAdvanceRight();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -38,6 +40,7 @@ namespace FunHomeClub
             frmMenu = new MenuForm(employee);
             frmMenu.MdiParent = this;
             frmMenu.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this, frmMenu);
             frmMenu.Show();
             int frmCount = this.MdiChildren.Count();
             for(int i=0; i< frmCount-1; i++)
@@ -85,6 +88,7 @@ namespace FunHomeClub
             frmCourseReg = new CourseRegForm(employee);
             frmCourseReg.MdiParent = this;
             frmCourseReg.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this, frmCourseReg);
             frmCourseReg.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
@@ -100,6 +104,7 @@ namespace FunHomeClub
                 Form frm = this.MdiChildren[i];
                 if (frm is AdminMainForm)
                 {
+                    Utility.repaintFrameSize(this, frm);
                     frm.Show();
                     Control ctr = frm.Controls.Find("tabAdmin", true)[0];
                     ((TabControl)ctr).SelectedIndex = targetTabIdx;
@@ -113,6 +118,7 @@ namespace FunHomeClub
                 frmAdminMain = new AdminMainForm();
                 frmAdminMain.MdiParent = this;
                 frmAdminMain.Dock = DockStyle.Fill;
+                Utility.repaintFrameSize(this, frmAdminMain);
                 frmAdminMain.Show();
                 Control ctr = frmAdminMain.Controls.Find("tabAdmin", true)[0];
                 ((TabControl)ctr).SelectedIndex = targetTabIdx;
@@ -124,6 +130,7 @@ namespace FunHomeClub
             frmSearch = new SearchForm();
             frmSearch.MdiParent = this;
             frmSearch.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this, frmSearch);
             frmSearch.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
@@ -135,6 +142,7 @@ namespace FunHomeClub
             frmInvoiceHistory = new InvoiceHistoryForm();
             frmInvoiceHistory.MdiParent = this;
             frmInvoiceHistory.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this, frmInvoiceHistory);
             frmInvoiceHistory.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
@@ -144,6 +152,49 @@ namespace FunHomeClub
         private void MainForm_FormClosed_1(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new LoginForm().Show();
+            this.Dispose();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+            InitializeRights();
+        }
+
+
+        private bool IsEnableAdvanceRight()
+        {
+            if (employee.position.Equals("m"))
+                return true;
+            else
+                return false;
+        }
+
+        private void InitializeRights()
+        {
+            if (enableAdvanceRight)
+            {
+                maintainMmembershipToolStripMenuItem.Visible = true;
+                maintainPromotionToolStripMenuItem.Visible = true;
+                setProfitToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                maintainMmembershipToolStripMenuItem.Visible = false;
+                maintainPromotionToolStripMenuItem.Visible = false;
+                setProfitToolStripMenuItem.Visible = false;
+            }
         }
     }
 }

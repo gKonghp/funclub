@@ -326,8 +326,8 @@
     <None Include="Resources\reset.png" />
     <None Include="Resources\Administration.png" />
     <None Include="Resources\CourseReg.png" />
-    <None Include="Resources\invoice_history.png" />
     <None Include="Resources\View_Course.png" />
+    <None Include="Resources\invoice_history.png" />
     <Content Include="res\db\masterDB.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -64,5 +64,12 @@ namespace FunHomeClub
             }
             return idHeader + idMiddle + idNumber;
         }
+
+        public static void repaintFrameSize(Form targetForm, Form sourceForm)
+        {
+            targetForm.Width = sourceForm.Width;
+            targetForm.Height = sourceForm.Height+75;
+
+        }
     }
 }
