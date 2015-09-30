@@ -208,6 +208,11 @@
     <Compile Include="PromotionControl.Designer.cs">
       <DependentUpon>PromotionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="res\db\masterDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -330,14 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="CourseRegForm.resx">
       <DependentUpon>CourseRegForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -383,14 +383,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GUI_Assignment.png" />
-    <None Include="Resources\GUI_Assignment_smallIcon.png" />
-    <None Include="Resources\key.png" />
-    <None Include="Resources\reset.png" />
     <None Include="Resources\Administration.png" />
+    <None Include="Resources\View_Course.png" />
     <None Include="Resources\CourseReg.png" />
     <None Include="Resources\invoice_history.png" />
-    <None Include="Resources\View_Course.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\reset.png" />
+    <None Include="Resources\GUI_Assignment_smallIcon.png" />
     <Content Include="res\db\masterDB.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

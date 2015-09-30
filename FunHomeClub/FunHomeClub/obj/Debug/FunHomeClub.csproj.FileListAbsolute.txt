@@ -33,6 +33,3 @@ D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\Debug\FunHomeClub.MainMenuForm.
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\Debug\FunHomeClub.SearchFilterForm.resources
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\Debug\FunHomeClub.SearchForm.resources
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\Debug\FunHomeClub.CourseConfirmForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.exe.config
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\Debug\FunHomeClub.exe
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\Debug\FunHomeClub.pdb

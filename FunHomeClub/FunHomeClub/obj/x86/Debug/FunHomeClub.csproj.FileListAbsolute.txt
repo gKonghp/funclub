@@ -139,56 +139,11 @@ D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.exe.manif
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.application
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.exe
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.pdb
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.CourseControl.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MembershipControl.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.ProfitMarginControl.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.PromotionControl.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.StaffControl.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.StudentControl.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.TeacherControl.resources
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.csprojResolveAssemblyReference.cache
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.exe.config
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.exe
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.pdb
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\res\db\masterDB.accdb
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.exe.manifest
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.application
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.exe
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\FunHomeClub.pdb
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\Microsoft.SqlServer.Types.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.csprojResolveAssemblyReference.cache
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.AddCoursesForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.AdminMainForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.CourseConfirmForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.CourseDetail.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.InvoicePreviewForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.InvoiceHistoryForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.LoginForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MainForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MaintainCourse.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MaintainMembership.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MaintainPromotion.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MaintainStaff.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MaintainStudent.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MaintainTeacher.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MenuForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.Properties.Resources.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.CourseRegForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.SearchFilterForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.SearchForm.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.csproj.GenerateResource.Cache
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\RdlCompile.cache
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\RdlCompile.compiled
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.exe.manifest
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.application
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.CourseControl.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.MembershipControl.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.ProfitMarginControl.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.PromotionControl.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.StaffControl.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.StudentControl.resources
-G:\Sem4\Interaction & GUI Programming\Assignment\Resp\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.TeacherControl.resources

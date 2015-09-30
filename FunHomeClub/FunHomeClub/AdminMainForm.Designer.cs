@@ -33,7 +33,7 @@
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Teacher");
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Student");
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Profit Margin");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Administrative", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Administration", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
@@ -61,8 +61,8 @@
             treeNode4.Text = "Student";
             treeNode5.Name = "ProfitMargin";
             treeNode5.Text = "Profit Margin";
-            treeNode6.Name = "Administrative";
-            treeNode6.Text = "Administrative";
+            treeNode6.Name = "Administration";
+            treeNode6.Text = "Administration";
             treeNode7.Name = "Membership";
             treeNode7.Text = "Membership";
             treeNode8.Name = "Promotions";
@@ -92,6 +92,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminMainForm";
             this.Text = "AdminMainForm";
+            this.Load += new System.EventHandler(this.AdminMainForm_Load);
             this.ResumeLayout(false);
 
         }

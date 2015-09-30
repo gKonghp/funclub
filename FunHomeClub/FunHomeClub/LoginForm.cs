@@ -73,6 +73,7 @@ namespace FunHomeClub
                     this.Hide();
                     frmMain = new MainForm(emp, connection);
                     frmMenu = new MenuForm(emp, connection);
+                    Utility.repaintFrameSize(frmMain, frmMenu);
                     frmMenu.MdiParent = frmMain;
                     frmMenu.Dock = DockStyle.Fill;
                     frmMenu.Show();

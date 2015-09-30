@@ -91,5 +91,20 @@ namespace FunHomeClub
             adminPanel.Controls.Add(pmUC);
             pmUC.Dock = DockStyle.Fill;
         }
+
+        private void AdminMainForm_Load(object sender, EventArgs e)
+        {
+            InitializeRights();
+        }
+
+        private void InitializeRights()
+        {
+            if (!((MainForm)this.MdiParent).enableAdvanceRight)
+            {
+                tvControlForm.Nodes["Administration"].Nodes["ProfitMargin"].Remove();
+                tvControlForm.Nodes["Membership"].Remove();
+                tvControlForm.Nodes["Promotions"].Remove();
+            }
+        }
     }
 }
