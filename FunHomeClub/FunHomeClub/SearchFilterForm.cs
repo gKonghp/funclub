@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -35,6 +36,26 @@ namespace FunHomeClub
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if((txtPrice1.Text.Length > 0 && txtPrice2.Text.Length <= 0) || (txtPrice1.Text.Length <= 0 && txtPrice2.Text.Length > 0) || (txtPrice1.Text.Length <= 0 && txtPrice2.Text.Length <= 0))
+            {
+                MessageBox.Show("Please fill in two field of price before click search!");
+                return;
+            }
+
+            string pricePattern = "^([0-9]|[.][0-9])*$";
+            Regex regex = new Regex(pricePattern);
+            if (!regex.IsMatch(txtPrice1.Text))
+            {
+                MessageBox.Show("Price format is not correct!");
+                return;
+            }
+
+            if (Convert.ToDouble(txtPrice1.Text) > Convert.ToDouble(txtPrice2.Text))
+            {
+                MessageBox.Show("Price scope is not correct!");
+                return;
+            }
+
             string selectString = "SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime,  ((teacherRate + operatingCharges) * " +
              sf.profitMargin + ") / 10 as Price, quota, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID"
                 + " AND quota >= " + Convert.ToInt32(nudQuota.Value.ToString());

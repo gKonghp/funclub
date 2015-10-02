@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -63,45 +64,6 @@ namespace FunHomeClub
             }
         }
 
-        /*private void btnSearch_Click(object sender, EventArgs e)
-        {
-            string selectString = "SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime,  ((teacherRate + operatingCharges) * " +
-              profitMargin + ") / 10 as Price, quota, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID"
-                + " AND quota >= " + Convert.ToInt32(nudQuota.Value.ToString());
-
-            if (cboMonth.SelectedIndex>0)
-                selectString += " AND " + cboMonth.SelectedIndex + " BETWEEN startMonth AND endMonth";
-
-            if (cboWeekday.SelectedIndex>0)
-                selectString += " AND weekday =" + cboWeekday.SelectedIndex;
-
-            if(!(txtPrice1.Text.Equals("") || txtPrice2.Text.Equals("")))
-                selectString += " AND ((teacherRate + operatingCharges) * " + profitMargin + ") / 10 BETWEEN " + txtPrice1.Text + " AND " + txtPrice2.Text;
-
-            if (cboCategory.SelectedIndex >= 0)
-                selectString += " AND cc.categoryID = '" + category.Rows[cboCategory.SelectedIndex]["categoryID"].ToString() + "'";
-
-            dataAdapter.SelectCommand.CommandText = selectString;
-            dt.Clear();
-            dataAdapter.Fill(dt);
-            FillListView();
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            cboMonth.SelectedIndex = 0;
-            cboWeekday.SelectedIndex = 0;
-            cboCategory.SelectedIndex = -1;
-            txtPrice1.Text = "";
-            txtPrice2.Text = "";
-            nudQuota.Value = 0;
-
-            dataAdapter.SelectCommand.CommandText = showAllCourse;
-            dt.Clear();
-            dataAdapter.Fill(dt);
-            FillListView();
-        }*/
-
         private void lstCourseDetail_DoubleClick(object sender, EventArgs e)
         {
             CourseDetail cd = new CourseDetail(connection, dt.Rows[lstCourseDetail.SelectedItems[0].Index]["courseID"].ToString(), profitMargin);
@@ -110,6 +72,14 @@ namespace FunHomeClub
 
         private void txtKeyword_TextChanged(object sender, EventArgs e)
         {
+            string keywordPattern = @"^([A-Z]|[a-z]|[0-9]|\s|\:)*$";
+            Regex regex = new Regex(keywordPattern);
+            if (!regex.IsMatch(txtKeyword.Text))
+            {
+                lstCourseDetail.Items.Clear();
+                return;
+            }                                               // Regular Expression
+
             string selectString = "";
             if (txtKeyword.Text.Length > 0)
             {
@@ -126,22 +96,14 @@ namespace FunHomeClub
             }
 
             dataAdapter.SelectCommand.CommandText = selectString;
-            Console.WriteLine(txtKeyword.Text.Length);
-            Console.WriteLine(dataAdapter.SelectCommand.CommandText);
             dt.Clear();
             dataAdapter.Fill(dt);
-            Console.WriteLine(dt.Rows.Count.ToString());
             FillListView();
         }
 
         private void btnAdvanced_Click(object sender, EventArgs e)
         {
             sff.ShowDialog();
-        }
-
-        private void SearchForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
