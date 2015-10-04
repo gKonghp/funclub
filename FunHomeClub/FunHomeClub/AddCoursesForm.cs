@@ -146,9 +146,23 @@ namespace FunHomeClub
             {
                 DataRow row = coursesList.Rows[selectedItem.Index];
 
-                bool isClashed = courseReg.IsCourseClash(row["courseID"].ToString());
+                bool isClashed = courseReg.IsCourseClashInList(row["courseID"].ToString());
                 if (!isClashed)
                 {
+                    string courseID = row["courseID"].ToString();
+                    string courseName = row["c.name"].ToString();
+                    int startMonth = Convert.ToInt32(row["startMonth"].ToString());
+                    int endMonth = Convert.ToInt32(row["endMonth"].ToString());
+                    string catName = row["cc.name"].ToString();
+                    int weekday = Convert.ToInt32(row["weekday"].ToString());
+                    string startTime = row["startTime"].ToString();
+                    string endTime = row["endTime"].ToString();
+                    double price = Convert.ToDouble(row["price"].ToString());
+                    string room = row["room"].ToString();
+                    int quota = Convert.ToInt32(row["quota"].ToString()); 
+                    CoursePeriodForm frmCoursePeriod = new CoursePeriodForm(courseReg, catName, courseID, courseName, weekday,  startMonth, endMonth, startTime, endTime, price, quota, room);
+                    frmCoursePeriod.ShowDialog();
+                    /*
                     ListViewItem item = new ListViewItem(row["cc.name"].ToString());
                     item.SubItems.Add(row["courseID"].ToString());
                     item.SubItems.Add(row["c.name"].ToString());
@@ -163,10 +177,11 @@ namespace FunHomeClub
                     courseReg.ltvRegCourseList.Items.Add(item);
 
                     courseReg.updateTotalPrice();
+                    */
                 }
             }
+            //this.Dispose();
 
-            this.Dispose();
         }
 
         private void lstCourseDetail_DoubleClick(object sender, EventArgs e)
@@ -201,6 +216,11 @@ namespace FunHomeClub
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

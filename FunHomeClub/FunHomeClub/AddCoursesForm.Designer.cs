@@ -66,6 +66,7 @@
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPriceTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPriceFrom)).BeginInit();
@@ -76,15 +77,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 83);
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(228, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 12);
+            this.label1.Size = new System.Drawing.Size(77, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Weekday:";
             // 
             // cbbWeekday
             // 
+            this.cbbWeekday.BackColor = System.Drawing.SystemColors.Control;
             this.cbbWeekday.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbWeekday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbWeekday.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbbWeekday.FormattingEnabled = true;
             this.cbbWeekday.Items.AddRange(new object[] {
             "All",
@@ -95,9 +100,9 @@
             "Friday",
             "Saturday",
             "Sunday"});
-            this.cbbWeekday.Location = new System.Drawing.Point(243, 79);
+            this.cbbWeekday.Location = new System.Drawing.Point(311, 92);
             this.cbbWeekday.Name = "cbbWeekday";
-            this.cbbWeekday.Size = new System.Drawing.Size(110, 20);
+            this.cbbWeekday.Size = new System.Drawing.Size(110, 27);
             this.cbbWeekday.TabIndex = 3;
             // 
             // groupBox1
@@ -124,9 +129,10 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cbbMonth);
             this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox1.Location = new System.Drawing.Point(16, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(729, 145);
+            this.groupBox1.Size = new System.Drawing.Size(729, 166);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Filter";
@@ -134,63 +140,69 @@
             // 
             // nudPriceTo
             // 
-            this.nudPriceTo.Location = new System.Drawing.Point(659, 48);
+            this.nudPriceTo.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.nudPriceTo.Location = new System.Drawing.Point(649, 92);
             this.nudPriceTo.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.nudPriceTo.Name = "nudPriceTo";
-            this.nudPriceTo.Size = new System.Drawing.Size(64, 22);
+            this.nudPriceTo.Size = new System.Drawing.Size(64, 27);
             this.nudPriceTo.TabIndex = 30;
             // 
             // nudPriceFrom
             // 
-            this.nudPriceFrom.Location = new System.Drawing.Point(574, 47);
+            this.nudPriceFrom.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.nudPriceFrom.Location = new System.Drawing.Point(552, 92);
             this.nudPriceFrom.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.nudPriceFrom.Name = "nudPriceFrom";
-            this.nudPriceFrom.Size = new System.Drawing.Size(65, 22);
+            this.nudPriceFrom.Size = new System.Drawing.Size(65, 27);
             this.nudPriceFrom.TabIndex = 29;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(642, 53);
+            this.label9.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label9.Location = new System.Drawing.Point(623, 95);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(11, 12);
+            this.label9.Size = new System.Drawing.Size(20, 19);
             this.label9.TabIndex = 26;
             this.label9.Text = "~";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(519, 55);
+            this.label10.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label10.Location = new System.Drawing.Point(427, 95);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 12);
+            this.label10.Size = new System.Drawing.Size(59, 19);
             this.label10.TabIndex = 25;
             this.label10.Text = "Price $:";
             // 
             // dtpEndTime
             // 
             this.dtpEndTime.CustomFormat = "HH:mm";
+            this.dtpEndTime.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEndTime.Location = new System.Drawing.Point(575, 79);
+            this.dtpEndTime.Location = new System.Drawing.Point(311, 127);
             this.dtpEndTime.Name = "dtpEndTime";
-            this.dtpEndTime.Size = new System.Drawing.Size(64, 22);
+            this.dtpEndTime.Size = new System.Drawing.Size(110, 27);
             this.dtpEndTime.TabIndex = 24;
             this.dtpEndTime.Value = new System.DateTime(2015, 9, 29, 23, 59, 59, 0);
             // 
             // dtpStartTime
             // 
             this.dtpStartTime.CustomFormat = "HH:mm";
+            this.dtpStartTime.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpStartTime.Location = new System.Drawing.Point(448, 78);
+            this.dtpStartTime.Location = new System.Drawing.Point(103, 127);
             this.dtpStartTime.Name = "dtpStartTime";
-            this.dtpStartTime.Size = new System.Drawing.Size(65, 22);
+            this.dtpStartTime.Size = new System.Drawing.Size(107, 27);
             this.dtpStartTime.TabIndex = 23;
             this.dtpStartTime.Value = new System.DateTime(2015, 9, 28, 0, 0, 0, 0);
             this.dtpStartTime.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
@@ -198,120 +210,149 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(519, 83);
+            this.label8.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label8.Location = new System.Drawing.Point(228, 133);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 12);
+            this.label8.Size = new System.Drawing.Size(77, 19);
             this.label8.TabIndex = 22;
             this.label8.Text = "End Time:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(361, 83);
+            this.label4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Location = new System.Drawing.Point(14, 133);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 12);
+            this.label4.Size = new System.Drawing.Size(83, 19);
             this.label4.TabIndex = 21;
             this.label4.Text = "Start Time:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label2.Location = new System.Drawing.Point(12, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(76, 19);
             this.label2.TabIndex = 20;
             this.label2.Text = "CourseID:";
             // 
             // txtCourseID
             // 
-            this.txtCourseID.Location = new System.Drawing.Point(71, 21);
+            this.txtCourseID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCourseID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCourseID.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCourseID.Location = new System.Drawing.Point(103, 24);
             this.txtCourseID.Name = "txtCourseID";
-            this.txtCourseID.Size = new System.Drawing.Size(107, 22);
+            this.txtCourseID.Size = new System.Drawing.Size(107, 20);
             this.txtCourseID.TabIndex = 19;
             // 
             // cbbCourseName
             // 
+            this.cbbCourseName.BackColor = System.Drawing.SystemColors.Control;
             this.cbbCourseName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCourseName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbCourseName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbbCourseName.FormattingEnabled = true;
-            this.cbbCourseName.Location = new System.Drawing.Point(243, 50);
+            this.cbbCourseName.Location = new System.Drawing.Point(311, 52);
             this.cbbCourseName.Name = "cbbCourseName";
-            this.cbbCourseName.Size = new System.Drawing.Size(110, 20);
+            this.cbbCourseName.Size = new System.Drawing.Size(110, 27);
             this.cbbCourseName.TabIndex = 18;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(579, 114);
+            this.btnReset.BackColor = System.Drawing.Color.Coral;
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(553, 137);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(60, 23);
+            this.btnReset.Size = new System.Drawing.Size(70, 23);
             this.btnReset.TabIndex = 13;
             this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // lblCourseName
             // 
             this.lblCourseName.AutoSize = true;
-            this.lblCourseName.Location = new System.Drawing.Point(184, 57);
+            this.lblCourseName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCourseName.Location = new System.Drawing.Point(228, 58);
             this.lblCourseName.Name = "lblCourseName";
-            this.lblCourseName.Size = new System.Drawing.Size(41, 12);
+            this.lblCourseName.Size = new System.Drawing.Size(61, 19);
             this.lblCourseName.TabIndex = 17;
             this.lblCourseName.Text = "Course:";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(659, 114);
+            this.btnSearch.BackColor = System.Drawing.Color.Coral;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(643, 137);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(60, 23);
+            this.btnSearch.Size = new System.Drawing.Size(70, 23);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(361, 57);
+            this.label6.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label6.Location = new System.Drawing.Point(427, 58);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 12);
+            this.label6.Size = new System.Drawing.Size(120, 19);
             this.label6.TabIndex = 10;
             this.label6.Text = "Available quota:";
             // 
             // cbbCategory
             // 
+            this.cbbCategory.BackColor = System.Drawing.SystemColors.Control;
             this.cbbCategory.DisplayMember = "categoryID";
             this.cbbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbCategory.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbbCategory.FormattingEnabled = true;
-            this.cbbCategory.Location = new System.Drawing.Point(71, 50);
+            this.cbbCategory.Location = new System.Drawing.Point(103, 53);
             this.cbbCategory.Name = "cbbCategory";
-            this.cbbCategory.Size = new System.Drawing.Size(107, 20);
+            this.cbbCategory.Size = new System.Drawing.Size(107, 27);
             this.cbbCategory.TabIndex = 16;
             this.cbbCategory.ValueMember = "categoryID";
             this.cbbCategory.SelectedIndexChanged += new System.EventHandler(this.cbbCategory_SelectedIndexChanged);
             // 
             // nudQuota
             // 
-            this.nudQuota.Location = new System.Drawing.Point(448, 48);
+            this.nudQuota.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.nudQuota.Location = new System.Drawing.Point(553, 54);
             this.nudQuota.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.nudQuota.Name = "nudQuota";
-            this.nudQuota.Size = new System.Drawing.Size(65, 22);
+            this.nudQuota.Size = new System.Drawing.Size(65, 27);
             this.nudQuota.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 81);
+            this.label5.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Location = new System.Drawing.Point(12, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 12);
+            this.label5.Size = new System.Drawing.Size(58, 19);
             this.label5.TabIndex = 7;
             this.label5.Text = "Month:";
             // 
             // cbbMonth
             // 
+            this.cbbMonth.BackColor = System.Drawing.SystemColors.Control;
             this.cbbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbMonth.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbbMonth.FormattingEnabled = true;
             this.cbbMonth.Items.AddRange(new object[] {
             "All",
@@ -327,17 +368,18 @@
             "October",
             "November",
             "December "});
-            this.cbbMonth.Location = new System.Drawing.Point(71, 78);
+            this.cbbMonth.Location = new System.Drawing.Point(103, 92);
             this.cbbMonth.Name = "cbbMonth";
-            this.cbbMonth.Size = new System.Drawing.Size(107, 20);
+            this.cbbMonth.Size = new System.Drawing.Size(107, 27);
             this.cbbMonth.TabIndex = 8;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 55);
+            this.label7.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label7.Location = new System.Drawing.Point(12, 62);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 12);
+            this.label7.Size = new System.Drawing.Size(76, 19);
             this.label7.TabIndex = 15;
             this.label7.Text = "Category:";
             // 
@@ -348,6 +390,7 @@
             // 
             // lstCourseDetail
             // 
+            this.lstCourseDetail.BackColor = System.Drawing.SystemColors.Control;
             this.lstCourseDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Category,
             this.CourseID,
@@ -360,9 +403,10 @@
             this.Price,
             this.Quota,
             this.Room});
+            this.lstCourseDetail.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstCourseDetail.FullRowSelect = true;
             this.lstCourseDetail.GridLines = true;
-            this.lstCourseDetail.Location = new System.Drawing.Point(16, 175);
+            this.lstCourseDetail.Location = new System.Drawing.Point(16, 184);
             this.lstCourseDetail.Name = "lstCourseDetail";
             this.lstCourseDetail.Size = new System.Drawing.Size(729, 118);
             this.lstCourseDetail.TabIndex = 6;
@@ -434,27 +478,50 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 160);
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(12, 306);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 12);
+            this.label3.Size = new System.Drawing.Size(323, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "(Double Click to View More Course Detail)";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(670, 299);
+            this.btnAdd.BackColor = System.Drawing.Color.Coral;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(659, 312);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 27);
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Coral;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(569, 312);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 9;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // AddCoursesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 331);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(753, 347);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
@@ -514,6 +581,7 @@
         private System.Windows.Forms.NumericUpDown nudPriceFrom;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnClose;
     }
 }
 

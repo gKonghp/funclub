@@ -42,6 +42,7 @@
             // 
             // lstStudent
             // 
+            this.lstStudent.BackColor = System.Drawing.SystemColors.Control;
             this.lstStudent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -49,9 +50,10 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.lstStudent.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstStudent.Location = new System.Drawing.Point(8, 6);
             this.lstStudent.Name = "lstStudent";
-            this.lstStudent.Size = new System.Drawing.Size(549, 258);
+            this.lstStudent.Size = new System.Drawing.Size(549, 238);
             this.lstStudent.TabIndex = 4;
             this.lstStudent.UseCompatibleStateImageBehavior = false;
             this.lstStudent.View = System.Windows.Forms.View.Details;
@@ -93,46 +95,62 @@
             // 
             // btnDeleteStudent
             // 
+            this.btnDeleteStudent.BackColor = System.Drawing.Color.Coral;
             this.btnDeleteStudent.Enabled = false;
-            this.btnDeleteStudent.Location = new System.Drawing.Point(563, 96);
+            this.btnDeleteStudent.FlatAppearance.BorderSize = 0;
+            this.btnDeleteStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteStudent.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDeleteStudent.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteStudent.Location = new System.Drawing.Point(563, 89);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(97, 28);
+            this.btnDeleteStudent.Size = new System.Drawing.Size(97, 26);
             this.btnDeleteStudent.TabIndex = 15;
             this.btnDeleteStudent.Text = "Delete";
-            this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            this.btnDeleteStudent.UseVisualStyleBackColor = false;
             this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // btnMaintainStudent
             // 
+            this.btnMaintainStudent.BackColor = System.Drawing.Color.Coral;
             this.btnMaintainStudent.Enabled = false;
-            this.btnMaintainStudent.Location = new System.Drawing.Point(563, 50);
+            this.btnMaintainStudent.FlatAppearance.BorderSize = 0;
+            this.btnMaintainStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainStudent.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMaintainStudent.ForeColor = System.Drawing.Color.White;
+            this.btnMaintainStudent.Location = new System.Drawing.Point(563, 46);
             this.btnMaintainStudent.Name = "btnMaintainStudent";
-            this.btnMaintainStudent.Size = new System.Drawing.Size(97, 28);
+            this.btnMaintainStudent.Size = new System.Drawing.Size(97, 26);
             this.btnMaintainStudent.TabIndex = 14;
             this.btnMaintainStudent.Text = "Maintain";
-            this.btnMaintainStudent.UseVisualStyleBackColor = true;
+            this.btnMaintainStudent.UseVisualStyleBackColor = false;
             this.btnMaintainStudent.Click += new System.EventHandler(this.btnMaintainStudent_Click);
             // 
             // btnAddStudent
             // 
+            this.btnAddStudent.BackColor = System.Drawing.Color.Coral;
+            this.btnAddStudent.FlatAppearance.BorderSize = 0;
+            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddStudent.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnAddStudent.ForeColor = System.Drawing.Color.White;
             this.btnAddStudent.Location = new System.Drawing.Point(563, 6);
             this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(97, 28);
+            this.btnAddStudent.Size = new System.Drawing.Size(97, 26);
             this.btnAddStudent.TabIndex = 13;
             this.btnAddStudent.Text = "Add";
-            this.btnAddStudent.UseVisualStyleBackColor = true;
+            this.btnAddStudent.UseVisualStyleBackColor = false;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // StudentControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnDeleteStudent);
             this.Controls.Add(this.btnMaintainStudent);
             this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.lstStudent);
             this.Name = "StudentControl";
-            this.Size = new System.Drawing.Size(669, 273);
+            this.Size = new System.Drawing.Size(669, 252);
             this.Load += new System.EventHandler(this.StudentControl_Load);
             this.ResumeLayout(false);
 

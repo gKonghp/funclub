@@ -39,6 +39,8 @@
             this.btnViewCourseInfo_Link = new System.Windows.Forms.Button();
             this.btnInvoiceHistory_Link = new System.Windows.Forms.Button();
             this.btnCourseReg_Link = new System.Windows.Forms.Button();
+            this.lblEmployeeID_d = new System.Windows.Forms.Label();
+            this.lblPosition_d = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +59,7 @@
             // 
             this.lblPosition.AutoSize = true;
             this.lblPosition.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPosition.Location = new System.Drawing.Point(401, 113);
+            this.lblPosition.Location = new System.Drawing.Point(333, 113);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(74, 20);
             this.lblPosition.TabIndex = 7;
@@ -67,7 +69,7 @@
             // 
             this.lblEmployeeID.AutoSize = true;
             this.lblEmployeeID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblEmployeeID.Location = new System.Drawing.Point(401, 83);
+            this.lblEmployeeID.Location = new System.Drawing.Point(333, 83);
             this.lblEmployeeID.Name = "lblEmployeeID";
             this.lblEmployeeID.Size = new System.Drawing.Size(108, 20);
             this.lblEmployeeID.TabIndex = 8;
@@ -78,9 +80,10 @@
             this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-2, -1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(596, 71);
+            this.panel1.Size = new System.Drawing.Size(584, 71);
             this.panel1.TabIndex = 12;
             // 
             // label1
@@ -173,12 +176,34 @@
             this.btnCourseReg_Link.UseVisualStyleBackColor = false;
             this.btnCourseReg_Link.Click += new System.EventHandler(this.btnCourseReg_Click);
             // 
+            // lblEmployeeID_d
+            // 
+            this.lblEmployeeID_d.AutoSize = true;
+            this.lblEmployeeID_d.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblEmployeeID_d.Location = new System.Drawing.Point(447, 83);
+            this.lblEmployeeID_d.Name = "lblEmployeeID_d";
+            this.lblEmployeeID_d.Size = new System.Drawing.Size(23, 20);
+            this.lblEmployeeID_d.TabIndex = 13;
+            this.lblEmployeeID_d.Text = "--";
+            // 
+            // lblPosition_d
+            // 
+            this.lblPosition_d.AutoSize = true;
+            this.lblPosition_d.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblPosition_d.Location = new System.Drawing.Point(447, 113);
+            this.lblPosition_d.Name = "lblPosition_d";
+            this.lblPosition_d.Size = new System.Drawing.Size(23, 20);
+            this.lblPosition_d.TabIndex = 14;
+            this.lblPosition_d.Text = "--";
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(594, 353);
+            this.ClientSize = new System.Drawing.Size(584, 353);
+            this.Controls.Add(this.lblPosition_d);
+            this.Controls.Add(this.lblEmployeeID_d);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAdministration_Link);
             this.Controls.Add(this.btnViewCourseInfo_Link);
@@ -211,5 +236,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblEmployeeID_d;
+        private System.Windows.Forms.Label lblPosition_d;
     }
 }

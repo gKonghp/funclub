@@ -49,8 +49,8 @@ namespace FunHomeClub
         {
             // load employee info in menu
             lblWelcome.Text += " " + employee.name;
-            lblPosition.Text += employee.position.Equals("m") ? "\tManager" : "\tStaff";
-            lblEmployeeID.Text += " " +employee.employeeID;
+            lblPosition_d.Text = employee.position.Equals("m") ? "\tManager" : "\tStaff";
+            lblEmployeeID_d.Text = " " +employee.employeeID;
         }
 
         private void btnViewCourseInfo_Link_Click(object sender, EventArgs e)

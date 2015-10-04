@@ -39,43 +39,60 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Coral;
             this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(272, 116);
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(272, 107);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(97, 28);
+            this.btnDelete.Size = new System.Drawing.Size(97, 26);
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnChange
             // 
+            this.btnChange.BackColor = System.Drawing.Color.Coral;
             this.btnChange.Enabled = false;
-            this.btnChange.Location = new System.Drawing.Point(272, 64);
+            this.btnChange.FlatAppearance.BorderSize = 0;
+            this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChange.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChange.ForeColor = System.Drawing.Color.White;
+            this.btnChange.Location = new System.Drawing.Point(272, 59);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(97, 28);
+            this.btnChange.Size = new System.Drawing.Size(97, 26);
             this.btnChange.TabIndex = 12;
             this.btnChange.Text = "Change";
-            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.UseVisualStyleBackColor = false;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(272, 15);
+            this.btnAdd.BackColor = System.Drawing.Color.Coral;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(272, 14);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(97, 28);
+            this.btnAdd.Size = new System.Drawing.Size(97, 26);
             this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lstMembership
             // 
+            this.lstMembership.BackColor = System.Drawing.SystemColors.Control;
             this.lstMembership.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9});
-            this.lstMembership.Location = new System.Drawing.Point(22, 15);
+            this.lstMembership.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lstMembership.Location = new System.Drawing.Point(22, 14);
             this.lstMembership.Name = "lstMembership";
-            this.lstMembership.Size = new System.Drawing.Size(231, 235);
+            this.lstMembership.Size = new System.Drawing.Size(231, 217);
             this.lstMembership.TabIndex = 10;
             this.lstMembership.UseCompatibleStateImageBehavior = false;
             this.lstMembership.View = System.Windows.Forms.View.Details;
@@ -96,14 +113,15 @@
             // 
             // MembershipControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstMembership);
             this.Name = "MembershipControl";
-            this.Size = new System.Drawing.Size(394, 267);
+            this.Size = new System.Drawing.Size(394, 246);
             this.Load += new System.EventHandler(this.MembershipControl_Load);
             this.ResumeLayout(false);
 

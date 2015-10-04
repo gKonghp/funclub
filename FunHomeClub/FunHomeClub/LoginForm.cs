@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -38,6 +39,8 @@ namespace FunHomeClub
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string usernamePasswordPattern = "^([A-Z][a-z][0-9])*$";
+            Regex regex = new Regex(usernamePasswordPattern);
             string errUsernameIncorrect = "Incorrect Username";
             string errPasswordIncorrect = "Incorrect Password";
             if (errLogin.GetError(txtUsername).Trim().Length > 0)
@@ -48,6 +51,22 @@ namespace FunHomeClub
             {
                 return;
             }
+            if(txtUsername.Text.Length <= 0 || txtPassword.Text.Length <= 0)
+            {
+                MessageBox.Show("Username or Password cannot missing!");
+                return;
+            }
+            if (regex.IsMatch(txtUsername.Text))
+            {
+                MessageBox.Show("Username cannot contain special character!");
+                return;
+            }
+            if (regex.IsMatch(txtPassword.Text))
+            {
+                MessageBox.Show("Password cannot contain special character!");
+                return;
+            }
+
             employeeTableAdapter1.Fill(masterDBDataSet1.employee);
             string selectUsernameSql = string.Format("username = \'{0}\'", txtUsername.Text);
             DataRow[] passwordRows = masterDBDataSet1.employee.Select(selectUsernameSql);

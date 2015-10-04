@@ -24,7 +24,18 @@ namespace FunHomeClub
             this.invoiceID = invoiceID;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
+        {
+
+            Initialize();
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Initialize()
         {
             // TODO: 這行程式碼會將資料載入 'masterDBDataSet.course' 資料表。您可以視需要進行移動或移除。
             this.courseTableAdapter.Fill(this.masterDBDataSet.course);
@@ -36,7 +47,7 @@ namespace FunHomeClub
             adapter = new OleDbDataAdapter(sql, conn);
             adapter.Fill(this.masterDBDataSet.invoice);
             adapter.Dispose();
-            
+
             // Get studentCourse Table
             sql = string.Format("SELECT * FROM studentCourse WHERE invoiceID = '{0}'", invoiceID);
             adapter = new OleDbDataAdapter(sql, conn);
@@ -61,14 +72,16 @@ namespace FunHomeClub
             adapter.Fill(this.masterDBDataSet.membership);
             adapter.Dispose();
 
+            //Get promotion
+            string promotionID = this.masterDBDataSet.invoice.Rows[0]["promotionID"].ToString();
+            sql = string.Format("SELECT * FROM promotion WHERE promotionID = '{0}'", promotionID);
+            adapter = new OleDbDataAdapter(sql, conn);
+            adapter.Fill(this.masterDBDataSet.promotion);
+            adapter.Dispose();
+
             //ReportParameter p1 = new ReportParameter("invoiceID", "in0001");
             //this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { p1 });
             this.reportViewer1.RefreshReport();
-        }
-
-        private void reportViewer1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

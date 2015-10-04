@@ -40,14 +40,16 @@
             // 
             // lstStaff
             // 
+            this.lstStaff.BackColor = System.Drawing.SystemColors.Control;
             this.lstStaff.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.employeeIdHeader,
             this.usernameHeader,
             this.passwordHeader,
             this.positionHeader});
-            this.lstStaff.Location = new System.Drawing.Point(13, 12);
+            this.lstStaff.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lstStaff.Location = new System.Drawing.Point(13, 11);
             this.lstStaff.Name = "lstStaff";
-            this.lstStaff.Size = new System.Drawing.Size(351, 211);
+            this.lstStaff.Size = new System.Drawing.Size(351, 195);
             this.lstStaff.TabIndex = 2;
             this.lstStaff.UseCompatibleStateImageBehavior = false;
             this.lstStaff.View = System.Windows.Forms.View.Details;
@@ -74,46 +76,62 @@
             // 
             // btnDeleteStaff
             // 
+            this.btnDeleteStaff.BackColor = System.Drawing.Color.Coral;
             this.btnDeleteStaff.Enabled = false;
-            this.btnDeleteStaff.Location = new System.Drawing.Point(384, 96);
+            this.btnDeleteStaff.FlatAppearance.BorderSize = 0;
+            this.btnDeleteStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteStaff.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDeleteStaff.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteStaff.Location = new System.Drawing.Point(384, 89);
             this.btnDeleteStaff.Name = "btnDeleteStaff";
-            this.btnDeleteStaff.Size = new System.Drawing.Size(97, 28);
+            this.btnDeleteStaff.Size = new System.Drawing.Size(97, 26);
             this.btnDeleteStaff.TabIndex = 9;
             this.btnDeleteStaff.Text = "Delete";
-            this.btnDeleteStaff.UseVisualStyleBackColor = true;
+            this.btnDeleteStaff.UseVisualStyleBackColor = false;
             this.btnDeleteStaff.Click += new System.EventHandler(this.btnDeleteStaff_Click);
             // 
             // btnMaintainStaff
             // 
+            this.btnMaintainStaff.BackColor = System.Drawing.Color.Coral;
             this.btnMaintainStaff.Enabled = false;
-            this.btnMaintainStaff.Location = new System.Drawing.Point(384, 54);
+            this.btnMaintainStaff.FlatAppearance.BorderSize = 0;
+            this.btnMaintainStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainStaff.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMaintainStaff.ForeColor = System.Drawing.Color.White;
+            this.btnMaintainStaff.Location = new System.Drawing.Point(384, 50);
             this.btnMaintainStaff.Name = "btnMaintainStaff";
-            this.btnMaintainStaff.Size = new System.Drawing.Size(97, 28);
+            this.btnMaintainStaff.Size = new System.Drawing.Size(97, 26);
             this.btnMaintainStaff.TabIndex = 8;
             this.btnMaintainStaff.Text = "Maintain";
-            this.btnMaintainStaff.UseVisualStyleBackColor = true;
+            this.btnMaintainStaff.UseVisualStyleBackColor = false;
             this.btnMaintainStaff.Click += new System.EventHandler(this.btnMaintainStaff_Click);
             // 
             // btnAddStaff
             // 
-            this.btnAddStaff.Location = new System.Drawing.Point(384, 12);
+            this.btnAddStaff.BackColor = System.Drawing.Color.Coral;
+            this.btnAddStaff.FlatAppearance.BorderSize = 0;
+            this.btnAddStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddStaff.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnAddStaff.ForeColor = System.Drawing.Color.White;
+            this.btnAddStaff.Location = new System.Drawing.Point(384, 11);
             this.btnAddStaff.Name = "btnAddStaff";
-            this.btnAddStaff.Size = new System.Drawing.Size(97, 28);
+            this.btnAddStaff.Size = new System.Drawing.Size(97, 26);
             this.btnAddStaff.TabIndex = 7;
             this.btnAddStaff.Text = "Add";
-            this.btnAddStaff.UseVisualStyleBackColor = true;
+            this.btnAddStaff.UseVisualStyleBackColor = false;
             this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
             // 
             // StaffControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnDeleteStaff);
             this.Controls.Add(this.btnMaintainStaff);
             this.Controls.Add(this.btnAddStaff);
             this.Controls.Add(this.lstStaff);
             this.Name = "StaffControl";
-            this.Size = new System.Drawing.Size(495, 235);
+            this.Size = new System.Drawing.Size(495, 217);
             this.Load += new System.EventHandler(this.StaffControl_Load);
             this.ResumeLayout(false);
 

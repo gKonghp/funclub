@@ -50,6 +50,7 @@
             // 
             // lstCourse
             // 
+            this.lstCourse.BackColor = System.Drawing.SystemColors.Control;
             this.lstCourse.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.CourseHeader,
             this.nameHeader,
@@ -65,9 +66,10 @@
             this.startMonthHeader,
             this.endMonthHeader,
             this.descHeader});
-            this.lstCourse.Location = new System.Drawing.Point(13, 12);
+            this.lstCourse.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lstCourse.Location = new System.Drawing.Point(13, 11);
             this.lstCourse.Name = "lstCourse";
-            this.lstCourse.Size = new System.Drawing.Size(903, 258);
+            this.lstCourse.Size = new System.Drawing.Size(903, 238);
             this.lstCourse.TabIndex = 1;
             this.lstCourse.UseCompatibleStateImageBehavior = false;
             this.lstCourse.View = System.Windows.Forms.View.Details;
@@ -135,46 +137,62 @@
             // 
             // btnDeleteCourse
             // 
+            this.btnDeleteCourse.BackColor = System.Drawing.Color.Coral;
             this.btnDeleteCourse.Enabled = false;
-            this.btnDeleteCourse.Location = new System.Drawing.Point(818, 276);
+            this.btnDeleteCourse.FlatAppearance.BorderSize = 0;
+            this.btnDeleteCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteCourse.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDeleteCourse.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteCourse.Location = new System.Drawing.Point(818, 255);
             this.btnDeleteCourse.Name = "btnDeleteCourse";
-            this.btnDeleteCourse.Size = new System.Drawing.Size(97, 28);
+            this.btnDeleteCourse.Size = new System.Drawing.Size(97, 26);
             this.btnDeleteCourse.TabIndex = 6;
             this.btnDeleteCourse.Text = "Delete";
-            this.btnDeleteCourse.UseVisualStyleBackColor = true;
+            this.btnDeleteCourse.UseVisualStyleBackColor = false;
             this.btnDeleteCourse.Click += new System.EventHandler(this.btnDeleteCourse_Click);
             // 
             // btnMaintainCourse
             // 
+            this.btnMaintainCourse.BackColor = System.Drawing.Color.Coral;
             this.btnMaintainCourse.Enabled = false;
-            this.btnMaintainCourse.Location = new System.Drawing.Point(715, 276);
+            this.btnMaintainCourse.FlatAppearance.BorderSize = 0;
+            this.btnMaintainCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainCourse.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMaintainCourse.ForeColor = System.Drawing.Color.White;
+            this.btnMaintainCourse.Location = new System.Drawing.Point(715, 255);
             this.btnMaintainCourse.Name = "btnMaintainCourse";
-            this.btnMaintainCourse.Size = new System.Drawing.Size(97, 28);
+            this.btnMaintainCourse.Size = new System.Drawing.Size(97, 26);
             this.btnMaintainCourse.TabIndex = 5;
             this.btnMaintainCourse.Text = "Maintain";
-            this.btnMaintainCourse.UseVisualStyleBackColor = true;
+            this.btnMaintainCourse.UseVisualStyleBackColor = false;
             this.btnMaintainCourse.Click += new System.EventHandler(this.btnMaintainCourse_Click);
             // 
             // btnAddCourse
             // 
-            this.btnAddCourse.Location = new System.Drawing.Point(612, 276);
+            this.btnAddCourse.BackColor = System.Drawing.Color.Coral;
+            this.btnAddCourse.FlatAppearance.BorderSize = 0;
+            this.btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCourse.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnAddCourse.ForeColor = System.Drawing.Color.White;
+            this.btnAddCourse.Location = new System.Drawing.Point(612, 255);
             this.btnAddCourse.Name = "btnAddCourse";
-            this.btnAddCourse.Size = new System.Drawing.Size(97, 28);
+            this.btnAddCourse.Size = new System.Drawing.Size(97, 26);
             this.btnAddCourse.TabIndex = 4;
             this.btnAddCourse.Text = "Add";
-            this.btnAddCourse.UseVisualStyleBackColor = true;
+            this.btnAddCourse.UseVisualStyleBackColor = false;
             this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
             // 
             // CourseControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnDeleteCourse);
             this.Controls.Add(this.btnMaintainCourse);
             this.Controls.Add(this.btnAddCourse);
             this.Controls.Add(this.lstCourse);
             this.Name = "CourseControl";
-            this.Size = new System.Drawing.Size(925, 310);
+            this.Size = new System.Drawing.Size(930, 286);
             this.Load += new System.EventHandler(this.CourseControl_Load);
             this.ResumeLayout(false);
 

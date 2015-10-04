@@ -43,6 +43,18 @@ namespace FunHomeClub
             ltvInvoice.Items.Clear();
             foreach (DataRow row in invoiceList.Rows)
             {
+                bool duplicate = false;
+                foreach (ListViewItem listItem in ltvInvoice.Items)
+                {
+                    if (listItem.Text.Equals(row["invoiceID"].ToString()))
+                    {
+                        duplicate = true;
+                        break;
+                    }
+                }
+                
+                if (duplicate)
+                    continue;
                 ListViewItem item = new ListViewItem(row["invoiceID"].ToString());
                 item.SubItems.Add(row["studentID"].ToString());
                 item.SubItems.Add(row["name"].ToString());
@@ -51,6 +63,8 @@ namespace FunHomeClub
                 item.SubItems.Add(row["discount"].ToString());
                 item.SubItems.Add(row["employeeID"].ToString());
                 ltvInvoice.Items.Add(item);
+
+
             }
         }
 

@@ -142,6 +142,7 @@
             this.Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reset.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Reset.ForeColor = System.Drawing.Color.White;
+            this.Reset.Image = global::FunHomeClub.Properties.Resources.reset;
             this.Reset.Location = new System.Drawing.Point(75, 102);
             this.Reset.Name = "Reset";
             this.Reset.Size = new System.Drawing.Size(85, 27);

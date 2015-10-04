@@ -71,5 +71,11 @@ namespace FunHomeClub
             targetForm.Height = sourceForm.Height+75;
 
         }
+
+        public static bool IsNumeric(string s)
+        {
+            double dummy = 0;
+            return Double.TryParse(s, out dummy);
+        }
     }
 }

@@ -21,6 +21,9 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
+              <Width>3.4525cm</Width>
+            </TablixColumn>
+            <TablixColumn>
               <Width>3.03104cm</Width>
             </TablixColumn>
           </TablixColumns>
@@ -194,6 +197,42 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox50</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#4e648a</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#384c70</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Enrolled Period</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#4e648a</Color>
@@ -401,6 +440,39 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox51</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="startPeriod">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!startPeriod.Value &amp; " - " &amp; Fields!endPeriod.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>startPeriod</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#e5e5e5</Color>
@@ -629,6 +701,41 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#8a9a9a</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#728586</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox6">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -668,6 +775,7 @@
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -816,7 +924,7 @@
         <Top>5.87375cm</Top>
         <Left>0.84349cm</Left>
         <Height>1.8cm</Height>
-        <Width>17.89547cm</Width>
+        <Width>21.34797cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -898,7 +1006,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>8.69597cm</Top>
+        <Top>10.28347cm</Top>
         <Left>0.76083cm</Left>
         <Height>0.6cm</Height>
         <Width>2.44708cm</Width>
@@ -920,7 +1028,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Fun Club Company Limited</Value>
+                <Value>Fun-Home Club Company Limited</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -934,7 +1042,7 @@
         <Top>0.32287cm</Top>
         <Left>2.43722cm</Left>
         <Height>0.62646cm</Height>
-        <Width>5.40201cm</Width>
+        <Width>6.43388cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -962,7 +1070,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
         <Top>3.62106cm</Top>
-        <Left>14.83338cm</Left>
+        <Left>18.28588cm</Left>
         <Height>0.6cm</Height>
         <Width>1.15062cm</Width>
         <ZIndex>5</ZIndex>
@@ -1070,7 +1178,7 @@
         <Top>5.4737cm</Top>
         <Left>0.89641cm</Left>
         <Height>0cm</Height>
-        <Width>17.84255cm</Width>
+        <Width>21.29505cm</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
@@ -1079,10 +1187,10 @@
         </Style>
       </Line>
       <Line Name="Line2">
-        <Top>8.20208cm</Top>
+        <Top>9.78958cm</Top>
         <Left>0.76083cm</Left>
         <Height>0cm</Height>
-        <Width>17.97812cm</Width>
+        <Width>21.43063cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -1097,7 +1205,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Discount:</Value>
+                <Value>Cumulative discount:</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1105,10 +1213,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>8.69597cm</Top>
-        <Left>14.25458cm</Left>
+        <Top>10.28347cm</Top>
+        <Left>16.30479cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.91792cm</Width>
+        <Width>3.39077cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -1127,7 +1235,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Total:　</Value>
+                <Value>Total price:　</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1135,10 +1243,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox21</rd:DefaultName>
-        <Top>9.6012cm</Top>
-        <Left>14.25458cm</Left>
+        <Top>11.1887cm</Top>
+        <Left>16.30479cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.80799cm</Width>
+        <Width>3.21028cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -1151,10 +1259,10 @@
         </Style>
       </Textbox>
       <Line Name="Line3">
-        <Top>10.76854cm</Top>
+        <Top>12.35604cm</Top>
         <Left>0.76083cm</Left>
         <Height>0cm</Height>
-        <Width>17.97812cm</Width>
+        <Width>21.39535cm</Width>
         <ZIndex>13</ZIndex>
         <Style>
           <Border>
@@ -1169,7 +1277,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>If there are any problem, please contact us (+852 2345-6789 or inquery@funclub.com) to follow. </Value>
+                <Value>If there are any problem, please contact us (+852 2345-6789 or inquery@fun-homeclub.com) to follow. </Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1177,10 +1285,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox22</rd:DefaultName>
-        <Top>11.24162cm</Top>
+        <Top>12.82912cm</Top>
         <Left>0.84349cm</Left>
         <Height>0.6cm</Height>
-        <Width>17.89547cm</Width>
+        <Width>21.31269cm</Width>
         <ZIndex>14</ZIndex>
         <Style>
           <Border>
@@ -1209,10 +1317,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox23</rd:DefaultName>
-        <Top>12.01801cm</Top>
+        <Top>13.60551cm</Top>
         <Left>0.84349cm</Left>
         <Height>0.6cm</Height>
-        <Width>17.89546cm</Width>
+        <Width>21.31268cm</Width>
         <ZIndex>15</ZIndex>
         <Style>
           <Border>
@@ -1243,7 +1351,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox24</rd:DefaultName>
         <Top>0.72898cm</Top>
-        <Left>8.59169cm</Left>
+        <Left>10.97895cm</Left>
         <Height>1.09389cm</Height>
         <Width>2.79104cm</Width>
         <ZIndex>16</ZIndex>
@@ -1303,7 +1411,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Email Address: inquiry@funclub.com</Value>
+                <Value>Email Address: inquiry@fun-homeclub.com</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
@@ -1318,7 +1426,7 @@
         <Top>1.09044cm</Top>
         <Left>2.42239cm</Left>
         <Height>2.16049cm</Height>
-        <Width>5.99291cm</Width>
+        <Width>6.44872cm</Width>
         <ZIndex>17</ZIndex>
         <Style>
           <Border>
@@ -1405,8 +1513,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox32</rd:DefaultName>
-        <Top>8.69597cm</Top>
-        <Left>8.59169cm</Left>
+        <Top>10.28347cm</Top>
+        <Left>7.00419cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>20</ZIndex>
@@ -1436,7 +1544,7 @@
         </Paragraphs>
         <rd:DefaultName>date</rd:DefaultName>
         <Top>3.62106cm</Top>
-        <Left>16.23896cm</Left>
+        <Left>19.69146cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>21</ZIndex>
@@ -1465,7 +1573,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>employeeID</rd:DefaultName>
-        <Top>8.69597cm</Top>
+        <Top>10.28347cm</Top>
         <Left>3.38431cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -1497,8 +1605,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>totalCost</rd:DefaultName>
-        <Top>9.6012cm</Top>
-        <Left>16.31361cm</Left>
+        <Top>11.1887cm</Top>
+        <Left>19.76611cm</Left>
         <Height>0.6cm</Height>
         <Width>2.42535cm</Width>
         <ZIndex>23</ZIndex>
@@ -1529,8 +1637,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox40</rd:DefaultName>
-        <Top>8.69597cm</Top>
-        <Left>11.34745cm</Left>
+        <Top>10.28347cm</Top>
+        <Left>9.68058cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>24</ZIndex>
@@ -1581,7 +1689,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=(1-CDbl(Sum(Fields!discount.Value, "Membership")))*100 &amp; " OFF"</Value>
+                <Value>= IIf(((1 - IIf(IsNumeric(Sum(Fields!discount.Value, "Membership")),Sum(Fields!discount.Value, "Membership"), 1)) + (1 - IIf(IsNumeric(Sum(Fields!additionalDiscount.Value, "Promotion")),Sum(Fields!additionalDiscount.Value, "Promotion"),1))) *100 &lt;= 0 , "--", ((1 - IIf(IsNumeric(Sum(Fields!discount.Value, "Membership")),Sum(Fields!discount.Value, "Membership"), 1)) + (1 - IIf(IsNumeric(Sum(Fields!additionalDiscount.Value, "Promotion")),Sum(Fields!additionalDiscount.Value, "Promotion"),1))) *100 &amp; " OFF")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1591,8 +1699,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>discount</rd:DefaultName>
-        <Top>8.66069cm</Top>
-        <Left>16.31361cm</Left>
+        <Top>10.28347cm</Top>
+        <Left>19.76611cm</Left>
         <Height>0.6cm</Height>
         <Width>2.39007cm</Width>
         <ZIndex>26</ZIndex>
@@ -1621,11 +1729,235 @@
           </Border>
         </Style>
       </Image>
+      <Line Name="Line4">
+        <Top>8.255cm</Top>
+        <Left>0.89641cm</Left>
+        <Height>0cm</Height>
+        <Width>21.29505cm</Width>
+        <ZIndex>28</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox9">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Additional Discount</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox9</rd:DefaultName>
+        <Top>8.29028cm</Top>
+        <Left>0.76083cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.61125cm</Width>
+        <ZIndex>29</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Promotion ID:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>9.01319cm</Top>
+        <Left>0.76083cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>30</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Name:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>9.01319cm</Top>
+        <Left>7.00419cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>31</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox16">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Discount:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>9.01319cm</Top>
+        <Left>12.85229cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>32</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox26">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=IIf(First(Fields!promotionID.Value, "Promotion") Is Nothing, "--",First(Fields!promotionID.Value, "Promotion"))</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox26</rd:DefaultName>
+        <Top>9.01319cm</Top>
+        <Left>3.43722cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>33</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=IIf(First(Fields!name.Value, "Promotion") Is Nothing, "--",First(Fields!name.Value, "Promotion"))</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox27</rd:DefaultName>
+        <Top>9.01319cm</Top>
+        <Left>9.68058cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>34</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox28">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=IIf(Sum(Fields!additionalDiscount.Value, "Promotion") Is Nothing, "--",Sum(Fields!additionalDiscount.Value, "Promotion"))</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox28</rd:DefaultName>
+        <Top>9.01319cm</Top>
+        <Left>16.23896cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>35</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>6.5in</Height>
     <Style />
   </Body>
-  <Width>10.12664in</Width>
+  <Width>9.1in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -1665,10 +1997,6 @@
           <DataField>enrollDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="promotionID">
-          <DataField>promotionID</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="cost">
           <DataField>cost</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -1677,10 +2005,18 @@
           <DataField>invoiceID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="startPeriod">
+          <DataField>startPeriod</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="endPeriod">
+          <DataField>endPeriod</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>masterDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\VTC\GUI\Assigment\FunHomeClub\FunHomeClub\res\db\masterDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\res\db\masterDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>studentCourse</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1861,6 +2197,46 @@
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>membershipTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Promotion">
+      <Query>
+        <DataSourceName>masterDBDataSet</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="promotionID">
+          <DataField>promotionID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="name">
+          <DataField>name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="description">
+          <DataField>description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="additionalDiscount">
+          <DataField>additionalDiscount</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="startTime">
+          <DataField>startTime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="endTime">
+          <DataField>endTime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>masterDBDataSet</rd:DataSetName>
+        <rd:SchemaPath>D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\res\db\masterDBDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>promotion</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>promotionTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

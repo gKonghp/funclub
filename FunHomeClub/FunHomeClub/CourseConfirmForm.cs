@@ -31,6 +31,9 @@ namespace FunHomeClub
 
         private void CourseConfirmForm_Load(object sender, EventArgs e)
         {
+            this.lblPromotionID_d.Text = courseReg.lblPromotionID_d.Text;
+            this.lblPromotionName_d.Text = courseReg.lblPromotionName_d.Text;
+            this.lblPromotionDiscount_d.Text = courseReg.lblPromotionDiscount_d.Text;
             this.lblContactNum_d.Text = courseReg.lblContactNum_d.Text;
             this.lblDiscount_d.Text = courseReg.lblDiscount_d.Text;
             this.lblEmailAddress_d.Text = courseReg.lblEmailAddress_d.Text;
@@ -41,9 +44,6 @@ namespace FunHomeClub
             this.ltvRegCourseList.Items.Clear();
             foreach (ListViewItem item in courseReg.ltvRegCourseList.Items)
                 this.ltvRegCourseList.Items.Add((ListViewItem)item.Clone());
-            this.ltvRegCourseDetail.Items.Clear();
-            foreach (ListViewItem item in courseReg.ltvRegCourseDetail.Items)
-                this.ltvRegCourseDetail.Items.Add((ListViewItem)item.Clone()); ;
             this.lblTotal_d.Text = courseReg.lblTotal_d.Text;
         }
 
@@ -53,10 +53,15 @@ namespace FunHomeClub
             {
                 MessageBox.Show("Successful Registration");
 
+                InvoicePreviewForm frm1 = new InvoicePreviewForm(invoiceID);
+                frm1.MdiParent = this.MdiParent;
+                frm1.Dock = DockStyle.Fill;
+                frm1.FormBorderStyle = FormBorderStyle.None;
+                Utility.repaintFrameSize(this.MdiParent, frm1);
+                frm1.Show();
+
                 this.Dispose();
                 courseReg.Dispose();
-                InvoicePreviewForm frm1 = new InvoicePreviewForm(invoiceID);
-                frm1.ShowDialog();
             }
             else
                 MessageBox.Show("Fail Registration");
@@ -97,10 +102,19 @@ namespace FunHomeClub
             invoiceRow["date"] = nowStr;
 
             string totalCostStr = lblTotal_d.Text.Substring(2, lblTotal_d.Text.Length - 2);
-            invoiceRow["totalCost"] = Convert.ToInt32(totalCostStr);
+            double totalCost = Math.Round(Convert.ToDouble(totalCostStr));
+            invoiceRow["totalCost"] = Convert.ToInt32(totalCost);
             // ?????? Promotional ID?????
-            invoiceRow["promotionID"] = "123";
-            sql = string.Format("INSERT INTO Invoice VALUES('{0}', '{1}', '{2}', {3}, '{4}')", invoiceID, employeeID, nowStr, Convert.ToInt32(totalCostStr), "123");
+            string promotionID = lblPromotionID_d.Text;
+            if (promotionID.Equals("--"))
+            {
+                invoiceRow["promotionID"] = promotionID;
+                sql = string.Format("INSERT INTO Invoice(invoiceID, employeeID, [date], totalCost) VALUES('{0}', '{1}', '{2}', {3})", invoiceID, employeeID, nowStr, Convert.ToInt32(totalCost));
+            }
+            else
+            {
+                sql = string.Format("INSERT INTO Invoice VALUES('{0}', '{1}', '{2}', {3}, '{4}')", invoiceID, employeeID, nowStr, Convert.ToInt32(totalCost), promotionID);
+            }
             OleDbCommand invoiceCmd = new OleDbCommand(sql, conn);
             invoiceAdapter.InsertCommand = invoiceCmd;
             invoiceTable.Rows.Add(invoiceRow);
@@ -123,11 +137,15 @@ namespace FunHomeClub
                     studentCourseRow["studentID"] = lblStudentID_d.Text;
                     studentCourseRow["courseID"] = courseID;
                     studentCourseRow["enrollDate"] = nowStr;
-                   
-                    int cost = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(item.SubItems[Price.Index].Text)));
+                    int numPeriod = Convert.ToInt32(item.SubItems[endPeriod.Index].Text) - Convert.ToInt32(item.SubItems[startPeriod.Index].Text) + 1;
+                    int cost = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(item.SubItems[Price.Index].Text))) * numPeriod;
                     studentCourseRow["cost"] = cost;
                     studentCourseRow["invoiceID"] = invoiceID;
-                    sql = string.Format("INSERT INTO studentCourse VALUES('{0}', '{1}', '{2}', {3}, '{4}')", lblStudentID_d.Text, courseID, nowStr, cost, invoiceID);
+                    int _startPeriod = Convert.ToInt32(item.SubItems[startPeriod.Index].Text);
+                    int _endPeriod = Convert.ToInt32(item.SubItems[endPeriod.Index].Text);
+                    studentCourseRow["startPeriod"] = _startPeriod;
+                    studentCourseRow["endPeriod"] = _endPeriod;
+                    sql = string.Format("INSERT INTO studentCourse VALUES('{0}', '{1}', '{2}', {3}, '{4}', {5}, {6})", lblStudentID_d.Text, courseID, nowStr, cost, invoiceID, _startPeriod, _endPeriod);
                     OleDbCommand studentCourseRowCmd = new OleDbCommand(sql, conn);
                     studentCourseAdapter.InsertCommand = studentCourseRowCmd;
                     studentCourseTable.Rows.Add(studentCourseRow);
@@ -143,6 +161,26 @@ namespace FunHomeClub
                 MessageBox.Show(err.Message);
                 return false;
             }
+        }
+
+        private void lblDiscount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDiscount_d_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOriginalTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOriginalTotal_d_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
