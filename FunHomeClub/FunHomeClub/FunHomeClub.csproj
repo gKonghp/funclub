@@ -148,6 +148,12 @@
     <Compile Include="CourseDetail.Designer.cs">
       <DependentUpon>CourseDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseDetailControl.Designer.cs">
+      <DependentUpon>CourseDetailControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CoursePeriodForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewCourseForm.Designer.cs">
+      <DependentUpon>ViewCourseForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddCoursesForm.resx">
       <DependentUpon>AddCoursesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseDetail.resx">
       <DependentUpon>CourseDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseDetailControl.resx">
+      <DependentUpon>CourseDetailControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CoursePeriodForm.resx">
       <DependentUpon>CoursePeriodForm.cs</DependentUpon>
@@ -383,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherControl.resx">
       <DependentUpon>TeacherControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewCourseForm.resx">
+      <DependentUpon>ViewCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>

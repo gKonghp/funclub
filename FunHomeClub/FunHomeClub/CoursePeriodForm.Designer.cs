@@ -39,6 +39,9 @@
             this.lblCourseName = new System.Windows.Forms.Label();
             this.lblCourseID_d = new System.Windows.Forms.Label();
             this.lblCourseName_d = new System.Windows.Forms.Label();
+            this.lblMonthStatus = new System.Windows.Forms.Label();
+            this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbbPeriodFrom
@@ -166,12 +169,30 @@
             this.lblCourseName_d.TabIndex = 11;
             this.lblCourseName_d.Text = "--";
             // 
+            // lblMonthStatus
+            // 
+            this.lblMonthStatus.AutoSize = true;
+            this.lblMonthStatus.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMonthStatus.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblMonthStatus.Location = new System.Drawing.Point(16, 117);
+            this.lblMonthStatus.Name = "lblMonthStatus";
+            this.lblMonthStatus.Size = new System.Drawing.Size(20, 17);
+            this.lblMonthStatus.TabIndex = 12;
+            this.lblMonthStatus.Text = "--";
+            this.lblMonthStatus.Visible = false;
+            // 
+            // masterDBDataSet1
+            // 
+            this.masterDBDataSet1.DataSetName = "masterDBDataSet";
+            this.masterDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // CoursePeriodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(575, 141);
+            this.Controls.Add(this.lblMonthStatus);
             this.Controls.Add(this.lblCourseName_d);
             this.Controls.Add(this.lblCourseID_d);
             this.Controls.Add(this.lblCourseName);
@@ -187,6 +208,7 @@
             this.Name = "CoursePeriodForm";
             this.Text = "CoursePeriodForm";
             this.Load += new System.EventHandler(this.CoursePeriodForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +227,7 @@
         private System.Windows.Forms.Label lblCourseName;
         private System.Windows.Forms.Label lblCourseID_d;
         private System.Windows.Forms.Label lblCourseName_d;
+        private System.Windows.Forms.Label lblMonthStatus;
+        private res.db.masterDBDataSet masterDBDataSet1;
     }
 }

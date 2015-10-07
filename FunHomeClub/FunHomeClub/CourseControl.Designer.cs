@@ -31,7 +31,6 @@
             this.lstCourse = new System.Windows.Forms.ListView();
             this.CourseHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.quotaHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.weekdayHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.roomHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startTimeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,7 +53,6 @@
             this.lstCourse.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.CourseHeader,
             this.nameHeader,
-            this.quotaHeader,
             this.weekdayHeader,
             this.roomHeader,
             this.startTimeHeader,
@@ -82,10 +80,6 @@
             // nameHeader
             // 
             this.nameHeader.Text = "Name";
-            // 
-            // quotaHeader
-            // 
-            this.quotaHeader.Text = "Quota";
             // 
             // weekdayHeader
             // 
@@ -203,7 +197,6 @@
         private System.Windows.Forms.ListView lstCourse;
         private System.Windows.Forms.ColumnHeader CourseHeader;
         private System.Windows.Forms.ColumnHeader nameHeader;
-        private System.Windows.Forms.ColumnHeader quotaHeader;
         private System.Windows.Forms.ColumnHeader weekdayHeader;
         private System.Windows.Forms.ColumnHeader roomHeader;
         private System.Windows.Forms.ColumnHeader startTimeHeader;

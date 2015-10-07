@@ -37,7 +37,6 @@
             this.StartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Quota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -47,6 +46,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.CourseID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,9 +54,11 @@
             // 
             // lstCourseDetail
             // 
+            this.lstCourseDetail.AutoArrange = false;
             this.lstCourseDetail.BackColor = System.Drawing.SystemColors.Control;
             this.lstCourseDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Category,
+            this.CourseID,
             this.CourseName,
             this.Weekday,
             this.StartMonth,
@@ -64,7 +66,6 @@
             this.StartTime,
             this.EndTime,
             this.Price,
-            this.Quota,
             this.Room});
             this.lstCourseDetail.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstCourseDetail.Location = new System.Drawing.Point(12, 165);
@@ -90,19 +91,19 @@
             // 
             this.Weekday.Text = "Weekday";
             this.Weekday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Weekday.Width = 66;
+            this.Weekday.Width = 70;
             // 
             // StartMonth
             // 
             this.StartMonth.Text = "Start Month";
             this.StartMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.StartMonth.Width = 74;
+            this.StartMonth.Width = 75;
             // 
             // EndMonth
             // 
             this.EndMonth.Text = "End Month";
             this.EndMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.EndMonth.Width = 67;
+            this.EndMonth.Width = 73;
             // 
             // StartTime
             // 
@@ -120,12 +121,6 @@
             // 
             this.Price.Text = "Price";
             this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Quota
-            // 
-            this.Quota.Text = "Quota";
-            this.Quota.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Quota.Width = 53;
             // 
             // Room
             // 
@@ -220,9 +215,15 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(103, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 44);
+            this.label1.Size = new System.Drawing.Size(254, 44);
             this.label1.TabIndex = 1;
-            this.label1.Text = "View Course Details";
+            this.label1.Text = "Search Course";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // CourseID
+            // 
+            this.CourseID.Text = "Course ID";
+            this.CourseID.Width = 72;
             // 
             // SearchForm
             // 
@@ -250,7 +251,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListView lstCourseDetail;
         private System.Windows.Forms.ColumnHeader Category;
         private System.Windows.Forms.ColumnHeader CourseName;
         private System.Windows.Forms.ColumnHeader Weekday;
@@ -258,7 +258,6 @@
         private System.Windows.Forms.ColumnHeader EndMonth;
         private System.Windows.Forms.ColumnHeader StartTime;
         private System.Windows.Forms.ColumnHeader EndTime;
-        private System.Windows.Forms.ColumnHeader Quota;
         private System.Windows.Forms.ColumnHeader Room;
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Label label3;
@@ -269,6 +268,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ListView lstCourseDetail;
+        private System.Windows.Forms.ColumnHeader CourseID;
     }
 }
 

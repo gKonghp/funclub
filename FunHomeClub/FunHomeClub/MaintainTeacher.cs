@@ -25,6 +25,8 @@ namespace FunHomeClub
         {
             InitializeComponent();
             this.connection = connection;
+            txtContact.Tag = "contact";
+            
             if(!isAdd)
             {
                 this.teacherID = lstItem.SubItems[0].Text;
@@ -89,6 +91,7 @@ namespace FunHomeClub
                 {
                     case "TextBox":
                         TextBox tb = (TextBox)para[i];
+                        tb.Text = tb.Text.Trim();
                         if (tb.Text == "")
                         {
                             MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -96,10 +99,36 @@ namespace FunHomeClub
                         }
                         else
                         {
-                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            switch ((tb.Tag == null ? null : tb.Tag.ToString()))
                             {
-                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return false;
+                                case null:
+                                    if (!Regex.IsMatch(tb.Text, @"^[\sa-zA-Z0-9]+$") && tb.Multiline == false)
+                                    {
+                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "ns":
+                                    if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$"))
+                                    {
+                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "email":
+                                    if (!Regex.IsMatch(tb.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
+                                    {
+                                        MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "contact":
+                                    if (!Regex.IsMatch(tb.Text, @"^([2-3]|[5-6]|[9])[0-9]{7}$"))
+                                    {
+                                        MessageBox.Show("Not a valid phone format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
                             }
                         }
                         break;

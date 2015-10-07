@@ -25,6 +25,7 @@ namespace FunHomeClub
             btnSave.Text = buttonText;
             this.connection = connection;
             sql = "SELECT * FROM membership";
+            txtDiscount.Tag = "dot";
             initProgram();
         }
         public MaintainMembership(String buttonText, string msID, OleDbConnection connection)
@@ -35,7 +36,7 @@ namespace FunHomeClub
             this.msID = msID;
             sql = "SELECT * FROM membership WHERE membershipID = '" + msID + "'";
             initProgram();
-
+            txtDiscount.Tag = "dot";
             txtStatus.Text = dt.Rows[0]["status"].ToString();
             txtDiscount.Text = dt.Rows[0]["discount"].ToString();
         }
@@ -45,49 +46,32 @@ namespace FunHomeClub
             dt = new DataTable();
             dataAdapter.Fill(dt);
         }
-        private string findAvailableID()
+        private String getNextValidMembershipID()
         {
-            string idHeader = "ms";
-            string idMiddle = "000";
-            int idNumber = 1;
-
-            Console.WriteLine(idHeader + idMiddle + idNumber);
-            for(int i = 0; i < dt.Rows.Count; i++)
-            {
-                if (!dt.Rows[i]["membershipID"].ToString().Equals(idHeader + idMiddle + idNumber))
-                {
-                    return idHeader + idMiddle + idNumber;
-                }
-                else
-                {
-                    idNumber += 1;
-                    if (idNumber == 10 || idNumber == 100 || idNumber == 1000)
-                    {
-                        idMiddle = idMiddle.Substring(0, idMiddle.Length - 1);
-                    }
-                    else if (idNumber > 10000)
-                    {
-                        return "ERROR";
-                    }
-                }
-            }
-            return idHeader + idMiddle + idNumber;
+            DataTable dt = new DataTable();
+            string sql = "SELECT membershipID from membership order by membershipID desc";
+            dataAdapter = new OleDbDataAdapter(sql, connection);
+            dataAdapter.Fill(dt);
+            if (Int32.Parse(dt.Rows[0][0].ToString().Substring(2)) != dt.Rows.Count)
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    if (i + 1 != Int32.Parse(dt.Rows[dt.Rows.Count - i - 1][0].ToString().Substring(2)))
+                        return String.Format("ms{0:D4}", i + 1).ToString();
+            return String.Format("ms{0:D4}", Int32.Parse(dt.Rows[0][0].ToString().Substring(2)) + 1).ToString();
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (checkStringValid(txtStatus, txtDiscount))
             {
                 if (btnSave.Text.Equals("Add"))
                 {
-                    String id = findAvailableID();
+                    String id = getNextValidMembershipID();
                     if (id.Equals("ERROR"))
                     {
                         MessageBox.Show("Do not have any Available ID!");
                     }
                     else
                     {
-                        new OleDbCommand("Insert into membership values('" + id + "', '" + txtStatus.Text + "', " + txtDiscount.Text + ")", connection).ExecuteNonQuery();
+                        new OleDbCommand("Insert into membership values('" + id + "', '" + txtStatus.Text + "','" + txtDiscount.Text + "')", connection).ExecuteNonQuery();
                         MessageBox.Show("Adding membership successul!");
                         this.DialogResult = DialogResult.OK;
                     }
@@ -120,6 +104,7 @@ namespace FunHomeClub
                 {
                     case "TextBox":
                         TextBox tb = (TextBox)para[i];
+                        tb.Text = tb.Text.Trim();
                         if (tb.Text == "")
                         {
                             MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -127,10 +112,36 @@ namespace FunHomeClub
                         }
                         else
                         {
-                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            switch ((tb.Tag == null ? null : tb.Tag.ToString()))
                             {
-                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return false;
+                                case null:
+                                    if (!Regex.IsMatch(tb.Text, @"^[\sa-zA-Z0-9]+$") && tb.Multiline == false)
+                                    {
+                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "ns":
+                                    if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$"))
+                                    {
+                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "email":
+                                    if (!Regex.IsMatch(tb.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
+                                    {
+                                        MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "dot":
+                                    if(!Regex.IsMatch(tb.Text, @"^[0-9]*[.]?[0-9]*$"))
+                                    {
+                                        MessageBox.Show("Not a valid float number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
                             }
                         }
                         break;

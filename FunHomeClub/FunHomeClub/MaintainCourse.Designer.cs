@@ -525,8 +525,8 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnAdd);
             this.Name = "MaintainCourse";
             this.Text = "MaintainCourse";
             this.Load += new System.EventHandler(this.MaintainCourse_Load);

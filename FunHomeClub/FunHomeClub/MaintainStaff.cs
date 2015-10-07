@@ -17,6 +17,7 @@ namespace FunHomeClub
         OleDbConnection connection;
         OleDbDataAdapter dataAdapter;
         String employeeID;
+        String currentUsername;
         public MaintainStaff()
         {
             InitializeComponent();
@@ -27,12 +28,15 @@ namespace FunHomeClub
             btnAdd.Visible = isAdd;
             btnSave.Visible = !isAdd;
             this.connection = connection;
+            txtUsername.Tag = "ns";
+            txtPassword.Tag = "ns";
             if (!isAdd)
             {
                 this.employeeID = lstItem.SubItems[0].Text;
                 txtUsername.Text = lstItem.SubItems[1].Text;
                 txtPassword.Text = lstItem.SubItems[2].Text;
                 cboPosition.SelectedIndex = (lstItem.SubItems[3].Text.Equals("m") ? 0 : 1);
+                currentUsername = txtUsername.Text;
             }
         }
 
@@ -45,6 +49,14 @@ namespace FunHomeClub
         {
             if (checkStringValid(txtPassword, txtUsername, cboPosition))
             {
+                if(txtUsername.Text != currentUsername)
+                {
+                    if(!checkUsernameRepeat(txtUsername.Text))
+                    {
+                        MessageBox.Show("Username are exist already!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
                 String position = cboPosition.Text.Substring(0, 1).ToLower();
                 String sql = "update employee set username='" + txtUsername.Text + "',[password]='" + txtPassword.Text + "',[position]='" + position + "' where employeeID='" + employeeID + "'";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
@@ -69,6 +81,11 @@ namespace FunHomeClub
         {
             if (checkStringValid(txtPassword, txtUsername, cboPosition))
             {
+                if(!checkUsernameRepeat(txtUsername.Text))
+                {
+                    MessageBox.Show("Username are exist already!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 String position = cboPosition.Text.Substring(0, 1).ToLower();
                 String sql = "insert into employee values('" + getNextValidEmployeeID() + "','" + txtUsername.Text + "','" + txtPassword.Text + "','" + position + "')";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
@@ -76,6 +93,20 @@ namespace FunHomeClub
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+        private Boolean checkUsernameRepeat(String username)
+        {
+            DataTable dt = new DataTable();
+            string sql = "SELECT username from employee where username = '" + username + "'";
+            dataAdapter = new OleDbDataAdapter(sql, connection);
+            dataAdapter.Fill(dt);
+            if (dt.Rows.Count != 0){
+                return false;
+            }
+            else
+            {
+                return true;
+            };
         }
         private Boolean checkStringValid(params object[] para)
         {
@@ -85,6 +116,7 @@ namespace FunHomeClub
                 {
                     case "TextBox":
                         TextBox tb = (TextBox)para[i];
+                        tb.Text = tb.Text.Trim();
                         if (tb.Text == "")
                         {
                             MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -92,10 +124,29 @@ namespace FunHomeClub
                         }
                         else
                         {
-                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            switch ((tb.Tag == null ? null : tb.Tag.ToString()))
                             {
-                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return false;
+                                case null:
+                                    if (!Regex.IsMatch(tb.Text, @"^[\sa-zA-Z0-9]+$") && tb.Multiline == false)
+                                    {
+                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "ns":
+                                    if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$"))
+                                    {
+                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "email":
+                                    if (!Regex.IsMatch(tb.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
+                                    {
+                                        MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
                             }
                         }
                         break;
@@ -119,6 +170,11 @@ namespace FunHomeClub
                 }
             }
             return true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

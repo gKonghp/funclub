@@ -32,15 +32,13 @@
             this.txtStudentID = new System.Windows.Forms.TextBox();
             this.lblStudentID = new System.Windows.Forms.Label();
             this.ltvRegCourseDetail = new System.Windows.Forms.ListView();
-            this.CourseID_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CourseID_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Weekday_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.StartMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startPeriod_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endPeriod_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,7 +68,6 @@
             this.StartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Quota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -99,6 +96,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.EndMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.StartMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -137,6 +136,7 @@
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(100, 22);
             this.txtStudentID.TabIndex = 2;
+            this.txtStudentID.TextChanged += new System.EventHandler(this.txtStudentID_TextChanged);
             // 
             // lblStudentID
             // 
@@ -152,8 +152,8 @@
             // 
             this.ltvRegCourseDetail.BackColor = System.Drawing.SystemColors.Control;
             this.ltvRegCourseDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.CourseID_r,
             this.columnHeader11,
+            this.CourseID_r,
             this.columnHeader2,
             this.Weekday_r,
             this.columnHeader4,
@@ -176,13 +176,13 @@
             this.ltvRegCourseDetail.View = System.Windows.Forms.View.Details;
             this.ltvRegCourseDetail.DoubleClick += new System.EventHandler(this.ltvRegCourseDetail_DoubleClick);
             // 
-            // CourseID_r
-            // 
-            this.CourseID_r.Text = "CourseID";
-            // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "Category";
+            // 
+            // CourseID_r
+            // 
+            this.CourseID_r.Text = "CourseID";
             // 
             // columnHeader2
             // 
@@ -204,14 +204,6 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "End Time";
-            // 
-            // StartMonth_r
-            // 
-            this.StartMonth_r.Text = "Start Month";
-            // 
-            // EndMonth_r
-            // 
-            this.EndMonth_r.Text = "End Month";
             // 
             // columnHeader10
             // 
@@ -439,7 +431,6 @@
             this.StartTime,
             this.EndTime,
             this.Price,
-            this.Quota,
             this.Room,
             this.StartPeriod,
             this.EndPeriod});
@@ -489,10 +480,6 @@
             // Price
             // 
             this.Price.Text = "Price";
-            // 
-            // Quota
-            // 
-            this.Quota.Text = "Quota";
             // 
             // Room
             // 
@@ -804,6 +791,15 @@
             this.panel1.Size = new System.Drawing.Size(726, 71);
             this.panel1.TabIndex = 14;
             // 
+            // EndMonth_r
+            // 
+            this.EndMonth_r.Text = "End Month";
+            this.EndMonth_r.Width = 82;
+            // 
+            // StartMonth_r
+            // 
+            this.StartMonth_r.Text = "Start Month";
+            // 
             // CourseRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -883,8 +879,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader StartMonth_r;
-        private System.Windows.Forms.ColumnHeader EndMonth_r;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader Category;
         private System.Windows.Forms.ColumnHeader CourseName;
@@ -894,7 +888,6 @@
         private System.Windows.Forms.ColumnHeader EndMonth;
         private System.Windows.Forms.ColumnHeader StartTime;
         private System.Windows.Forms.ColumnHeader EndTime;
-        private System.Windows.Forms.ColumnHeader Quota;
         private System.Windows.Forms.ColumnHeader Room;
         private System.Windows.Forms.ColumnHeader Price;
         public System.Windows.Forms.Label lblTotal_d;
@@ -918,5 +911,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ColumnHeader StartMonth_r;
+        private System.Windows.Forms.ColumnHeader EndMonth_r;
     }
 }

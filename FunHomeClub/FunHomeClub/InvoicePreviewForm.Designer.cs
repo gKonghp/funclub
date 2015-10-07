@@ -51,6 +51,7 @@
             this.teacherTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.teacherTableAdapter();
             this.membershipTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.membershipTableAdapter();
             this.promotionTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.promotionTableAdapter();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.studentCourseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
@@ -103,7 +104,8 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             reportDataSource1.Name = "StudentCourse";
             reportDataSource1.Value = this.studentCourseBindingSource;
             reportDataSource2.Name = "Student";
@@ -125,7 +127,7 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "FunHomeClub.InvoiceReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(733, 378);
+            this.reportViewer1.Size = new System.Drawing.Size(733, 341);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
@@ -157,14 +159,33 @@
             // 
             this.promotionTableAdapter.ClearBeforeFill = true;
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Coral;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(333, 347);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // InvoicePreviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 378);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.reportViewer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "InvoicePreviewForm";
-            this.Text = "Form1";
+            this.Text = "Invoice Preview";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentCourseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet)).EndInit();
@@ -195,5 +216,6 @@
         private System.Windows.Forms.BindingSource promotionBindingSource;
         private res.db.masterDBDataSetTableAdapters.promotionTableAdapter promotionTableAdapter;
         public Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.Button btnClose;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -32,9 +33,16 @@ namespace FunHomeClub
             }
             else
             {
-                txtMargin.Enabled = false;
-                btnMargin.Text = "Modify";
-                new OleDbCommand("Update profitMargin SET percentage = " + txtMargin.Text, connection).ExecuteNonQuery();
+                if (Regex.IsMatch(txtMargin.Text, @"^([0-9]|[.][0-9])*$"))
+                {
+                    txtMargin.Enabled = false;
+                    btnMargin.Text = "Modify";
+                    new OleDbCommand("Update profitMargin SET percentage = " + txtMargin.Text, connection).ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("Margin only allow number input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error).ToString();
+                }
             }
         }
         private void ShowProfitMargin()

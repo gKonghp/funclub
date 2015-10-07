@@ -44,6 +44,8 @@ namespace FunHomeClub.res.db {
         
         private invoiceDataTable tableinvoice;
         
+        private courseMonthDataTable tablecourseMonth;
+        
         private global::System.Data.DataRelation relationcourseCategorycourse;
         
         private global::System.Data.DataRelation relationteachercourse;
@@ -59,6 +61,8 @@ namespace FunHomeClub.res.db {
         private global::System.Data.DataRelation relationemployeeinvoice;
         
         private global::System.Data.DataRelation relationpromotioninvoice;
+        
+        private global::System.Data.DataRelation relationcoursecourseMonth;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -117,6 +121,9 @@ namespace FunHomeClub.res.db {
                 }
                 if ((ds.Tables["invoice"] != null)) {
                     base.Tables.Add(new invoiceDataTable(ds.Tables["invoice"]));
+                }
+                if ((ds.Tables["courseMonth"] != null)) {
+                    base.Tables.Add(new courseMonthDataTable(ds.Tables["courseMonth"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -238,6 +245,16 @@ namespace FunHomeClub.res.db {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public courseMonthDataTable courseMonth {
+            get {
+                return this.tablecourseMonth;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -333,6 +350,9 @@ namespace FunHomeClub.res.db {
                 if ((ds.Tables["invoice"] != null)) {
                     base.Tables.Add(new invoiceDataTable(ds.Tables["invoice"]));
                 }
+                if ((ds.Tables["courseMonth"] != null)) {
+                    base.Tables.Add(new courseMonthDataTable(ds.Tables["courseMonth"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -426,6 +446,12 @@ namespace FunHomeClub.res.db {
                     this.tableinvoice.InitVars();
                 }
             }
+            this.tablecourseMonth = ((courseMonthDataTable)(base.Tables["courseMonth"]));
+            if ((initTable == true)) {
+                if ((this.tablecourseMonth != null)) {
+                    this.tablecourseMonth.InitVars();
+                }
+            }
             this.relationcourseCategorycourse = this.Relations["courseCategorycourse"];
             this.relationteachercourse = this.Relations["teachercourse"];
             this.relationmembershipstudent = this.Relations["membershipstudent"];
@@ -434,6 +460,7 @@ namespace FunHomeClub.res.db {
             this.relationinvoicestudentCourse = this.Relations["invoicestudentCourse"];
             this.relationemployeeinvoice = this.Relations["employeeinvoice"];
             this.relationpromotioninvoice = this.Relations["promotioninvoice"];
+            this.relationcoursecourseMonth = this.Relations["coursecourseMonth"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -464,6 +491,8 @@ namespace FunHomeClub.res.db {
             base.Tables.Add(this.tableteacher);
             this.tableinvoice = new invoiceDataTable();
             base.Tables.Add(this.tableinvoice);
+            this.tablecourseMonth = new courseMonthDataTable();
+            base.Tables.Add(this.tablecourseMonth);
             this.relationcourseCategorycourse = new global::System.Data.DataRelation("courseCategorycourse", new global::System.Data.DataColumn[] {
                         this.tablecourseCategory.categoryIDColumn}, new global::System.Data.DataColumn[] {
                         this.tablecourse.categoryIDColumn}, false);
@@ -496,6 +525,10 @@ namespace FunHomeClub.res.db {
                         this.tablepromotion.promotionIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableinvoice.promotionIDColumn}, false);
             this.Relations.Add(this.relationpromotioninvoice);
+            this.relationcoursecourseMonth = new global::System.Data.DataRelation("coursecourseMonth", new global::System.Data.DataColumn[] {
+                        this.tablecourse.courseIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablecourseMonth.courseIDColumn}, false);
+            this.Relations.Add(this.relationcoursecourseMonth);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -555,6 +588,12 @@ namespace FunHomeClub.res.db {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeinvoice() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializecourseMonth() {
             return false;
         }
         
@@ -643,6 +682,9 @@ namespace FunHomeClub.res.db {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void invoiceRowChangeEventHandler(object sender, invoiceRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void courseMonthRowChangeEventHandler(object sender, courseMonthRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -653,8 +695,6 @@ namespace FunHomeClub.res.db {
             private global::System.Data.DataColumn columncourseID;
             
             private global::System.Data.DataColumn columnname;
-            
-            private global::System.Data.DataColumn columnquota;
             
             private global::System.Data.DataColumn columnweekday;
             
@@ -724,14 +764,6 @@ namespace FunHomeClub.res.db {
             public global::System.Data.DataColumn nameColumn {
                 get {
                     return this.columnname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn quotaColumn {
-                get {
-                    return this.columnquota;
                 }
             }
             
@@ -860,12 +892,11 @@ namespace FunHomeClub.res.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public courseRow AddcourseRow(string courseID, string name, int quota, int weekday, string room, string startTime, string endTime, int teacherRate, int operatingCharges, courseCategoryRow parentcourseCategoryRowBycourseCategorycourse, teacherRow parentteacherRowByteachercourse, int startMonth, int endMonth, string description) {
+            public courseRow AddcourseRow(string courseID, string name, int weekday, string room, string startTime, string endTime, int teacherRate, int operatingCharges, courseCategoryRow parentcourseCategoryRowBycourseCategorycourse, teacherRow parentteacherRowByteachercourse, int startMonth, int endMonth, string description) {
                 courseRow rowcourseRow = ((courseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         courseID,
                         name,
-                        quota,
                         weekday,
                         room,
                         startTime,
@@ -878,10 +909,10 @@ namespace FunHomeClub.res.db {
                         endMonth,
                         description};
                 if ((parentcourseCategoryRowBycourseCategorycourse != null)) {
-                    columnValuesArray[9] = parentcourseCategoryRowBycourseCategorycourse[0];
+                    columnValuesArray[8] = parentcourseCategoryRowBycourseCategorycourse[0];
                 }
                 if ((parentteacherRowByteachercourse != null)) {
-                    columnValuesArray[10] = parentteacherRowByteachercourse[0];
+                    columnValuesArray[9] = parentteacherRowByteachercourse[0];
                 }
                 rowcourseRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcourseRow);
@@ -914,7 +945,6 @@ namespace FunHomeClub.res.db {
             internal void InitVars() {
                 this.columncourseID = base.Columns["courseID"];
                 this.columnname = base.Columns["name"];
-                this.columnquota = base.Columns["quota"];
                 this.columnweekday = base.Columns["weekday"];
                 this.columnroom = base.Columns["room"];
                 this.columnstartTime = base.Columns["startTime"];
@@ -935,8 +965,6 @@ namespace FunHomeClub.res.db {
                 base.Columns.Add(this.columncourseID);
                 this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
-                this.columnquota = new global::System.Data.DataColumn("quota", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnquota);
                 this.columnweekday = new global::System.Data.DataColumn("weekday", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnweekday);
                 this.columnroom = new global::System.Data.DataColumn("room", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1557,12 +1585,16 @@ namespace FunHomeClub.res.db {
                 base.Columns.Add(this.columnposition);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnemployeeID}, true));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnusername}, false));
                 this.columnemployeeID.AllowDBNull = false;
                 this.columnemployeeID.Unique = true;
                 this.columnemployeeID.MaxLength = 255;
+                this.columnusername.Unique = true;
                 this.columnusername.MaxLength = 255;
                 this.columnpassword.MaxLength = 255;
                 this.columnposition.MaxLength = 255;
+                this.CaseSensitive = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2124,6 +2156,7 @@ namespace FunHomeClub.res.db {
                 this.columnprofitMarginID.AllowDBNull = false;
                 this.columnprofitMarginID.Unique = true;
                 this.columnprofitMarginID.MaxLength = 255;
+                this.CaseSensitive = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3899,6 +3932,300 @@ namespace FunHomeClub.res.db {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class courseMonthDataTable : global::System.Data.TypedTableBase<courseMonthRow> {
+            
+            private global::System.Data.DataColumn columncourseID;
+            
+            private global::System.Data.DataColumn columnmonth;
+            
+            private global::System.Data.DataColumn columnquota;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public courseMonthDataTable() {
+                this.TableName = "courseMonth";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal courseMonthDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected courseMonthDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn courseIDColumn {
+                get {
+                    return this.columncourseID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn monthColumn {
+                get {
+                    return this.columnmonth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn quotaColumn {
+                get {
+                    return this.columnquota;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public courseMonthRow this[int index] {
+                get {
+                    return ((courseMonthRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event courseMonthRowChangeEventHandler courseMonthRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event courseMonthRowChangeEventHandler courseMonthRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event courseMonthRowChangeEventHandler courseMonthRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event courseMonthRowChangeEventHandler courseMonthRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddcourseMonthRow(courseMonthRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public courseMonthRow AddcourseMonthRow(courseRow parentcourseRowBycoursecourseMonth, string month, string quota) {
+                courseMonthRow rowcourseMonthRow = ((courseMonthRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        month,
+                        quota};
+                if ((parentcourseRowBycoursecourseMonth != null)) {
+                    columnValuesArray[0] = parentcourseRowBycoursecourseMonth[0];
+                }
+                rowcourseMonthRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcourseMonthRow);
+                return rowcourseMonthRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public courseMonthRow FindBycourseIDmonth(string courseID, string month) {
+                return ((courseMonthRow)(this.Rows.Find(new object[] {
+                            courseID,
+                            month})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                courseMonthDataTable cln = ((courseMonthDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new courseMonthDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columncourseID = base.Columns["courseID"];
+                this.columnmonth = base.Columns["month"];
+                this.columnquota = base.Columns["quota"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columncourseID = new global::System.Data.DataColumn("courseID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncourseID);
+                this.columnmonth = new global::System.Data.DataColumn("month", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmonth);
+                this.columnquota = new global::System.Data.DataColumn("quota", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquota);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columncourseID,
+                                this.columnmonth}, true));
+                this.columncourseID.AllowDBNull = false;
+                this.columncourseID.MaxLength = 255;
+                this.columnmonth.AllowDBNull = false;
+                this.columnmonth.MaxLength = 255;
+                this.columnquota.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public courseMonthRow NewcourseMonthRow() {
+                return ((courseMonthRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new courseMonthRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(courseMonthRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.courseMonthRowChanged != null)) {
+                    this.courseMonthRowChanged(this, new courseMonthRowChangeEvent(((courseMonthRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.courseMonthRowChanging != null)) {
+                    this.courseMonthRowChanging(this, new courseMonthRowChangeEvent(((courseMonthRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.courseMonthRowDeleted != null)) {
+                    this.courseMonthRowDeleted(this, new courseMonthRowChangeEvent(((courseMonthRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.courseMonthRowDeleting != null)) {
+                    this.courseMonthRowDeleting(this, new courseMonthRowChangeEvent(((courseMonthRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovecourseMonthRow(courseMonthRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                masterDBDataSet ds = new masterDBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "courseMonthDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class courseRow : global::System.Data.DataRow {
@@ -3936,22 +4263,6 @@ namespace FunHomeClub.res.db {
                 }
                 set {
                     this[this.tablecourse.nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int quota {
-                get {
-                    try {
-                        return ((int)(this[this.tablecourse.quotaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'course\' 中資料行 \'quota\' 的值是 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tablecourse.quotaColumn] = value;
                 }
             }
             
@@ -4167,18 +4478,6 @@ namespace FunHomeClub.res.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsquotaNull() {
-                return this.IsNull(this.tablecourse.quotaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetquotaNull() {
-                this[this.tablecourse.quotaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsweekdayNull() {
                 return this.IsNull(this.tablecourse.weekdayColumn);
             }
@@ -4317,6 +4616,17 @@ namespace FunHomeClub.res.db {
                 }
                 else {
                     return ((studentCourseRow[])(base.GetChildRows(this.Table.ChildRelations["coursestudentCourse"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public courseMonthRow[] GetcourseMonthRows() {
+                if ((this.Table.ChildRelations["coursecourseMonth"] == null)) {
+                    return new courseMonthRow[0];
+                }
+                else {
+                    return ((courseMonthRow[])(base.GetChildRows(this.Table.ChildRelations["coursecourseMonth"])));
                 }
             }
         }
@@ -5550,6 +5860,82 @@ namespace FunHomeClub.res.db {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class courseMonthRow : global::System.Data.DataRow {
+            
+            private courseMonthDataTable tablecourseMonth;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal courseMonthRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablecourseMonth = ((courseMonthDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string courseID {
+                get {
+                    return ((string)(this[this.tablecourseMonth.courseIDColumn]));
+                }
+                set {
+                    this[this.tablecourseMonth.courseIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string month {
+                get {
+                    return ((string)(this[this.tablecourseMonth.monthColumn]));
+                }
+                set {
+                    this[this.tablecourseMonth.monthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string quota {
+                get {
+                    try {
+                        return ((string)(this[this.tablecourseMonth.quotaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'courseMonth\' 中資料行 \'quota\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablecourseMonth.quotaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public courseRow courseRow {
+                get {
+                    return ((courseRow)(this.GetParentRow(this.Table.ParentRelations["coursecourseMonth"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["coursecourseMonth"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsquotaNull() {
+                return this.IsNull(this.tablecourseMonth.quotaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetquotaNull() {
+                this[this.tablecourseMonth.quotaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -5888,6 +6274,40 @@ namespace FunHomeClub.res.db {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class courseMonthRowChangeEvent : global::System.EventArgs {
+            
+            private courseMonthRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public courseMonthRowChangeEvent(courseMonthRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public courseMonthRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
@@ -6016,7 +6436,6 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             tableMapping.DataSetTable = "course";
             tableMapping.ColumnMappings.Add("courseID", "courseID");
             tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("quota", "quota");
             tableMapping.ColumnMappings.Add("weekday", "weekday");
             tableMapping.ColumnMappings.Add("room", "room");
             tableMapping.ColumnMappings.Add("startTime", "startTime");
@@ -6031,21 +6450,19 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `course` WHERE ((`courseID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `quota` IS NULL) OR (`quota` = ?)) AND ((? = 1 AND `weekday` IS NULL) OR (`weekday` = ?)) AND ((? = 1 AND `room` IS NULL) OR (`room` = ?)) AND ((? = 1 AND `startTime` IS NULL) OR (`startTime` = ?)) AND ((? = 1 AND `endTime` IS NULL) OR (`endTime` = ?)) AND ((? = 1 AND `teacherRate` IS NULL) OR (`teacherRate` = ?)) AND ((? = 1 AND `operatingCharges` IS NULL) OR (`operatingCharges` = ?)) AND ((? = 1 AND `categoryID` IS NULL) OR (`categoryID` = ?)) AND ((? = 1 AND `teacherID` IS NULL) OR (`teacherID` = ?)) AND ((? = 1 AND `startMonth` IS NULL) OR (`startMonth` = ?)) AND ((? = 1 AND `endMonth` IS NULL) OR (`endMonth` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `course` WHERE ((`courseID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `weekday` IS NULL) OR (`weekday` = ?)) AND ((? = 1 AND `room` IS NULL) OR (`room` = ?)) AND ((? = 1 AND `startTime` IS NULL) OR (`startTime` = ?)) AND ((? = 1 AND `endTime` IS NULL) OR (`endTime` = ?)) AND ((? = 1 AND `teacherRate` IS NULL) OR (`teacherRate` = ?)) AND ((? = 1 AND `operatingCharges` IS NULL) OR (`operatingCharges` = ?)) AND ((? = 1 AND `categoryID` IS NULL) OR (`categoryID` = ?)) AND ((? = 1 AND `teacherID` IS NULL) OR (`teacherID` = ?)) AND ((? = 1 AND `startMonth` IS NULL) OR (`startMonth` = ?)) AND ((? = 1 AND `endMonth` IS NULL) OR (`endMonth` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_quota", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_quota", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_weekday", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "weekday", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_weekday", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "weekday", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_room", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "room", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_room", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "room", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_startTime", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_startTime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_startTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_endTime", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_endTime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_endTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_teacherRate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "teacherRate", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_teacherRate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "teacherRate", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_operatingCharges", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "operatingCharges", global::System.Data.DataRowVersion.Original, true, null));
@@ -6060,18 +6477,16 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_endMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endMonth", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `course` (`courseID`, `name`, `quota`, `weekday`, `room`, `startTime`" +
-                ", `endTime`, `teacherRate`, `operatingCharges`, `categoryID`, `teacherID`, `star" +
-                "tMonth`, `endMonth`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                "?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `course` (`courseID`, `name`, `weekday`, `room`, `startTime`, `endTim" +
+                "e`, `teacherRate`, `operatingCharges`, `categoryID`, `teacherID`, `startMonth`, " +
+                "`endMonth`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("quota", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("weekday", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "weekday", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("room", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "room", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startTime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("endTime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("endTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("teacherRate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "teacherRate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("operatingCharges", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "operatingCharges", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("categoryID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "categoryID", global::System.Data.DataRowVersion.Current, false, null));
@@ -6081,15 +6496,14 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("description", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "description", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `course` SET `courseID` = ?, `name` = ?, `quota` = ?, `weekday` = ?, `room` = ?, `startTime` = ?, `endTime` = ?, `teacherRate` = ?, `operatingCharges` = ?, `categoryID` = ?, `teacherID` = ?, `startMonth` = ?, `endMonth` = ?, `description` = ? WHERE ((`courseID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `quota` IS NULL) OR (`quota` = ?)) AND ((? = 1 AND `weekday` IS NULL) OR (`weekday` = ?)) AND ((? = 1 AND `room` IS NULL) OR (`room` = ?)) AND ((? = 1 AND `startTime` IS NULL) OR (`startTime` = ?)) AND ((? = 1 AND `endTime` IS NULL) OR (`endTime` = ?)) AND ((? = 1 AND `teacherRate` IS NULL) OR (`teacherRate` = ?)) AND ((? = 1 AND `operatingCharges` IS NULL) OR (`operatingCharges` = ?)) AND ((? = 1 AND `categoryID` IS NULL) OR (`categoryID` = ?)) AND ((? = 1 AND `teacherID` IS NULL) OR (`teacherID` = ?)) AND ((? = 1 AND `startMonth` IS NULL) OR (`startMonth` = ?)) AND ((? = 1 AND `endMonth` IS NULL) OR (`endMonth` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `course` SET `courseID` = ?, `name` = ?, `weekday` = ?, `room` = ?, `startTime` = ?, `endTime` = ?, `teacherRate` = ?, `operatingCharges` = ?, `categoryID` = ?, `teacherID` = ?, `startMonth` = ?, `endMonth` = ?, `description` = ? WHERE ((`courseID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `weekday` IS NULL) OR (`weekday` = ?)) AND ((? = 1 AND `room` IS NULL) OR (`room` = ?)) AND ((? = 1 AND `startTime` IS NULL) OR (`startTime` = ?)) AND ((? = 1 AND `endTime` IS NULL) OR (`endTime` = ?)) AND ((? = 1 AND `teacherRate` IS NULL) OR (`teacherRate` = ?)) AND ((? = 1 AND `operatingCharges` IS NULL) OR (`operatingCharges` = ?)) AND ((? = 1 AND `categoryID` IS NULL) OR (`categoryID` = ?)) AND ((? = 1 AND `teacherID` IS NULL) OR (`teacherID` = ?)) AND ((? = 1 AND `startMonth` IS NULL) OR (`startMonth` = ?)) AND ((? = 1 AND `endMonth` IS NULL) OR (`endMonth` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("quota", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("weekday", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "weekday", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("room", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "room", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startTime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("endTime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("endTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("teacherRate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "teacherRate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("operatingCharges", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "operatingCharges", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("categoryID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "categoryID", global::System.Data.DataRowVersion.Current, false, null));
@@ -6100,16 +6514,14 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_quota", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_quota", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_weekday", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "weekday", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_weekday", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "weekday", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_room", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "room", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_room", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "room", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_startTime", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_startTime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_startTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startTime", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_endTime", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_endTime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_endTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endTime", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_teacherRate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "teacherRate", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_teacherRate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "teacherRate", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_operatingCharges", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "operatingCharges", global::System.Data.DataRowVersion.Original, true, null));
@@ -6137,9 +6549,8 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT courseID, name, quota, weekday, room, startTime, endTime, teacherRate, ope" +
-                "ratingCharges, categoryID, teacherID, startMonth, endMonth, description FROM cou" +
-                "rse";
+            this._commandCollection[0].CommandText = "SELECT courseID, name, weekday, room, startTime, endTime, teacherRate, operatingC" +
+                "harges, categoryID, teacherID, startMonth, endMonth, description FROM course";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6200,7 +6611,7 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_courseID, string Original_name, int Original_quota, int Original_weekday, string Original_room, string Original_startTime, string Original_endTime, int Original_teacherRate, int Original_operatingCharges, string Original_categoryID, string Original_teacherID, int Original_startMonth, int Original_endMonth) {
+        public virtual int Delete(string Original_courseID, string Original_name, int Original_weekday, string Original_room, System.DateTime Original_startTime, System.DateTime Original_endTime, int Original_teacherRate, int Original_operatingCharges, string Original_categoryID, string Original_teacherID, int Original_startMonth, int Original_endMonth) {
             if ((Original_courseID == null)) {
                 throw new global::System.ArgumentNullException("Original_courseID");
             }
@@ -6215,52 +6626,40 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
             }
             this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_quota));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_weekday));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_weekday));
             if ((Original_room == null)) {
                 throw new global::System.ArgumentNullException("Original_room");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_room));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_room));
             }
-            if ((Original_startTime == null)) {
-                throw new global::System.ArgumentNullException("Original_startTime");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_startTime));
-            }
-            if ((Original_endTime == null)) {
-                throw new global::System.ArgumentNullException("Original_endTime");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_endTime));
-            }
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_startTime));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_endTime));
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_teacherRate));
             this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_teacherRate));
-            this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_operatingCharges));
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_operatingCharges));
             if ((Original_categoryID == null)) {
                 throw new global::System.ArgumentNullException("Original_categoryID");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_categoryID));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_categoryID));
             }
             if ((Original_teacherID == null)) {
                 throw new global::System.ArgumentNullException("Original_teacherID");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_teacherID));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_teacherID));
             }
+            this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_startMonth));
             this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[22].Value = ((int)(Original_startMonth));
-            this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(Original_endMonth));
+            this.Adapter.DeleteCommand.Parameters[22].Value = ((int)(Original_endMonth));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6281,7 +6680,7 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string courseID, string name, int quota, int weekday, string room, string startTime, string endTime, int teacherRate, int operatingCharges, string categoryID, string teacherID, int startMonth, int endMonth, string description) {
+        public virtual int Insert(string courseID, string name, int weekday, string room, System.DateTime startTime, System.DateTime endTime, int teacherRate, int operatingCharges, string categoryID, string teacherID, int startMonth, int endMonth, string description) {
             if ((courseID == null)) {
                 throw new global::System.ArgumentNullException("courseID");
             }
@@ -6294,47 +6693,36 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(name));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(quota));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(weekday));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(weekday));
             if ((room == null)) {
                 throw new global::System.ArgumentNullException("room");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(room));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(room));
             }
-            if ((startTime == null)) {
-                throw new global::System.ArgumentNullException("startTime");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(startTime));
-            }
-            if ((endTime == null)) {
-                throw new global::System.ArgumentNullException("endTime");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(endTime));
-            }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(teacherRate));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(operatingCharges));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(startTime));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(endTime));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(teacherRate));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(operatingCharges));
             if ((categoryID == null)) {
                 throw new global::System.ArgumentNullException("categoryID");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(categoryID));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(categoryID));
             }
             if ((teacherID == null)) {
                 throw new global::System.ArgumentNullException("teacherID");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(teacherID));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(teacherID));
             }
-            this.Adapter.InsertCommand.Parameters[11].Value = ((int)(startMonth));
-            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(endMonth));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(startMonth));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((int)(endMonth));
             if ((description == null)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(description));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(description));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6359,11 +6747,10 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
         public virtual int Update(
                     string courseID, 
                     string name, 
-                    int quota, 
                     int weekday, 
                     string room, 
-                    string startTime, 
-                    string endTime, 
+                    System.DateTime startTime, 
+                    System.DateTime endTime, 
                     int teacherRate, 
                     int operatingCharges, 
                     string categoryID, 
@@ -6373,11 +6760,10 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                     string description, 
                     string Original_courseID, 
                     string Original_name, 
-                    int Original_quota, 
                     int Original_weekday, 
                     string Original_room, 
-                    string Original_startTime, 
-                    string Original_endTime, 
+                    System.DateTime Original_startTime, 
+                    System.DateTime Original_endTime, 
                     int Original_teacherRate, 
                     int Original_operatingCharges, 
                     string Original_categoryID, 
@@ -6396,108 +6782,85 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(name));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(quota));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(weekday));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(weekday));
             if ((room == null)) {
                 throw new global::System.ArgumentNullException("room");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(room));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(room));
             }
-            if ((startTime == null)) {
-                throw new global::System.ArgumentNullException("startTime");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(startTime));
-            }
-            if ((endTime == null)) {
-                throw new global::System.ArgumentNullException("endTime");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(endTime));
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(teacherRate));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(operatingCharges));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(startTime));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(endTime));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(teacherRate));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(operatingCharges));
             if ((categoryID == null)) {
                 throw new global::System.ArgumentNullException("categoryID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(categoryID));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(categoryID));
             }
             if ((teacherID == null)) {
                 throw new global::System.ArgumentNullException("teacherID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(teacherID));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(teacherID));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(startMonth));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(endMonth));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(startMonth));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(endMonth));
             if ((description == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(description));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(description));
             }
             if ((Original_courseID == null)) {
                 throw new global::System.ArgumentNullException("Original_courseID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_courseID));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_courseID));
             }
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_name));
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_quota));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_weekday));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_weekday));
             if ((Original_room == null)) {
                 throw new global::System.ArgumentNullException("Original_room");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_room));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_room));
             }
-            if ((Original_startTime == null)) {
-                throw new global::System.ArgumentNullException("Original_startTime");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_startTime));
-            }
-            if ((Original_endTime == null)) {
-                throw new global::System.ArgumentNullException("Original_endTime");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_endTime));
-            }
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_teacherRate));
-            this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_operatingCharges));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_startTime));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_endTime));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_teacherRate));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_operatingCharges));
             if ((Original_categoryID == null)) {
                 throw new global::System.ArgumentNullException("Original_categoryID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_categoryID));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_categoryID));
             }
             if ((Original_teacherID == null)) {
                 throw new global::System.ArgumentNullException("Original_teacherID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_teacherID));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_teacherID));
             }
-            this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_startMonth));
-            this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_endMonth));
+            this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_startMonth));
+            this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_endMonth));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6520,11 +6883,10 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     string name, 
-                    int quota, 
                     int weekday, 
                     string room, 
-                    string startTime, 
-                    string endTime, 
+                    System.DateTime startTime, 
+                    System.DateTime endTime, 
                     int teacherRate, 
                     int operatingCharges, 
                     string categoryID, 
@@ -6534,18 +6896,17 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                     string description, 
                     string Original_courseID, 
                     string Original_name, 
-                    int Original_quota, 
                     int Original_weekday, 
                     string Original_room, 
-                    string Original_startTime, 
-                    string Original_endTime, 
+                    System.DateTime Original_startTime, 
+                    System.DateTime Original_endTime, 
                     int Original_teacherRate, 
                     int Original_operatingCharges, 
                     string Original_categoryID, 
                     string Original_teacherID, 
                     int Original_startMonth, 
                     int Original_endMonth) {
-            return this.Update(Original_courseID, name, quota, weekday, room, startTime, endTime, teacherRate, operatingCharges, categoryID, teacherID, startMonth, endMonth, description, Original_courseID, Original_name, Original_quota, Original_weekday, Original_room, Original_startTime, Original_endTime, Original_teacherRate, Original_operatingCharges, Original_categoryID, Original_teacherID, Original_startMonth, Original_endMonth);
+            return this.Update(Original_courseID, name, weekday, room, startTime, endTime, teacherRate, operatingCharges, categoryID, teacherID, startMonth, endMonth, description, Original_courseID, Original_name, Original_weekday, Original_room, Original_startTime, Original_endTime, Original_teacherRate, Original_operatingCharges, Original_categoryID, Original_teacherID, Original_startMonth, Original_endMonth);
         }
     }
     
@@ -10114,6 +10475,377 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class courseMonthTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public courseMonthTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "courseMonth";
+            tableMapping.ColumnMappings.Add("courseID", "courseID");
+            tableMapping.ColumnMappings.Add("month", "month");
+            tableMapping.ColumnMappings.Add("quota", "quota");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `courseMonth` WHERE ((`courseID` = ?) AND (`month` = ?) AND ((? = 1 A" +
+                "ND `quota` IS NULL) OR (`quota` = ?)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_month", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_quota", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_quota", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `courseMonth` (`courseID`, `month`, `quota`) VALUES (?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("month", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("quota", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `courseMonth` SET `courseID` = ?, `month` = ?, `quota` = ? WHERE ((`course" +
+                "ID` = ?) AND (`month` = ?) AND ((? = 1 AND `quota` IS NULL) OR (`quota` = ?)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("month", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("quota", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_month", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_quota", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_quota", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quota", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::FunHomeClub.Properties.Settings.Default.masterDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT courseID, [month], quota FROM courseMonth";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(masterDBDataSet.courseMonthDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual masterDBDataSet.courseMonthDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            masterDBDataSet.courseMonthDataTable dataTable = new masterDBDataSet.courseMonthDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(masterDBDataSet.courseMonthDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(masterDBDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "courseMonth");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_courseID, string Original_month, string Original_quota) {
+            if ((Original_courseID == null)) {
+                throw new global::System.ArgumentNullException("Original_courseID");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_courseID));
+            }
+            if ((Original_month == null)) {
+                throw new global::System.ArgumentNullException("Original_month");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_month));
+            }
+            if ((Original_quota == null)) {
+                throw new global::System.ArgumentNullException("Original_quota");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_quota));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string courseID, string month, string quota) {
+            if ((courseID == null)) {
+                throw new global::System.ArgumentNullException("courseID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(courseID));
+            }
+            if ((month == null)) {
+                throw new global::System.ArgumentNullException("month");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(month));
+            }
+            if ((quota == null)) {
+                throw new global::System.ArgumentNullException("quota");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(quota));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string courseID, string month, string quota, string Original_courseID, string Original_month, string Original_quota) {
+            if ((courseID == null)) {
+                throw new global::System.ArgumentNullException("courseID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(courseID));
+            }
+            if ((month == null)) {
+                throw new global::System.ArgumentNullException("month");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(month));
+            }
+            if ((quota == null)) {
+                throw new global::System.ArgumentNullException("quota");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(quota));
+            }
+            if ((Original_courseID == null)) {
+                throw new global::System.ArgumentNullException("Original_courseID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_courseID));
+            }
+            if ((Original_month == null)) {
+                throw new global::System.ArgumentNullException("Original_month");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_month));
+            }
+            if ((Original_quota == null)) {
+                throw new global::System.ArgumentNullException("Original_quota");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_quota));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string quota, string Original_courseID, string Original_month, string Original_quota) {
+            return this.Update(Original_courseID, Original_month, quota, Original_courseID, Original_month, Original_quota);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10144,6 +10876,8 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
         private teacherTableAdapter _teacherTableAdapter;
         
         private invoiceTableAdapter _invoiceTableAdapter;
+        
+        private courseMonthTableAdapter _courseMonthTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -10302,6 +11036,20 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public courseMonthTableAdapter courseMonthTableAdapter {
+            get {
+                return this._courseMonthTableAdapter;
+            }
+            set {
+                this._courseMonthTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -10359,6 +11107,10 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                             && (this._invoiceTableAdapter.Connection != null))) {
                     return this._invoiceTableAdapter.Connection;
                 }
+                if (((this._courseMonthTableAdapter != null) 
+                            && (this._courseMonthTableAdapter.Connection != null))) {
+                    return this._courseMonthTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -10400,6 +11152,9 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                     count = (count + 1);
                 }
                 if ((this._invoiceTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._courseMonthTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -10503,6 +11258,15 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._courseMonthTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.courseMonth.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._courseMonthTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -10593,6 +11357,14 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._courseMonthTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.courseMonth.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._courseMonthTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -10603,6 +11375,14 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(masterDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._courseMonthTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.courseMonth.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._courseMonthTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._studentCourseTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.studentCourse.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -10762,6 +11542,10 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                         && (this.MatchTableAdapterConnection(this._invoiceTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("所有以 TableAdapterManager 管理的 TableAdapters 必須使用相同的連接字串。");
             }
+            if (((this._courseMonthTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._courseMonthTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("所有以 TableAdapterManager 管理的 TableAdapters 必須使用相同的連接字串。");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager 未包含連接資訊。請將每個 TableAdapterManager 的 TableAdapter 屬性設成有效的 Table" +
@@ -10883,6 +11667,15 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._invoiceTableAdapter.Adapter);
                     }
                 }
+                if ((this._courseMonthTableAdapter != null)) {
+                    revertConnections.Add(this._courseMonthTableAdapter, this._courseMonthTableAdapter.Connection);
+                    this._courseMonthTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._courseMonthTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._courseMonthTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._courseMonthTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._courseMonthTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -10980,6 +11773,10 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                 if ((this._invoiceTableAdapter != null)) {
                     this._invoiceTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._invoiceTableAdapter]));
                     this._invoiceTableAdapter.Transaction = null;
+                }
+                if ((this._courseMonthTableAdapter != null)) {
+                    this._courseMonthTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._courseMonthTableAdapter]));
+                    this._courseMonthTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

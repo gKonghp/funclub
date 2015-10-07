@@ -14,12 +14,13 @@ namespace FunHomeClub
     public partial class MainForm : Form
     {
         public Employee employee { get; set; }
-        private MenuForm frmMenu;
+        public MenuForm frmMenu;
         private AdminMainForm frmAdminMain;
         private CourseRegForm frmCourseReg;
         private SearchForm frmSearch;
+        private ViewCourseForm frmViewCourse;
         private InvoiceHistoryForm frmInvoiceHistory;
-        private OleDbConnection connection;
+        public OleDbConnection connection;
 	public bool enableAdvanceRight{get; set;}
         public MainForm(OleDbConnection connection)
         {
@@ -142,11 +143,11 @@ namespace FunHomeClub
 
         private void viewCourseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSearch = new SearchForm();
-            frmSearch.MdiParent = this;
-            frmSearch.Dock = DockStyle.Fill;
-            Utility.repaintFrameSize(this, frmSearch);
-            frmSearch.Show();
+            frmViewCourse = new ViewCourseForm(connection);
+            frmViewCourse.MdiParent = this;
+            frmViewCourse.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this, frmViewCourse);
+            frmViewCourse.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
                 this.MdiChildren[i].Dispose();
@@ -210,6 +211,18 @@ namespace FunHomeClub
                 maintainPromotionToolStripMenuItem.Visible = false;
                 setProfitToolStripMenuItem.Visible = false;
             }
+        }
+
+        private void searchCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSearch = new SearchForm();
+            frmSearch.MdiParent = this;
+            frmSearch.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this, frmSearch);
+            frmSearch.Show();
+            int frmCount = this.MdiChildren.Count();
+            for (int i = 0; i < frmCount - 1; i++)
+                this.MdiChildren[i].Dispose();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace FunHomeClub
 {
@@ -18,7 +19,6 @@ namespace FunHomeClub
         private OleDbConnection conn;
         private OleDbDataAdapter adapter;
         private AddPromotionForm frmAddPromotion;
-        private string membershipID;
         private double discount;
         private DataTable courseTables;
         private double precentage;
@@ -47,6 +47,44 @@ namespace FunHomeClub
 
         private void btnStudIDEnter_Click(object sender, EventArgs e)
         {
+            if (Utility.checkFieldPresense(txtStudentID))
+            {
+                txtStudentID.BackColor = Color.IndianRed;
+                MessageBox.Show("StudentID cannot be empty.");
+                txtStudentID.Focus();
+                return;
+            }
+            if (!Regex.IsMatch(txtStudentID.Text, @"^[a-zA-Z0-9]+$"))
+            {
+                txtStudentID.BackColor = Color.IndianRed;
+                MessageBox.Show("StudentID is Alphanumeric.");
+                txtStudentID.Focus();
+                return;
+            }
+            // Reset
+            ltvRegCourseDetail.Items.Clear();
+            ltvRegCourseList.Items.Clear();
+            lblContactNum_d.Text = "--";
+            lblDiscount_d.Text = "--";
+            lblStudName_d.Text = "--";
+            lblEmailAddress_d.Text = "--";
+            lblMembership_d.Text = "--";
+            lblOriginalTotal_d.Text = "--";
+            lblTotal_d.Text = "--";
+            lblPromotionDiscount_d.Text = "";
+            lblPromotionID_d.Text = "";
+            lblPromotionName_d.Text = "";
+            btnAdd.Enabled = false;
+            btnClear.Enabled = false;
+            btnDel.Enabled = false;
+            btnView.Enabled = false;
+            btnRegister.Enabled = false;
+            btnDiscountView.Enabled = false;
+            btnDiscountClear.Enabled = false;
+            btnDiscountAdd.Enabled = false;
+
+
+            // End reset
             string sql;
             OleDbCommand selectCmd;
             studentID = txtStudentID.Text;
@@ -69,12 +107,13 @@ namespace FunHomeClub
             if (masterDBDataSet.student.Count > 0)
             {
                 //student fields
-                membershipID = masterDBDataSet.student.Rows[0]["membershipID"].ToString();
+                string membershipID = masterDBDataSet.student.Rows[0]["membershipID"].ToString();
                 string phoneNumber = masterDBDataSet.student.Rows[0]["phoneNumber"].ToString();
                 string email = masterDBDataSet.student.Rows[0]["email"].ToString();
                 string name = masterDBDataSet.student.Rows[0]["name"].ToString();
 
                 // fetch details from membership table
+                masterDBDataSet.membership.Clear();
                 sql = string.Format("SELECT * FROM Membership WHERE membershipID = '{0}'", membershipID);
                 selectCmd = new OleDbCommand(sql, conn);
                 adapter.SelectCommand = selectCmd;
@@ -137,17 +176,17 @@ namespace FunHomeClub
                 foreach (DataRow row in courseTables.Rows)
                 {
 
-                    ListViewItem item = new ListViewItem(row["courseID"].ToString());
                     string categoryID = row["categoryID"].ToString();
                     sql = string.Format("SELECT * FROM courseCategory WHERE categoryID = '{0}'", categoryID);
                     adapter = new OleDbDataAdapter(sql, conn);
                     adapter.Fill(masterDBDataSet.courseCategory);
+                    ListViewItem item = new ListViewItem(masterDBDataSet.courseCategory.Rows[0]["name"].ToString());
                         //adapter.Dispose();
                         //adapter = new OleDbDataAdapter(sql, conn);
                         //item.SubItems.Add(row["categoryID"].ToString());
                         //foreach (DataRow subRow in masterDBDataSet.courseCategory.Rows)
                         //{
-                    item.SubItems.Add(masterDBDataSet.courseCategory.Rows[0]["name"].ToString());
+                    item.SubItems.Add(row["courseID"].ToString());
                        //}
                     item.SubItems.Add(row["name"].ToString());
                     item.SubItems.Add(row["weekday"].ToString());
@@ -187,7 +226,9 @@ namespace FunHomeClub
                 btnView.Enabled = false;
                 btnDel.Enabled = false;
                 btnClear.Enabled = false;
+                txtStudentID.BackColor = Color.IndianRed;
                 MessageBox.Show(string.Format("{0} is not found.",studentID));
+                txtStudentID.Focus();
             }
             
         }
@@ -196,7 +237,7 @@ namespace FunHomeClub
         {
             if (ltvRegCourseDetail.SelectedItems.Count > 0) {
                 int idx = ltvRegCourseDetail.SelectedItems[0].Index;
-                CourseDetail cd = new CourseDetail(conn, masterDBDataSet.course.Rows[idx]["courseID"].ToString(), precentage);
+                CourseDetail cd = new CourseDetail(conn, masterDBDataSet.course.Rows[idx]["courseID"].ToString());
                 cd.ShowDialog();
             }
         }
@@ -211,7 +252,7 @@ namespace FunHomeClub
                 btnRegister.Enabled = false;
         }
 
-        public bool IsQuotaRemain(string courseID)
+       /* public bool IsQuotaRemain(string courseID)
         {
             string sql = string.Format("SELECT courseId, quota FROM Course WHERE courseID = '{0}'", courseID);
             adapter = new OleDbDataAdapter(sql, conn);
@@ -230,7 +271,7 @@ namespace FunHomeClub
                 MessageBox.Show(courseID + "'s quota has been 0 already. \nCannot assign this course.");
                 return false;
             }
-        }
+        }*/
 
         public bool IsCourseClashInTime(string courseID, int startPeriod, int endPeriod)
         {
@@ -247,11 +288,11 @@ namespace FunHomeClub
             //Check whether registered before
             foreach (ListViewItem item in ltvRegCourseDetail.Items)
             {
-                if (courseID.Equals(item.SubItems[CourseID_r.Index].Text))
-                {
-                    MessageBox.Show(courseID + " have been reistered already");
-                    return true;
-                }
+                //if (courseID.Equals(item.SubItems[CourseID_r.Index].Text))
+                //{
+                //    MessageBox.Show(courseID + " have been reistered already");
+                //    return true;
+                //}
                 //int previousStartMonth = Convert.ToInt32(item.SubItems[StartMonth.Index].Text);
                 //int previousEndMonth = Convert.ToInt32(item.SubItems[EndMonth.Index].Text);
                 //int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
@@ -261,22 +302,23 @@ namespace FunHomeClub
                 int previousWeekday = Convert.ToInt32(item.SubItems[Weekday_r.Index].Text);
                 string previousCourseID = item.SubItems[CourseID_r.Index].Text;
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
-                if ((startPeriod >= previousStartPeriod && startPeriod <= previousEndPeriod) || (endPeriod >= previousStartPeriod && endPeriod <= previousEndPeriod) || (startPeriod >= previousStartPeriod && previousStartPeriod <= endPeriod) || (startPeriod >= previousEndPeriod && previousEndPeriod <= endPeriod))
+                if ((startPeriod >= previousStartPeriod && startPeriod <= previousEndPeriod) || (endPeriod >= previousStartPeriod && endPeriod <= previousEndPeriod) || (startPeriod <= previousStartPeriod && previousStartPeriod <= endPeriod) || (startPeriod <= previousEndPeriod && previousEndPeriod <= endPeriod))
                 {
+
                     if (weekday == previousWeekday)
                     {
-                        MessageBox.Show(courseID + " and " + previousCourseID + " have been clashed on Day" + weekday);
+                        MessageBox.Show(courseID + "[" + startPeriod + "-" + endPeriod + "month]" + " and " + previousCourseID + "[" + previousStartPeriod + "-" + previousEndPeriod + "month]" + " have been clashed on Day" + weekday);
                         return true;
                     }
                 }
             }
             foreach (ListViewItem item in ltvRegCourseList.Items)
             {
-                if (courseID.Equals(item.SubItems[CourseID.Index].Text))
-                {
-                    MessageBox.Show(courseID + " have been added into list already");
-                    return true;
-                }
+                //if (courseID.Equals(item.SubItems[CourseID.Index].Text))
+                //{
+                //    MessageBox.Show(courseID + " have been added into list already");
+                //    return true;
+                //}
                 //int previousStartMonth = Convert.ToInt32(item.SubItems[StartMonth.Index].Text);
                 //int previousEndMonth = Convert.ToInt32(item.SubItems[EndMonth.Index].Text);
                 //int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
@@ -288,11 +330,12 @@ namespace FunHomeClub
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
                 //if ((startMonth >= previousStartMonth && startMonth <= previousEndMonth) || (endMonth >= previousStartMonth && endMonth <= previousEndMonth) || (startMonth >= previousStartMonth && previousStartMonth <= endMonth) || (startMonth >= previousEndMonth && previousEndMonth <= endMonth))
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
-                if ((startPeriod >= previousStartPeriod && startPeriod <= previousEndPeriod) || (endPeriod >= previousStartPeriod && endPeriod <= previousEndPeriod) || (startPeriod >= previousStartPeriod && previousStartPeriod <= endPeriod) || (startPeriod >= previousEndPeriod && previousEndPeriod <= endPeriod))
+                if ((startPeriod >= previousStartPeriod && startPeriod <= previousEndPeriod) || (endPeriod >= previousStartPeriod && endPeriod <= previousEndPeriod) || (startPeriod <= previousStartPeriod && previousStartPeriod <= endPeriod) || (startPeriod <= previousEndPeriod && previousEndPeriod <= endPeriod))
                 {
+
                     if (weekday == previousWeekday)
                     {
-                        MessageBox.Show(courseID + " and " + previousCourseID + " have been clashed on Day" + weekday);
+                        MessageBox.Show(courseID + "[" + startPeriod + "-" + endPeriod + "month]" + " and " + previousCourseID + "[" + previousStartPeriod + "-" + previousEndPeriod + "month]" + " have been clashed on Day" + weekday);
                         return true;
                     }
                 }
@@ -301,7 +344,7 @@ namespace FunHomeClub
 
             return false;
         }
-        public bool IsCourseClashInList(string courseID)
+        public bool IsCourseClashInList(string courseID, int startPeriod, int endPeriod)
         {
             string sql = string.Format("SELECT courseId, weekday, startMonth, endMonth FROM Course WHERE courseID = '{0}'", courseID);
             adapter = new OleDbDataAdapter(sql,conn);
@@ -316,59 +359,60 @@ namespace FunHomeClub
             //Check whether registered before
             foreach (ListViewItem item in ltvRegCourseDetail.Items)
             {
-                if (courseID.Equals(item.SubItems[CourseID_r.Index].Text))
-                {
-                    MessageBox.Show(courseID + " have been reistered already");
-                    return true;
-                }
+                //if (courseID.Equals(item.SubItems[CourseID_r.Index].Text))
+                //{
+                //    MessageBox.Show(courseID + " have been reistered already");
+                //    return true;
+                //}
                 //int previousStartMonth = Convert.ToInt32(item.SubItems[StartMonth.Index].Text);
                 //int previousEndMonth = Convert.ToInt32(item.SubItems[EndMonth.Index].Text);
                 //int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
                 //string previousCourseID = item.SubItems[CourseID.Index].Text;
-                //int previousStartPeriod = Convert.ToInt32(item.SubItems[StartPeriod.Index].Text);
-                //int previousEndPeriod = Convert.ToInt32(item.SubItems[EndPeriod.Index].Text);
-                //int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
-               // string previousCourseID = item.SubItems[CourseID.Index].Text;
+                int previousStartPeriod = Convert.ToInt32(item.SubItems[startPeriod_r.Index].Text);
+                int previousEndPeriod = Convert.ToInt32(item.SubItems[endPeriod_r.Index].Text);
+                int previousWeekday = Convert.ToInt32(item.SubItems[Weekday_r.Index].Text);
+                 string previousCourseID = item.SubItems[CourseID_r.Index].Text;
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
-                /*
-                if ((startPeriod >= previousStartPeriod && startPeriod <= previousEndPeriod) || (endPeriod >= previousStartPeriod && endPeriod <= previousEndPeriod) || (startPeriod >= previousStartPeriod && previousStartPeriod <= endPeriod) || (startPeriod >= previousEndPeriod && previousEndPeriod <= endPeriod))
+
+                if ((startPeriod >= previousStartPeriod && startPeriod <= previousEndPeriod) || (endPeriod >= previousStartPeriod && endPeriod <= previousEndPeriod) || (startPeriod <= previousStartPeriod && previousStartPeriod <= endPeriod) || (startPeriod <= previousEndPeriod && previousEndPeriod <= endPeriod))
                 {
-                    if (weekday == previousWeekday)
+                    if (courseID.Equals(item.SubItems[CourseID_r.Index].Text))
                     {
-                        MessageBox.Show(courseID + " and " + previousCourseID + " have been clashed on Day"+ weekday);
+                        MessageBox.Show(courseID + "[" + previousStartPeriod + "-" + previousEndPeriod + "month]" + " have been reistered already");
                         return true;
                     }
                 }
-                */
+                
             }
             foreach (ListViewItem item in ltvRegCourseList.Items)
             {
-                if (courseID.Equals(item.SubItems[CourseID.Index].Text))
-                {
-                    MessageBox.Show(courseID + " have been added into list already");
-                    return true;
-                }
+                //if (courseID.Equals(item.SubItems[CourseID.Index].Text))
+                //{
+                //    MessageBox.Show(courseID + " have been added into list already");
+                //    return true;
+                //}
                 //int previousStartMonth = Convert.ToInt32(item.SubItems[StartMonth.Index].Text);
                 //int previousEndMonth = Convert.ToInt32(item.SubItems[EndMonth.Index].Text);
                 //int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
                 //string previousCourseID = item.SubItems[CourseID.Index].Text;
-               // int previousStartPeriod = Convert.ToInt32(item.SubItems[StartPeriod.Index].Text);
-                //int previousEndPeriod = Convert.ToInt32(item.SubItems[EndPeriod.Index].Text);
-               // int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
-               // string previousCourseID = item.SubItems[CourseID.Index].Text;
+                int previousStartPeriod = Convert.ToInt32(item.SubItems[StartPeriod.Index].Text);
+                int previousEndPeriod = Convert.ToInt32(item.SubItems[EndPeriod.Index].Text);
+                int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
+                string previousCourseID = item.SubItems[CourseID.Index].Text;
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
                 //if ((startMonth >= previousStartMonth && startMonth <= previousEndMonth) || (endMonth >= previousStartMonth && endMonth <= previousEndMonth) || (startMonth >= previousStartMonth && previousStartMonth <= endMonth) || (startMonth >= previousEndMonth && previousEndMonth <= endMonth))
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
-                /*
-                if ((startPeriod >= previousStartPeriod && startPeriod <= previousEndPeriod) || (endPeriod >= previousStartPeriod && endPeriod <= previousEndPeriod) || (startPeriod >= previousStartPeriod && previousStartPeriod <= endPeriod) || (startPeriod >= previousEndPeriod && previousEndPeriod <= endPeriod))
+                
+                if ((startPeriod >= previousStartPeriod && startPeriod <= previousEndPeriod) || (endPeriod >= previousStartPeriod && endPeriod <= previousEndPeriod) || (startPeriod <= previousStartPeriod && previousStartPeriod <= endPeriod) || (startPeriod <= previousEndPeriod && previousEndPeriod <= endPeriod))
                 {
-                    if (weekday == previousWeekday)
+                    if (courseID.Equals(item.SubItems[CourseID.Index].Text))
                     {
-                        MessageBox.Show(courseID + " and " + previousCourseID + " have been clashed on Day" + weekday);
+                        MessageBox.Show(courseID + "[" + previousStartPeriod + "-" + previousEndPeriod + "month]"+" have been added in list already");
                         return true;
                     }
+
                 }
-                */
+                
             }
 
 
@@ -403,7 +447,7 @@ namespace FunHomeClub
             */
             double promotionDiscount = 1;
             if(Utility.IsNumeric(lblPromotionDiscount_d.Text))
-                promotionDiscount = Math.Round(Convert.ToDouble(promotionDiscount),2);
+                promotionDiscount = Math.Round(Convert.ToDouble(lblPromotionDiscount_d.Text),2);
             finalDiscount += (1 - promotionDiscount);
             finalDiscount = Math.Round(finalDiscount, 2);
             //Update Original Price;
@@ -466,7 +510,7 @@ namespace FunHomeClub
             else if(ltvRegCourseList.SelectedItems.Count == 1)
             {
                 int idx = ltvRegCourseList.SelectedItems[0].Index;
-                CourseDetail cd = new CourseDetail(conn, ltvRegCourseList.Items[idx].SubItems[CourseID.Index].Text, precentage);
+                CourseDetail cd = new CourseDetail(conn, ltvRegCourseList.Items[idx].SubItems[CourseID.Index].Text);
                 cd.ShowDialog();
             }
         }
@@ -478,7 +522,7 @@ namespace FunHomeClub
             else if (ltvRegCourseList.SelectedItems.Count == 1)
             {
                 int idx = ltvRegCourseList.SelectedItems[0].Index;
-                CourseDetail cd = new CourseDetail(conn,ltvRegCourseList.Items[idx].SubItems[CourseID.Index].Text, precentage);
+                CourseDetail cd = new CourseDetail(conn,ltvRegCourseList.Items[idx].SubItems[CourseID.Index].Text);
                 cd.ShowDialog();
             }
         }
@@ -495,6 +539,9 @@ namespace FunHomeClub
             lblMembership_d.Text = "--";
             lblOriginalTotal_d.Text = "--";
             lblTotal_d.Text = "--";
+            lblPromotionDiscount_d.Text = "";
+            lblPromotionID_d.Text = "";
+            lblPromotionName_d.Text = "";
             btnAdd.Enabled = false;
             btnClear.Enabled = false;
             btnDel.Enabled = false;
@@ -507,6 +554,8 @@ namespace FunHomeClub
 
         private void llbRegStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if(conn.State == ConnectionState.Closed)
+                conn.Open();
             MaintainStudent mStudent = new MaintainStudent(conn, null, true);
             mStudent.ShowDialog();
             if (mStudent.DialogResult == DialogResult.OK)
@@ -554,6 +603,11 @@ namespace FunHomeClub
             frmMenu = new MenuForm(((MainForm)this.MdiParent).employee, conn);
             frmMenu.Show();
             this.Dispose();
+        }
+
+        private void txtStudentID_TextChanged(object sender, EventArgs e)
+        {
+            txtStudentID.BackColor = System.Drawing.SystemColors.Control;
         }
     }
 }

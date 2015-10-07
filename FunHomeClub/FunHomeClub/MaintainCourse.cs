@@ -29,27 +29,33 @@ namespace FunHomeClub
             btnAdd.Visible = isAdd;
             btnSave.Visible = !isAdd;
 
+            txtRoom.Tag = "ns";
+            numQuota.Value = 10;
+            numericOperating.Value = 2000;
             this.connection = connection;
             if (!isAdd)
             {
                 txtCourseName.Text = lstItem.SubItems[1].Text;
-                numQuota.Value = Int32.Parse(lstItem.SubItems[2].Text);
-                cboWeekday.SelectedIndex = Int32.Parse(lstItem.SubItems[3].Text) - 1;
-                txtRoom.Text = lstItem.SubItems[4].Text;
-                txtDescription.Text = lstItem.SubItems[13].Text;
-                fillTeacherName(lstItem.SubItems[10].Text);
-                numericRate.Value = Int32.Parse(lstItem.SubItems[7].Text);
-                fillCategory(lstItem.SubItems[9].Text);
-                numericOperating.Value = Int32.Parse(lstItem.SubItems[8].Text);
-                String[] StartTime = lstItem.SubItems[5].Text.Split(':');
-                String[] EndTime = lstItem.SubItems[6].Text.Split(':');
+                cboWeekday.SelectedIndex = Int32.Parse(lstItem.SubItems[2].Text) - 1;
+                txtRoom.Text = lstItem.SubItems[3].Text;
+                txtDescription.Text = lstItem.SubItems[12].Text;
+                fillTeacherName(lstItem.SubItems[9].Text);
+                numericRate.Value = Int32.Parse(lstItem.SubItems[6].Text);
+                fillCategory(lstItem.SubItems[8].Text);
+                numericOperating.Value = Int32.Parse(lstItem.SubItems[7].Text);
+                String[] StartTime = lstItem.SubItems[4].Text.Split(':');
+                String[] EndTime = lstItem.SubItems[5].Text.Split(':');
                 dtpStartTime.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Int32.Parse(StartTime[0].ToString()), Int32.Parse(StartTime[1].ToString()), 0);
                 dtpEndTime.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Int32.Parse(EndTime[0].ToString()), Int32.Parse(EndTime[1].ToString()), 0);
 
-                cboStartMonth.SelectedIndex = cboStartMonth.Items.IndexOf(lstItem.SubItems[11].Text);
-                cboEndMonth.SelectedIndex = cboStartMonth.Items.IndexOf(lstItem.SubItems[12].Text);
+                cboStartMonth.SelectedIndex = cboStartMonth.Items.IndexOf(lstItem.SubItems[10].Text);
+                cboEndMonth.SelectedIndex = cboStartMonth.Items.IndexOf(lstItem.SubItems[11].Text);
 
                 this.courseID = lstItem.SubItems[0].Text;
+                DataTable dt = new DataTable();
+                dataAdapter = new OleDbDataAdapter("select quota from courseMonth where courseID = '" + this.courseID + "'", connection);
+                dataAdapter.Fill(dt);
+                numQuota.Value = Int32.Parse(dt.Rows[0][0].ToString());
             }
             else
             {
@@ -90,21 +96,36 @@ namespace FunHomeClub
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String categoryID = String.Format("ca{0:D4}",cboCategory.SelectedIndex+1);
-            String teacherID = String.Format("te{0:D4}", cboTeacherName.SelectedIndex + 1);
-            String sql = "update course set name='" + txtCourseName.Text + "',quota='" + numQuota.Value + "',weekday='" + (cboWeekday.SelectedIndex + 1) + "',room='" + txtRoom.Text + "',startTime='" + dtpStartTime.Value.ToString("hh:mm") + "',endTime='" + dtpEndTime.Value.ToString("hh:mm") + "',teacherRate='" + numericRate.Value + "',operatingCharges='" + numericOperating.Value + "',categoryID='" + categoryID + "',teacherID='" + teacherID + "',startMonth='" + cboStartMonth.Text + "',endMonth='" + cboEndMonth.Text + "',description='" + txtDescription.Text + "' where courseID = '" + this.courseID + "'";
-            OleDbCommand cmd = new OleDbCommand(sql,connection);
-            cmd.ExecuteNonQuery();
-            this.Close();
+            if (checkStringValid(txtCourseName, txtRoom, numericOperating, txtDescription, numQuota, cboCategory, cboEndMonth, cboStartMonth, cboTeacherName, cboWeekday))
+            {
+                String categoryID = String.Format("ca{0:D4}", cboCategory.SelectedIndex + 1);
+                String teacherID = String.Format("te{0:D4}", cboTeacherName.SelectedIndex + 1);
+                String sql = "update course set name='" + txtCourseName.Text + "',weekday='" + (cboWeekday.SelectedIndex + 1) + "',room='" + txtRoom.Text + "',startTime='" + dtpStartTime.Value + "',endTime='" + dtpEndTime.Value + "',teacherRate='" + numericRate.Value + "',operatingCharges='" + numericOperating.Value + "',categoryID='" + categoryID + "',teacherID='" + teacherID + "',startMonth='" + cboStartMonth.Text + "',endMonth='" + cboEndMonth.Text + "',description='" + txtDescription.Text + "' where courseID = '" + this.courseID + "'";
+                OleDbCommand cmd = new OleDbCommand(sql, connection);
+                cmd.ExecuteNonQuery();
+                //--update quota
+                cmd = new OleDbCommand("delete from courseMonth where courseID = '" + this.courseID + "'", connection);
+                cmd.ExecuteNonQuery();
+                for (int i = Int32.Parse(cboStartMonth.Text); i <= Int32.Parse(cboEndMonth.Text); i++)
+                {
+                    String sqlInsertMonth = "insert into courseMonth values('" + this.courseID + "','" + i.ToString() + "','" + numQuota.Value + "')";
+                    OleDbCommand cmd2 = new OleDbCommand(sqlInsertMonth, connection);
+                    cmd2.ExecuteNonQuery();
+                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
         private Boolean checkStringValid(params object[] para)
         {
+
             for (int i = 0; i < para.Length; i++)
             {
                 switch (para[i].GetType().Name)
                 {
                     case "TextBox":
                         TextBox tb = (TextBox)para[i];
+                        tb.Text = tb.Text.Trim();
                         if (tb.Text == "")
                         {
                             MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -112,10 +133,29 @@ namespace FunHomeClub
                         }
                         else
                         {
-                            if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$") && tb.Multiline == false)
+                            switch ((tb.Tag == null ? null : tb.Tag.ToString()))
                             {
-                                MessageBox.Show("TextBox do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return false;
+                                case null:
+                                    if (!Regex.IsMatch(tb.Text, @"^[\sa-zA-Z0-9]+$") && tb.Multiline == false)
+                                    {
+                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "ns":
+                                    if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$"))
+                                    {
+                                        MessageBox.Show(tb.Name.Replace("txt", "") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
+                                case "email":
+                                    if (!Regex.IsMatch(tb.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
+                                    {
+                                        MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return false;
+                                    }
+                                    break;
                             }
                         }
                         break;
@@ -167,9 +207,16 @@ namespace FunHomeClub
             {
                 String categoryID = String.Format("ca{0:D4}", cboCategory.SelectedIndex + 1);
                 String teacherID = String.Format("te{0:D4}", cboTeacherName.SelectedIndex + 1);
-                String sql = "insert into course values('" + getNextValidCourseID() + "','" + txtCourseName.Text + "','" + numQuota.Value + "','" + (cboWeekday.SelectedIndex + 1) + "','" + txtRoom.Text + "','" + dtpStartTime.Value.ToString("hh:mm") + "','" + dtpEndTime.Value.ToString("hh:mm") + "','" + numericRate.Value + "','" + numericOperating.Value + "','" + categoryID + "','" + teacherID + "','" + cboStartMonth.Text + "','" + cboEndMonth.Text + "','" + txtDescription.Text + "')";
+                String nextValidCourseID = getNextValidCourseID();
+                String sql = "insert into course values('" + nextValidCourseID + "','" + txtCourseName.Text + "','" + (cboWeekday.SelectedIndex + 1) + "','" + txtRoom.Text + "','" + dtpStartTime.Value + "','" + dtpEndTime.Value + "','" + numericRate.Value + "','" + numericOperating.Value + "','" + categoryID + "','" + teacherID + "','" + cboStartMonth.Text + "','" + cboEndMonth.Text + "','" + txtDescription.Text + "')";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
                 cmd.ExecuteNonQuery();
+                for (int i = Int32.Parse(cboStartMonth.Text); i <= Int32.Parse(cboEndMonth.Text); i++)
+                {
+                    String sqlInsertMonth = "insert into courseMonth values('" + nextValidCourseID + "','" + i.ToString() + "','" + numQuota.Value + "')";
+                    OleDbCommand cmd2 = new OleDbCommand(sqlInsertMonth, connection);
+                    cmd2.ExecuteNonQuery();
+                }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

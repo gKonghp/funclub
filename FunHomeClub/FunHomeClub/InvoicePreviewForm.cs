@@ -28,6 +28,12 @@ namespace FunHomeClub
         {
 
             Initialize();
+            if (this.Parent == null)
+                btnClose.Text = "Close";
+            else
+            {
+                btnClose.Text = "Home";
+            }
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)
@@ -82,6 +88,24 @@ namespace FunHomeClub
             //ReportParameter p1 = new ReportParameter("invoiceID", "in0001");
             //this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { p1 });
             this.reportViewer1.RefreshReport();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (this.Parent == null)
+                Dispose();
+            else
+            {
+                MainForm frmMain = ((MainForm)this.MdiParent);
+                frmMain.frmMenu = new MenuForm(frmMain.employee, frmMain.connection);
+                frmMain.frmMenu.MdiParent = this.MdiParent;
+                frmMain.frmMenu.Dock = DockStyle.Fill;
+                Utility.repaintFrameSize(this, frmMain.frmMenu);
+                frmMain.frmMenu.Show();
+                int frmCount = this.MdiChildren.Count();
+                for (int i = 0; i < frmCount - 1; i++)
+                    this.MdiChildren[i].Dispose();
+            }
         }
     }
 }

@@ -124,14 +124,31 @@ namespace FunHomeClub
                     {
 
                     string courseID = item.SubItems[CourseID.Index].Text;
+                    int startPeriod_d = Convert.ToInt32(item.SubItems[startPeriod.Index].Text);
+                    int endPeriod_d = Convert.ToInt32(item.SubItems[endPeriod.Index].Text);
                     //Update course quota
-                    DataRow[] row = courseTable.Select(string.Format("courseID = '{0}'", courseID));
-                    int quota = Convert.ToInt32(row[0]["quota"].ToString());
-                    row[0]["quota"] = quota - 1;
-                    sql = string.Format("UPDATE Course SET quota = quota-1 WHERE courseID = '{0}'", courseID);
-                    OleDbCommand courseCmd = new OleDbCommand(sql, conn);
-                    courseAdapter.UpdateCommand = courseCmd;
+                    //DataRow[] row = courseTable.Select(string.Format("courseID = '{0}'", courseID));
 
+                    masterDBDataSet1.courseMonth.Clear();
+                    sql = string.Format("SELECT * FROM courseMonth WHERE courseID = '{0}'",courseID);
+                    OleDbDataAdapter courseMonthAdapter = new OleDbDataAdapter(sql,conn);
+                    courseMonthAdapter.Fill(masterDBDataSet1.courseMonth);
+                    courseMonthAdapter.Dispose();
+
+                    foreach (DataRow row in masterDBDataSet1.courseMonth.Rows)
+                    {
+                        int month = Convert.ToInt32(row["month"].ToString());
+                        int quota = Convert.ToInt32(row["quota"].ToString());
+                        if (month >= startPeriod_d && month <= endPeriod_d)
+                        {
+                            row["quota"] = quota - 1;
+                            sql = string.Format("UPDATE CourseMonth SET quota = quota-1 WHERE courseID = '{0}' AND month = {1}", courseID, month);
+                            OleDbCommand courseCmd = new OleDbCommand(sql, conn);
+                            courseMonthAdapter.UpdateCommand = courseCmd;
+                            courseMonthAdapter.Update(masterDBDataSet1.courseMonth);
+                        }
+                    }
+                    courseMonthAdapter.Dispose();
                     //Add Record of studentCourse
                     DataRow studentCourseRow = studentCourseTable.NewRow();
                     studentCourseRow["studentID"] = lblStudentID_d.Text;
@@ -151,7 +168,7 @@ namespace FunHomeClub
                     studentCourseTable.Rows.Add(studentCourseRow);
                     studentCourseAdapter.Update(studentCourseTable);
 
-                    courseAdapter.Update(courseTable);
+                    //courseAdapter.Update(courseTable);
                 }
                 invoiceAdapter.Update(invoiceTable);
                 return true;

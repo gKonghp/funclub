@@ -198,6 +198,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(319, 54);
             this.txtDescription.TabIndex = 12;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // MaintainPromotion
             // 
@@ -216,8 +217,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnSave);
             this.Name = "MaintainPromotion";
             this.Text = "MaintainPromotion";
             this.Load += new System.EventHandler(this.MaintainPromotion_Load);

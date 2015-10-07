@@ -75,6 +75,7 @@
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(131, 20);
             this.txtDiscount.TabIndex = 3;
+            this.txtDiscount.Tag = "";
             // 
             // btnSave
             // 

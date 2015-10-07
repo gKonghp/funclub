@@ -62,7 +62,6 @@
             this.StartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Quota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -401,7 +400,6 @@
             this.StartTime,
             this.EndTime,
             this.Price,
-            this.Quota,
             this.Room});
             this.lstCourseDetail.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstCourseDetail.FullRowSelect = true;
@@ -463,12 +461,6 @@
             // 
             this.Price.Text = "Price";
             this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Quota
-            // 
-            this.Quota.Text = "Quota";
-            this.Quota.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Quota.Width = 53;
             // 
             // Room
             // 
@@ -558,7 +550,6 @@
         private System.Windows.Forms.ColumnHeader EndMonth;
         private System.Windows.Forms.ColumnHeader StartTime;
         private System.Windows.Forms.ColumnHeader EndTime;
-        private System.Windows.Forms.ColumnHeader Quota;
         private System.Windows.Forms.ColumnHeader Room;
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Label label3;

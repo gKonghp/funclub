@@ -53,7 +53,6 @@
             this.StartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Quota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -279,7 +278,6 @@
             this.StartTime,
             this.EndTime,
             this.Price,
-            this.Quota,
             this.Room,
             this.startPeriod,
             this.endPeriod});
@@ -328,10 +326,6 @@
             // Price
             // 
             this.Price.Text = "Price";
-            // 
-            // Quota
-            // 
-            this.Quota.Text = "Quota";
             // 
             // Room
             // 
@@ -595,7 +589,6 @@
         private System.Windows.Forms.ColumnHeader StartTime;
         private System.Windows.Forms.ColumnHeader EndTime;
         private System.Windows.Forms.ColumnHeader Price;
-        private System.Windows.Forms.ColumnHeader Quota;
         private System.Windows.Forms.ColumnHeader Room;
         private System.Windows.Forms.Label lblStudentID_d;
         private res.db.masterDBDataSet masterDBDataSet1;

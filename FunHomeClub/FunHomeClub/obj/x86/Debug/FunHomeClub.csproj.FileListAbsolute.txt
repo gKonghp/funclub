@@ -199,4 +199,5 @@ D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.applicati
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.exe
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.pdb
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.PromotionViewForm.resources
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.csprojResolveAssemblyReference.cache
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.CourseDetailControl.resources
+D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.ViewCourseForm.resources

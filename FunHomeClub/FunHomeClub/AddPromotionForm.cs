@@ -14,6 +14,7 @@ namespace FunHomeClub
     {
         private OleDbConnection conn;
         private CourseRegForm frmCourseReg;
+        private PromotionViewForm frmPromotionView;
         public AddPromotionForm(OleDbConnection conn, CourseRegForm frmCourseReg)
         {
             this.frmCourseReg = frmCourseReg;
@@ -111,6 +112,16 @@ namespace FunHomeClub
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void ltvPromotion_DoubleClick(object sender, EventArgs e)
+        {
+            if (ltvPromotion.SelectedItems.Count == 1)
+            {
+                string promotionID_d = ltvPromotion.SelectedItems[0].Text;
+                frmPromotionView = new PromotionViewForm(conn, promotionID_d);
+                frmPromotionView.ShowDialog();
+            }
         }
     }
 }

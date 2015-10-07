@@ -131,6 +131,7 @@
             this.ltvPromotion.TabIndex = 1;
             this.ltvPromotion.UseCompatibleStateImageBehavior = false;
             this.ltvPromotion.View = System.Windows.Forms.View.Details;
+            this.ltvPromotion.DoubleClick += new System.EventHandler(this.ltvPromotion_DoubleClick);
             // 
             // promotionID
             // 
@@ -167,7 +168,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Select";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 

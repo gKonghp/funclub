@@ -46,6 +46,7 @@
             this.maintainPromotionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewCourseDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invoiceHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +91,8 @@
             this.courseRegistrationToolStripMenuItem,
             this.admintrationFunctionToolStripMenuItem,
             this.viewCourseDetailsToolStripMenuItem,
-            this.invoiceHistoryToolStripMenuItem});
+            this.invoiceHistoryToolStripMenuItem,
+            this.searchCourseToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -186,6 +188,13 @@
             this.invoiceHistoryToolStripMenuItem.Text = "Invoice History";
             this.invoiceHistoryToolStripMenuItem.Click += new System.EventHandler(this.invoiceHistoryToolStripMenuItem_Click);
             // 
+            // searchCourseToolStripMenuItem
+            // 
+            this.searchCourseToolStripMenuItem.Name = "searchCourseToolStripMenuItem";
+            this.searchCourseToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.searchCourseToolStripMenuItem.Text = "Search Course";
+            this.searchCourseToolStripMenuItem.Click += new System.EventHandler(this.searchCourseToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -226,5 +235,6 @@
         private System.Windows.Forms.ToolStripMenuItem maintainMmembershipToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintainPromotionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintainStaffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchCourseToolStripMenuItem;
     }
 }

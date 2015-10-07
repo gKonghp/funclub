@@ -53,7 +53,7 @@ namespace FunHomeClub
             }
             if(txtUsername.Text.Length <= 0 || txtPassword.Text.Length <= 0)
             {
-                MessageBox.Show("Username or Password cannot missing!");
+                MessageBox.Show("Username or Password cannot be empty!");
                 return;
             }
             if (regex.IsMatch(txtUsername.Text))

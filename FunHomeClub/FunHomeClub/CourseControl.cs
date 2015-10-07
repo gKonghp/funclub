@@ -13,7 +13,7 @@ namespace FunHomeClub
     public partial class CourseControl : UserControl
     {
         OleDbConnection connection;
-        string courseSQL = "SELECT c.courseID,c.name,c.quota,c.weekday,c.room,c.startTime,c.endTime,c.teacherRate,c.operatingCharges,cat.name,tea.name,c.startMonth,c.endMonth ,c.description FROM course c,courseCategory cat, teacher tea where c.categoryID = cat.categoryID and c.teacherID = tea.teacherID order by c.courseID asc";
+        string courseSQL = "SELECT c.courseID,c.name,c.weekday,c.room,Format(c.startTime,'hh:MM'),Format(c.endTime,'hh:MM'),c.teacherRate,c.operatingCharges,cat.name,tea.name,c.startMonth,c.endMonth ,c.description FROM course c,courseCategory cat, teacher tea where c.categoryID = cat.categoryID and c.teacherID = tea.teacherID order by c.courseID asc";
         DataTable dt;
         OleDbDataAdapter dataAdapter;
 
@@ -65,8 +65,11 @@ namespace FunHomeClub
         }
         private void deleteCourse()
         {
+            
             String sql = "delete from course where courseID='" + lstCourse.SelectedItems[0].SubItems[0].Text + "'";
             OleDbCommand cmd = new OleDbCommand(sql, connection);
+            cmd.ExecuteNonQuery();
+            cmd = new OleDbCommand("delete from courseMonth where courseID = '" + lstCourse.SelectedItems[0].SubItems[0].Text + "'",connection);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Course:" + lstCourse.SelectedItems[0].SubItems[1].Text + " Deleted!");
             showDatainListView(courseSQL, lstCourse);

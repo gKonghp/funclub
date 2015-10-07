@@ -77,7 +77,7 @@ namespace FunHomeClub
         public void FillAll()
         {
             string sql = string.Format("SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime, ((teacherRate + operatingCharges) * " +
-   profitMargin + ") / 10 as Price, quota, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID");
+   profitMargin + ") / 10 as Price, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID");
             adapter = new OleDbDataAdapter(sql, conn);
             coursesList = new DataTable();
             adapter.Fill(coursesList);
@@ -99,7 +99,7 @@ namespace FunHomeClub
                 item.SubItems.Add(row["startTime"].ToString());
                 item.SubItems.Add(row["endTime"].ToString());
                 item.SubItems.Add(row["Price"].ToString());
-                item.SubItems.Add(row["quota"].ToString());
+                //item.SubItems.Add(row["quota"].ToString());
                 item.SubItems.Add(row["room"].ToString());
                 lstCourseDetail.Items.Add(item);
             }
@@ -107,16 +107,17 @@ namespace FunHomeClub
 
         private void btnSearch_Click(object sender, EventArgs e)
          {
-            string selectString = "SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime,  ((teacherRate + operatingCharges) * " +
-               profitMargin + ") / 10 as Price, quota, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID"
+            string selectString = "SELECT DISTINCT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime,  ((teacherRate + operatingCharges) * " +
+               profitMargin + ") / 10 as Price, room, c.courseID FROM course c, courseCategory cc, courseMonth cm WHERE c.categoryID = cc.categoryID" + " AND cm.courseID = c.courseID"
                  + " AND quota >= " + Convert.ToInt32(nudQuota.Value.ToString());
+
             if (txtCourseID.Text.Trim().Length <= 0)
             {
                 if (cbbMonth.SelectedIndex > 0)
                     selectString += " AND " + cbbMonth.SelectedIndex + " BETWEEN startMonth AND endMonth";
 
                 if (cbbCourseName.SelectedIndex > 0 && !((ComboBoxItem)cbbCourseName.Items[cbbCourseName.SelectedIndex]).Value.ToString().Equals("&"))
-                    selectString += " AND  courseID ='" + ((ComboBoxItem)cbbCourseName.Items[cbbCourseName.SelectedIndex]).Value.ToString() + "'";
+                    selectString += " AND  c.courseID ='" + ((ComboBoxItem)cbbCourseName.Items[cbbCourseName.SelectedIndex]).Value.ToString() + "'";
 
                 if (cbbWeekday.SelectedIndex > 0)
                     selectString += " AND weekday =" + cbbWeekday.SelectedIndex;
@@ -127,11 +128,11 @@ namespace FunHomeClub
                 if (cbbCategory.SelectedIndex >= 0 && !((ComboBoxItem)cbbCategory.Items[cbbCategory.SelectedIndex]).Value.ToString().Equals("&"))
                     selectString += " AND cc.categoryID = '" + ((ComboBoxItem)cbbCategory.Items[cbbCategory.SelectedIndex]).Value.ToString() + "'";
 
-                 selectString += string.Format(" AND startTime >= '{0}' AND endTime <= '{1}'", String.Format("{0:H:mm}", dtpStartTime.Value), String.Format("{0:H:mm}", dtpEndTime.Value));
+                 selectString += string.Format(" AND startTime >= #{0}# AND endTime <= #{1}#", String.Format("{0:H:mm}", dtpStartTime.Value), String.Format("{0:H:mm}", dtpEndTime.Value));
             }
             else
             {
-                selectString += " AND  courseID ='" + txtCourseID.Text.Trim()+"'";
+                selectString += " AND  c.courseID ='" + txtCourseID.Text.Trim()+"'";
             }
 
             adapter = new OleDbDataAdapter(selectString, conn);
@@ -145,10 +146,10 @@ namespace FunHomeClub
             foreach (ListViewItem selectedItem in lstCourseDetail.SelectedItems)
             {
                 DataRow row = coursesList.Rows[selectedItem.Index];
-
-                bool isClashed = courseReg.IsCourseClashInList(row["courseID"].ToString());
-                if (!isClashed)
-                {
+                //the comment below moved to coursePeriodForm
+                //bool isClashed = courseReg.IsCourseClashInList(row["courseID"].ToString()); 
+                //if (!isClashed)
+                //{
                     string courseID = row["courseID"].ToString();
                     string courseName = row["c.name"].ToString();
                     int startMonth = Convert.ToInt32(row["startMonth"].ToString());
@@ -159,8 +160,9 @@ namespace FunHomeClub
                     string endTime = row["endTime"].ToString();
                     double price = Convert.ToDouble(row["price"].ToString());
                     string room = row["room"].ToString();
-                    int quota = Convert.ToInt32(row["quota"].ToString()); 
-                    CoursePeriodForm frmCoursePeriod = new CoursePeriodForm(courseReg, catName, courseID, courseName, weekday,  startMonth, endMonth, startTime, endTime, price, quota, room);
+                    //int quota = Convert.ToInt32(row["quota"].ToString()); 
+
+                    CoursePeriodForm frmCoursePeriod = new CoursePeriodForm(courseReg, catName, courseID, courseName, weekday,  startMonth, endMonth, startTime, endTime, price, room);
                     frmCoursePeriod.ShowDialog();
                     /*
                     ListViewItem item = new ListViewItem(row["cc.name"].ToString());
@@ -178,7 +180,7 @@ namespace FunHomeClub
 
                     courseReg.updateTotalPrice();
                     */
-                }
+                //}
             }
             //this.Dispose();
 
@@ -191,7 +193,7 @@ namespace FunHomeClub
             else if (lstCourseDetail.SelectedItems.Count == 1)
             {
                 int idx = lstCourseDetail.SelectedItems[0].Index;
-                CourseDetail cd = new CourseDetail(conn, lstCourseDetail.Items[idx].SubItems[CourseID.Index].Text, precentage);
+                CourseDetail cd = new CourseDetail(conn, lstCourseDetail.Items[idx].SubItems[CourseID.Index].Text);
                 cd.ShowDialog();
             }
         }
