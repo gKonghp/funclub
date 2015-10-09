@@ -9,7 +9,7 @@ namespace FunHomeClub
 {
     class Utility
     {
-        public static bool  checkFieldPresense(ErrorProvider err, Control ctr, String errMsg)
+        public static bool checkFieldPresense(ErrorProvider err, Control ctr, String errMsg)
         {
             if (ctr.Text.Trim().Length <= 0)
             {
@@ -29,10 +29,10 @@ namespace FunHomeClub
             return false;
         }
 
-        public static string firstChar2UpperCase(string str) 
+        public static string firstChar2UpperCase(string str)
         {
             string firstChar = str[0].ToString();
-            str = firstChar.ToUpper() + str.Substring(1, str.Length-1);
+            str = firstChar.ToUpper() + str.Substring(1, str.Length - 1);
             return str;
         }
 
@@ -67,15 +67,24 @@ namespace FunHomeClub
 
         public static void repaintFrameSize(Form targetForm, Form sourceForm)
         {
-            targetForm.Width = sourceForm.Width;
-            targetForm.Height = sourceForm.Height+75;
+            System.Drawing.Size size = sourceForm.PreferredSize;
+            targetForm.Size = size;
+            targetForm.Width = sourceForm.Width + 20;
+            targetForm.Height = sourceForm.Height + 75;
 
         }
 
+        public static void repaintFrameSize(Form targetForm, Form sourceForm, Control mainCtr, int supWidth)
+        {
+            targetForm.Width = mainCtr.Size.Width + 20 + supWidth;
+            targetForm.Height = sourceForm.Height + 75;
+        }
         public static bool IsNumeric(string s)
         {
             double dummy = 0;
             return Double.TryParse(s, out dummy);
         }
+
+
     }
 }

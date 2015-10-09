@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtDiscount = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new XButton();
+            this.btnCancel = new XButton();
             this.SuspendLayout();
             // 
             // label1
@@ -133,7 +133,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.TextBox txtDiscount;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
+        private XButton btnSave;
+        private XButton btnCancel;
     }
 }

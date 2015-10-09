@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnRegister = new XButton();
             this.txtStudentID = new System.Windows.Forms.TextBox();
             this.lblStudentID = new System.Windows.Forms.Label();
             this.ltvRegCourseDetail = new System.Windows.Forms.ListView();
@@ -39,6 +39,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.StartMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.EndMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startPeriod_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endPeriod_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,10 +56,10 @@
             this.lblMembership = new System.Windows.Forms.Label();
             this.lblStudentName = new System.Windows.Forms.Label();
             this.gpbCourseReg = new System.Windows.Forms.GroupBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnView = new System.Windows.Forms.Button();
-            this.btnDel = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClear = new XButton();
+            this.btnView = new XButton();
+            this.btnDel = new XButton();
+            this.btnAdd = new XButton();
             this.ltvRegCourseList = new System.Windows.Forms.ListView();
             this.Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CourseID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -77,10 +79,10 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.lblOriginalTotal = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnCancel = new XButton();
             this.llbRegStudent = new System.Windows.Forms.LinkLabel();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnStudIDEnter = new System.Windows.Forms.Button();
+            this.btnReset = new XButton();
+            this.btnStudIDEnter = new XButton();
             this.masterDBDataSet = new FunHomeClub.res.db.masterDBDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -90,14 +92,12 @@
             this.lblPromotionID_d = new System.Windows.Forms.Label();
             this.lblPromotionName = new System.Windows.Forms.Label();
             this.lblPromotionID = new System.Windows.Forms.Label();
-            this.btnDiscountView = new System.Windows.Forms.Button();
-            this.btnDiscountClear = new System.Windows.Forms.Button();
-            this.btnDiscountAdd = new System.Windows.Forms.Button();
+            this.btnDiscountView = new XButton();
+            this.btnDiscountClear = new XButton();
+            this.btnDiscountAdd = new XButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.EndMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.StartMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -204,6 +204,15 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "End Time";
+            // 
+            // StartMonth_r
+            // 
+            this.StartMonth_r.Text = "Start Month";
+            // 
+            // EndMonth_r
+            // 
+            this.EndMonth_r.Text = "End Month";
+            this.EndMonth_r.Width = 82;
             // 
             // columnHeader10
             // 
@@ -791,15 +800,6 @@
             this.panel1.Size = new System.Drawing.Size(726, 71);
             this.panel1.TabIndex = 14;
             // 
-            // EndMonth_r
-            // 
-            this.EndMonth_r.Text = "End Month";
-            this.EndMonth_r.Width = 82;
-            // 
-            // StartMonth_r
-            // 
-            this.StartMonth_r.Text = "Start Month";
-            // 
             // CourseRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -843,7 +843,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnRegister;
+        private XButton btnRegister;
         private System.Windows.Forms.TextBox txtStudentID;
         private res.db.masterDBDataSet masterDBDataSet;
         private System.Windows.Forms.Label lblStudentID;
@@ -854,18 +854,18 @@
         private System.Windows.Forms.Label lblMembership;
         private System.Windows.Forms.Label lblStudentName;
         private System.Windows.Forms.GroupBox gpbCourseReg;
-        private System.Windows.Forms.Button btnView;
-        private System.Windows.Forms.Button btnDel;
-        private System.Windows.Forms.Button btnAdd;
+        private XButton btnView;
+        private XButton btnDel;
+        private XButton btnAdd;
         public System.Windows.Forms.ListView ltvRegCourseList;
-        private System.Windows.Forms.Button btnCancel;
+        private XButton btnCancel;
         private System.Windows.Forms.LinkLabel llbRegStudent;
-        private System.Windows.Forms.Button btnReset;
+        private XButton btnReset;
         private System.Windows.Forms.Label lblEmailAddress;
         private System.Windows.Forms.Label lblContactNum;
         private System.Windows.Forms.Label lblOriginalTotal;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnStudIDEnter;
+        private XButton btnClear;
+        private XButton btnStudIDEnter;
         public System.Windows.Forms.Label lblStudName_d;
         public System.Windows.Forms.Label lblEmailAddress_d;
         public System.Windows.Forms.Label lblContactNum_d;
@@ -897,9 +897,9 @@
         private System.Windows.Forms.ColumnHeader EndPeriod;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnDiscountClear;
-        private System.Windows.Forms.Button btnDiscountAdd;
-        private System.Windows.Forms.Button btnDiscountView;
+        private XButton btnDiscountClear;
+        private XButton btnDiscountAdd;
+        private XButton btnDiscountView;
         private System.Windows.Forms.Label lblPromotionDiscount;
         private System.Windows.Forms.Label lblPromotionName;
         private System.Windows.Forms.Label lblPromotionID;

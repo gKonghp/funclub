@@ -42,9 +42,9 @@
             this.startMonthHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endMonthHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.descHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteCourse = new System.Windows.Forms.Button();
-            this.btnMaintainCourse = new System.Windows.Forms.Button();
-            this.btnAddCourse = new System.Windows.Forms.Button();
+            this.btnDeleteCourse = new XButton();
+            this.btnMaintainCourse = new XButton();
+            this.btnAddCourse = new XButton();
             this.SuspendLayout();
             // 
             // lstCourse
@@ -180,6 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnDeleteCourse);
             this.Controls.Add(this.btnMaintainCourse);
@@ -208,8 +209,8 @@
         private System.Windows.Forms.ColumnHeader startMonthHeader;
         private System.Windows.Forms.ColumnHeader endMonthHeader;
         private System.Windows.Forms.ColumnHeader descHeader;
-        private System.Windows.Forms.Button btnDeleteCourse;
-        private System.Windows.Forms.Button btnMaintainCourse;
-        private System.Windows.Forms.Button btnAddCourse;
+        private XButton btnDeleteCourse;
+        private XButton btnMaintainCourse;
+        private XButton btnAddCourse;
     }
 }

@@ -160,6 +160,9 @@
     <Compile Include="CoursePeriodForm.Designer.cs">
       <DependentUpon>CoursePeriodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="XButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="InvoicePreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +282,12 @@
     <Compile Include="StudentControl.Designer.cs">
       <DependentUpon>StudentControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentSuccessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentSuccessForm.Designer.cs">
+      <DependentUpon>StudentSuccessForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeacherControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -396,6 +405,9 @@
     <EmbeddedResource Include="StudentControl.resx">
       <DependentUpon>StudentControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudentSuccessForm.resx">
+      <DependentUpon>StudentSuccessForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TeacherControl.resx">
       <DependentUpon>TeacherControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -429,12 +441,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Administration.png" />
-    <None Include="Resources\View_Course.png" />
     <None Include="Resources\CourseReg.png" />
     <None Include="Resources\invoice_history.png" />
     <None Include="Resources\key.png" />
     <None Include="Resources\reset.png" />
     <None Include="Resources\GUI_Assignment_smallIcon.png" />
+    <None Include="Resources\View_Course.png" />
+    <None Include="Resources\Search_Course.png" />
+    <None Include="Resources\Membership.png" />
+    <None Include="Resources\Promotion.png" />
     <Content Include="res\db\masterDB.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

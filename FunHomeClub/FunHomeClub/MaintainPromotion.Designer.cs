@@ -36,9 +36,9 @@
             this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpEndTime = new System.Windows.Forms.DateTimePicker();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSave = new XButton();
+            this.btnCancel = new XButton();
+            this.btnAdd = new XButton();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).BeginInit();
@@ -238,9 +238,9 @@
         private System.Windows.Forms.DateTimePicker dtpStartTime;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpEndTime;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAdd;
+        private XButton btnSave;
+        private XButton btnCancel;
+        private XButton btnAdd;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDescription;
     }

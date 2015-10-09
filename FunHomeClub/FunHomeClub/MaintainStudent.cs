@@ -105,9 +105,11 @@ namespace FunHomeClub
         {
             if (checkStringValid(txtContact, txtEmail, txtName, cboMembership))
             {
-                String sql = "insert into student values('" + getNextValidStudentID() + "','" + getMembershipIDByName(cboMembership.Text) + "','" + txtContact.Text + "','" + txtEmail.Text + "','" + lblEnrollDay.Text.Split(' ')[0] + "','" + txtName.Text + "')";
+                string nextStudentID = getNextValidStudentID();
+                String sql = "insert into student values('" + nextStudentID + "','" + getMembershipIDByName(cboMembership.Text) + "','" + txtContact.Text + "','" + txtEmail.Text + "','" + lblEnrollDay.Text.Split(' ')[0] + "','" + txtName.Text + "')";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
                 cmd.ExecuteNonQuery();
+                studentID = nextStudentID;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -182,6 +184,46 @@ namespace FunHomeClub
                 }
             }
             return true;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEnrollDay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboMembership_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

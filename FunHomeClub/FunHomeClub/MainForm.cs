@@ -108,7 +108,7 @@ namespace FunHomeClub
                 this.MdiChildren[i].Dispose();
         }
 
-        private void node2Be(string nodeName)
+        public void node2Be(string nodeName)
         {
             //int targetNodeIdx = nodeIdx; // Tab index
             string targetNodeName = nodeName;
@@ -137,7 +137,9 @@ namespace FunHomeClub
                 frmAdminMain.Show();
                 Control ctr = frmAdminMain.Controls.Find("tvControlForm", true)[0];
                 TreeView tv = ((TreeView)ctr);
-                tv.SelectedNode = tv.Nodes.Find(targetNodeName, true)[0];
+                int count = tv.Nodes.Find(targetNodeName, true).Count();
+                if (count > 0 )
+                    tv.SelectedNode = tv.Nodes.Find(targetNodeName, true)[0];
             }
         }
 

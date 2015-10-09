@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnChange = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new XButton();
+            this.btnChange = new XButton();
+            this.btnAdd = new XButton();
             this.lstMembership = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -131,9 +131,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnChange;
-        private System.Windows.Forms.Button btnAdd;
+        private XButton btnDelete;
+        private XButton btnChange;
+        private XButton btnAdd;
         private System.Windows.Forms.ListView lstMembership;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;

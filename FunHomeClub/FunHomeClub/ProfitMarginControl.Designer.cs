@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnMargin = new System.Windows.Forms.Button();
+            this.btnMargin = new XButton();
             this.txtMargin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -86,7 +86,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnMargin;
+        private XButton btnMargin;
         private System.Windows.Forms.TextBox txtMargin;
         private System.Windows.Forms.Label label1;
     }

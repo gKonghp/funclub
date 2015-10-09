@@ -33,9 +33,9 @@
             this.usernameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.passwordHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.positionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteStaff = new System.Windows.Forms.Button();
-            this.btnMaintainStaff = new System.Windows.Forms.Button();
-            this.btnAddStaff = new System.Windows.Forms.Button();
+            this.btnDeleteStaff = new XButton();
+            this.btnMaintainStaff = new XButton();
+            this.btnAddStaff = new XButton();
             this.SuspendLayout();
             // 
             // lstStaff
@@ -144,8 +144,8 @@
         private System.Windows.Forms.ColumnHeader usernameHeader;
         private System.Windows.Forms.ColumnHeader passwordHeader;
         private System.Windows.Forms.ColumnHeader positionHeader;
-        private System.Windows.Forms.Button btnDeleteStaff;
-        private System.Windows.Forms.Button btnMaintainStaff;
-        private System.Windows.Forms.Button btnAddStaff;
+        private XButton btnDeleteStaff;
+        private XButton btnMaintainStaff;
+        private XButton btnAddStaff;
     }
 }

@@ -47,14 +47,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FunHomeClub.exe" size="1268088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FunHomeClub.exe" size="1282424">
       <assemblyIdentity name="FunHomeClub" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>fb8X8bbJBTGkJtFG5+z+8iFEKKo=</dsig:DigestValue>
+        <dsig:DigestValue>bJw1+bmoUdNgG8FDGb8PfYoxzXY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -253,7 +253,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>wKK/Zk53+kOqoOSsyCZxSjXsX8I=</dsig:DigestValue>
+      <dsig:DigestValue>7UrzzocOt8gt7w38EkZpC2TovvY=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

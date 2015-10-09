@@ -33,9 +33,9 @@
             this.TeacherNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TeacherGenderHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TeacherContactHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteTeacher = new System.Windows.Forms.Button();
-            this.btnMaintainTeacher = new System.Windows.Forms.Button();
-            this.btnAddTeacher = new System.Windows.Forms.Button();
+            this.btnDeleteTeacher = new XButton();
+            this.btnMaintainTeacher = new XButton();
+            this.btnAddTeacher = new XButton();
             this.SuspendLayout();
             // 
             // lstTeacher
@@ -145,8 +145,8 @@
         private System.Windows.Forms.ColumnHeader TeacherNameHeader;
         private System.Windows.Forms.ColumnHeader TeacherGenderHeader;
         private System.Windows.Forms.ColumnHeader TeacherContactHeader;
-        private System.Windows.Forms.Button btnDeleteTeacher;
-        private System.Windows.Forms.Button btnMaintainTeacher;
-        private System.Windows.Forms.Button btnAddTeacher;
+        private XButton btnDeleteTeacher;
+        private XButton btnMaintainTeacher;
+        private XButton btnAddTeacher;
     }
 }

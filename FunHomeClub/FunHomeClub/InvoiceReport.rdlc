@@ -363,7 +363,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Lookup(Fields!courseID.Value, Fields!courseID.Value, Fields!startTime.Value, "Course") &amp; " - " &amp; Lookup(Fields!courseID.Value, Fields!courseID.Value, Fields!endTime.Value, "Course")</Value>
+                              <Value>=Lookup(Fields!courseID.Value, Fields!courseID.Value, FormatDateTime(Fields!startTime.Value,DateFormat.ShortTime), "Course") &amp; " - " &amp; Lookup(Fields!courseID.Value, Fields!courseID.Value, FormatDateTime(Fields!endTime.Value,DateFormat.ShortTime), "Course")</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -484,6 +484,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1535,7 +1536,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!date.Value, "Invoice")</Value>
+                <Value>=FormatDateTime(First(Fields!date.Value, "Invoice"),DateFormat.ShortDate)</Value>
                 <Style />
               </TextRun>
             </TextRuns>

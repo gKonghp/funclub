@@ -34,9 +34,9 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboPosition = new System.Windows.Forms.ComboBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSave = new XButton();
+            this.btnCancel = new XButton();
+            this.btnAdd = new XButton();
             this.SuspendLayout();
             // 
             // label1
@@ -180,8 +180,8 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboPosition;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAdd;
+        private XButton btnSave;
+        private XButton btnCancel;
+        private XButton btnAdd;
     }
 }

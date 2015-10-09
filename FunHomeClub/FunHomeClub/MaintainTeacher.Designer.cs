@@ -35,9 +35,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtContact = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSave = new XButton();
+            this.button2 = new XButton();
+            this.btnAdd = new XButton();
             this.SuspendLayout();
             // 
             // fRadio
@@ -192,8 +192,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtContact;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnAdd;
+        private XButton btnSave;
+        private XButton button2;
+        private XButton btnAdd;
     }
 }

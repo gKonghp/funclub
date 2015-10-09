@@ -35,9 +35,9 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteStudent = new System.Windows.Forms.Button();
-            this.btnMaintainStudent = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDeleteStudent = new XButton();
+            this.btnMaintainStudent = new XButton();
+            this.button3 = new XButton();
             this.SuspendLayout();
             // 
             // lstPromotion
@@ -157,8 +157,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ColumnHeader columnHeader16;
         private System.Windows.Forms.ColumnHeader columnHeader17;
-        private System.Windows.Forms.Button btnDeleteStudent;
-        private System.Windows.Forms.Button btnMaintainStudent;
-        private System.Windows.Forms.Button button3;
+        private XButton btnDeleteStudent;
+        private XButton btnMaintainStudent;
+        private XButton button3;
     }
 }

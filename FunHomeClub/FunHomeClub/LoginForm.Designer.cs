@@ -35,7 +35,6 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.errLogin = new System.Windows.Forms.ErrorProvider(this.components);
-            this.employeeTableAdapter1 = new FunHomeClub.res.db.masterDBDataSetTableAdapters.employeeTableAdapter();
             this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,6 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.employeeTableAdapter1 = new FunHomeClub.res.db.masterDBDataSetTableAdapters.employeeTableAdapter();
+            this.ttCapsHint = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -83,6 +84,8 @@
             this.txtUsername.Size = new System.Drawing.Size(99, 22);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtPassword
             // 
@@ -99,10 +102,6 @@
             // errLogin
             // 
             this.errLogin.ContainerControl = this;
-            // 
-            // employeeTableAdapter1
-            // 
-            this.employeeTableAdapter1.ClearBeforeFill = true;
             // 
             // masterDBDataSet1
             // 
@@ -202,8 +201,20 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // employeeTableAdapter1
+            // 
+            this.employeeTableAdapter1.ClearBeforeFill = true;
+            // 
+            // ttCapsHint
+            // 
+            this.ttCapsHint.IsBalloon = true;
+            this.ttCapsHint.ShowAlways = true;
+            this.ttCapsHint.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            this.ttCapsHint.ToolTipTitle = "Caps Lock Is On";
+            // 
             // LoginForm
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -241,6 +252,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ToolTip ttCapsHint;
     }
 }
 

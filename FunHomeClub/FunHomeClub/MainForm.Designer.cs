@@ -73,14 +73,18 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.logoutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.L)));
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.E)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -100,14 +104,18 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.mainMenuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F1)));
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // courseRegistrationToolStripMenuItem
             // 
             this.courseRegistrationToolStripMenuItem.Name = "courseRegistrationToolStripMenuItem";
-            this.courseRegistrationToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.courseRegistrationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F2)));
+            this.courseRegistrationToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.courseRegistrationToolStripMenuItem.Text = "Course Registration";
             this.courseRegistrationToolStripMenuItem.Click += new System.EventHandler(this.courseRegistrationToolStripMenuItem_Click);
             // 
@@ -118,80 +126,100 @@
             this.maintainStaffToolStripMenuItem,
             this.maintainTeacherToolStripMenuItem,
             this.maintainStudentToolStripMenuItem,
-            this.maintainMmembershipToolStripMenuItem,
             this.setProfitToolStripMenuItem,
+            this.maintainMmembershipToolStripMenuItem,
             this.maintainPromotionToolStripMenuItem});
             this.admintrationFunctionToolStripMenuItem.Name = "admintrationFunctionToolStripMenuItem";
-            this.admintrationFunctionToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.admintrationFunctionToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.admintrationFunctionToolStripMenuItem.Text = "Admintration";
             // 
             // maintainCourseToolStripMenuItem
             // 
             this.maintainCourseToolStripMenuItem.Name = "maintainCourseToolStripMenuItem";
-            this.maintainCourseToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.maintainCourseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F3)));
+            this.maintainCourseToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.maintainCourseToolStripMenuItem.Text = "Maintain Course";
             this.maintainCourseToolStripMenuItem.Click += new System.EventHandler(this.maintainCourseToolStripMenuItem_Click);
             // 
             // maintainStaffToolStripMenuItem
             // 
             this.maintainStaffToolStripMenuItem.Name = "maintainStaffToolStripMenuItem";
-            this.maintainStaffToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.maintainStaffToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F4)));
+            this.maintainStaffToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.maintainStaffToolStripMenuItem.Text = "Maintain Staff";
             this.maintainStaffToolStripMenuItem.Click += new System.EventHandler(this.maintainStaffToolStripMenuItem_Click);
             // 
             // maintainTeacherToolStripMenuItem
             // 
             this.maintainTeacherToolStripMenuItem.Name = "maintainTeacherToolStripMenuItem";
-            this.maintainTeacherToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.maintainTeacherToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F5)));
+            this.maintainTeacherToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.maintainTeacherToolStripMenuItem.Text = "Maintain Teacher";
             this.maintainTeacherToolStripMenuItem.Click += new System.EventHandler(this.maintainTeacherToolStripMenuItem_Click);
             // 
             // maintainStudentToolStripMenuItem
             // 
             this.maintainStudentToolStripMenuItem.Name = "maintainStudentToolStripMenuItem";
-            this.maintainStudentToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.maintainStudentToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F6)));
+            this.maintainStudentToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.maintainStudentToolStripMenuItem.Text = "Maintain Student";
             this.maintainStudentToolStripMenuItem.Click += new System.EventHandler(this.maintainStudentToolStripMenuItem_Click);
             // 
             // maintainMmembershipToolStripMenuItem
             // 
             this.maintainMmembershipToolStripMenuItem.Name = "maintainMmembershipToolStripMenuItem";
-            this.maintainMmembershipToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.maintainMmembershipToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F8)));
+            this.maintainMmembershipToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.maintainMmembershipToolStripMenuItem.Text = "Maintain Membership";
             this.maintainMmembershipToolStripMenuItem.Click += new System.EventHandler(this.maintainMmembershipToolStripMenuItem_Click);
             // 
             // setProfitToolStripMenuItem
             // 
             this.setProfitToolStripMenuItem.Name = "setProfitToolStripMenuItem";
-            this.setProfitToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.setProfitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F7)));
+            this.setProfitToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.setProfitToolStripMenuItem.Text = "Set Profit";
             this.setProfitToolStripMenuItem.Click += new System.EventHandler(this.setProfitToolStripMenuItem_Click);
             // 
             // maintainPromotionToolStripMenuItem
             // 
             this.maintainPromotionToolStripMenuItem.Name = "maintainPromotionToolStripMenuItem";
-            this.maintainPromotionToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.maintainPromotionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F9)));
+            this.maintainPromotionToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.maintainPromotionToolStripMenuItem.Text = "Maintain Promotion";
             this.maintainPromotionToolStripMenuItem.Click += new System.EventHandler(this.maintainPromotionToolStripMenuItem_Click);
             // 
             // viewCourseDetailsToolStripMenuItem
             // 
             this.viewCourseDetailsToolStripMenuItem.Name = "viewCourseDetailsToolStripMenuItem";
-            this.viewCourseDetailsToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.viewCourseDetailsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F10)));
+            this.viewCourseDetailsToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.viewCourseDetailsToolStripMenuItem.Text = "View Course Details";
             this.viewCourseDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewCourseDetailsToolStripMenuItem_Click);
             // 
             // invoiceHistoryToolStripMenuItem
             // 
             this.invoiceHistoryToolStripMenuItem.Name = "invoiceHistoryToolStripMenuItem";
-            this.invoiceHistoryToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.invoiceHistoryToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F11)));
+            this.invoiceHistoryToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.invoiceHistoryToolStripMenuItem.Text = "Invoice History";
             this.invoiceHistoryToolStripMenuItem.Click += new System.EventHandler(this.invoiceHistoryToolStripMenuItem_Click);
             // 
             // searchCourseToolStripMenuItem
             // 
             this.searchCourseToolStripMenuItem.Name = "searchCourseToolStripMenuItem";
-            this.searchCourseToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.searchCourseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F12)));
+            this.searchCourseToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.searchCourseToolStripMenuItem.Text = "Search Course";
             this.searchCourseToolStripMenuItem.Click += new System.EventHandler(this.searchCourseToolStripMenuItem_Click);
             // 

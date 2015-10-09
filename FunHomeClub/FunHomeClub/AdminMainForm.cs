@@ -54,42 +54,49 @@ namespace FunHomeClub
             CourseControl courseUC = new CourseControl(connection);
             adminPanel.Controls.Add(courseUC);
             courseUC.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, this, courseUC, 190);
         }
         public void Staff()
         {
             StaffControl staffUC = new StaffControl(connection);
             adminPanel.Controls.Add(staffUC);
             staffUC.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, this, staffUC, 190);
         }
         public void Teacher()
         {
             TeacherControl teacherUC = new TeacherControl(connection);
             adminPanel.Controls.Add(teacherUC);
             teacherUC.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, this, teacherUC, 190);
         }
         public void Student()
         {
             StudentControl studentUC = new StudentControl(connection);
             adminPanel.Controls.Add(studentUC);
             studentUC.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, this, studentUC, 190);
         }
         public void Membership()
         {
             MembershipControl msUC = new MembershipControl(connection);
             adminPanel.Controls.Add(msUC);
             msUC.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, this, msUC, 190);
         }
         public void Promotions()
         {
             PromotionControl promotionUC = new PromotionControl(connection);
             adminPanel.Controls.Add(promotionUC);
             promotionUC.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, this, promotionUC, 190);
         }
         public void ProfitMargin()
         {
             ProfitMarginControl pmUC = new ProfitMarginControl(connection);
             adminPanel.Controls.Add(pmUC);
             pmUC.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, this, pmUC, 190);
         }
 
         private void AdminMainForm_Load(object sender, EventArgs e)

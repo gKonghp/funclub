@@ -554,13 +554,19 @@ namespace FunHomeClub
 
         private void llbRegStudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            StudentSuccessForm frmStudentSuccess;
+            string regStudentID = "";
             if(conn.State == ConnectionState.Closed)
                 conn.Open();
             MaintainStudent mStudent = new MaintainStudent(conn, null, true);
             mStudent.ShowDialog();
             if (mStudent.DialogResult == DialogResult.OK)
             {
-                MessageBox.Show("Added successfully!");
+                frmStudentSuccess = new StudentSuccessForm(conn,mStudent.studentID, true);
+                regStudentID = frmStudentSuccess.studentID;
+                frmStudentSuccess.ShowDialog();
+                txtStudentID.Text = regStudentID;
+                //MessageBox.Show("Added successfully!");
             }
         }
 
@@ -601,6 +607,9 @@ namespace FunHomeClub
         private void btnCancel_Click(object sender, EventArgs e)
         {
             frmMenu = new MenuForm(((MainForm)this.MdiParent).employee, conn);
+            frmMenu.MdiParent = this.MdiParent;
+            frmMenu.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, frmMenu);
             frmMenu.Show();
             this.Dispose();
         }

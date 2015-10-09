@@ -145,7 +145,9 @@ namespace FunHomeClub
             // 
             // dtpDataFrom
             // 
+            this.dtpDataFrom.CustomFormat = "d/M/yyyy";
             this.dtpDataFrom.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dtpDataFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDataFrom.Location = new System.Drawing.Point(103, 62);
             this.dtpDataFrom.Name = "dtpDataFrom";
             this.dtpDataFrom.Size = new System.Drawing.Size(105, 27);
@@ -174,12 +176,14 @@ namespace FunHomeClub
             // 
             // dtpDateTo
             // 
+            this.dtpDateTo.CustomFormat = "d/M/yyyy";
             this.dtpDateTo.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dtpDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateTo.Location = new System.Drawing.Point(306, 64);
             this.dtpDateTo.Name = "dtpDateTo";
             this.dtpDateTo.Size = new System.Drawing.Size(105, 27);
             this.dtpDateTo.TabIndex = 11;
-            this.dtpDateTo.Value = new System.DateTime(2015, 9, 28, 23, 45, 19, 647);
+            this.dtpDateTo.Value = DateTime.Now;
             // 
             // ltvInvoice
             // 

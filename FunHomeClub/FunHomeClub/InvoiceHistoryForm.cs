@@ -58,7 +58,7 @@ namespace FunHomeClub
                 ListViewItem item = new ListViewItem(row["invoiceID"].ToString());
                 item.SubItems.Add(row["studentID"].ToString());
                 item.SubItems.Add(row["name"].ToString());
-                item.SubItems.Add(row["date"].ToString());
+                item.SubItems.Add(Convert.ToDateTime(row["date"].ToString()).ToShortDateString());
                 item.SubItems.Add(row["totalCost"].ToString());
                 item.SubItems.Add(row["discount"].ToString());
                 item.SubItems.Add(row["employeeID"].ToString());

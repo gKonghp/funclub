@@ -51,7 +51,7 @@ namespace FunHomeClub
             {
                 return;
             }
-            if(txtUsername.Text.Length <= 0 || txtPassword.Text.Length <= 0)
+            if (txtUsername.Text.Length <= 0 || txtPassword.Text.Length <= 0)
             {
                 MessageBox.Show("Username or Password cannot be empty!");
                 return;
@@ -67,46 +67,46 @@ namespace FunHomeClub
                 return;
             }
 
-            employeeTableAdapter1.Fill(masterDBDataSet1.employee);
-            string selectUsernameSql = string.Format("username = \'{0}\'", txtUsername.Text);
-            DataRow[] passwordRows = masterDBDataSet1.employee.Select(selectUsernameSql);
-            if (passwordRows.Count() <= 0)
+            masterDBDataSet1.employee.Clear();
+            string selectUsernameSql = string.Format("SELECT * FROM Employee WHERE StrComp(username,'{0}', 0) = 0 ", txtUsername.Text);
+            OleDbDataAdapter adapter = new OleDbDataAdapter(selectUsernameSql, connection);
+            adapter.Fill(masterDBDataSet1.employee);
+            if (masterDBDataSet1.employee.Rows.Count <= 0)
             {
                 // Username is not found.
                 MessageBox.Show(errUsernameIncorrect);
                 txtUsername.Focus();
                 txtUsername.SelectAll();
+                return;
             }
-
-            foreach (DataRow row in passwordRows)
+            DataRow row = masterDBDataSet1.employee.Rows[0];
+            string tmpPassword = row["password"].ToString();
+            if (tmpPassword.Equals(txtPassword.Text))
             {
-                string tmpPassword = row["password"].ToString();
-                if (tmpPassword.Equals(txtPassword.Text))
-                {
-                    string tmpUsername, tmpPosition, tmpEmployeeID;
-                    tmpEmployeeID = row["employeeID"].ToString(); 
-                    tmpUsername = row["username"].ToString();
-                    tmpPosition = row["position"].ToString();
-                    emp = new Employee(tmpEmployeeID, tmpUsername, tmpPassword, tmpPosition);
-                    errLogin.Clear();
-                    this.Hide();
-                    frmMain = new MainForm(emp, connection);
-                    frmMenu = new MenuForm(emp, connection);
-                    Utility.repaintFrameSize(frmMain, frmMenu);
-                    frmMenu.MdiParent = frmMain;
-                    frmMenu.Dock = DockStyle.Fill;
-                    frmMenu.Show();
-                    frmMain.Show();
+                string tmpUsername, tmpPosition, tmpEmployeeID;
+                tmpEmployeeID = row["employeeID"].ToString();
+                tmpUsername = row["username"].ToString();
+                tmpPosition = row["position"].ToString();
+                emp = new Employee(tmpEmployeeID, tmpUsername, tmpPassword, tmpPosition);
+                errLogin.Clear();
+                this.Hide();
+                frmMain = new MainForm(emp, connection);
+                frmMenu = new MenuForm(emp, connection);
+                Utility.repaintFrameSize(frmMain, frmMenu);
+                frmMenu.MdiParent = frmMain;
+                frmMenu.Dock = DockStyle.Fill;
+                frmMenu.Show();
+                frmMain.Show();
 
-                }
-                else
-                {
-                    //Password is not matched;
-                    MessageBox.Show(errPasswordIncorrect);
-                    txtPassword.Focus();
-                    txtPassword.SelectAll();
-                }
             }
+            else
+            {
+                //Password is not matched;
+                MessageBox.Show(errPasswordIncorrect);
+                txtPassword.Focus();
+                txtPassword.SelectAll();
+            }
+
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
@@ -120,6 +120,42 @@ namespace FunHomeClub
             txtUsername.Clear();
             errLogin.SetError(txtUsername, "");
             errLogin.SetError(txtPassword, "");
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            PromptCapsLockHint();
+        }
+
+        private void PromptCapsLockHint() {
+            if (Control.IsKeyLocked(Keys.CapsLock))
+            {
+                ShowCapsLockHint();
+            }
+            else
+            {
+                HideCapsLockHint();
+            }
+        }
+
+        private void HideCapsLockHint()
+        {
+             ttCapsHint.SetToolTip(txtUsername, "");
+             ttCapsHint.Hide(txtUsername);
+        }
+
+        private void ShowCapsLockHint()
+        {
+            ttCapsHint.SetToolTip(txtUsername, "Having Caps Lock on may cause you to enter your password incorrectly.\n\nYou should press Caps Lock to turn it off before entering your password.");
+            ttCapsHint.Show("Having Caps Lock on may cause you to enter your password incorrectly.\n\nYou should press Caps Lock to turn it off before entering your password.", txtUsername, 10, txtUsername.Height - 10);
+        }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.CapsLock)
+                ShowCapsLockHint();
+            else
+                HideCapsLockHint();
         }
     }
 }

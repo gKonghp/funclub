@@ -37,10 +37,10 @@
             this.txtContact = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSave = new XButton();
+            this.button2 = new XButton();
             this.lblEnrollDay = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnAdd = new XButton();
             this.SuspendLayout();
             // 
             // label1
@@ -52,6 +52,7 @@
             this.label1.Size = new System.Drawing.Size(54, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtName
             // 
@@ -72,6 +73,7 @@
             this.label2.Size = new System.Drawing.Size(100, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Membership:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cboMembership
             // 
@@ -84,6 +86,7 @@
             this.cboMembership.Name = "cboMembership";
             this.cboMembership.Size = new System.Drawing.Size(172, 27);
             this.cboMembership.TabIndex = 3;
+            this.cboMembership.SelectedIndexChanged += new System.EventHandler(this.cboMembership_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -94,6 +97,7 @@
             this.label3.Size = new System.Drawing.Size(50, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Email:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtEmail
             // 
@@ -104,6 +108,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(172, 20);
             this.txtEmail.TabIndex = 5;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtContact
             // 
@@ -124,6 +129,7 @@
             this.label4.Size = new System.Drawing.Size(65, 19);
             this.label4.TabIndex = 6;
             this.label4.Text = "Contact:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -134,6 +140,7 @@
             this.label5.Size = new System.Drawing.Size(79, 19);
             this.label5.TabIndex = 8;
             this.label5.Text = "EnrollDay:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnSave
             // 
@@ -174,6 +181,7 @@
             this.lblEnrollDay.Size = new System.Drawing.Size(55, 19);
             this.lblEnrollDay.TabIndex = 12;
             this.lblEnrollDay.Text = "#day#";
+            this.lblEnrollDay.Click += new System.EventHandler(this.lblEnrollDay_Click);
             // 
             // btnAdd
             // 
@@ -228,10 +236,10 @@
         private System.Windows.Forms.TextBox txtContact;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button2;
+        private XButton btnSave;
+        private XButton button2;
         private System.Windows.Forms.Label lblEnrollDay;
-        private System.Windows.Forms.Button btnAdd;
+        private XButton btnAdd;
 
     }
 }

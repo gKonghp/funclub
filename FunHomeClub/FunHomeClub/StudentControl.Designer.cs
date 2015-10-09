@@ -35,9 +35,9 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteStudent = new System.Windows.Forms.Button();
-            this.btnMaintainStudent = new System.Windows.Forms.Button();
-            this.btnAddStudent = new System.Windows.Forms.Button();
+            this.btnDeleteStudent = new XButton();
+            this.btnMaintainStudent = new XButton();
+            this.btnAddStudent = new XButton();
             this.SuspendLayout();
             // 
             // lstStudent
@@ -165,9 +165,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.Button btnDeleteStudent;
-        private System.Windows.Forms.Button btnMaintainStudent;
-        private System.Windows.Forms.Button btnAddStudent;
+        private XButton btnDeleteStudent;
+        private XButton btnMaintainStudent;
+        private XButton btnAddStudent;
 
     }
 }
