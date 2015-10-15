@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnConfirm = new XButton();
+            this.btnCancel = new XButton();
             this.lblStudentID = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gpbStudentInfo = new System.Windows.Forms.GroupBox();
@@ -565,8 +565,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Button btnCancel;
+        private XButton btnConfirm;
+        private XButton btnCancel;
         private System.Windows.Forms.Label lblStudentID;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox gpbStudentInfo;

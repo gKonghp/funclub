@@ -16,9 +16,11 @@ namespace FunHomeClub
         private InvoiceHistoryForm frmInvoiceHistory;
         private AdminMainForm frmAdminMain;
         private SearchForm frmSearch;
+        private PromotionForm frmPromotion;
         private ViewCourseForm frmViewCourse;
         private Employee employee;
         private OleDbConnection connection;
+        private MembershipForm frmMembership;
         public MenuForm(Employee employee, OleDbConnection connection)
         {
             InitializeComponent();
@@ -50,8 +52,8 @@ namespace FunHomeClub
         {
             // load employee info in menu
             lblWelcome.Text += " " + employee.name;
-            lblPosition_d.Text = employee.position.Equals("m") ? "\tManager" : "\tStaff";
-            lblEmployeeID_d.Text = " " +employee.employeeID;
+            lblPosition_d.Text = employee.position.Equals("m") ? "Manager" : "Staff";
+            lblEmployeeID_d.Text = employee.employeeID;
             if (employee.position.Equals("s"))
             {
                 flowLayoutPanel1.Controls.Remove(btnPromotions_Link);
@@ -93,12 +95,24 @@ namespace FunHomeClub
 
         private void btnMembershipSystem_Link_Click(object sender, EventArgs e)
         {
-            ((MainForm)this.MdiParent).node2Be("Membership");
+            //((MainForm)this.MdiParent).node2Be("Membership");
+            frmMembership = new MembershipForm();
+            frmMembership.MdiParent = this.MdiParent;
+            frmMembership.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, frmMembership);
+            frmMembership.Show();
+            this.Dispose();
         }
 
         private void btnPromotions_Link_Click(object sender, EventArgs e)
         {
-            ((MainForm)this.MdiParent).node2Be("Promotions");
+            //((MainForm)this.MdiParent).node2Be("Promotions");
+            frmPromotion = new PromotionForm();
+            frmPromotion.MdiParent = this.MdiParent;
+            frmPromotion.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, frmPromotion);
+            frmPromotion.Show();
+            this.Dispose();
         }
     }
 }

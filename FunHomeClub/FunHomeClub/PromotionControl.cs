@@ -43,7 +43,11 @@ namespace FunHomeClub
 
         private void button1_Click(object sender, EventArgs e)
         {
-            deletePromotion();
+            DialogResult dResult = MessageBox.Show("Do you conform to delete this record?", "Warnning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dResult == DialogResult.Yes)
+            {
+                deletePromotion();
+            }
         }
         private void addPromotion()
         {
@@ -54,8 +58,8 @@ namespace FunHomeClub
                 MessageBox.Show("Add Promotion successfully!");
                 showDatainListView(promotionSQL, lstPromotion);
             }
-            btnMaintainStudent.Enabled = false;
-            btnDeleteStudent.Enabled = false;
+            btnMaintain.Enabled = false;
+            btnDelete.Enabled = false;
         }
         private void maintainPromotion()
         {
@@ -66,8 +70,8 @@ namespace FunHomeClub
                 MessageBox.Show("Update Promotion successfully!");
                 showDatainListView(promotionSQL, lstPromotion);
             }
-            btnMaintainStudent.Enabled = false;
-            btnDeleteStudent.Enabled = false;
+            btnMaintain.Enabled = false;
+            btnDelete.Enabled = false;
         }
         private void deletePromotion()
         {
@@ -76,10 +80,10 @@ namespace FunHomeClub
             cmd.ExecuteNonQuery();
             MessageBox.Show("Promotion: " + lstPromotion.SelectedItems[0].SubItems[1].Text + " Deleted!");
             showDatainListView(promotionSQL, lstPromotion);
-            btnMaintainStudent.Enabled = false;
-            btnDeleteStudent.Enabled = false;
-            btnMaintainStudent.Enabled = false;
-            btnDeleteStudent.Enabled = false;
+            btnMaintain.Enabled = false;
+            btnDelete.Enabled = false;
+            btnMaintain.Enabled = false;
+            btnDelete.Enabled = false;
         }
         private void showDatainListView(String sql, ListView lstView)
         {
@@ -102,14 +106,38 @@ namespace FunHomeClub
         {
             if (lstPromotion.SelectedItems.Count > 0)
             {
-                btnMaintainStudent.Enabled = true;
-                btnDeleteStudent.Enabled = true;
+                btnMaintain.Enabled = true;
+                btnDelete.Enabled = true;
             }
             else
             {
-                btnMaintainStudent.Enabled = false;
-                btnDeleteStudent.Enabled = false;
+                btnMaintain.Enabled = false;
+                btnDelete.Enabled = false;
             }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.A))
+                button3.PerformClick();
+
+            if (keyData == (Keys.Control | Keys.M))
+            {
+                if (btnMaintain.Enabled == true)
+                    btnMaintain.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (keyData == (Keys.Control | Keys.D))
+            {
+                if(btnDelete.Enabled == true)
+                    btnDelete.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

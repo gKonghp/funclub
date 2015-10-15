@@ -38,13 +38,13 @@
             this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Reset = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.employeeTableAdapter1 = new FunHomeClub.res.db.masterDBDataSetTableAdapters.employeeTableAdapter();
             this.ttCapsHint = new System.Windows.Forms.ToolTip(this.components);
+            this.btnLogin = new XButton();
+            this.Reset = new XButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -86,6 +86,7 @@
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // txtPassword
             // 
@@ -102,6 +103,7 @@
             // errLogin
             // 
             this.errLogin.ContainerControl = this;
+            this.errLogin.Icon = ((System.Drawing.Icon)(resources.GetObject("errLogin.Icon")));
             // 
             // masterDBDataSet1
             // 
@@ -134,41 +136,6 @@
             this.panel3.Size = new System.Drawing.Size(356, 142);
             this.panel3.TabIndex = 7;
             // 
-            // Reset
-            // 
-            this.Reset.BackColor = System.Drawing.Color.Salmon;
-            this.Reset.FlatAppearance.BorderSize = 0;
-            this.Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Reset.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Reset.ForeColor = System.Drawing.Color.White;
-            this.Reset.Image = global::FunHomeClub.Properties.Resources.reset;
-            this.Reset.Location = new System.Drawing.Point(75, 102);
-            this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(85, 27);
-            this.Reset.TabIndex = 5;
-            this.Reset.Text = "Reset";
-            this.Reset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Reset.UseVisualStyleBackColor = false;
-            this.Reset.Click += new System.EventHandler(this.Reset_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.Salmon;
-            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
-            this.btnLogin.Location = new System.Drawing.Point(187, 101);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(85, 28);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -191,16 +158,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Fun-Home Club ";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::FunHomeClub.Properties.Resources.GUI_Assignment_smallIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(139, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 76);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // employeeTableAdapter1
             // 
             this.employeeTableAdapter1.ClearBeforeFill = true;
@@ -211,6 +168,51 @@
             this.ttCapsHint.ShowAlways = true;
             this.ttCapsHint.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             this.ttCapsHint.ToolTipTitle = "Caps Lock Is On";
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.Salmon;
+            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
+            this.btnLogin.Location = new System.Drawing.Point(187, 101);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(85, 28);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // Reset
+            // 
+            this.Reset.BackColor = System.Drawing.Color.Salmon;
+            this.Reset.FlatAppearance.BorderSize = 0;
+            this.Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reset.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Reset.ForeColor = System.Drawing.Color.White;
+            this.Reset.Image = global::FunHomeClub.Properties.Resources.reset;
+            this.Reset.Location = new System.Drawing.Point(75, 102);
+            this.Reset.Name = "Reset";
+            this.Reset.Size = new System.Drawing.Size(85, 27);
+            this.Reset.TabIndex = 5;
+            this.Reset.Text = "Reset";
+            this.Reset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Reset.UseVisualStyleBackColor = false;
+            this.Reset.Click += new System.EventHandler(this.Reset_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FunHomeClub.Properties.Resources.GUI_Assignment_smallIcon;
+            this.pictureBox1.Location = new System.Drawing.Point(139, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 76);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
@@ -241,10 +243,10 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnLogin;
+        private XButton btnLogin;
         private System.Windows.Forms.ErrorProvider errLogin;
 
-        private System.Windows.Forms.Button Reset;
+        private XButton Reset;
         private res.db.masterDBDataSetTableAdapters.employeeTableAdapter employeeTableAdapter1;
         private res.db.masterDBDataSet masterDBDataSet1;
         private System.Windows.Forms.Panel panel2;

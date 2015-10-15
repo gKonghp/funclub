@@ -35,9 +35,9 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteStudent = new XButton();
-            this.btnMaintainStudent = new XButton();
-            this.button3 = new XButton();
+            this.btnDelete = new FunHomeClub.XButton();
+            this.btnMaintain = new FunHomeClub.XButton();
+            this.button3 = new FunHomeClub.XButton();
             this.SuspendLayout();
             // 
             // lstPromotion
@@ -85,37 +85,37 @@
             // 
             this.columnHeader17.Text = "EndTime";
             // 
-            // btnDeleteStudent
+            // btnDelete
             // 
-            this.btnDeleteStudent.BackColor = System.Drawing.Color.Coral;
-            this.btnDeleteStudent.Enabled = false;
-            this.btnDeleteStudent.FlatAppearance.BorderSize = 0;
-            this.btnDeleteStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteStudent.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnDeleteStudent.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteStudent.Location = new System.Drawing.Point(602, 90);
-            this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(97, 26);
-            this.btnDeleteStudent.TabIndex = 12;
-            this.btnDeleteStudent.Text = "Delete";
-            this.btnDeleteStudent.UseVisualStyleBackColor = false;
-            this.btnDeleteStudent.Click += new System.EventHandler(this.button1_Click);
+            this.btnDelete.BackColor = System.Drawing.Color.Coral;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(602, 90);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(97, 26);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnMaintainStudent
+            // btnMaintain
             // 
-            this.btnMaintainStudent.BackColor = System.Drawing.Color.Coral;
-            this.btnMaintainStudent.Enabled = false;
-            this.btnMaintainStudent.FlatAppearance.BorderSize = 0;
-            this.btnMaintainStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainStudent.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnMaintainStudent.ForeColor = System.Drawing.Color.White;
-            this.btnMaintainStudent.Location = new System.Drawing.Point(602, 50);
-            this.btnMaintainStudent.Name = "btnMaintainStudent";
-            this.btnMaintainStudent.Size = new System.Drawing.Size(97, 26);
-            this.btnMaintainStudent.TabIndex = 11;
-            this.btnMaintainStudent.Text = "Change";
-            this.btnMaintainStudent.UseVisualStyleBackColor = false;
-            this.btnMaintainStudent.Click += new System.EventHandler(this.button2_Click);
+            this.btnMaintain.BackColor = System.Drawing.Color.Coral;
+            this.btnMaintain.Enabled = false;
+            this.btnMaintain.FlatAppearance.BorderSize = 0;
+            this.btnMaintain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintain.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMaintain.ForeColor = System.Drawing.Color.White;
+            this.btnMaintain.Location = new System.Drawing.Point(602, 50);
+            this.btnMaintain.Name = "btnMaintain";
+            this.btnMaintain.Size = new System.Drawing.Size(97, 26);
+            this.btnMaintain.TabIndex = 11;
+            this.btnMaintain.Text = "Change";
+            this.btnMaintain.UseVisualStyleBackColor = false;
+            this.btnMaintain.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -137,8 +137,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.btnDeleteStudent);
-            this.Controls.Add(this.btnMaintainStudent);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnMaintain);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.lstPromotion);
             this.Name = "PromotionControl";
@@ -157,8 +157,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ColumnHeader columnHeader16;
         private System.Windows.Forms.ColumnHeader columnHeader17;
-        private XButton btnDeleteStudent;
-        private XButton btnMaintainStudent;
+        private XButton btnDelete;
+        private XButton btnMaintain;
         private XButton button3;
     }
 }

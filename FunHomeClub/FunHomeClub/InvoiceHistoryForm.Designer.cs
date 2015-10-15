@@ -32,7 +32,7 @@ namespace FunHomeClub
         {
             this.txtInvoiceID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSearch = new XButton();
             this.label2 = new System.Windows.Forms.Label();
             this.txtStudentID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@ namespace FunHomeClub
             this.cost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.discount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.employeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnReset = new System.Windows.Forms.Button();
+            this.btnReset = new XButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.nudPriceTo = new System.Windows.Forms.NumericUpDown();
@@ -183,7 +183,7 @@ namespace FunHomeClub
             this.dtpDateTo.Name = "dtpDateTo";
             this.dtpDateTo.Size = new System.Drawing.Size(105, 27);
             this.dtpDateTo.TabIndex = 11;
-            this.dtpDateTo.Value = DateTime.Now;
+            this.dtpDateTo.Value = new System.DateTime(2015, 10, 14, 16, 22, 35, 128);
             // 
             // ltvInvoice
             // 
@@ -294,7 +294,7 @@ namespace FunHomeClub
             this.nudPriceFrom.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.nudPriceFrom.Location = new System.Drawing.Point(563, 62);
             this.nudPriceFrom.Maximum = new decimal(new int[] {
-            10,
+            99999,
             0,
             0,
             0});
@@ -407,7 +407,7 @@ namespace FunHomeClub
 
         private System.Windows.Forms.TextBox txtInvoiceID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSearch;
+        private XButton btnSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtStudentID;
         private System.Windows.Forms.Label label3;
@@ -417,7 +417,7 @@ namespace FunHomeClub
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDateTo;
         private System.Windows.Forms.ListView ltvInvoice;
-        private System.Windows.Forms.Button btnReset;
+        private XButton btnReset;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ColumnHeader invoiceID;
         private System.Windows.Forms.ColumnHeader studentID;

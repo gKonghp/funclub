@@ -41,12 +41,13 @@
             this.maintainStaffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintainTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintainStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maintainMmembershipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setProfitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maintainPromotionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewCourseDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invoiceHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.membershipSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.promotionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintainCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,7 +97,9 @@
             this.admintrationFunctionToolStripMenuItem,
             this.viewCourseDetailsToolStripMenuItem,
             this.invoiceHistoryToolStripMenuItem,
-            this.searchCourseToolStripMenuItem});
+            this.searchCourseToolStripMenuItem,
+            this.membershipSystemToolStripMenuItem,
+            this.promotionToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -126,9 +129,8 @@
             this.maintainStaffToolStripMenuItem,
             this.maintainTeacherToolStripMenuItem,
             this.maintainStudentToolStripMenuItem,
-            this.setProfitToolStripMenuItem,
-            this.maintainMmembershipToolStripMenuItem,
-            this.maintainPromotionToolStripMenuItem});
+            this.maintainCategoryToolStripMenuItem,
+            this.setProfitToolStripMenuItem});
             this.admintrationFunctionToolStripMenuItem.Name = "admintrationFunctionToolStripMenuItem";
             this.admintrationFunctionToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.admintrationFunctionToolStripMenuItem.Text = "Admintration";
@@ -138,7 +140,7 @@
             this.maintainCourseToolStripMenuItem.Name = "maintainCourseToolStripMenuItem";
             this.maintainCourseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.F3)));
-            this.maintainCourseToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.maintainCourseToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.maintainCourseToolStripMenuItem.Text = "Maintain Course";
             this.maintainCourseToolStripMenuItem.Click += new System.EventHandler(this.maintainCourseToolStripMenuItem_Click);
             // 
@@ -147,7 +149,7 @@
             this.maintainStaffToolStripMenuItem.Name = "maintainStaffToolStripMenuItem";
             this.maintainStaffToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.F4)));
-            this.maintainStaffToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.maintainStaffToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.maintainStaffToolStripMenuItem.Text = "Maintain Staff";
             this.maintainStaffToolStripMenuItem.Click += new System.EventHandler(this.maintainStaffToolStripMenuItem_Click);
             // 
@@ -156,7 +158,7 @@
             this.maintainTeacherToolStripMenuItem.Name = "maintainTeacherToolStripMenuItem";
             this.maintainTeacherToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.F5)));
-            this.maintainTeacherToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.maintainTeacherToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.maintainTeacherToolStripMenuItem.Text = "Maintain Teacher";
             this.maintainTeacherToolStripMenuItem.Click += new System.EventHandler(this.maintainTeacherToolStripMenuItem_Click);
             // 
@@ -165,36 +167,18 @@
             this.maintainStudentToolStripMenuItem.Name = "maintainStudentToolStripMenuItem";
             this.maintainStudentToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.F6)));
-            this.maintainStudentToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.maintainStudentToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.maintainStudentToolStripMenuItem.Text = "Maintain Student";
             this.maintainStudentToolStripMenuItem.Click += new System.EventHandler(this.maintainStudentToolStripMenuItem_Click);
-            // 
-            // maintainMmembershipToolStripMenuItem
-            // 
-            this.maintainMmembershipToolStripMenuItem.Name = "maintainMmembershipToolStripMenuItem";
-            this.maintainMmembershipToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.F8)));
-            this.maintainMmembershipToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
-            this.maintainMmembershipToolStripMenuItem.Text = "Maintain Membership";
-            this.maintainMmembershipToolStripMenuItem.Click += new System.EventHandler(this.maintainMmembershipToolStripMenuItem_Click);
             // 
             // setProfitToolStripMenuItem
             // 
             this.setProfitToolStripMenuItem.Name = "setProfitToolStripMenuItem";
             this.setProfitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.F7)));
-            this.setProfitToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.setProfitToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.setProfitToolStripMenuItem.Text = "Set Profit";
             this.setProfitToolStripMenuItem.Click += new System.EventHandler(this.setProfitToolStripMenuItem_Click);
-            // 
-            // maintainPromotionToolStripMenuItem
-            // 
-            this.maintainPromotionToolStripMenuItem.Name = "maintainPromotionToolStripMenuItem";
-            this.maintainPromotionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.F9)));
-            this.maintainPromotionToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
-            this.maintainPromotionToolStripMenuItem.Text = "Maintain Promotion";
-            this.maintainPromotionToolStripMenuItem.Click += new System.EventHandler(this.maintainPromotionToolStripMenuItem_Click);
             // 
             // viewCourseDetailsToolStripMenuItem
             // 
@@ -222,6 +206,27 @@
             this.searchCourseToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
             this.searchCourseToolStripMenuItem.Text = "Search Course";
             this.searchCourseToolStripMenuItem.Click += new System.EventHandler(this.searchCourseToolStripMenuItem_Click);
+            // 
+            // membershipSystemToolStripMenuItem
+            // 
+            this.membershipSystemToolStripMenuItem.Name = "membershipSystemToolStripMenuItem";
+            this.membershipSystemToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.membershipSystemToolStripMenuItem.Text = "Membership System";
+            this.membershipSystemToolStripMenuItem.Click += new System.EventHandler(this.membershipSystemToolStripMenuItem_Click);
+            // 
+            // promotionToolStripMenuItem
+            // 
+            this.promotionToolStripMenuItem.Name = "promotionToolStripMenuItem";
+            this.promotionToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.promotionToolStripMenuItem.Text = "Promotion";
+            this.promotionToolStripMenuItem.Click += new System.EventHandler(this.promotionToolStripMenuItem_Click);
+            // 
+            // maintainCategoryToolStripMenuItem
+            // 
+            this.maintainCategoryToolStripMenuItem.Name = "maintainCategoryToolStripMenuItem";
+            this.maintainCategoryToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.maintainCategoryToolStripMenuItem.Text = "Maintain Category";
+            this.maintainCategoryToolStripMenuItem.Click += new System.EventHandler(this.maintainCategoryToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -260,9 +265,10 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintainStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintainTeacherToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem maintainMmembershipToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem maintainPromotionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintainStaffToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maintainCategoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem membershipSystemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem promotionToolStripMenuItem;
     }
 }

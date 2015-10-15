@@ -718,6 +718,10 @@ namespace FunHomeClub.res.db {
             
             private global::System.Data.DataColumn columndescription;
             
+            private global::System.Data.DataColumn columnstartYear;
+            
+            private global::System.Data.DataColumn columnendYear;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public courseDataTable() {
@@ -857,6 +861,22 @@ namespace FunHomeClub.res.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn startYearColumn {
+                get {
+                    return this.columnstartYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn endYearColumn {
+                get {
+                    return this.columnendYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -892,7 +912,7 @@ namespace FunHomeClub.res.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public courseRow AddcourseRow(string courseID, string name, int weekday, string room, string startTime, string endTime, int teacherRate, int operatingCharges, courseCategoryRow parentcourseCategoryRowBycourseCategorycourse, teacherRow parentteacherRowByteachercourse, int startMonth, int endMonth, string description) {
+            public courseRow AddcourseRow(string courseID, string name, int weekday, string room, string startTime, string endTime, int teacherRate, int operatingCharges, courseCategoryRow parentcourseCategoryRowBycourseCategorycourse, teacherRow parentteacherRowByteachercourse, int startMonth, int endMonth, string description, int startYear, int endYear) {
                 courseRow rowcourseRow = ((courseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         courseID,
@@ -907,7 +927,9 @@ namespace FunHomeClub.res.db {
                         null,
                         startMonth,
                         endMonth,
-                        description};
+                        description,
+                        startYear,
+                        endYear};
                 if ((parentcourseCategoryRowBycourseCategorycourse != null)) {
                     columnValuesArray[8] = parentcourseCategoryRowBycourseCategorycourse[0];
                 }
@@ -956,6 +978,8 @@ namespace FunHomeClub.res.db {
                 this.columnstartMonth = base.Columns["startMonth"];
                 this.columnendMonth = base.Columns["endMonth"];
                 this.columndescription = base.Columns["description"];
+                this.columnstartYear = base.Columns["startYear"];
+                this.columnendYear = base.Columns["endYear"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -987,6 +1011,10 @@ namespace FunHomeClub.res.db {
                 base.Columns.Add(this.columnendMonth);
                 this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescription);
+                this.columnstartYear = new global::System.Data.DataColumn("startYear", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstartYear);
+                this.columnendYear = new global::System.Data.DataColumn("endYear", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnendYear);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncourseID}, true));
                 this.columncourseID.AllowDBNull = false;
@@ -4444,6 +4472,38 @@ namespace FunHomeClub.res.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int startYear {
+                get {
+                    try {
+                        return ((int)(this[this.tablecourse.startYearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'course\' 中資料行 \'startYear\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablecourse.startYearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int endYear {
+                get {
+                    try {
+                        return ((int)(this[this.tablecourse.endYearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'course\' 中資料行 \'endYear\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablecourse.endYearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public courseCategoryRow courseCategoryRow {
                 get {
                     return ((courseCategoryRow)(this.GetParentRow(this.Table.ParentRelations["courseCategorycourse"])));
@@ -4606,6 +4666,30 @@ namespace FunHomeClub.res.db {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdescriptionNull() {
                 this[this.tablecourse.descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsstartYearNull() {
+                return this.IsNull(this.tablecourse.startYearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetstartYearNull() {
+                this[this.tablecourse.startYearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsendYearNull() {
+                return this.IsNull(this.tablecourse.endYearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetendYearNull() {
+                this[this.tablecourse.endYearColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6447,10 +6531,12 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("startMonth", "startMonth");
             tableMapping.ColumnMappings.Add("endMonth", "endMonth");
             tableMapping.ColumnMappings.Add("description", "description");
+            tableMapping.ColumnMappings.Add("startYear", "startYear");
+            tableMapping.ColumnMappings.Add("endYear", "endYear");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `course` WHERE ((`courseID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `weekday` IS NULL) OR (`weekday` = ?)) AND ((? = 1 AND `room` IS NULL) OR (`room` = ?)) AND ((? = 1 AND `startTime` IS NULL) OR (`startTime` = ?)) AND ((? = 1 AND `endTime` IS NULL) OR (`endTime` = ?)) AND ((? = 1 AND `teacherRate` IS NULL) OR (`teacherRate` = ?)) AND ((? = 1 AND `operatingCharges` IS NULL) OR (`operatingCharges` = ?)) AND ((? = 1 AND `categoryID` IS NULL) OR (`categoryID` = ?)) AND ((? = 1 AND `teacherID` IS NULL) OR (`teacherID` = ?)) AND ((? = 1 AND `startMonth` IS NULL) OR (`startMonth` = ?)) AND ((? = 1 AND `endMonth` IS NULL) OR (`endMonth` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `course` WHERE ((`courseID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `weekday` IS NULL) OR (`weekday` = ?)) AND ((? = 1 AND `room` IS NULL) OR (`room` = ?)) AND ((? = 1 AND `startTime` IS NULL) OR (`startTime` = ?)) AND ((? = 1 AND `endTime` IS NULL) OR (`endTime` = ?)) AND ((? = 1 AND `teacherRate` IS NULL) OR (`teacherRate` = ?)) AND ((? = 1 AND `operatingCharges` IS NULL) OR (`operatingCharges` = ?)) AND ((? = 1 AND `categoryID` IS NULL) OR (`categoryID` = ?)) AND ((? = 1 AND `teacherID` IS NULL) OR (`teacherID` = ?)) AND ((? = 1 AND `startMonth` IS NULL) OR (`startMonth` = ?)) AND ((? = 1 AND `endMonth` IS NULL) OR (`endMonth` = ?)) AND ((? = 1 AND `endYear` IS NULL) OR (`endYear` = ?)) AND ((? = 1 AND `startYear` IS NULL) OR (`startYear` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
@@ -6475,11 +6561,13 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_startMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startMonth", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_endMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endMonth", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_endMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endMonth", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_endYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endYear", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_endYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endYear", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_startYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startYear", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_startYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startYear", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `course` (`courseID`, `name`, `weekday`, `room`, `startTime`, `endTim" +
-                "e`, `teacherRate`, `operatingCharges`, `categoryID`, `teacherID`, `startMonth`, " +
-                "`endMonth`, `description`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `course` (`courseID`, `name`, `weekday`, `room`, `startTime`, `endTime`, `teacherRate`, `operatingCharges`, `categoryID`, `teacherID`, `startMonth`, `endMonth`, `description`, `endYear`, `startYear`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
@@ -6494,9 +6582,11 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startMonth", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("endMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endMonth", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("description", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "description", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("endYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endYear", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startYear", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `course` SET `courseID` = ?, `name` = ?, `weekday` = ?, `room` = ?, `startTime` = ?, `endTime` = ?, `teacherRate` = ?, `operatingCharges` = ?, `categoryID` = ?, `teacherID` = ?, `startMonth` = ?, `endMonth` = ?, `description` = ? WHERE ((`courseID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `weekday` IS NULL) OR (`weekday` = ?)) AND ((? = 1 AND `room` IS NULL) OR (`room` = ?)) AND ((? = 1 AND `startTime` IS NULL) OR (`startTime` = ?)) AND ((? = 1 AND `endTime` IS NULL) OR (`endTime` = ?)) AND ((? = 1 AND `teacherRate` IS NULL) OR (`teacherRate` = ?)) AND ((? = 1 AND `operatingCharges` IS NULL) OR (`operatingCharges` = ?)) AND ((? = 1 AND `categoryID` IS NULL) OR (`categoryID` = ?)) AND ((? = 1 AND `teacherID` IS NULL) OR (`teacherID` = ?)) AND ((? = 1 AND `startMonth` IS NULL) OR (`startMonth` = ?)) AND ((? = 1 AND `endMonth` IS NULL) OR (`endMonth` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `course` SET `courseID` = ?, `name` = ?, `weekday` = ?, `room` = ?, `startTime` = ?, `endTime` = ?, `teacherRate` = ?, `operatingCharges` = ?, `categoryID` = ?, `teacherID` = ?, `startMonth` = ?, `endMonth` = ?, `description` = ?, `endYear` = ?, `startYear` = ? WHERE ((`courseID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `weekday` IS NULL) OR (`weekday` = ?)) AND ((? = 1 AND `room` IS NULL) OR (`room` = ?)) AND ((? = 1 AND `startTime` IS NULL) OR (`startTime` = ?)) AND ((? = 1 AND `endTime` IS NULL) OR (`endTime` = ?)) AND ((? = 1 AND `teacherRate` IS NULL) OR (`teacherRate` = ?)) AND ((? = 1 AND `operatingCharges` IS NULL) OR (`operatingCharges` = ?)) AND ((? = 1 AND `categoryID` IS NULL) OR (`categoryID` = ?)) AND ((? = 1 AND `teacherID` IS NULL) OR (`teacherID` = ?)) AND ((? = 1 AND `startMonth` IS NULL) OR (`startMonth` = ?)) AND ((? = 1 AND `endMonth` IS NULL) OR (`endMonth` = ?)) AND ((? = 1 AND `endYear` IS NULL) OR (`endYear` = ?)) AND ((? = 1 AND `startYear` IS NULL) OR (`startYear` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
@@ -6511,6 +6601,8 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startMonth", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("endMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endMonth", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("description", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "description", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("endYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endYear", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("startYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startYear", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_courseID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "courseID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
@@ -6534,6 +6626,10 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_startMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startMonth", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_endMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endMonth", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_endMonth", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endMonth", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_endYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endYear", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_endYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "endYear", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_startYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startYear", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_startYear", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "startYear", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6550,7 +6646,8 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT courseID, name, weekday, room, startTime, endTime, teacherRate, operatingC" +
-                "harges, categoryID, teacherID, startMonth, endMonth, description FROM course";
+                "harges, categoryID, teacherID, startMonth, endMonth, description, endYear, start" +
+                "Year FROM course";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6611,7 +6708,7 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_courseID, string Original_name, int Original_weekday, string Original_room, System.DateTime Original_startTime, System.DateTime Original_endTime, int Original_teacherRate, int Original_operatingCharges, string Original_categoryID, string Original_teacherID, int Original_startMonth, int Original_endMonth) {
+        public virtual int Delete(string Original_courseID, string Original_name, int Original_weekday, string Original_room, System.DateTime Original_startTime, System.DateTime Original_endTime, int Original_teacherRate, int Original_operatingCharges, string Original_categoryID, string Original_teacherID, int Original_startMonth, int Original_endMonth, global::System.Nullable<int> Original_endYear, global::System.Nullable<int> Original_startYear) {
             if ((Original_courseID == null)) {
                 throw new global::System.ArgumentNullException("Original_courseID");
             }
@@ -6660,6 +6757,22 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_startMonth));
             this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
             this.Adapter.DeleteCommand.Parameters[22].Value = ((int)(Original_endMonth));
+            if ((Original_endYear.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(Original_endYear.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_startYear.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((int)(Original_startYear.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6680,7 +6793,7 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string courseID, string name, int weekday, string room, System.DateTime startTime, System.DateTime endTime, int teacherRate, int operatingCharges, string categoryID, string teacherID, int startMonth, int endMonth, string description) {
+        public virtual int Insert(string courseID, string name, int weekday, string room, System.DateTime startTime, System.DateTime endTime, int teacherRate, int operatingCharges, string categoryID, string teacherID, int startMonth, int endMonth, string description, global::System.Nullable<int> endYear, global::System.Nullable<int> startYear) {
             if ((courseID == null)) {
                 throw new global::System.ArgumentNullException("courseID");
             }
@@ -6724,6 +6837,18 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = ((string)(description));
             }
+            if ((endYear.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((int)(endYear.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((startYear.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(startYear.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6758,6 +6883,8 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                     int startMonth, 
                     int endMonth, 
                     string description, 
+                    global::System.Nullable<int> endYear, 
+                    global::System.Nullable<int> startYear, 
                     string Original_courseID, 
                     string Original_name, 
                     int Original_weekday, 
@@ -6769,7 +6896,9 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                     string Original_categoryID, 
                     string Original_teacherID, 
                     int Original_startMonth, 
-                    int Original_endMonth) {
+                    int Original_endMonth, 
+                    global::System.Nullable<int> Original_endYear, 
+                    global::System.Nullable<int> Original_startYear) {
             if ((courseID == null)) {
                 throw new global::System.ArgumentNullException("courseID");
             }
@@ -6813,54 +6942,82 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(description));
             }
+            if ((endYear.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(endYear.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((startYear.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(startYear.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
             if ((Original_courseID == null)) {
                 throw new global::System.ArgumentNullException("Original_courseID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_courseID));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_courseID));
             }
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_name));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_weekday));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_weekday));
             if ((Original_room == null)) {
                 throw new global::System.ArgumentNullException("Original_room");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_room));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_room));
             }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_startTime));
             this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_endTime));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_startTime));
             this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_teacherRate));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_endTime));
             this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_operatingCharges));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_teacherRate));
+            this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_operatingCharges));
             if ((Original_categoryID == null)) {
                 throw new global::System.ArgumentNullException("Original_categoryID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_categoryID));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_categoryID));
             }
             if ((Original_teacherID == null)) {
                 throw new global::System.ArgumentNullException("Original_teacherID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_teacherID));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_teacherID));
             }
-            this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_startMonth));
             this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_endMonth));
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_startMonth));
+            this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_endMonth));
+            if ((Original_endYear.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_endYear.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((Original_startYear.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((int)(Original_startYear.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6894,6 +7051,8 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                     int startMonth, 
                     int endMonth, 
                     string description, 
+                    global::System.Nullable<int> endYear, 
+                    global::System.Nullable<int> startYear, 
                     string Original_courseID, 
                     string Original_name, 
                     int Original_weekday, 
@@ -6905,8 +7064,10 @@ namespace FunHomeClub.res.db.masterDBDataSetTableAdapters {
                     string Original_categoryID, 
                     string Original_teacherID, 
                     int Original_startMonth, 
-                    int Original_endMonth) {
-            return this.Update(Original_courseID, name, weekday, room, startTime, endTime, teacherRate, operatingCharges, categoryID, teacherID, startMonth, endMonth, description, Original_courseID, Original_name, Original_weekday, Original_room, Original_startTime, Original_endTime, Original_teacherRate, Original_operatingCharges, Original_categoryID, Original_teacherID, Original_startMonth, Original_endMonth);
+                    int Original_endMonth, 
+                    global::System.Nullable<int> Original_endYear, 
+                    global::System.Nullable<int> Original_startYear) {
+            return this.Update(Original_courseID, name, weekday, room, startTime, endTime, teacherRate, operatingCharges, categoryID, teacherID, startMonth, endMonth, description, endYear, startYear, Original_courseID, Original_name, Original_weekday, Original_room, Original_startTime, Original_endTime, Original_teacherRate, Original_operatingCharges, Original_categoryID, Original_teacherID, Original_startMonth, Original_endMonth, Original_endYear, Original_startYear);
         }
     }
     

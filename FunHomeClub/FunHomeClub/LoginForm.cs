@@ -92,7 +92,7 @@ namespace FunHomeClub
                 this.Hide();
                 frmMain = new MainForm(emp, connection);
                 frmMenu = new MenuForm(emp, connection);
-                Utility.repaintFrameSize(frmMain, frmMenu);
+                Utility.repaintFrameSize(frmMain, frmMenu, null, 0 , 20);
                 frmMenu.MdiParent = frmMain;
                 frmMenu.Dock = DockStyle.Fill;
                 frmMenu.Show();
@@ -152,10 +152,16 @@ namespace FunHomeClub
 
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.CapsLock)
+
+            if (e.KeyCode == Keys.CapsLock && Control.IsKeyLocked(Keys.CapsLock))
                 ShowCapsLockHint();
             else
                 HideCapsLockHint();
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            HideCapsLockHint();
         }
     }
 }

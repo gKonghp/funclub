@@ -43,8 +43,7 @@ namespace FunHomeClub
 
         public void Initialize()
         {
-            // TODO: 這行程式碼會將資料載入 'masterDBDataSet.course' 資料表。您可以視需要進行移動或移除。
-            this.courseTableAdapter.Fill(this.masterDBDataSet.course);
+
 
             string sql;
             OleDbDataAdapter adapter;
@@ -83,6 +82,12 @@ namespace FunHomeClub
             sql = string.Format("SELECT * FROM promotion WHERE promotionID = '{0}'", promotionID);
             adapter = new OleDbDataAdapter(sql, conn);
             adapter.Fill(this.masterDBDataSet.promotion);
+            adapter.Dispose();
+
+            //Get Course
+            sql = string.Format("SELECT c.courseID as courseID, name, startMonth, endMonth, startTime, endTime, room, weekday, startPeriod, endPeriod, cost FROM Course c, StudentCourse sc, Invoice i WHERE c.courseID = sc.courseID AND sc.studentID = '{0}' AND i.invoiceID = sc.invoiceID AND i.invoiceId= '{1}'",studentID, invoiceID);
+            adapter = new OleDbDataAdapter(sql, conn);
+            adapter.Fill(this.reportDataSet.Course);
             adapter.Dispose();
 
             //ReportParameter p1 = new ReportParameter("invoiceID", "in0001");

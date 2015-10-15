@@ -44,7 +44,20 @@ namespace FunHomeClub
         {
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }
-
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            Button btn = (btnAdd.Visible == true) ? btnAdd : btnSave;
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btn.PerformClick();
+                    break;
+                case Keys.Escape:
+                    btnCancel.PerformClick();
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (checkStringValid(txtPassword, txtUsername, cboPosition))
@@ -119,8 +132,8 @@ namespace FunHomeClub
                         tb.Text = tb.Text.Trim();
                         if (tb.Text == "")
                         {
-                            MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
+                            errorProvider1.SetError(tb, "Please fill in all Textbox first!");
+                            //MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
@@ -129,22 +142,40 @@ namespace FunHomeClub
                                 case null:
                                     if (!Regex.IsMatch(tb.Text, @"^[\sa-zA-Z0-9]+$") && tb.Multiline == false)
                                     {
-                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        errorProvider1.SetError(tb, tb.Name.Replace("txt", "") + " do not allow any special characters!");
+                                        //MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
+                                    else
+                                        errorProvider1.SetError(tb, "");
                                     break;
                                 case "ns":
                                     if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$"))
                                     {
-                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        errorProvider1.SetError(tb, tb.Name.Replace("txt", "") + " do not allow space characters!");
+
+                                        //MessageBox.Show(tb.Name.Replace("txt", "") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
+                                    else
+                                        errorProvider1.SetError(tb, "");
                                     break;
                                 case "email":
                                     if (!Regex.IsMatch(tb.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
                                     {
-                                        MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        errorProvider1.SetError(tb, "Not a valid email format!");
+
+                                        //MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                    else
+                                        errorProvider1.SetError(tb, "");
+                                    break;
+                                case "dot":
+                                    if (!Regex.IsMatch(tb.Text, @"^([0-9]|[.][0-9])*$"))
+                                    {
+                                        errorProvider1.SetError(tb, "Not a valid number");
+                                    }
+                                    else
+                                    {
+                                        errorProvider1.SetError(tb, "");
                                     }
                                     break;
                             }
@@ -152,29 +183,55 @@ namespace FunHomeClub
                         break;
                     case "ComboBox":
                         ComboBox cb = (ComboBox)para[i];
-                        if (cb.SelectedIndex < 0)
+                        if (cb.SelectedItem == null)
                         {
-                            MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
+                            errorProvider1.SetError(cb, "Please choose all combobox first!");
+                            //MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                     case "NumericUpDown":
                         NumericUpDown numeric = (NumericUpDown)para[i];
                         if (numeric.Value == 0)
                         {
-                            MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                            return false;
+                            errorProvider1.SetError(numeric, "The number cannot be zero!");
+                            // MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                 }
             }
+            btnAdd.Enabled = isValid();
+            btnSave.Enabled = isValid();
+            return isValid();
+        }
+        private bool isValid()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (!(errorProvider1.GetError(c).Trim() == ""))
+                {
+                    return false;
+                }
+            }
             return true;
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            checkStringValid(txtUsername);
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            checkStringValid(txtPassword);
+        }
+
+        private void cboPosition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkStringValid(cboPosition);
         }
     }
 }

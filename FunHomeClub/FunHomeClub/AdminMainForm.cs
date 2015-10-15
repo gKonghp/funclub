@@ -47,6 +47,9 @@ namespace FunHomeClub
                 case "TreeNode: Profit Margin":
                     ProfitMargin();
                     break;
+                case "TreeNode: Category":
+                    Category();
+                    break;
             }
         }
         public void Course()
@@ -54,49 +57,58 @@ namespace FunHomeClub
             CourseControl courseUC = new CourseControl(connection);
             adminPanel.Controls.Add(courseUC);
             courseUC.Dock = DockStyle.Fill;
-            Utility.repaintFrameSize(this.MdiParent, this, courseUC, 190);
+            //Utility.repaintFrameSize(this.MdiParent, this, courseUC, 190, 10);
+            Utility.repaintFrameSize(this.MdiParent, this, courseUC, 0, 20);
+        }
+
+        public void Category()
+        {
+            CategoryControl categoryUC = new CategoryControl(connection);
+            adminPanel.Controls.Add(categoryUC);
+            categoryUC.Dock = DockStyle.Fill;
+            Utility.repaintFrameSize(this.MdiParent, this, categoryUC, -200, 20);
         }
         public void Staff()
         {
             StaffControl staffUC = new StaffControl(connection);
             adminPanel.Controls.Add(staffUC);
             staffUC.Dock = DockStyle.Fill;
-            Utility.repaintFrameSize(this.MdiParent, this, staffUC, 190);
+            Utility.repaintFrameSize(this.MdiParent, this, staffUC, -200, 20);
         }
         public void Teacher()
         {
             TeacherControl teacherUC = new TeacherControl(connection);
             adminPanel.Controls.Add(teacherUC);
             teacherUC.Dock = DockStyle.Fill;
-            Utility.repaintFrameSize(this.MdiParent, this, teacherUC, 190);
+            Utility.repaintFrameSize(this.MdiParent, this, teacherUC, -200, 20);
         }
         public void Student()
         {
             StudentControl studentUC = new StudentControl(connection);
             adminPanel.Controls.Add(studentUC);
             studentUC.Dock = DockStyle.Fill;
-            Utility.repaintFrameSize(this.MdiParent, this, studentUC, 190);
+            Utility.repaintFrameSize(this.MdiParent, this, studentUC, -200, 20);
         }
         public void Membership()
         {
             MembershipControl msUC = new MembershipControl(connection);
             adminPanel.Controls.Add(msUC);
             msUC.Dock = DockStyle.Fill;
-            Utility.repaintFrameSize(this.MdiParent, this, msUC, 190);
+            Utility.repaintFrameSize(this.MdiParent, this, msUC, 0, 20);
         }
         public void Promotions()
         {
             PromotionControl promotionUC = new PromotionControl(connection);
             adminPanel.Controls.Add(promotionUC);
             promotionUC.Dock = DockStyle.Fill;
-            Utility.repaintFrameSize(this.MdiParent, this, promotionUC, 190);
+            Utility.repaintFrameSize(this.MdiParent, this, promotionUC, -200, 20);
         }
         public void ProfitMargin()
         {
             ProfitMarginControl pmUC = new ProfitMarginControl(connection);
             adminPanel.Controls.Add(pmUC);
             pmUC.Dock = DockStyle.Fill;
-            Utility.repaintFrameSize(this.MdiParent, this, pmUC, 190);
+            Utility.repaintFrameSize(this.MdiParent, this, pmUC, -300, 20);
         }
 
         private void AdminMainForm_Load(object sender, EventArgs e)
@@ -109,8 +121,8 @@ namespace FunHomeClub
             if (!((MainForm)this.MdiParent).enableAdvanceRight)
             {
                 tvControlForm.Nodes["Administration"].Nodes["ProfitMargin"].Remove();
-                tvControlForm.Nodes["Membership"].Remove();
-                tvControlForm.Nodes["Promotions"].Remove();
+                //tvControlForm.Nodes["Membership"].Remove();
+                //tvControlForm.Nodes["Promotions"].Remove();
             }
         }
     }

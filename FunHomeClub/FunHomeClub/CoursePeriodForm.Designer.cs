@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblPeriodFrom = new System.Windows.Forms.Label();
             this.cbbPeriodTo = new System.Windows.Forms.ComboBox();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOK = new XButton();
+            this.btnCancel = new XButton();
             this.lblPeriodTo = new System.Windows.Forms.Label();
             this.lblCourseID = new System.Windows.Forms.Label();
             this.lblCourseName = new System.Windows.Forms.Label();
@@ -220,8 +220,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPeriodFrom;
         private System.Windows.Forms.ComboBox cbbPeriodTo;
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnCancel;
+        private XButton btnOK;
+        private XButton btnCancel;
         private System.Windows.Forms.Label lblPeriodTo;
         private System.Windows.Forms.Label lblCourseID;
         private System.Windows.Forms.Label lblCourseName;

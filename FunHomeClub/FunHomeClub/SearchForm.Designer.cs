@@ -40,7 +40,7 @@
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAdvanced = new System.Windows.Forms.Button();
+            this.btnAdvanced = new XButton();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -262,7 +262,7 @@
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnAdvanced;
+        private XButton btnAdvanced;
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;

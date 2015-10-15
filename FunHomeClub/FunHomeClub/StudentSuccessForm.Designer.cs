@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnClose = new XButton();
             this.lblMembership_d = new System.Windows.Forms.Label();
             this.lblEmail_d = new System.Windows.Forms.Label();
             this.lblContact_d = new System.Windows.Forms.Label();
@@ -234,7 +234,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnClose;
+        private XButton btnClose;
         private System.Windows.Forms.Label lblMembership_d;
         private System.Windows.Forms.Label lblEmail_d;
         private System.Windows.Forms.Label lblContact_d;

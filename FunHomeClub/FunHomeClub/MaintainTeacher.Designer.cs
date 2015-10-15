@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.fRadio = new System.Windows.Forms.RadioButton();
             this.mRadio = new System.Windows.Forms.RadioButton();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -35,9 +36,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtContact = new System.Windows.Forms.TextBox();
-            this.btnSave = new XButton();
-            this.button2 = new XButton();
-            this.btnAdd = new XButton();
+            this.btnSave = new FunHomeClub.XButton();
+            this.button2 = new FunHomeClub.XButton();
+            this.btnAdd = new FunHomeClub.XButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // fRadio
@@ -73,6 +76,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(171, 20);
             this.txtName.TabIndex = 11;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label3
             // 
@@ -113,6 +117,7 @@
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(171, 20);
             this.txtContact.TabIndex = 15;
+            this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
             // 
             // btnSave
             // 
@@ -143,6 +148,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnAdd
             // 
@@ -158,6 +164,10 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // MaintainTeacher
             // 
@@ -175,9 +185,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainTeacher";
             this.Text = "MaintainTeacher";
             this.Load += new System.EventHandler(this.MaintainTeacher_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +207,6 @@
         private XButton btnSave;
         private XButton button2;
         private XButton btnAdd;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

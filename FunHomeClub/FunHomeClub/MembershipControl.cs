@@ -47,10 +47,14 @@ namespace FunHomeClub
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            new OleDbCommand("DELETE FROM memberShip WHERE membershipID = '" + lstMembership.Items[lstMembership.SelectedItems[0].Index].Text + "'", connection).ExecuteNonQuery();
-            MessageBox.Show("Delete Successful!");
-            ShowMembership();
-            AfterListMemberchange();
+            DialogResult dResult = MessageBox.Show("Do you conform to delete this record?", "Warnning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dResult == DialogResult.Yes)
+            {
+                new OleDbCommand("DELETE FROM memberShip WHERE membershipID = '" + lstMembership.Items[lstMembership.SelectedItems[0].Index].Text + "'", connection).ExecuteNonQuery();
+                MessageBox.Show("Delete Successful!");
+                ShowMembership();
+                AfterListMemberchange();
+            }
         }
 
         private void lstMembership_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,6 +112,30 @@ namespace FunHomeClub
                 btnChange.Enabled = false;
                 btnDelete.Enabled = false;
             }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.A))
+                btnAdd.PerformClick();
+
+            if (keyData == (Keys.Control | Keys.M))
+            {
+                if (btnChange.Enabled == true)
+                    btnChange.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (keyData == (Keys.Control | Keys.D))
+            {
+                if(btnDelete.Enabled == true)
+                    btnDelete.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

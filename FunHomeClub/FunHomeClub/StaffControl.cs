@@ -36,7 +36,11 @@ namespace FunHomeClub
 
         private void btnDeleteStaff_Click(object sender, EventArgs e)
         {
-            deleteStaff();
+            DialogResult dResult = MessageBox.Show("Do you conform to delete this record?", "Warnning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dResult == DialogResult.Yes)
+            {
+                deleteStaff();
+            }
         }
         private void addStaff()
         {
@@ -95,7 +99,31 @@ namespace FunHomeClub
             lstStaff.GridLines = true;
             lstStaff.FullRowSelect = true;
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.A))
+                btnAddStaff.PerformClick();
 
+            if (keyData == (Keys.Control | Keys.M))
+            {
+                if (btnMaintainStaff.Enabled == true)
+                    btnMaintainStaff.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (keyData == (Keys.Control | Keys.D))
+            {
+                if(btnDeleteStaff.Enabled == true)
+                    btnDeleteStaff.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void lstStaff_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstStaff.SelectedItems.Count > 0)

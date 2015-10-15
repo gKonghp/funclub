@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace FunHomeClub
 {
@@ -28,7 +29,8 @@ namespace FunHomeClub
 
             btnAdd.Visible = isAdd;
             btnSave.Visible = !isAdd;
-
+            
+            
             txtRoom.Tag = "ns";
             numQuota.Value = 10;
             numericOperating.Value = 2000;
@@ -50,7 +52,6 @@ namespace FunHomeClub
 
                 cboStartMonth.SelectedIndex = cboStartMonth.Items.IndexOf(lstItem.SubItems[10].Text);
                 cboEndMonth.SelectedIndex = cboStartMonth.Items.IndexOf(lstItem.SubItems[11].Text);
-
                 this.courseID = lstItem.SubItems[0].Text;
                 DataTable dt = new DataTable();
                 dataAdapter = new OleDbDataAdapter("select quota from courseMonth where courseID = '" + this.courseID + "'", connection);
@@ -59,9 +60,16 @@ namespace FunHomeClub
             }
             else
             {
+
                 fillTeacherName();
                 fillCategory();
+                cboStartMonth.SelectedIndex = 0;
+                cboEndMonth.SelectedIndex = 0;
+                cboWeekday.SelectedIndex = 0;
+                cboTeacherName.SelectedIndex = 0;
+                cboCategory.SelectedIndex = 0;
             }
+            
         }
         private void fillCategory(String categoryName = "none")
         {
@@ -92,8 +100,22 @@ namespace FunHomeClub
         private void MaintainCourse_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            
         }
-
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            Button btn = (btnAdd.Visible == true) ? btnAdd : btnSave;
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btn.PerformClick();
+                    break;
+                case Keys.Escape:
+                    button2.PerformClick();
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (checkStringValid(txtCourseName, txtRoom, numericOperating, txtDescription, numQuota, cboCategory, cboEndMonth, cboStartMonth, cboTeacherName, cboWeekday))
@@ -118,7 +140,6 @@ namespace FunHomeClub
         }
         private Boolean checkStringValid(params object[] para)
         {
-
             for (int i = 0; i < para.Length; i++)
             {
                 switch (para[i].GetType().Name)
@@ -128,8 +149,8 @@ namespace FunHomeClub
                         tb.Text = tb.Text.Trim();
                         if (tb.Text == "")
                         {
-                            MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
+                            courseErrProvider.SetError(tb, "Please fill in all Textbox first!");
+                            //MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
@@ -138,54 +159,85 @@ namespace FunHomeClub
                                 case null:
                                     if (!Regex.IsMatch(tb.Text, @"^[\sa-zA-Z0-9]+$") && tb.Multiline == false)
                                     {
-                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        courseErrProvider.SetError(tb, tb.Name.Replace("txt", "") + " do not allow any special characters!");
+                                        //MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
+                                    else
+                                        courseErrProvider.SetError(tb, "");
                                     break;
                                 case "ns":
                                     if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$"))
                                     {
-                                        MessageBox.Show(tb.Name.Replace("txt", "") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        courseErrProvider.SetError(tb, tb.Name.Replace("txt", "") + " do not allow space characters!");
+
+                                        //MessageBox.Show(tb.Name.Replace("txt", "") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
+                                    else
+                                        courseErrProvider.SetError(tb, "");
                                     break;
                                 case "email":
                                     if (!Regex.IsMatch(tb.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
                                     {
-                                        MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        courseErrProvider.SetError(tb, "Not a valid email format!");
+
+                                        //MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
+                                    else
+                                        courseErrProvider.SetError(tb, "");
                                     break;
                             }
                         }
                         break;
                     case "ComboBox":
                         ComboBox cb = (ComboBox)para[i];
-                        if (cb.SelectedIndex < 0)
+                        if (cb.SelectedItem == null)
                         {
-                            MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
+                            courseErrProvider.SetError(cb, "Please choose all combobox first!");
+                            //MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                     case "NumericUpDown":
                         NumericUpDown numeric = (NumericUpDown)para[i];
                         if (numeric.Value == 0)
                         {
-                            MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
+                            courseErrProvider.SetError(numeric, "The number cannot be zero!");
+                           // MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                 }
             }
             if (cboStartMonth.SelectedIndex > cboEndMonth.SelectedIndex)
             {
-                MessageBox.Show("Start month must smaller than end month!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                courseErrProvider.SetError(cboEndMonth, "Start month must smaller than end month!!");
+                //MessageBox.Show("Start month must smaller than end month!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (dtpStartTime.Value > dtpEndTime.Value)
+            else
+                courseErrProvider.SetError(cboEndMonth, "");
+
+            if (dtpStartTime.Value >= dtpEndTime.Value)
             {
-                MessageBox.Show("Start time must smaller than end time!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                courseErrProvider.SetError(dtpEndTime, "Start time must smaller than end time!!");
+                //MessageBox.Show("Start time must smaller than end time!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                courseErrProvider.SetError(dtpEndTime, "");
+
+
+            Boolean v = isValid();
+            btnAdd.Enabled = btnSave.Enabled = v;
+            return v;
+        }
+        private bool isValid()
+        {
+            foreach (Control c in courseErrProvider.ContainerControl.Controls)
+            {
+                foreach (Control subC in c.Controls)
+                {
+                    if (!(courseErrProvider.GetError(subC).Trim() == ""))
+                    {
+                        return false;
+                    }
+                }
             }
             return true;
         }
@@ -220,6 +272,83 @@ namespace FunHomeClub
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void txtCourseName_TextChanged(object sender, EventArgs e)
+        {
+            checkStringValid(txtCourseName);
+        }
+
+        private void txtRoom_TextChanged(object sender, EventArgs e)
+        {
+            checkStringValid(txtRoom);
+        }
+
+        private void MaintainCourse_TextChanged(object sender, EventArgs e)
+        {
+           // checkStringValid(txtCourseName, txtRoom, numericOperating, txtDescription, numQuota, cboCategory, cboEndMonth, cboStartMonth, cboTeacherName, cboWeekday);
+
+        }
+
+        private void numQuota_ValueChanged(object sender, EventArgs e)
+        {
+            checkStringValid(numQuota);
+        }
+
+        private void numericOperating_ValueChanged(object sender, EventArgs e)
+        {
+            checkStringValid(numericOperating);
+        }
+
+        private void dtpStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            checkStringValid();
+        }
+
+        private void dtpEndTime_ValueChanged(object sender, EventArgs e)
+        {
+            checkStringValid();
+        }
+
+        private void cboStartMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkStringValid(cboStartMonth);
+        }
+
+        private void cboEndMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show("12w"+cboEndMonth.SelectedIndex.ToString());
+            checkStringValid(cboEndMonth);
+
+        }
+
+        private void cboWeekday_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkStringValid(cboWeekday);
+
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+            checkStringValid(txtDescription);
+
+        }
+
+        private void cboTeacherName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkStringValid(cboTeacherName);
+
+        }
+
+        private void numericRate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkStringValid(cboCategory);
+
         }
     }
 }

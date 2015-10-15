@@ -33,14 +33,14 @@
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Teacher");
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Student");
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Profit Margin");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Administration", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Category");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Administration", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
             treeNode4,
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Membership");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Promotions");
+            treeNode5,
+            treeNode6});
             this.tvControlForm = new System.Windows.Forms.TreeView();
             this.adminPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -69,16 +69,12 @@
             treeNode4.Text = "Student";
             treeNode5.Name = "ProfitMargin";
             treeNode5.Text = "Profit Margin";
-            treeNode6.Name = "Administration";
-            treeNode6.Text = "Administration";
-            treeNode7.Name = "Membership";
-            treeNode7.Text = "Membership";
-            treeNode8.Name = "Promotions";
-            treeNode8.Text = "Promotions";
+            treeNode6.Name = "Category";
+            treeNode6.Text = "Category";
+            treeNode7.Name = "Administration";
+            treeNode7.Text = "Administration";
             this.tvControlForm.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7,
-            treeNode8});
+            treeNode7});
             this.tvControlForm.Size = new System.Drawing.Size(144, 291);
             this.tvControlForm.TabIndex = 0;
             this.tvControlForm.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvControlForm_AfterSelect);
@@ -109,9 +105,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(95, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 44);
+            this.label1.Size = new System.Drawing.Size(409, 44);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Administration";
+            this.label1.Text = "Administrative Function";
             // 
             // pictureBox1
             // 

@@ -129,6 +129,30 @@
     <Compile Include="AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalendarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalendarControl.Designer.cs">
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalenderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalenderForm.Designer.cs">
+      <DependentUpon>CalenderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CategoryControl.designer.cs">
+      <DependentUpon>CategoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeMembershipStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeMembershipStatusForm.Designer.cs">
+      <DependentUpon>ChangeMembershipStatusForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ComboBoxItem.cs" />
     <Compile Include="CourseConfirmForm.cs">
       <SubType>Form</SubType>
@@ -159,6 +183,35 @@
     </Compile>
     <Compile Include="CoursePeriodForm.Designer.cs">
       <DependentUpon>CoursePeriodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseRegHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseRegHistoryForm.Designer.cs">
+      <DependentUpon>CourseRegHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintainCategory.Designer.cs">
+      <DependentUpon>MaintainCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MembershipForm.Designer.cs">
+      <DependentUpon>MembershipForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PromotionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PromotionForm.Designer.cs">
+      <DependentUpon>PromotionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="res\db\ReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="XButton.cs">
       <SubType>Component</SubType>
@@ -324,6 +377,18 @@
     <EmbeddedResource Include="AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CalendarControl.resx">
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalenderForm.resx">
+      <DependentUpon>CalenderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoryControl.resx">
+      <DependentUpon>CategoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeMembershipStatusForm.resx">
+      <DependentUpon>ChangeMembershipStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseConfirmForm.resx">
       <DependentUpon>CourseConfirmForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -339,6 +404,9 @@
     <EmbeddedResource Include="CoursePeriodForm.resx">
       <DependentUpon>CoursePeriodForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CourseRegHistoryForm.resx">
+      <DependentUpon>CourseRegHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InvoicePreviewForm.resx">
       <DependentUpon>InvoicePreviewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -350,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainCategory.resx">
+      <DependentUpon>MaintainCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaintainCourse.resx">
       <DependentUpon>MaintainCourse.cs</DependentUpon>
@@ -372,6 +443,9 @@
     <EmbeddedResource Include="MembershipControl.resx">
       <DependentUpon>MembershipControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MembershipForm.resx">
+      <DependentUpon>MembershipForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -380,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PromotionControl.resx">
       <DependentUpon>PromotionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PromotionForm.resx">
+      <DependentUpon>PromotionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PromotionViewForm.resx">
       <DependentUpon>PromotionViewForm.cs</DependentUpon>
@@ -438,6 +515,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="res\db\ReportDataSet.xsc">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="res\db\ReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="res\db\ReportDataSet.xss">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Administration.png" />
@@ -450,6 +538,7 @@
     <None Include="Resources\Search_Course.png" />
     <None Include="Resources\Membership.png" />
     <None Include="Resources\Promotion.png" />
+    <None Include="Resources\warnIco.bmp" />
     <Content Include="res\db\masterDB.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericOperating = new System.Windows.Forms.NumericUpDown();
@@ -57,15 +58,17 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnSave = new XButton();
-            this.button2 = new XButton();
-            this.btnAdd = new XButton();
+            this.btnSave = new FunHomeClub.XButton();
+            this.button2 = new FunHomeClub.XButton();
+            this.btnAdd = new FunHomeClub.XButton();
+            this.courseErrProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericOperating)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuota)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRate)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseErrProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -137,6 +140,7 @@
             0,
             0,
             0});
+            this.numericOperating.ValueChanged += new System.EventHandler(this.numericOperating_ValueChanged);
             // 
             // txtDescription
             // 
@@ -149,6 +153,7 @@
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescription.Size = new System.Drawing.Size(179, 52);
             this.txtDescription.TabIndex = 38;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // label2
             // 
@@ -194,6 +199,7 @@
             this.cboEndMonth.Name = "cboEndMonth";
             this.cboEndMonth.Size = new System.Drawing.Size(63, 27);
             this.cboEndMonth.TabIndex = 34;
+            this.cboEndMonth.SelectedIndexChanged += new System.EventHandler(this.cboEndMonth_SelectedIndexChanged);
             // 
             // cboStartMonth
             // 
@@ -219,6 +225,7 @@
             this.cboStartMonth.Name = "cboStartMonth";
             this.cboStartMonth.Size = new System.Drawing.Size(65, 27);
             this.cboStartMonth.TabIndex = 33;
+            this.cboStartMonth.SelectedIndexChanged += new System.EventHandler(this.cboStartMonth_SelectedIndexChanged);
             // 
             // cboWeekday
             // 
@@ -239,6 +246,7 @@
             this.cboWeekday.Name = "cboWeekday";
             this.cboWeekday.Size = new System.Drawing.Size(180, 27);
             this.cboWeekday.TabIndex = 32;
+            this.cboWeekday.SelectedIndexChanged += new System.EventHandler(this.cboWeekday_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -269,6 +277,7 @@
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.Size = new System.Drawing.Size(63, 27);
             this.dtpEndTime.TabIndex = 27;
+            this.dtpEndTime.ValueChanged += new System.EventHandler(this.dtpEndTime_ValueChanged);
             // 
             // txtRoom
             // 
@@ -279,6 +288,7 @@
             this.txtRoom.Name = "txtRoom";
             this.txtRoom.Size = new System.Drawing.Size(182, 20);
             this.txtRoom.TabIndex = 23;
+            this.txtRoom.TextChanged += new System.EventHandler(this.txtRoom_TextChanged);
             // 
             // label6
             // 
@@ -299,6 +309,7 @@
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.Size = new System.Drawing.Size(65, 27);
             this.dtpStartTime.TabIndex = 25;
+            this.dtpStartTime.ValueChanged += new System.EventHandler(this.dtpStartTime_ValueChanged);
             // 
             // label4
             // 
@@ -329,6 +340,7 @@
             this.numQuota.Name = "numQuota";
             this.numQuota.Size = new System.Drawing.Size(182, 23);
             this.numQuota.TabIndex = 20;
+            this.numQuota.ValueChanged += new System.EventHandler(this.numQuota_ValueChanged);
             // 
             // txtCourseName
             // 
@@ -339,6 +351,7 @@
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Size = new System.Drawing.Size(182, 20);
             this.txtCourseName.TabIndex = 19;
+            this.txtCourseName.TextChanged += new System.EventHandler(this.txtCourseName_TextChanged);
             // 
             // label7
             // 
@@ -413,6 +426,7 @@
             0,
             0,
             0});
+            this.numericRate.ValueChanged += new System.EventHandler(this.numericRate_ValueChanged);
             // 
             // cboTeacherName
             // 
@@ -425,6 +439,7 @@
             this.cboTeacherName.Name = "cboTeacherName";
             this.cboTeacherName.Size = new System.Drawing.Size(171, 27);
             this.cboTeacherName.TabIndex = 21;
+            this.cboTeacherName.SelectedIndexChanged += new System.EventHandler(this.cboTeacherName_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -459,6 +474,7 @@
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(168, 27);
             this.cboCategory.TabIndex = 23;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -515,6 +531,10 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // courseErrProvider
+            // 
+            this.courseErrProvider.ContainerControl = this;
+            // 
             // MaintainCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -527,9 +547,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainCourse";
             this.Text = "MaintainCourse";
             this.Load += new System.EventHandler(this.MaintainCourse_Load);
+            this.TextChanged += new System.EventHandler(this.MaintainCourse_TextChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericOperating)).EndInit();
@@ -539,6 +561,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericRate)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseErrProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,5 +600,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericOperating;
         private System.Windows.Forms.NumericUpDown numericRate;
+        private System.Windows.Forms.ErrorProvider courseErrProvider;
     }
 }

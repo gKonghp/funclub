@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnReset = new XButton();
+            this.btnSearch = new XButton();
             this.txtPromotionID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ltvPromotion = new System.Windows.Forms.ListView();
@@ -40,9 +40,9 @@
             this.startDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.discount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnAdd = new XButton();
             this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnCancel = new XButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -218,8 +218,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtPromotionID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnSearch;
+        private XButton btnReset;
+        private XButton btnSearch;
         private System.Windows.Forms.ListView ltvPromotion;
         private System.Windows.Forms.ColumnHeader promotionID;
         private System.Windows.Forms.ColumnHeader name;
@@ -227,8 +227,8 @@
         private System.Windows.Forms.ColumnHeader startDate;
         private System.Windows.Forms.ColumnHeader endDate;
         private System.Windows.Forms.ColumnHeader discount;
-        private System.Windows.Forms.Button btnAdd;
+        private XButton btnAdd;
         private res.db.masterDBDataSet masterDBDataSet1;
-        private System.Windows.Forms.Button btnCancel;
+        private XButton btnCancel;
     }
 }

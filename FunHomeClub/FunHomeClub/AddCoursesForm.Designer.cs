@@ -42,9 +42,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCourseID = new System.Windows.Forms.TextBox();
             this.cbbCourseName = new System.Windows.Forms.ComboBox();
-            this.btnReset = new System.Windows.Forms.Button();
+            this.btnReset = new FunHomeClub.XButton();
             this.lblCourseName = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSearch = new FunHomeClub.XButton();
             this.label6 = new System.Windows.Forms.Label();
             this.cbbCategory = new System.Windows.Forms.ComboBox();
             this.nudQuota = new System.Windows.Forms.NumericUpDown();
@@ -64,8 +64,8 @@
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnAdd = new FunHomeClub.XButton();
+            this.btnClose = new FunHomeClub.XButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPriceTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPriceFrom)).BeginInit();
@@ -102,7 +102,7 @@
             this.cbbWeekday.Location = new System.Drawing.Point(311, 92);
             this.cbbWeekday.Name = "cbbWeekday";
             this.cbbWeekday.Size = new System.Drawing.Size(110, 27);
-            this.cbbWeekday.TabIndex = 3;
+            this.cbbWeekday.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -148,7 +148,7 @@
             0});
             this.nudPriceTo.Name = "nudPriceTo";
             this.nudPriceTo.Size = new System.Drawing.Size(64, 27);
-            this.nudPriceTo.TabIndex = 30;
+            this.nudPriceTo.TabIndex = 7;
             // 
             // nudPriceFrom
             // 
@@ -161,7 +161,7 @@
             0});
             this.nudPriceFrom.Name = "nudPriceFrom";
             this.nudPriceFrom.Size = new System.Drawing.Size(65, 27);
-            this.nudPriceFrom.TabIndex = 29;
+            this.nudPriceFrom.TabIndex = 6;
             // 
             // label9
             // 
@@ -191,7 +191,7 @@
             this.dtpEndTime.Location = new System.Drawing.Point(311, 127);
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.Size = new System.Drawing.Size(110, 27);
-            this.dtpEndTime.TabIndex = 24;
+            this.dtpEndTime.TabIndex = 9;
             this.dtpEndTime.Value = new System.DateTime(2015, 9, 29, 23, 59, 59, 0);
             // 
             // dtpStartTime
@@ -202,7 +202,7 @@
             this.dtpStartTime.Location = new System.Drawing.Point(103, 127);
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.Size = new System.Drawing.Size(107, 27);
-            this.dtpStartTime.TabIndex = 23;
+            this.dtpStartTime.TabIndex = 8;
             this.dtpStartTime.Value = new System.DateTime(2015, 9, 28, 0, 0, 0, 0);
             this.dtpStartTime.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -244,7 +244,7 @@
             this.txtCourseID.Location = new System.Drawing.Point(103, 24);
             this.txtCourseID.Name = "txtCourseID";
             this.txtCourseID.Size = new System.Drawing.Size(107, 20);
-            this.txtCourseID.TabIndex = 19;
+            this.txtCourseID.TabIndex = 0;
             // 
             // cbbCourseName
             // 
@@ -256,7 +256,7 @@
             this.cbbCourseName.Location = new System.Drawing.Point(311, 52);
             this.cbbCourseName.Name = "cbbCourseName";
             this.cbbCourseName.Size = new System.Drawing.Size(110, 27);
-            this.cbbCourseName.TabIndex = 18;
+            this.cbbCourseName.TabIndex = 2;
             // 
             // btnReset
             // 
@@ -268,7 +268,7 @@
             this.btnReset.Location = new System.Drawing.Point(553, 137);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(70, 23);
-            this.btnReset.TabIndex = 13;
+            this.btnReset.TabIndex = 11;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -293,7 +293,7 @@
             this.btnSearch.Location = new System.Drawing.Point(643, 137);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(70, 23);
-            this.btnSearch.TabIndex = 12;
+            this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -319,7 +319,7 @@
             this.cbbCategory.Location = new System.Drawing.Point(103, 53);
             this.cbbCategory.Name = "cbbCategory";
             this.cbbCategory.Size = new System.Drawing.Size(107, 27);
-            this.cbbCategory.TabIndex = 16;
+            this.cbbCategory.TabIndex = 1;
             this.cbbCategory.ValueMember = "categoryID";
             this.cbbCategory.SelectedIndexChanged += new System.EventHandler(this.cbbCategory_SelectedIndexChanged);
             // 
@@ -334,7 +334,7 @@
             0});
             this.nudQuota.Name = "nudQuota";
             this.nudQuota.Size = new System.Drawing.Size(65, 27);
-            this.nudQuota.TabIndex = 11;
+            this.nudQuota.TabIndex = 3;
             // 
             // label5
             // 
@@ -370,7 +370,7 @@
             this.cbbMonth.Location = new System.Drawing.Point(103, 92);
             this.cbbMonth.Name = "cbbMonth";
             this.cbbMonth.Size = new System.Drawing.Size(107, 27);
-            this.cbbMonth.TabIndex = 8;
+            this.cbbMonth.TabIndex = 4;
             // 
             // label7
             // 
@@ -487,7 +487,7 @@
             this.btnAdd.Location = new System.Drawing.Point(659, 312);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -502,7 +502,7 @@
             this.btnClose.Location = new System.Drawing.Point(569, 312);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 9;
+            this.btnClose.TabIndex = 13;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -540,8 +540,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbbMonth;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnSearch;
+        private XButton btnReset;
+        private XButton btnSearch;
         private System.Windows.Forms.ListView lstCourseDetail;
         private System.Windows.Forms.ColumnHeader Category;
         private System.Windows.Forms.ColumnHeader CourseName;
@@ -565,14 +565,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCourseID;
-        private System.Windows.Forms.Button btnAdd;
+        private XButton btnAdd;
         private res.db.masterDBDataSet masterDBDataSet;
         private System.Windows.Forms.ColumnHeader CourseID;
         private System.Windows.Forms.NumericUpDown nudPriceTo;
         private System.Windows.Forms.NumericUpDown nudPriceFrom;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnClose;
+        private XButton btnClose;
     }
 }
 

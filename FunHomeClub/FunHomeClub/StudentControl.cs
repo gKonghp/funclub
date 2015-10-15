@@ -36,7 +36,11 @@ namespace FunHomeClub
 
         private void btnDeleteStudent_Click(object sender, EventArgs e)
         {
-            deleteStudent();
+            DialogResult dResult = MessageBox.Show("Do you conform to delete this record?", "Warnning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dResult == DialogResult.Yes)
+            {
+                deleteStudent();
+            }
         }
         private void addStudent()
         {
@@ -95,7 +99,29 @@ namespace FunHomeClub
             lstStudent.GridLines = true;
             lstStudent.MultiSelect = false;
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.A))
+                btnAddStudent.PerformClick();
 
+            if (keyData == (Keys.Control | Keys.M))
+            {
+                if (btnMaintainStudent.Enabled == true)
+                    btnMaintainStudent.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (keyData == (Keys.Control | Keys.D))
+            {
+                if(btnDeleteStudent.Enabled == true)
+                    btnDeleteStudent.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void lstStudent_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstStudent.SelectedItems.Count > 0)

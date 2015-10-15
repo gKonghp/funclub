@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportDataSet" targetNamespace="http://tempuri.org/ReportDataSet.xsd" xmlns:mstns="http://tempuri.org/ReportDataSet.xsd" xmlns="http://tempuri.org/ReportDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportDataSet" msprop:Generator_UserDSName="ReportDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Course" msprop:Generator_TableClassName="CourseDataTable" msprop:Generator_TableVarName="tableCourse" msprop:Generator_TablePropName="Course" msprop:Generator_RowDeletingName="CourseRowDeleting" msprop:Generator_RowChangingName="CourseRowChanging" msprop:Generator_RowEvHandlerName="CourseRowChangeEventHandler" msprop:Generator_RowDeletedName="CourseRowDeleted" msprop:Generator_UserTableName="Course" msprop:Generator_RowChangedName="CourseRowChanged" msprop:Generator_RowEvArgName="CourseRowChangeEvent" msprop:Generator_RowClassName="CourseRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="courseID" msprop:Generator_ColumnVarNameInTable="columncourseID" msprop:Generator_ColumnPropNameInRow="courseID" msprop:Generator_ColumnPropNameInTable="courseIDColumn" msprop:Generator_UserColumnName="courseID" type="xs:string" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" />
+              <xs:element name="startMonth" msprop:Generator_ColumnVarNameInTable="columnstartMonth" msprop:Generator_ColumnPropNameInRow="startMonth" msprop:Generator_ColumnPropNameInTable="startMonthColumn" msprop:Generator_UserColumnName="startMonth" type="xs:int" minOccurs="0" />
+              <xs:element name="endMonth" msprop:Generator_ColumnVarNameInTable="columnendMonth" msprop:Generator_ColumnPropNameInRow="endMonth" msprop:Generator_ColumnPropNameInTable="endMonthColumn" msprop:Generator_UserColumnName="endMonth" type="xs:int" minOccurs="0" />
+              <xs:element name="startTime" msprop:Generator_ColumnVarNameInTable="columnstartTime" msprop:Generator_ColumnPropNameInRow="startTime" msprop:Generator_ColumnPropNameInTable="startTimeColumn" msprop:Generator_UserColumnName="startTime" type="xs:string" minOccurs="0" />
+              <xs:element name="endTime" msprop:Generator_ColumnVarNameInTable="columnendTime" msprop:Generator_ColumnPropNameInRow="endTime" msprop:Generator_ColumnPropNameInTable="endTimeColumn" msprop:Generator_UserColumnName="endTime" type="xs:string" minOccurs="0" />
+              <xs:element name="room" msprop:Generator_ColumnVarNameInTable="columnroom" msprop:Generator_ColumnPropNameInRow="room" msprop:Generator_ColumnPropNameInTable="roomColumn" msprop:Generator_UserColumnName="room" type="xs:string" minOccurs="0" />
+              <xs:element name="weekday" msprop:Generator_ColumnVarNameInTable="columnweekday" msprop:Generator_ColumnPropNameInRow="weekday" msprop:Generator_ColumnPropNameInTable="weekdayColumn" msprop:Generator_UserColumnName="weekday" type="xs:int" minOccurs="0" />
+              <xs:element name="startPeriod" msprop:Generator_ColumnVarNameInTable="columnstartPeriod" msprop:Generator_ColumnPropNameInRow="startPeriod" msprop:Generator_ColumnPropNameInTable="startPeriodColumn" msprop:Generator_UserColumnName="startPeriod" type="xs:string" minOccurs="0" />
+              <xs:element name="endPeriod" msprop:Generator_ColumnVarNameInTable="columnendPeriod" msprop:Generator_ColumnPropNameInRow="endPeriod" msprop:Generator_ColumnPropNameInTable="endPeriodColumn" msprop:Generator_UserColumnName="endPeriod" type="xs:string" minOccurs="0" />
+              <xs:element name="cost" msprop:Generator_ColumnVarNameInTable="columncost" msprop:Generator_ColumnPropNameInRow="cost" msprop:Generator_ColumnPropNameInTable="costColumn" msprop:Generator_UserColumnName="cost" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Course" />
+      <xs:field xpath="mstns:courseID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

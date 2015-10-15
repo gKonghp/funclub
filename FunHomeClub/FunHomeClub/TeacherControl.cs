@@ -36,7 +36,11 @@ namespace FunHomeClub
 
         private void btnDeleteTeacher_Click(object sender, EventArgs e)
         {
-            deleteTeacher();
+            DialogResult dResult = MessageBox.Show("Do you conform to delete this record?", "Warnning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dResult == DialogResult.Yes)
+            {
+                deleteTeacher();
+            }
         }
         private void addTeacher()
         {
@@ -94,7 +98,29 @@ namespace FunHomeClub
             lstTeacher.GridLines = true;
             lstTeacher.MultiSelect = false;
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.A))
+                btnAddTeacher.PerformClick();
 
+            if (keyData == (Keys.Control | Keys.M))
+            {
+                if (btnMaintainTeacher.Enabled == true)
+                    btnMaintainTeacher.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (keyData == (Keys.Control | Keys.D))
+            {
+                if(btnDeleteTeacher.Enabled == true)
+                    btnDeleteTeacher.PerformClick();
+                else
+                    MessageBox.Show("Please select a item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void lstTeacher_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstTeacher.SelectedItems.Count > 0)

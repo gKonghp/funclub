@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,10 +38,12 @@
             this.txtContact = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnSave = new XButton();
-            this.button2 = new XButton();
+            this.btnSave = new FunHomeClub.XButton();
+            this.button2 = new FunHomeClub.XButton();
             this.lblEnrollDay = new System.Windows.Forms.Label();
-            this.btnAdd = new XButton();
+            this.btnAdd = new FunHomeClub.XButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +55,6 @@
             this.label1.Size = new System.Drawing.Size(54, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtName
             // 
@@ -63,6 +65,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(172, 20);
             this.txtName.TabIndex = 1;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label2
             // 
@@ -73,7 +76,6 @@
             this.label2.Size = new System.Drawing.Size(100, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Membership:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cboMembership
             // 
@@ -97,7 +99,6 @@
             this.label3.Size = new System.Drawing.Size(50, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Email:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtEmail
             // 
@@ -119,6 +120,7 @@
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(172, 20);
             this.txtContact.TabIndex = 7;
+            this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
             // 
             // label4
             // 
@@ -129,7 +131,6 @@
             this.label4.Size = new System.Drawing.Size(65, 19);
             this.label4.TabIndex = 6;
             this.label4.Text = "Contact:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -140,7 +141,6 @@
             this.label5.Size = new System.Drawing.Size(79, 19);
             this.label5.TabIndex = 8;
             this.label5.Text = "EnrollDay:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnSave
             // 
@@ -181,7 +181,6 @@
             this.lblEnrollDay.Size = new System.Drawing.Size(55, 19);
             this.lblEnrollDay.TabIndex = 12;
             this.lblEnrollDay.Text = "#day#";
-            this.lblEnrollDay.Click += new System.EventHandler(this.lblEnrollDay_Click);
             // 
             // btnAdd
             // 
@@ -197,6 +196,10 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // MaintainStudent
             // 
@@ -215,11 +218,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainStudent";
             this.Text = "MaintainStudent";
             this.Load += new System.EventHandler(this.MaintainStudent_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,6 +245,7 @@
         private XButton button2;
         private System.Windows.Forms.Label lblEnrollDay;
         private XButton btnAdd;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
 
     }
 }

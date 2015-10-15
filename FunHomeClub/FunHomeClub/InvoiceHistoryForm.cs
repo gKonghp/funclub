@@ -33,7 +33,7 @@ namespace FunHomeClub
         public void FillAll()
         {
             invoiceList.Clear();
-            string sql = string.Format("SELECT Invoice.invoiceID, s.studentID, s.name, Invoice.Date, Invoice.totalCost, ms.discount, Invoice.employeeID FROM Invoice, Student s, StudentCourse sc, Membership ms WHERE Invoice.invoiceID = sc.invoiceID AND sc.studentID = s.studentID AND s.membershipID = ms.membershipID");
+            string sql = string.Format("SELECT Distinct Invoice.invoiceID, s.studentID, s.name, Invoice.Date, Invoice.totalCost, ms.discount, Invoice.employeeID FROM Invoice, Student s, StudentCourse sc, Membership ms WHERE Invoice.invoiceID = sc.invoiceID AND sc.studentID = s.studentID AND s.membershipID = ms.membershipID");
             adapter = new OleDbDataAdapter(sql, conn);
             adapter.Fill(invoiceList);
             adapter.Dispose();

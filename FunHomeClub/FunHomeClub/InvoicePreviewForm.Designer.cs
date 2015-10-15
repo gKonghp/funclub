@@ -35,11 +35,11 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource7 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.studentCourseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.masterDBDataSet = new FunHomeClub.res.db.masterDBDataSet();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.membershipBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.promotionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -47,19 +47,24 @@
             this.studentCourseTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.studentCourseTableAdapter();
             this.invoiceTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.invoiceTableAdapter();
             this.studentTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.studentTableAdapter();
-            this.courseTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.courseTableAdapter();
             this.teacherTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.teacherTableAdapter();
             this.membershipTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.membershipTableAdapter();
             this.promotionTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.promotionTableAdapter();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnClose = new XButton();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new FunHomeClub.res.db.masterDBDataSetTableAdapters.employeeTableAdapter();
+            this.reportDataSet = new FunHomeClub.res.db.ReportDataSet();
+            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.studentCourseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membershipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promotionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // studentCourseBindingSource
@@ -82,11 +87,6 @@
             this.invoiceBindingSource.DataMember = "invoice";
             this.invoiceBindingSource.DataSource = this.masterDBDataSet;
             // 
-            // courseBindingSource
-            // 
-            this.courseBindingSource.DataMember = "course";
-            this.courseBindingSource.DataSource = this.masterDBDataSet;
-            // 
             // membershipBindingSource
             // 
             this.membershipBindingSource.DataMember = "membership";
@@ -107,25 +107,27 @@
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.reportViewer1.BackColor = System.Drawing.SystemColors.Control;
-            reportDataSource1.Name = "StudentCourse";
-            reportDataSource1.Value = this.studentCourseBindingSource;
-            reportDataSource2.Name = "Student";
-            reportDataSource2.Value = this.studentBindingSource;
-            reportDataSource3.Name = "Invoice";
-            reportDataSource3.Value = this.invoiceBindingSource;
-            reportDataSource4.Name = "Course";
-            reportDataSource4.Value = this.courseBindingSource;
-            reportDataSource5.Name = "Membership";
-            reportDataSource5.Value = this.membershipBindingSource;
+            reportDataSource1.Name = "Course";
+            reportDataSource1.Value = this.courseBindingSource;
+            reportDataSource2.Name = "Employee";
+            reportDataSource2.Value = this.employeeBindingSource;
+            reportDataSource3.Name = "StudentCourse";
+            reportDataSource3.Value = this.studentCourseBindingSource;
+            reportDataSource4.Name = "Membership";
+            reportDataSource4.Value = this.membershipBindingSource;
+            reportDataSource5.Name = "Invoice";
+            reportDataSource5.Value = this.invoiceBindingSource;
             reportDataSource6.Name = "Promotion";
             reportDataSource6.Value = this.promotionBindingSource;
+            reportDataSource7.Name = "Student";
+            reportDataSource7.Value = this.studentBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource6);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource7);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "FunHomeClub.InvoiceReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -144,10 +146,6 @@
             // studentTableAdapter
             // 
             this.studentTableAdapter.ClearBeforeFill = true;
-            // 
-            // courseTableAdapter
-            // 
-            this.courseTableAdapter.ClearBeforeFill = true;
             // 
             // teacherTableAdapter
             // 
@@ -177,6 +175,25 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "employee";
+            this.employeeBindingSource.DataSource = this.masterDBDataSet;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // reportDataSet
+            // 
+            this.reportDataSet.DataSetName = "ReportDataSet";
+            this.reportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // courseBindingSource
+            // 
+            this.courseBindingSource.DataMember = "Course";
+            this.courseBindingSource.DataSource = this.reportDataSet;
+            // 
             // InvoicePreviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -193,10 +210,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.membershipBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.promotionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -209,8 +228,6 @@
         private res.db.masterDBDataSetTableAdapters.invoiceTableAdapter invoiceTableAdapter;
         private System.Windows.Forms.BindingSource studentBindingSource;
         private res.db.masterDBDataSetTableAdapters.studentTableAdapter studentTableAdapter;
-        private System.Windows.Forms.BindingSource courseBindingSource;
-        private res.db.masterDBDataSetTableAdapters.courseTableAdapter courseTableAdapter;
         private System.Windows.Forms.BindingSource teacherBindingSource;
         private res.db.masterDBDataSetTableAdapters.teacherTableAdapter teacherTableAdapter;
         private System.Windows.Forms.BindingSource membershipBindingSource;
@@ -218,6 +235,10 @@
         private System.Windows.Forms.BindingSource promotionBindingSource;
         private res.db.masterDBDataSetTableAdapters.promotionTableAdapter promotionTableAdapter;
         public Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.Button btnClose;
+        private XButton btnClose;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private res.db.masterDBDataSetTableAdapters.employeeTableAdapter employeeTableAdapter;
+        private res.db.ReportDataSet reportDataSet;
+        private System.Windows.Forms.BindingSource courseBindingSource;
     }
 }

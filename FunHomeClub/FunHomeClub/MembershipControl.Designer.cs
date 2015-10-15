@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDelete = new XButton();
-            this.btnChange = new XButton();
-            this.btnAdd = new XButton();
+            this.btnDelete = new FunHomeClub.XButton();
+            this.btnChange = new FunHomeClub.XButton();
+            this.btnAdd = new FunHomeClub.XButton();
             this.lstMembership = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -94,7 +94,7 @@
             this.lstMembership.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstMembership.Location = new System.Drawing.Point(22, 14);
             this.lstMembership.Name = "lstMembership";
-            this.lstMembership.Size = new System.Drawing.Size(231, 217);
+            this.lstMembership.Size = new System.Drawing.Size(231, 119);
             this.lstMembership.TabIndex = 10;
             this.lstMembership.UseCompatibleStateImageBehavior = false;
             this.lstMembership.View = System.Windows.Forms.View.Details;
@@ -123,7 +123,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstMembership);
             this.Name = "MembershipControl";
-            this.Size = new System.Drawing.Size(394, 246);
+            this.Size = new System.Drawing.Size(394, 152);
             this.Load += new System.EventHandler(this.MembershipControl_Load);
             this.ResumeLayout(false);
 

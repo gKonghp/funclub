@@ -43,6 +43,8 @@ namespace FunHomeClub
             adapter.Dispose();
             cbbCategory.Items.Add(new ComboBoxItem("&", "All"));
             cbbCategory.SelectedIndex = 0;
+            cbbMonth.SelectedIndex = 0;
+            cbbWeekday.SelectedIndex = 0;
             foreach (DataRow row in masterDBDataSet.courseCategory)
             {
                 cbbCategory.Items.Add(new ComboBoxItem(row["categoryID"].ToString(), row["name"].ToString()));
@@ -96,8 +98,8 @@ namespace FunHomeClub
                 item.SubItems.Add(row["weekday"].ToString());
                 item.SubItems.Add(row["startMonth"].ToString());
                 item.SubItems.Add(row["endMonth"].ToString());
-                item.SubItems.Add(row["startTime"].ToString());
-                item.SubItems.Add(row["endTime"].ToString());
+                item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["startTime"].ToString())));
+                item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
                 item.SubItems.Add(row["Price"].ToString());
                 //item.SubItems.Add(row["quota"].ToString());
                 item.SubItems.Add(row["room"].ToString());

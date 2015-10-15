@@ -64,5 +64,12 @@ namespace FunHomeClub
         {
             categortTree.SelectedNode = categortTree.Nodes[0].Nodes[0];
         }
+
+        private void btnCalendar_Click(object sender, EventArgs e)
+        {
+            CalenderForm cf = new CalenderForm(connection);
+            cf.ShowDialog();
+            cf.WindowState = FormWindowState.Maximized;
+        }
     }
 }

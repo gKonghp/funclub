@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtDiscount = new System.Windows.Forms.TextBox();
-            this.btnSave = new XButton();
-            this.btnCancel = new XButton();
+            this.btnSave = new FunHomeClub.XButton();
+            this.btnCancel = new FunHomeClub.XButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,6 +68,7 @@
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(131, 20);
             this.txtStatus.TabIndex = 2;
+            this.txtStatus.TextChanged += new System.EventHandler(this.txtStatus_TextChanged);
             // 
             // txtDiscount
             // 
@@ -76,6 +80,7 @@
             this.txtDiscount.Size = new System.Drawing.Size(131, 20);
             this.txtDiscount.TabIndex = 3;
             this.txtDiscount.Tag = "";
+            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
             // btnSave
             // 
@@ -107,6 +112,10 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // MaintainMembership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -114,14 +123,16 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(317, 93);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDiscount);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainMembership";
             this.Text = "MaintainMembership";
             this.Load += new System.EventHandler(this.MaintainMembership_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +146,6 @@
         private System.Windows.Forms.TextBox txtDiscount;
         private XButton btnSave;
         private XButton btnCancel;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

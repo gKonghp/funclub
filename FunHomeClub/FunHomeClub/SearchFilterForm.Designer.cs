@@ -33,8 +33,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtPrice2 = new System.Windows.Forms.TextBox();
             this.txtPrice1 = new System.Windows.Forms.TextBox();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnReset = new XButton();
+            this.btnSearch = new XButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.nudQuota = new System.Windows.Forms.NumericUpDown();
@@ -276,8 +276,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPrice2;
         private System.Windows.Forms.TextBox txtPrice1;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnSearch;
+        private XButton btnReset;
+        private XButton btnSearch;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nudQuota;

@@ -66,18 +66,31 @@ namespace FunHomeClub
             dataAdapter.Fill(dt);
             for (int i = 0; i < dt.Rows.Count;i++ )
             {
-                cboMembership.Items.Add(dt.Rows[i][1].ToString());
+                cboMembership.Items.Add(Utility.firstChar2UpperCase(dt.Rows[i][1].ToString()));
             }
-            if(!mShipID.Equals("none"))
+            if(!mShipID.Equals("None"))
             {
-                cboMembership.SelectedIndex = cboMembership.Items.IndexOf(getMembershipByID(mShipID));
+                cboMembership.SelectedIndex = cboMembership.Items.IndexOf(Utility.firstChar2UpperCase(mShipID));
             }
         }
         private void MaintainStudent_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }
-
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            Button btn = (btnAdd.Visible == true) ? btnAdd : btnSave;
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btn.PerformClick();
+                    break;
+                case Keys.Escape:
+                    button2.PerformClick();
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (checkStringValid(txtContact, txtEmail, txtName, cboMembership))
@@ -105,11 +118,9 @@ namespace FunHomeClub
         {
             if (checkStringValid(txtContact, txtEmail, txtName, cboMembership))
             {
-                string nextStudentID = getNextValidStudentID();
-                String sql = "insert into student values('" + nextStudentID + "','" + getMembershipIDByName(cboMembership.Text) + "','" + txtContact.Text + "','" + txtEmail.Text + "','" + lblEnrollDay.Text.Split(' ')[0] + "','" + txtName.Text + "')";
+                String sql = "insert into student values('" + getNextValidStudentID() + "','" + getMembershipIDByName(cboMembership.Text) + "','" + txtContact.Text + "','" + txtEmail.Text + "','" + lblEnrollDay.Text.Split(' ')[0] + "','" + txtName.Text + "')";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
                 cmd.ExecuteNonQuery();
-                studentID = nextStudentID;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -126,39 +137,60 @@ namespace FunHomeClub
                         tb.Text = tb.Text.Trim();
                         if (tb.Text == "")
                         {
-                            MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
+                            errorProvider1.SetError(tb, "Please fill in all Textbox first!");
+                            //MessageBox.Show("Please fill in all Textbox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
-                            switch((tb.Tag == null?null:tb.Tag.ToString()))
+                            switch ((tb.Tag == null ? null : tb.Tag.ToString()))
                             {
                                 case null:
                                     if (!Regex.IsMatch(tb.Text, @"^[\sa-zA-Z0-9]+$") && tb.Multiline == false)
                                     {
-                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        errorProvider1.SetError(tb, tb.Name.Replace("txt", "") + " do not allow any special characters!");
+                                        //MessageBox.Show(tb.Name.Replace("txt","") + " do not allow any special characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
+                                    else
+                                        errorProvider1.SetError(tb, "");
                                     break;
                                 case "ns":
                                     if (!Regex.IsMatch(tb.Text, @"^[a-zA-Z0-9]+$"))
                                     {
-                                        MessageBox.Show(tb.Name.Replace("txt","") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        errorProvider1.SetError(tb, tb.Name.Replace("txt", "") + " do not allow space characters!");
+
+                                        //MessageBox.Show(tb.Name.Replace("txt", "") + " do not allow space characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
+                                    else
+                                        errorProvider1.SetError(tb, "");
                                     break;
                                 case "email":
                                     if (!Regex.IsMatch(tb.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
                                     {
-                                        MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        errorProvider1.SetError(tb, "Not a valid email format!");
+
+                                        //MessageBox.Show("Not a valid email format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                    else
+                                        errorProvider1.SetError(tb, "");
+                                    break;
+                                case "dot":
+                                    if (!Regex.IsMatch(tb.Text, @"^([0-9]|[.][0-9])*$"))
+                                    {
+                                        errorProvider1.SetError(tb, "Not a valid number");
+                                    }
+                                    else
+                                    {
+                                        errorProvider1.SetError(tb, "");
                                     }
                                     break;
                                 case "contact":
                                     if (!Regex.IsMatch(tb.Text, @"^([2-3]|[5-6]|[9])[0-9]{7}$"))
                                     {
-                                        MessageBox.Show("Not a valid phone format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return false;
+                                        errorProvider1.SetError(tb, "Not a valid phone format!");
+                                    }
+                                    else
+                                    {
+                                        errorProvider1.SetError(tb, "");
                                     }
                                     break;
                             }
@@ -166,64 +198,56 @@ namespace FunHomeClub
                         break;
                     case "ComboBox":
                         ComboBox cb = (ComboBox)para[i];
-                        if (cb.SelectedIndex < 0)
+                        if (cb.SelectedItem == null)
                         {
-                            MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
+                            errorProvider1.SetError(cb, "Please choose all combobox first!");
+                            //MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                     case "NumericUpDown":
                         NumericUpDown numeric = (NumericUpDown)para[i];
                         if (numeric.Value == 0)
                         {
-                            MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                            return false;
+                            errorProvider1.SetError(numeric, "The number cannot be zero!");
+                            // MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
+                }
+            }
+            btnAdd.Enabled = isValid();
+            btnSave.Enabled = isValid();
+            return isValid();
+        }
+        private bool isValid()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (!(errorProvider1.GetError(c).Trim() == ""))
+                {
+                    return false;
                 }
             }
             return true;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void txtName_TextChanged(object sender, EventArgs e)
         {
-
+            checkStringValid(txtName);
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void txtContact_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEnrollDay_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboMembership_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            checkStringValid(txtContact);
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
+            checkStringValid(txtEmail);
+        }
 
+        private void cboMembership_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkStringValid(cboMembership);
         }
     }
 }

@@ -49,16 +49,18 @@ namespace FunHomeClub
         {
             if (Utility.checkFieldPresense(txtStudentID))
             {
-                txtStudentID.BackColor = Color.IndianRed;
+                //txtStudentID.BackColor = Color.IndianRed;
                 MessageBox.Show("StudentID cannot be empty.");
                 txtStudentID.Focus();
+                txtStudentID.SelectAll();
                 return;
             }
             if (!Regex.IsMatch(txtStudentID.Text, @"^[a-zA-Z0-9]+$"))
             {
-                txtStudentID.BackColor = Color.IndianRed;
+                //txtStudentID.BackColor = Color.IndianRed;
                 MessageBox.Show("StudentID is Alphanumeric.");
                 txtStudentID.Focus();
+                txtStudentID.SelectAll();
                 return;
             }
             // Reset
@@ -71,9 +73,9 @@ namespace FunHomeClub
             lblMembership_d.Text = "--";
             lblOriginalTotal_d.Text = "--";
             lblTotal_d.Text = "--";
-            lblPromotionDiscount_d.Text = "";
-            lblPromotionID_d.Text = "";
-            lblPromotionName_d.Text = "";
+            lblPromotionDiscount_d.Text = "--";
+            lblPromotionID_d.Text = "--";
+            lblPromotionName_d.Text = "--";
             btnAdd.Enabled = false;
             btnClear.Enabled = false;
             btnDel.Enabled = false;
@@ -191,8 +193,8 @@ namespace FunHomeClub
                     item.SubItems.Add(row["name"].ToString());
                     item.SubItems.Add(row["weekday"].ToString());
                     item.SubItems.Add(row["room"].ToString());
-                    item.SubItems.Add(row["startTime"].ToString());
-                    item.SubItems.Add(row["endTime"].ToString());
+                    item.SubItems.Add(string.Format("{0:H:mm}",Convert.ToDateTime(row["startTime"].ToString())));
+                    item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
                     item.SubItems.Add(row["startMonth"].ToString());
                     item.SubItems.Add(row["endMonth"].ToString());
 
@@ -226,9 +228,10 @@ namespace FunHomeClub
                 btnView.Enabled = false;
                 btnDel.Enabled = false;
                 btnClear.Enabled = false;
-                txtStudentID.BackColor = Color.IndianRed;
+                //txtStudentID.BackColor = Color.IndianRed;
                 MessageBox.Show(string.Format("{0} is not found.",studentID));
                 txtStudentID.Focus();
+                txtStudentID.SelectAll();
             }
             
         }
@@ -539,9 +542,9 @@ namespace FunHomeClub
             lblMembership_d.Text = "--";
             lblOriginalTotal_d.Text = "--";
             lblTotal_d.Text = "--";
-            lblPromotionDiscount_d.Text = "";
-            lblPromotionID_d.Text = "";
-            lblPromotionName_d.Text = "";
+            lblPromotionDiscount_d.Text = "--";
+            lblPromotionID_d.Text = "--";
+            lblPromotionName_d.Text = "--";
             btnAdd.Enabled = false;
             btnClear.Enabled = false;
             btnDel.Enabled = false;
@@ -583,9 +586,9 @@ namespace FunHomeClub
 
         private void btnDiscountClear_Click(object sender, EventArgs e)
         {
-            lblPromotionName_d.Text = "";
-            lblPromotionID_d.Text = "";
-            lblPromotionDiscount_d.Text = "";
+            lblPromotionName_d.Text = "--";
+            lblPromotionID_d.Text = "--";
+            lblPromotionDiscount_d.Text = "--";
             updateTotalPrice();
         }
 
@@ -616,7 +619,7 @@ namespace FunHomeClub
 
         private void txtStudentID_TextChanged(object sender, EventArgs e)
         {
-            txtStudentID.BackColor = System.Drawing.SystemColors.Control;
+            //txtStudentID.BackColor = System.Drawing.SystemColors.Control;
         }
     }
 }

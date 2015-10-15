@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,12 +37,14 @@
             this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpEndTime = new System.Windows.Forms.DateTimePicker();
-            this.btnSave = new XButton();
-            this.btnCancel = new XButton();
-            this.btnAdd = new XButton();
+            this.btnSave = new FunHomeClub.XButton();
+            this.btnCancel = new FunHomeClub.XButton();
+            this.btnAdd = new FunHomeClub.XButton();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,6 +66,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(244, 20);
             this.txtName.TabIndex = 1;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label2
             // 
@@ -94,6 +98,7 @@
             this.numDiscount.Name = "numDiscount";
             this.numDiscount.Size = new System.Drawing.Size(244, 23);
             this.numDiscount.TabIndex = 3;
+            this.numDiscount.ValueChanged += new System.EventHandler(this.numDiscount_ValueChanged);
             // 
             // label3
             // 
@@ -200,6 +205,10 @@
             this.txtDescription.TabIndex = 12;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // MaintainPromotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -217,12 +226,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainPromotion";
             this.Text = "MaintainPromotion";
             this.Load += new System.EventHandler(this.MaintainPromotion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +254,6 @@
         private XButton btnAdd;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

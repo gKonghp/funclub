@@ -69,15 +69,20 @@ namespace FunHomeClub
         {
             System.Drawing.Size size = sourceForm.PreferredSize;
             targetForm.Size = size;
-            targetForm.Width = sourceForm.Width + 20;
-            targetForm.Height = sourceForm.Height + 75;
-
+            //targetForm.Width = sourceForm.Width + 20;
+            targetForm.Width = size.Width + 40;
+            targetForm.Height = size.Height + 75;
         }
 
-        public static void repaintFrameSize(Form targetForm, Form sourceForm, Control mainCtr, int supWidth)
+        public static void repaintFrameSize(Form targetForm, Form sourceForm, Control mainCtr, int supWidth, int supHeight)
         {
-            targetForm.Width = mainCtr.Size.Width + 20 + supWidth;
-            targetForm.Height = sourceForm.Height + 75;
+            System.Drawing.Size size = sourceForm.PreferredSize;
+            targetForm.Size = size;
+            //targetForm.Width = mainCtr.Size.Width + 20 + supWidth;
+            //targetForm.Height = sourceForm.Height + 75;
+            //targetForm.Width = size.Width + 20 + supWidth;
+            targetForm.Width = size.Width + 40 + supWidth;
+            targetForm.Height = size.Height + 75 + supHeight;
         }
         public static bool IsNumeric(string s)
         {

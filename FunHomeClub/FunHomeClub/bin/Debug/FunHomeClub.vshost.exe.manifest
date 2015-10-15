@@ -47,14 +47,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FunHomeClub.exe" size="1282424">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FunHomeClub.exe" size="1731448">
       <assemblyIdentity name="FunHomeClub" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GIbuxL/aGStKU/fqcQVowlU6s6k=</dsig:DigestValue>
+        <dsig:DigestValue>uhgicBu45TE0MuUb5SRFL8ws9qc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -238,13 +238,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="FunHomeClub.exe.config" size="416">
+  <file name="FunHomeClub.exe.config" size="407">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>JLxdtNaJPM0JWtn/TlfZdjOm5eg=</dsig:DigestValue>
+      <dsig:DigestValue>YzRsATMrkGlfTbPDbldibkOlGyc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="res\db\masterDB.accdb" size="3284992">
@@ -253,7 +253,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>7UrzzocOt8gt7w38EkZpC2TovvY=</dsig:DigestValue>
+      <dsig:DigestValue>8i4OmwfTWS17Mtb4LL+j0uqbHCw=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
