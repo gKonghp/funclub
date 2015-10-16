@@ -128,10 +128,10 @@
             this.membershipInfo.Controls.Add(this.label2);
             this.membershipInfo.Controls.Add(this.txtStudentID);
             this.membershipInfo.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.membershipInfo.Location = new System.Drawing.Point(4, 25);
+            this.membershipInfo.Location = new System.Drawing.Point(4, 28);
             this.membershipInfo.Name = "membershipInfo";
             this.membershipInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.membershipInfo.Size = new System.Drawing.Size(618, 230);
+            this.membershipInfo.Size = new System.Drawing.Size(618, 227);
             this.membershipInfo.TabIndex = 0;
             this.membershipInfo.Text = "Member Inqury";
             this.membershipInfo.UseVisualStyleBackColor = true;
@@ -394,6 +394,7 @@
             // btnEnter
             // 
             this.btnEnter.BackColor = System.Drawing.Color.Coral;
+            this.btnEnter.Enabled = false;
             this.btnEnter.FlatAppearance.BorderSize = 0;
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnter.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -428,13 +429,14 @@
             // 
             // txtStudentID
             // 
-            this.txtStudentID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentID.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtStudentID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStudentID.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtStudentID.Location = new System.Drawing.Point(108, 26);
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(100, 20);
             this.txtStudentID.TabIndex = 0;
+            this.txtStudentID.TextChanged += new System.EventHandler(this.txtStudentID_TextChanged);
             // 
             // membershipConfig
             // 

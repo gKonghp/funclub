@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbbWeekday = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbSortedBy = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.nudPriceTo = new System.Windows.Forms.NumericUpDown();
             this.nudPriceFrom = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,11 +60,10 @@
             this.CourseName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Weekday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartMonth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndMonth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Teacher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new FunHomeClub.XButton();
             this.btnClose = new FunHomeClub.XButton();
@@ -85,7 +86,7 @@
             // 
             // cbbWeekday
             // 
-            this.cbbWeekday.BackColor = System.Drawing.SystemColors.Control;
+            this.cbbWeekday.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cbbWeekday.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbWeekday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbWeekday.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -99,13 +100,16 @@
             "Friday",
             "Saturday",
             "Sunday"});
-            this.cbbWeekday.Location = new System.Drawing.Point(311, 92);
+            this.cbbWeekday.Location = new System.Drawing.Point(341, 94);
+            this.cbbWeekday.MaxDropDownItems = 6;
             this.cbbWeekday.Name = "cbbWeekday";
             this.cbbWeekday.Size = new System.Drawing.Size(110, 27);
-            this.cbbWeekday.TabIndex = 5;
+            this.cbbWeekday.TabIndex = 6;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbbSortedBy);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.nudPriceTo);
             this.groupBox1.Controls.Add(this.nudPriceFrom);
             this.groupBox1.Controls.Add(this.label9);
@@ -131,43 +135,79 @@
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox1.Location = new System.Drawing.Point(16, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(729, 166);
+            this.groupBox1.Size = new System.Drawing.Size(703, 166);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Filter";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // cbbSortedBy
+            // 
+            this.cbbSortedBy.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.cbbSortedBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSortedBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbSortedBy.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbbSortedBy.FormattingEnabled = true;
+            this.cbbSortedBy.ItemHeight = 19;
+            this.cbbSortedBy.Items.AddRange(new object[] {
+            "Category",
+            "CourseID",
+            "Course Name",
+            "Weekday",
+            "Month",
+            "Time",
+            "Price",
+            "quota"});
+            this.cbbSortedBy.Location = new System.Drawing.Point(341, 128);
+            this.cbbSortedBy.Name = "cbbSortedBy";
+            this.cbbSortedBy.Size = new System.Drawing.Size(110, 27);
+            this.cbbSortedBy.TabIndex = 10;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label11.Location = new System.Drawing.Point(228, 131);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 19);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Sorted By:";
+            // 
             // nudPriceTo
             // 
+            this.nudPriceTo.BackColor = System.Drawing.SystemColors.ControlLight;
             this.nudPriceTo.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.nudPriceTo.Location = new System.Drawing.Point(649, 92);
+            this.nudPriceTo.Location = new System.Drawing.Point(626, 53);
             this.nudPriceTo.Maximum = new decimal(new int[] {
-            10,
+            999999,
             0,
             0,
             0});
             this.nudPriceTo.Name = "nudPriceTo";
             this.nudPriceTo.Size = new System.Drawing.Size(64, 27);
-            this.nudPriceTo.TabIndex = 7;
+            this.nudPriceTo.TabIndex = 4;
+            this.nudPriceTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // nudPriceFrom
             // 
+            this.nudPriceFrom.BackColor = System.Drawing.SystemColors.ControlLight;
             this.nudPriceFrom.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.nudPriceFrom.Location = new System.Drawing.Point(552, 92);
+            this.nudPriceFrom.Location = new System.Drawing.Point(533, 54);
             this.nudPriceFrom.Maximum = new decimal(new int[] {
-            10,
+            999999,
             0,
             0,
             0});
             this.nudPriceFrom.Name = "nudPriceFrom";
             this.nudPriceFrom.Size = new System.Drawing.Size(65, 27);
-            this.nudPriceFrom.TabIndex = 6;
+            this.nudPriceFrom.TabIndex = 3;
+            this.nudPriceFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.Location = new System.Drawing.Point(623, 95);
+            this.label9.Location = new System.Drawing.Point(601, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(20, 19);
             this.label9.TabIndex = 26;
@@ -177,7 +217,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label10.Location = new System.Drawing.Point(427, 95);
+            this.label10.Location = new System.Drawing.Point(468, 56);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 19);
             this.label10.TabIndex = 25;
@@ -187,44 +227,44 @@
             // 
             this.dtpEndTime.CustomFormat = "HH:mm";
             this.dtpEndTime.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEndTime.Location = new System.Drawing.Point(311, 127);
+            this.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndTime.Location = new System.Drawing.Point(626, 92);
             this.dtpEndTime.Name = "dtpEndTime";
-            this.dtpEndTime.Size = new System.Drawing.Size(110, 27);
-            this.dtpEndTime.TabIndex = 9;
-            this.dtpEndTime.Value = new System.DateTime(2015, 9, 29, 23, 59, 59, 0);
+            this.dtpEndTime.Size = new System.Drawing.Size(65, 27);
+            this.dtpEndTime.TabIndex = 8;
+            this.dtpEndTime.Value = System.Convert.ToDateTime("23:59:59");
             // 
             // dtpStartTime
             // 
             this.dtpStartTime.CustomFormat = "HH:mm";
             this.dtpStartTime.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpStartTime.Location = new System.Drawing.Point(103, 127);
+            this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartTime.Location = new System.Drawing.Point(533, 92);
             this.dtpStartTime.Name = "dtpStartTime";
-            this.dtpStartTime.Size = new System.Drawing.Size(107, 27);
-            this.dtpStartTime.TabIndex = 8;
-            this.dtpStartTime.Value = new System.DateTime(2015, 9, 28, 0, 0, 0, 0);
+            this.dtpStartTime.Size = new System.Drawing.Size(65, 27);
+            this.dtpStartTime.TabIndex = 7;
+            this.dtpStartTime.Value = System.Convert.ToDateTime("0:00:00");
             this.dtpStartTime.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label8.Location = new System.Drawing.Point(228, 133);
+            this.label8.Location = new System.Drawing.Point(601, 95);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 19);
+            this.label8.Size = new System.Drawing.Size(20, 19);
             this.label8.TabIndex = 22;
-            this.label8.Text = "End Time:";
+            this.label8.Text = "~";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(14, 133);
+            this.label4.Location = new System.Drawing.Point(468, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 19);
+            this.label4.Size = new System.Drawing.Size(46, 19);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Start Time:";
+            this.label4.Text = "Time:";
             // 
             // label2
             // 
@@ -238,7 +278,7 @@
             // 
             // txtCourseID
             // 
-            this.txtCourseID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCourseID.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCourseID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCourseID.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtCourseID.Location = new System.Drawing.Point(103, 24);
@@ -248,12 +288,12 @@
             // 
             // cbbCourseName
             // 
-            this.cbbCourseName.BackColor = System.Drawing.SystemColors.Control;
+            this.cbbCourseName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cbbCourseName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCourseName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbCourseName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbbCourseName.FormattingEnabled = true;
-            this.cbbCourseName.Location = new System.Drawing.Point(311, 52);
+            this.cbbCourseName.Location = new System.Drawing.Point(341, 52);
             this.cbbCourseName.Name = "cbbCourseName";
             this.cbbCourseName.Size = new System.Drawing.Size(110, 27);
             this.cbbCourseName.TabIndex = 2;
@@ -265,10 +305,10 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(553, 137);
+            this.btnReset.Location = new System.Drawing.Point(626, 131);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(70, 23);
-            this.btnReset.TabIndex = 11;
+            this.btnReset.Size = new System.Drawing.Size(65, 23);
+            this.btnReset.TabIndex = 12;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -279,9 +319,9 @@
             this.lblCourseName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblCourseName.Location = new System.Drawing.Point(228, 58);
             this.lblCourseName.Name = "lblCourseName";
-            this.lblCourseName.Size = new System.Drawing.Size(61, 19);
+            this.lblCourseName.Size = new System.Drawing.Size(107, 19);
             this.lblCourseName.TabIndex = 17;
-            this.lblCourseName.Text = "Course:";
+            this.lblCourseName.Text = "Course Name:";
             // 
             // btnSearch
             // 
@@ -290,10 +330,10 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(643, 137);
+            this.btnSearch.Location = new System.Drawing.Point(553, 131);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(70, 23);
-            this.btnSearch.TabIndex = 10;
+            this.btnSearch.Size = new System.Drawing.Size(65, 23);
+            this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -302,15 +342,15 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(427, 58);
+            this.label6.Location = new System.Drawing.Point(12, 131);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 19);
-            this.label6.TabIndex = 10;
+            this.label6.TabIndex = 19;
             this.label6.Text = "Available quota:";
             // 
             // cbbCategory
             // 
-            this.cbbCategory.BackColor = System.Drawing.SystemColors.Control;
+            this.cbbCategory.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cbbCategory.DisplayMember = "categoryID";
             this.cbbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -325,8 +365,9 @@
             // 
             // nudQuota
             // 
+            this.nudQuota.BackColor = System.Drawing.SystemColors.ControlLight;
             this.nudQuota.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.nudQuota.Location = new System.Drawing.Point(553, 54);
+            this.nudQuota.Location = new System.Drawing.Point(145, 127);
             this.nudQuota.Maximum = new decimal(new int[] {
             10,
             0,
@@ -334,7 +375,7 @@
             0});
             this.nudQuota.Name = "nudQuota";
             this.nudQuota.Size = new System.Drawing.Size(65, 27);
-            this.nudQuota.TabIndex = 3;
+            this.nudQuota.TabIndex = 9;
             // 
             // label5
             // 
@@ -348,7 +389,7 @@
             // 
             // cbbMonth
             // 
-            this.cbbMonth.BackColor = System.Drawing.SystemColors.Control;
+            this.cbbMonth.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cbbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbMonth.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -368,15 +409,16 @@
             "November",
             "December "});
             this.cbbMonth.Location = new System.Drawing.Point(103, 92);
+            this.cbbMonth.MaxDropDownItems = 5;
             this.cbbMonth.Name = "cbbMonth";
             this.cbbMonth.Size = new System.Drawing.Size(107, 27);
-            this.cbbMonth.TabIndex = 4;
+            this.cbbMonth.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(12, 62);
+            this.label7.Location = new System.Drawing.Point(12, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 19);
             this.label7.TabIndex = 15;
@@ -389,6 +431,7 @@
             // 
             // lstCourseDetail
             // 
+            this.lstCourseDetail.AutoArrange = false;
             this.lstCourseDetail.BackColor = System.Drawing.SystemColors.Control;
             this.lstCourseDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Category,
@@ -396,17 +439,16 @@
             this.CourseName,
             this.Weekday,
             this.StartMonth,
-            this.EndMonth,
             this.StartTime,
-            this.EndTime,
             this.Price,
-            this.Room});
+            this.Room,
+            this.Teacher});
             this.lstCourseDetail.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstCourseDetail.FullRowSelect = true;
             this.lstCourseDetail.GridLines = true;
             this.lstCourseDetail.Location = new System.Drawing.Point(16, 184);
             this.lstCourseDetail.Name = "lstCourseDetail";
-            this.lstCourseDetail.Size = new System.Drawing.Size(729, 118);
+            this.lstCourseDetail.Size = new System.Drawing.Size(703, 118);
             this.lstCourseDetail.TabIndex = 6;
             this.lstCourseDetail.UseCompatibleStateImageBehavior = false;
             this.lstCourseDetail.View = System.Windows.Forms.View.Details;
@@ -415,47 +457,36 @@
             // Category
             // 
             this.Category.Text = "Category";
-            this.Category.Width = 67;
+            this.Category.Width = 76;
             // 
             // CourseID
             // 
             this.CourseID.Text = "CourseID";
+            this.CourseID.Width = 82;
             // 
             // CourseName
             // 
             this.CourseName.Text = "Course Name";
             this.CourseName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CourseName.Width = 86;
+            this.CourseName.Width = 98;
             // 
             // Weekday
             // 
             this.Weekday.Text = "Weekday";
             this.Weekday.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Weekday.Width = 66;
+            this.Weekday.Width = 76;
             // 
             // StartMonth
             // 
-            this.StartMonth.Text = "Start Month";
+            this.StartMonth.Text = "Month";
             this.StartMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.StartMonth.Width = 74;
-            // 
-            // EndMonth
-            // 
-            this.EndMonth.Text = "End Month";
-            this.EndMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.EndMonth.Width = 67;
+            this.StartMonth.Width = 70;
             // 
             // StartTime
             // 
-            this.StartTime.Text = "Start Time";
+            this.StartTime.Text = "Time";
             this.StartTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.StartTime.Width = 65;
-            // 
-            // EndTime
-            // 
-            this.EndTime.Text = "End Time";
-            this.EndTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.EndTime.Width = 63;
+            this.StartTime.Width = 94;
             // 
             // Price
             // 
@@ -466,6 +497,11 @@
             // 
             this.Room.Text = "Room";
             this.Room.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Teacher
+            // 
+            this.Teacher.Text = "Teacher";
+            this.Teacher.Width = 79;
             // 
             // label3
             // 
@@ -484,10 +520,10 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(659, 312);
+            this.btnAdd.Location = new System.Drawing.Point(570, 312);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Size = new System.Drawing.Size(64, 23);
+            this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -499,10 +535,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(569, 312);
+            this.btnClose.Location = new System.Drawing.Point(643, 312);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 13;
+            this.btnClose.Size = new System.Drawing.Size(64, 23);
+            this.btnClose.TabIndex = 14;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -512,7 +548,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(753, 347);
+            this.ClientSize = new System.Drawing.Size(737, 347);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label3);
@@ -520,7 +556,7 @@
             this.Controls.Add(this.lstCourseDetail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddCoursesForm";
-            this.Text = "Search Course";
+            this.Text = "Search and Register Course";
             this.Load += new System.EventHandler(this.AddCoursesForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -547,9 +583,7 @@
         private System.Windows.Forms.ColumnHeader CourseName;
         private System.Windows.Forms.ColumnHeader Weekday;
         private System.Windows.Forms.ColumnHeader StartMonth;
-        private System.Windows.Forms.ColumnHeader EndMonth;
         private System.Windows.Forms.ColumnHeader StartTime;
-        private System.Windows.Forms.ColumnHeader EndTime;
         private System.Windows.Forms.ColumnHeader Room;
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Label label3;
@@ -573,6 +607,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private XButton btnClose;
+        private System.Windows.Forms.ColumnHeader Teacher;
+        private System.Windows.Forms.ComboBox cbbSortedBy;
+        private System.Windows.Forms.Label label11;
     }
 }
 

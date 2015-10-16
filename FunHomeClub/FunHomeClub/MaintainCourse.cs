@@ -122,7 +122,7 @@ namespace FunHomeClub
             {
                 String categoryID = String.Format("ca{0:D4}", cboCategory.SelectedIndex + 1);
                 String teacherID = String.Format("te{0:D4}", cboTeacherName.SelectedIndex + 1);
-                String sql = "update course set name='" + txtCourseName.Text + "',weekday='" + (cboWeekday.SelectedIndex + 1) + "',room='" + txtRoom.Text + "',startTime='" + dtpStartTime.Value + "',endTime='" + dtpEndTime.Value + "',teacherRate='" + numericRate.Value + "',operatingCharges='" + numericOperating.Value + "',categoryID='" + categoryID + "',teacherID='" + teacherID + "',startMonth='" + cboStartMonth.Text + "',endMonth='" + cboEndMonth.Text + "',description='" + txtDescription.Text + "' where courseID = '" + this.courseID + "'";
+                String sql = "update course set name='" + txtCourseName.Text + "',weekday='" + (cboWeekday.SelectedIndex + 1) + "',room='" + txtRoom.Text + "',startTime='" + dtpStartTime.Value + "',endTime='" + dtpEndTime.Value + "',teacherRate='" + numericRate.Value + "',operatingCharges='" + numericOperating.Value + "',categoryID='" + categoryID + "',teacherID='" + teacherID + "',startMonth='" + cboStartMonth.Text + "',endMonth='" + cboEndMonth.Text + "',description='" + txtDescription.Text + "',startYear='" + dtpStartTime.Value.Year + "',endYear='" + dtpEndTime.Value.Year + "' where courseID = '" + this.courseID + "'";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
                 cmd.ExecuteNonQuery();
                 //--update quota
@@ -260,7 +260,7 @@ namespace FunHomeClub
                 String categoryID = String.Format("ca{0:D4}", cboCategory.SelectedIndex + 1);
                 String teacherID = String.Format("te{0:D4}", cboTeacherName.SelectedIndex + 1);
                 String nextValidCourseID = getNextValidCourseID();
-                String sql = "insert into course values('" + nextValidCourseID + "','" + txtCourseName.Text + "','" + (cboWeekday.SelectedIndex + 1) + "','" + txtRoom.Text + "','" + dtpStartTime.Value + "','" + dtpEndTime.Value + "','" + numericRate.Value + "','" + numericOperating.Value + "','" + categoryID + "','" + teacherID + "','" + cboStartMonth.Text + "','" + cboEndMonth.Text + "','" + txtDescription.Text + "')";
+                String sql = "insert into course values('" + nextValidCourseID + "','" + txtCourseName.Text + "','" + (cboWeekday.SelectedIndex + 1) + "','" + txtRoom.Text + "','" + dtpStartTime.Value + "','" + dtpEndTime.Value + "','" + numericRate.Value + "','" + numericOperating.Value + "','" + categoryID + "','" + teacherID + "','" + cboStartMonth.Text + "','" + cboEndMonth.Text + "','" + txtDescription.Text + "','" + dtpStartTime.Value.Year + "','" + dtpEndTime.Value.Year + "')";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
                 cmd.ExecuteNonQuery();
                 for (int i = Int32.Parse(cboStartMonth.Text); i <= Int32.Parse(cboEndMonth.Text); i++)

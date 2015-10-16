@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfitMarginControl));
             this.btnMargin = new FunHomeClub.XButton();
             this.txtMargin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMargin
@@ -50,14 +54,17 @@
             // 
             // txtMargin
             // 
-            this.txtMargin.BackColor = System.Drawing.SystemColors.Control;
+            this.txtMargin.BackColor = System.Drawing.Color.Silver;
             this.txtMargin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMargin.Enabled = false;
             this.txtMargin.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtMargin.ForeColor = System.Drawing.Color.Black;
             this.txtMargin.Location = new System.Drawing.Point(183, 14);
             this.txtMargin.Name = "txtMargin";
             this.txtMargin.Size = new System.Drawing.Size(124, 20);
             this.txtMargin.TabIndex = 7;
+            this.txtMargin.EnabledChanged += new System.EventHandler(this.txtMargin_EnabledChanged);
+            this.txtMargin.TextChanged += new System.EventHandler(this.txtMargin_TextChanged);
             // 
             // label1
             // 
@@ -69,6 +76,11 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Current profit margin:";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
+            // 
             // ProfitMarginControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -79,6 +91,8 @@
             this.Controls.Add(this.label1);
             this.Name = "ProfitMarginControl";
             this.Size = new System.Drawing.Size(453, 45);
+            this.Load += new System.EventHandler(this.ProfitMarginControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,5 +103,6 @@
         private XButton btnMargin;
         private System.Windows.Forms.TextBox txtMargin;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

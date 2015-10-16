@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.btnClose = new XButton();
+            this.btnClose = new FunHomeClub.XButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -105,7 +105,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(12, 39);
+            this.label1.Location = new System.Drawing.Point(12, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 19);
             this.label1.TabIndex = 13;
@@ -115,7 +115,7 @@
             // 
             this.lblName_d.AutoSize = true;
             this.lblName_d.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblName_d.Location = new System.Drawing.Point(122, 39);
+            this.lblName_d.Location = new System.Drawing.Point(122, 41);
             this.lblName_d.Name = "lblName_d";
             this.lblName_d.Size = new System.Drawing.Size(21, 19);
             this.lblName_d.TabIndex = 23;
@@ -206,8 +206,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "PromotionViewForm";
-            this.Text = "PromotionViewForm";
+            this.Text = "View Promotion Detail";
             this.Load += new System.EventHandler(this.PromotionViewForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).EndInit();
             this.ResumeLayout(false);

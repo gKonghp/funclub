@@ -459,7 +459,7 @@ namespace FunHomeClub.res.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CourseRow AddCourseRow(string courseID, string name, int startMonth, int endMonth, string startTime, string endTime, string room, int weekday, string startPeriod, string endPeriod, int cost) {
+            public CourseRow AddCourseRow(string courseID, string name, int startMonth, int endMonth, System.DateTime startTime, System.DateTime endTime, string room, int weekday, string startPeriod, string endPeriod, int cost) {
                 CourseRow rowCourseRow = ((CourseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         courseID,
@@ -480,8 +480,10 @@ namespace FunHomeClub.res.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CourseRow FindBycourseID(string courseID) {
+            public CourseRow FindBystartPeriodendPeriodcourseID(string startPeriod, string endPeriod, string courseID) {
                 return ((CourseRow)(this.Rows.Find(new object[] {
+                            startPeriod,
+                            endPeriod,
                             courseID})));
             }
             
@@ -526,9 +528,9 @@ namespace FunHomeClub.res.db {
                 base.Columns.Add(this.columnstartMonth);
                 this.columnendMonth = new global::System.Data.DataColumn("endMonth", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnendMonth);
-                this.columnstartTime = new global::System.Data.DataColumn("startTime", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnstartTime = new global::System.Data.DataColumn("startTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstartTime);
-                this.columnendTime = new global::System.Data.DataColumn("endTime", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnendTime = new global::System.Data.DataColumn("endTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnendTime);
                 this.columnroom = new global::System.Data.DataColumn("room", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnroom);
@@ -541,9 +543,12 @@ namespace FunHomeClub.res.db {
                 this.columncost = new global::System.Data.DataColumn("cost", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncost);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnstartPeriod,
+                                this.columnendPeriod,
                                 this.columncourseID}, true));
                 this.columncourseID.AllowDBNull = false;
-                this.columncourseID.Unique = true;
+                this.columnstartPeriod.AllowDBNull = false;
+                this.columnendPeriod.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -745,10 +750,10 @@ namespace FunHomeClub.res.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string startTime {
+            public System.DateTime startTime {
                 get {
                     try {
-                        return ((string)(this[this.tableCourse.startTimeColumn]));
+                        return ((global::System.DateTime)(this[this.tableCourse.startTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("資料表 \'Course\' 中資料行 \'startTime\' 的值是 DBNull。", e);
@@ -761,10 +766,10 @@ namespace FunHomeClub.res.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string endTime {
+            public System.DateTime endTime {
                 get {
                     try {
-                        return ((string)(this[this.tableCourse.endTimeColumn]));
+                        return ((global::System.DateTime)(this[this.tableCourse.endTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("資料表 \'Course\' 中資料行 \'endTime\' 的值是 DBNull。", e);
@@ -811,12 +816,7 @@ namespace FunHomeClub.res.db {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string startPeriod {
                 get {
-                    try {
-                        return ((string)(this[this.tableCourse.startPeriodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'Course\' 中資料行 \'startPeriod\' 的值是 DBNull。", e);
-                    }
+                    return ((string)(this[this.tableCourse.startPeriodColumn]));
                 }
                 set {
                     this[this.tableCourse.startPeriodColumn] = value;
@@ -827,12 +827,7 @@ namespace FunHomeClub.res.db {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string endPeriod {
                 get {
-                    try {
-                        return ((string)(this[this.tableCourse.endPeriodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'Course\' 中資料行 \'endPeriod\' 的值是 DBNull。", e);
-                    }
+                    return ((string)(this[this.tableCourse.endPeriodColumn]));
                 }
                 set {
                     this[this.tableCourse.endPeriodColumn] = value;
@@ -937,30 +932,6 @@ namespace FunHomeClub.res.db {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetweekdayNull() {
                 this[this.tableCourse.weekdayColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsstartPeriodNull() {
-                return this.IsNull(this.tableCourse.startPeriodColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetstartPeriodNull() {
-                this[this.tableCourse.startPeriodColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsendPeriodNull() {
-                return this.IsNull(this.tableCourse.endPeriodColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetendPeriodNull() {
-                this[this.tableCourse.endPeriodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

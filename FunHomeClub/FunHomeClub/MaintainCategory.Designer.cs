@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaintainCategory));
             this.label1 = new System.Windows.Forms.Label();
             this.txtCategoryName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,10 +54,10 @@
             // 
             // txtCategoryName
             // 
-            this.txtCategoryName.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCategoryName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCategoryName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCategoryName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCategoryName.Location = new System.Drawing.Point(119, 20);
+            this.txtCategoryName.Location = new System.Drawing.Point(127, 18);
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(154, 20);
             this.txtCategoryName.TabIndex = 1;
@@ -68,13 +69,13 @@
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 11.25F);
             this.label2.Location = new System.Drawing.Point(21, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 19);
+            this.label2.Size = new System.Drawing.Size(100, 19);
             this.label2.TabIndex = 2;
-            this.label2.Text = "MetrialCost:";
+            this.label2.Text = "MaterialCost:";
             // 
             // numericMetrrialCost
             // 
-            this.numericMetrrialCost.BackColor = System.Drawing.SystemColors.Control;
+            this.numericMetrrialCost.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericMetrrialCost.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numericMetrrialCost.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.numericMetrrialCost.Increment = new decimal(new int[] {
@@ -82,7 +83,7 @@
             0,
             0,
             0});
-            this.numericMetrrialCost.Location = new System.Drawing.Point(119, 75);
+            this.numericMetrrialCost.Location = new System.Drawing.Point(127, 74);
             this.numericMetrrialCost.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -111,7 +112,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(172, 129);
+            this.button2.Location = new System.Drawing.Point(179, 129);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(77, 28);
             this.button2.TabIndex = 42;
@@ -125,9 +126,9 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(46, 129);
+            this.btnSave.Location = new System.Drawing.Point(74, 129);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(88, 28);
+            this.btnSave.Size = new System.Drawing.Size(77, 28);
             this.btnSave.TabIndex = 41;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -140,9 +141,9 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(46, 129);
+            this.btnAdd.Location = new System.Drawing.Point(74, 129);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(88, 28);
+            this.btnAdd.Size = new System.Drawing.Size(77, 28);
             this.btnAdd.TabIndex = 43;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -151,6 +152,7 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
             // MaintainCategory
             // 
@@ -167,7 +169,7 @@
             this.Controls.Add(this.btnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainCategory";
-            this.Text = "MaintainCategory";
+            this.Text = "Maintain Category";
             this.Load += new System.EventHandler(this.MaintainCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericMetrrialCost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

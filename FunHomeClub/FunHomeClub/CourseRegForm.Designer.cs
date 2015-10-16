@@ -35,14 +35,11 @@
             this.CourseID_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Weekday_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startPeriod_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.endPeriod_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblRegCourseDetail = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gpbStudentInfo = new System.Windows.Forms.GroupBox();
@@ -61,13 +58,10 @@
             this.CourseName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Weekday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartMonth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndMonth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.StartPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.StartPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblTotal_d = new System.Windows.Forms.Label();
             this.lblDiscount_d = new System.Windows.Forms.Label();
             this.lblOriginalTotal_d = new System.Windows.Forms.Label();
@@ -113,7 +107,7 @@
             // 
             // txtStudentID
             // 
-            this.txtStudentID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStudentID.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtStudentID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStudentID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtStudentID.Location = new System.Drawing.Point(115, 83);
@@ -134,20 +128,18 @@
             // 
             // ltvRegCourseDetail
             // 
+            this.ltvRegCourseDetail.AutoArrange = false;
             this.ltvRegCourseDetail.BackColor = System.Drawing.SystemColors.Control;
             this.ltvRegCourseDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader11,
             this.CourseID_r,
             this.columnHeader2,
             this.Weekday_r,
-            this.columnHeader4,
-            this.columnHeader6,
-            this.columnHeader7,
             this.StartMonth_r,
-            this.EndMonth_r,
-            this.columnHeader10,
+            this.columnHeader6,
             this.startPeriod_r,
-            this.endPeriod_r});
+            this.columnHeader4,
+            this.columnHeader10});
             this.ltvRegCourseDetail.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.ltvRegCourseDetail.FullRowSelect = true;
             this.ltvRegCourseDetail.GridLines = true;
@@ -163,53 +155,46 @@
             // columnHeader11
             // 
             this.columnHeader11.Text = "Category";
+            this.columnHeader11.Width = 79;
             // 
             // CourseID_r
             // 
             this.CourseID_r.Text = "CourseID";
+            this.CourseID_r.Width = 71;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Text = "Course Name";
+            this.columnHeader2.Width = 96;
             // 
             // Weekday_r
             // 
             this.Weekday_r.Text = "Weekday";
+            this.Weekday_r.Width = 71;
+            // 
+            // StartMonth_r
+            // 
+            this.StartMonth_r.Text = "Month";
+            this.StartMonth_r.Width = 56;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Time";
+            this.columnHeader6.Width = 88;
+            // 
+            // startPeriod_r
+            // 
+            this.startPeriod_r.Text = "Enrolled Period";
+            this.startPeriod_r.Width = 104;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Room";
             // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Start Time";
-            this.columnHeader6.Width = 62;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "End Time";
-            // 
-            // StartMonth_r
-            // 
-            this.StartMonth_r.Text = "Start Month";
-            // 
-            // EndMonth_r
-            // 
-            this.EndMonth_r.Text = "End Month";
-            this.EndMonth_r.Width = 82;
-            // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "Teacher";
-            this.columnHeader10.Width = 82;
-            // 
-            // startPeriod_r
-            // 
-            this.startPeriod_r.Text = "Start Period";
-            // 
-            // endPeriod_r
-            // 
-            this.endPeriod_r.Text = "End Period";
+            this.columnHeader10.Width = 73;
             // 
             // lblRegCourseDetail
             // 
@@ -224,7 +209,7 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(12, 125);
+            this.splitContainer1.Location = new System.Drawing.Point(11, 116);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -340,15 +325,16 @@
             this.gpbCourseReg.Controls.Add(this.btnAdd);
             this.gpbCourseReg.Controls.Add(this.ltvRegCourseList);
             this.gpbCourseReg.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.gpbCourseReg.Location = new System.Drawing.Point(2, 5);
+            this.gpbCourseReg.Location = new System.Drawing.Point(2, 2);
             this.gpbCourseReg.Name = "gpbCourseReg";
-            this.gpbCourseReg.Size = new System.Drawing.Size(697, 169);
+            this.gpbCourseReg.Size = new System.Drawing.Size(697, 164);
             this.gpbCourseReg.TabIndex = 11;
             this.gpbCourseReg.TabStop = false;
             this.gpbCourseReg.Text = "Course Registration";
             // 
             // ltvRegCourseList
             // 
+            this.ltvRegCourseList.AutoArrange = false;
             this.ltvRegCourseList.BackColor = System.Drawing.SystemColors.Control;
             this.ltvRegCourseList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Category,
@@ -356,13 +342,10 @@
             this.CourseName,
             this.Weekday,
             this.StartMonth,
-            this.EndMonth,
             this.StartTime,
-            this.EndTime,
-            this.Price,
-            this.Room,
             this.StartPeriod,
-            this.EndPeriod});
+            this.Price,
+            this.Room});
             this.ltvRegCourseList.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.ltvRegCourseList.FullRowSelect = true;
             this.ltvRegCourseList.GridLines = true;
@@ -377,34 +360,36 @@
             // Category
             // 
             this.Category.Text = "Category";
+            this.Category.Width = 77;
             // 
             // CourseID
             // 
             this.CourseID.Text = "CourseID";
+            this.CourseID.Width = 75;
             // 
             // CourseName
             // 
-            this.CourseName.Text = "Name";
+            this.CourseName.Text = "Course Name";
+            this.CourseName.Width = 96;
             // 
             // Weekday
             // 
-            this.Weekday.Text = "Week Day";
+            this.Weekday.Text = "Weekday";
+            this.Weekday.Width = 70;
             // 
             // StartMonth
             // 
-            this.StartMonth.Text = "Start Month";
-            // 
-            // EndMonth
-            // 
-            this.EndMonth.Text = "End Month";
+            this.StartMonth.Text = "Month";
             // 
             // StartTime
             // 
-            this.StartTime.Text = "Start Time";
+            this.StartTime.Text = "Time";
+            this.StartTime.Width = 90;
             // 
-            // EndTime
+            // StartPeriod
             // 
-            this.EndTime.Text = "End Time";
+            this.StartPeriod.Text = "Enrolled Period";
+            this.StartPeriod.Width = 108;
             // 
             // Price
             // 
@@ -413,14 +398,6 @@
             // Room
             // 
             this.Room.Text = "Room";
-            // 
-            // StartPeriod
-            // 
-            this.StartPeriod.Text = "Start Period";
-            // 
-            // EndPeriod
-            // 
-            this.EndPeriod.Text = "End Period";
             // 
             // lblTotal_d
             // 
@@ -436,7 +413,7 @@
             // 
             this.lblDiscount_d.AutoSize = true;
             this.lblDiscount_d.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblDiscount_d.Location = new System.Drawing.Point(312, 25);
+            this.lblDiscount_d.Location = new System.Drawing.Point(312, 27);
             this.lblDiscount_d.Name = "lblDiscount_d";
             this.lblDiscount_d.Size = new System.Drawing.Size(21, 19);
             this.lblDiscount_d.TabIndex = 18;
@@ -509,9 +486,9 @@
             this.groupBox1.Controls.Add(this.lblOriginalTotal_d);
             this.groupBox1.Controls.Add(this.lblTotal);
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox1.Location = new System.Drawing.Point(14, 580);
+            this.groupBox1.Location = new System.Drawing.Point(14, 556);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(702, 58);
+            this.groupBox1.Size = new System.Drawing.Size(699, 58);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment";
@@ -528,9 +505,9 @@
             this.groupBox2.Controls.Add(this.btnDiscountClear);
             this.groupBox2.Controls.Add(this.btnDiscountAdd);
             this.groupBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 483);
+            this.groupBox2.Location = new System.Drawing.Point(12, 470);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(702, 91);
+            this.groupBox2.Size = new System.Drawing.Size(702, 81);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Additional Discount";
@@ -539,7 +516,7 @@
             // 
             this.lblPromotionDiscount_d.AutoSize = true;
             this.lblPromotionDiscount_d.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPromotionDiscount_d.Location = new System.Drawing.Point(554, 61);
+            this.lblPromotionDiscount_d.Location = new System.Drawing.Point(555, 55);
             this.lblPromotionDiscount_d.Name = "lblPromotionDiscount_d";
             this.lblPromotionDiscount_d.Size = new System.Drawing.Size(21, 19);
             this.lblPromotionDiscount_d.TabIndex = 10;
@@ -549,7 +526,7 @@
             // 
             this.lblPromotionDiscount.AutoSize = true;
             this.lblPromotionDiscount.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPromotionDiscount.Location = new System.Drawing.Point(468, 60);
+            this.lblPromotionDiscount.Location = new System.Drawing.Point(469, 54);
             this.lblPromotionDiscount.Name = "lblPromotionDiscount";
             this.lblPromotionDiscount.Size = new System.Drawing.Size(73, 19);
             this.lblPromotionDiscount.TabIndex = 9;
@@ -559,7 +536,7 @@
             // 
             this.lblPromotionName_d.AutoSize = true;
             this.lblPromotionName_d.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPromotionName_d.Location = new System.Drawing.Point(314, 60);
+            this.lblPromotionName_d.Location = new System.Drawing.Point(315, 54);
             this.lblPromotionName_d.Name = "lblPromotionName_d";
             this.lblPromotionName_d.Size = new System.Drawing.Size(21, 19);
             this.lblPromotionName_d.TabIndex = 8;
@@ -569,7 +546,7 @@
             // 
             this.lblPromotionID_d.AutoSize = true;
             this.lblPromotionID_d.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPromotionID_d.Location = new System.Drawing.Point(130, 60);
+            this.lblPromotionID_d.Location = new System.Drawing.Point(131, 54);
             this.lblPromotionID_d.Name = "lblPromotionID_d";
             this.lblPromotionID_d.Size = new System.Drawing.Size(21, 19);
             this.lblPromotionID_d.TabIndex = 7;
@@ -579,7 +556,7 @@
             // 
             this.lblPromotionName.AutoSize = true;
             this.lblPromotionName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPromotionName.Location = new System.Drawing.Point(235, 59);
+            this.lblPromotionName.Location = new System.Drawing.Point(236, 53);
             this.lblPromotionName.Name = "lblPromotionName";
             this.lblPromotionName.Size = new System.Drawing.Size(54, 19);
             this.lblPromotionName.TabIndex = 6;
@@ -589,7 +566,7 @@
             // 
             this.lblPromotionID.AutoSize = true;
             this.lblPromotionID.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPromotionID.Location = new System.Drawing.Point(9, 59);
+            this.lblPromotionID.Location = new System.Drawing.Point(10, 53);
             this.lblPromotionID.Name = "lblPromotionID";
             this.lblPromotionID.Size = new System.Drawing.Size(105, 19);
             this.lblPromotionID.TabIndex = 5;
@@ -635,7 +612,7 @@
             this.btnDiscountView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDiscountView.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnDiscountView.ForeColor = System.Drawing.Color.White;
-            this.btnDiscountView.Location = new System.Drawing.Point(539, 28);
+            this.btnDiscountView.Location = new System.Drawing.Point(539, 19);
             this.btnDiscountView.Name = "btnDiscountView";
             this.btnDiscountView.Size = new System.Drawing.Size(75, 23);
             this.btnDiscountView.TabIndex = 4;
@@ -651,7 +628,7 @@
             this.btnDiscountClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDiscountClear.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnDiscountClear.ForeColor = System.Drawing.Color.White;
-            this.btnDiscountClear.Location = new System.Drawing.Point(618, 28);
+            this.btnDiscountClear.Location = new System.Drawing.Point(620, 19);
             this.btnDiscountClear.Name = "btnDiscountClear";
             this.btnDiscountClear.Size = new System.Drawing.Size(75, 23);
             this.btnDiscountClear.TabIndex = 2;
@@ -667,17 +644,18 @@
             this.btnDiscountAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDiscountAdd.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnDiscountAdd.ForeColor = System.Drawing.Color.White;
-            this.btnDiscountAdd.Location = new System.Drawing.Point(458, 27);
+            this.btnDiscountAdd.Location = new System.Drawing.Point(458, 19);
             this.btnDiscountAdd.Name = "btnDiscountAdd";
             this.btnDiscountAdd.Size = new System.Drawing.Size(75, 23);
             this.btnDiscountAdd.TabIndex = 0;
-            this.btnDiscountAdd.Text = "Add";
+            this.btnDiscountAdd.Text = "Select";
             this.btnDiscountAdd.UseVisualStyleBackColor = false;
             this.btnDiscountAdd.Click += new System.EventHandler(this.btnDiscountAdd_Click);
             // 
             // btnStudIDEnter
             // 
             this.btnStudIDEnter.BackColor = System.Drawing.Color.Coral;
+            this.btnStudIDEnter.Enabled = false;
             this.btnStudIDEnter.FlatAppearance.BorderSize = 0;
             this.btnStudIDEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudIDEnter.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -712,7 +690,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(549, 644);
+            this.btnCancel.Location = new System.Drawing.Point(635, 620);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 25);
             this.btnCancel.TabIndex = 5;
@@ -792,7 +770,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(630, 644);
+            this.btnRegister.Location = new System.Drawing.Point(551, 620);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 25);
             this.btnRegister.TabIndex = 0;
@@ -805,7 +783,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(726, 679);
+            this.ClientSize = new System.Drawing.Size(726, 654);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -878,23 +856,19 @@
         private System.Windows.Forms.ColumnHeader Weekday_r;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader Category;
         private System.Windows.Forms.ColumnHeader CourseName;
         private System.Windows.Forms.ColumnHeader CourseID;
         private System.Windows.Forms.ColumnHeader Weekday;
         private System.Windows.Forms.ColumnHeader StartMonth;
-        private System.Windows.Forms.ColumnHeader EndMonth;
         private System.Windows.Forms.ColumnHeader StartTime;
-        private System.Windows.Forms.ColumnHeader EndTime;
         private System.Windows.Forms.ColumnHeader Room;
         private System.Windows.Forms.ColumnHeader Price;
         public System.Windows.Forms.Label lblTotal_d;
         public System.Windows.Forms.Label lblDiscount_d;
         public System.Windows.Forms.Label lblOriginalTotal_d;
         private System.Windows.Forms.ColumnHeader StartPeriod;
-        private System.Windows.Forms.ColumnHeader EndPeriod;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private XButton btnDiscountClear;
@@ -907,11 +881,9 @@
         public System.Windows.Forms.Label lblPromotionName_d;
         public System.Windows.Forms.Label lblPromotionID_d;
         private System.Windows.Forms.ColumnHeader startPeriod_r;
-        private System.Windows.Forms.ColumnHeader endPeriod_r;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ColumnHeader StartMonth_r;
-        private System.Windows.Forms.ColumnHeader EndMonth_r;
     }
 }

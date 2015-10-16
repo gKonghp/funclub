@@ -162,7 +162,11 @@ namespace FunHomeClub
                         newRow.SetField("startPeriod", startPeriod);
                         newRow.SetField("endPeriod", endPeriod);
                         newRow.ItemArray = (object[])subRow.ItemArray.Clone();
-
+                        DataColumn[] keys= new DataColumn[3];
+                        keys[0] = courseTables.Columns["courseID"];
+                        keys[1] = courseTables.Columns["startPeriod"];
+                        keys[2] = courseTables.Columns["endPeriod"];
+                        courseTables.PrimaryKey = keys;
                         courseTables.Rows.Add(newRow);
 
                     }
@@ -192,12 +196,13 @@ namespace FunHomeClub
                        //}
                     item.SubItems.Add(row["name"].ToString());
                     item.SubItems.Add(row["weekday"].ToString());
+                    item.SubItems.Add(row["startMonth"].ToString() + "-" + row["endMonth"].ToString());
+                    //item.SubItems.Add(row["endMonth"].ToString());
+                    item.SubItems.Add(string.Format("{0:H:mm}",Convert.ToDateTime(row["startTime"].ToString())) + "-" + string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
+                    //item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
+                    item.SubItems.Add(row["startPeriod"].ToString() + "-" + row["endPeriod"].ToString());
+                    //item.SubItems.Add(row["endPeriod"].ToString());
                     item.SubItems.Add(row["room"].ToString());
-                    item.SubItems.Add(string.Format("{0:H:mm}",Convert.ToDateTime(row["startTime"].ToString())));
-                    item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
-                    item.SubItems.Add(row["startMonth"].ToString());
-                    item.SubItems.Add(row["endMonth"].ToString());
-
                     string teacherID = row["teacherID"].ToString();
                     sql = string.Format("SELECT * FROM Teacher WHERE teacherID = '{0}'", teacherID);
                     adapter = new OleDbDataAdapter(sql, conn);
@@ -207,8 +212,6 @@ namespace FunHomeClub
                         //{ 
                         item.SubItems.Add(masterDBDataSet.teacher.Rows[0]["name"].ToString());
                     //}
-                    item.SubItems.Add(row["startPeriod"].ToString());
-                    item.SubItems.Add(row["endPeriod"].ToString());
                     ltvRegCourseDetail.Items.Add(item);
 
                 }
@@ -239,8 +242,8 @@ namespace FunHomeClub
         private void ltvRegCourseDetail_DoubleClick(object sender, EventArgs e)
         {
             if (ltvRegCourseDetail.SelectedItems.Count > 0) {
-                int idx = ltvRegCourseDetail.SelectedItems[0].Index;
-                CourseDetail cd = new CourseDetail(conn, masterDBDataSet.course.Rows[idx]["courseID"].ToString());
+                //int idx = ltvRegCourseDetail.SelectedItems[0].Index;
+                CourseDetail cd = new CourseDetail(conn, ltvRegCourseDetail.SelectedItems[0].SubItems[CourseID_r.Index].Text);
                 cd.ShowDialog();
             }
         }
@@ -300,8 +303,8 @@ namespace FunHomeClub
                 //int previousEndMonth = Convert.ToInt32(item.SubItems[EndMonth.Index].Text);
                 //int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
                 //string previousCourseID = item.SubItems[CourseID.Index].Text;
-                int previousStartPeriod = Convert.ToInt32(item.SubItems[startPeriod_r.Index].Text);
-                int previousEndPeriod = Convert.ToInt32(item.SubItems[endPeriod_r.Index].Text);
+                int previousStartPeriod = Convert.ToInt32(item.SubItems[startPeriod_r.Index].Text.Split('-')[0].Trim());
+                int previousEndPeriod = Convert.ToInt32(item.SubItems[startPeriod_r.Index].Text.Split('-')[1].Trim());
                 int previousWeekday = Convert.ToInt32(item.SubItems[Weekday_r.Index].Text);
                 string previousCourseID = item.SubItems[CourseID_r.Index].Text;
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
@@ -326,8 +329,8 @@ namespace FunHomeClub
                 //int previousEndMonth = Convert.ToInt32(item.SubItems[EndMonth.Index].Text);
                 //int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
                 //string previousCourseID = item.SubItems[CourseID.Index].Text;
-                int previousStartPeriod = Convert.ToInt32(item.SubItems[StartPeriod.Index].Text);
-                int previousEndPeriod = Convert.ToInt32(item.SubItems[EndPeriod.Index].Text);
+                int previousStartPeriod = Convert.ToInt32(item.SubItems[StartPeriod.Index].Text.Split('-')[0].Trim());
+                int previousEndPeriod = Convert.ToInt32(item.SubItems[StartPeriod.Index].Text.Split('-')[1].Trim());
                 int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
                 string previousCourseID = item.SubItems[CourseID.Index].Text;
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
@@ -371,8 +374,8 @@ namespace FunHomeClub
                 //int previousEndMonth = Convert.ToInt32(item.SubItems[EndMonth.Index].Text);
                 //int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
                 //string previousCourseID = item.SubItems[CourseID.Index].Text;
-                int previousStartPeriod = Convert.ToInt32(item.SubItems[startPeriod_r.Index].Text);
-                int previousEndPeriod = Convert.ToInt32(item.SubItems[endPeriod_r.Index].Text);
+                int previousStartPeriod = Convert.ToInt32(item.SubItems[startPeriod_r.Index].Text.Split('-')[0].Trim());
+                int previousEndPeriod = Convert.ToInt32(item.SubItems[startPeriod_r.Index].Text.Split('-')[1].Trim());
                 int previousWeekday = Convert.ToInt32(item.SubItems[Weekday_r.Index].Text);
                  string previousCourseID = item.SubItems[CourseID_r.Index].Text;
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
@@ -398,8 +401,8 @@ namespace FunHomeClub
                 //int previousEndMonth = Convert.ToInt32(item.SubItems[EndMonth.Index].Text);
                 //int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
                 //string previousCourseID = item.SubItems[CourseID.Index].Text;
-                int previousStartPeriod = Convert.ToInt32(item.SubItems[StartPeriod.Index].Text);
-                int previousEndPeriod = Convert.ToInt32(item.SubItems[EndPeriod.Index].Text);
+                int previousStartPeriod = Convert.ToInt32(item.SubItems[StartPeriod.Index].Text.Split('-')[0].Trim());
+                int previousEndPeriod = Convert.ToInt32(item.SubItems[StartPeriod.Index].Text.Split('-')[1].Trim());
                 int previousWeekday = Convert.ToInt32(item.SubItems[Weekday.Index].Text);
                 string previousCourseID = item.SubItems[CourseID.Index].Text;
                 // [preStart] start [preEnd]  || [preStart] end [preEnd] || start [preStart]  end || start [preEnd]  end
@@ -426,7 +429,7 @@ namespace FunHomeClub
             double totalPrice = 0;
             foreach (ListViewItem item in ltvRegCourseList.Items)
             {
-                totalPrice += Convert.ToDouble(item.SubItems[Price.Index].Text) * ((Convert.ToInt32(item.SubItems[EndPeriod.Index].Text) - Convert.ToInt32(item.SubItems[StartPeriod.Index].Text)) + 1);
+                totalPrice += Math.Ceiling(Convert.ToDouble(item.SubItems[Price.Index].Text) * ((Convert.ToInt32(item.SubItems[StartPeriod.Index].Text.Split('-')[1].Trim()) - Convert.ToInt32(item.SubItems[StartPeriod.Index].Text.Split('-')[0].Trim())) + 1));
             }
             return totalPrice;
         }
@@ -435,7 +438,8 @@ namespace FunHomeClub
 
             double originalTotal = calcOriginalTotal();
             discount = Math.Round(discount,2);
-            double finalDiscount = (1 - discount); // not calcalate all;
+            //double finalDiscount = (1 - discount); // not calcalate all;
+            double finalDiscount = discount; // not calcalate all;
             finalDiscount = Math.Round(finalDiscount,2);
             /*
             foreach (ListViewItem item in ltvPromotion.Items)
@@ -449,9 +453,16 @@ namespace FunHomeClub
             }
             */
             double promotionDiscount = 1;
-            if(Utility.IsNumeric(lblPromotionDiscount_d.Text))
-                promotionDiscount = Math.Round(Convert.ToDouble(lblPromotionDiscount_d.Text),2);
-            finalDiscount += (1 - promotionDiscount);
+            //lblPromotionDiscount_d.Text.Substring(0, lblPromotionDiscount_d.Text.Length-5))
+            string promtionDiscount_d = lblPromotionDiscount_d.Text;
+            if (lblPromotionDiscount_d.Text.Length > 5)
+            {
+                promtionDiscount_d = Convert.ToString((100-Convert.ToDouble(promtionDiscount_d.Substring(0, lblPromotionDiscount_d.Text.Length - 5)))/100);
+            }
+            if (Utility.IsNumeric(promtionDiscount_d))
+                promotionDiscount = Math.Round(Convert.ToDouble(promtionDiscount_d),2);
+            //finalDiscount += (1 - promotionDiscount);
+            finalDiscount *= promotionDiscount;
             finalDiscount = Math.Round(finalDiscount, 2);
             //Update Original Price;
             if (originalTotal <= 0)
@@ -466,15 +477,15 @@ namespace FunHomeClub
                 if (finalDiscount >= 1 || finalDiscount == 0)
                 {
                     lblDiscount_d.Text = "--";
-                    finalDiscount = 0;
+                    finalDiscount = 1;
                 }
                 else if (finalDiscount > 0)
                 {
-                    lblDiscount_d.Text = Convert.ToString(finalDiscount * 100) + " OFF";
+                    lblDiscount_d.Text = Convert.ToString((1-finalDiscount) * 100) + "% OFF";
                 }
 
                 //Update TotalPrice
-                lblTotal_d.Text = "$ " + Convert.ToString(originalTotal * (1 - finalDiscount));
+                lblTotal_d.Text = "$ " + Convert.ToString(Math.Ceiling(originalTotal *  finalDiscount));
             }
         }
 
@@ -562,6 +573,7 @@ namespace FunHomeClub
             if(conn.State == ConnectionState.Closed)
                 conn.Open();
             MaintainStudent mStudent = new MaintainStudent(conn, null, true);
+            mStudent.Text = "Student Registration";
             mStudent.ShowDialog();
             if (mStudent.DialogResult == DialogResult.OK)
             {
@@ -620,6 +632,10 @@ namespace FunHomeClub
         private void txtStudentID_TextChanged(object sender, EventArgs e)
         {
             //txtStudentID.BackColor = System.Drawing.SystemColors.Control;
+            if (txtStudentID.Text.Trim().Length > 0)
+                btnStudIDEnter.Enabled = true;
+            else
+                btnStudIDEnter.Enabled = false;
         }
     }
 }

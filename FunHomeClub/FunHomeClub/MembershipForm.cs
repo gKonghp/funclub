@@ -199,5 +199,13 @@ namespace FunHomeClub
             frmCourseRegHistory = new CourseRegHistoryForm(lblStudentID_d.Text);
             frmCourseRegHistory.ShowDialog();
         }
+
+        private void txtStudentID_TextChanged(object sender, EventArgs e)
+        {
+            if (txtStudentID.Text.Trim().Length <= 0)
+                btnEnter.Enabled = false;
+            else
+                btnEnter.Enabled = true;
+        }
     }
 }

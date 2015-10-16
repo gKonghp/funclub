@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaintainCourse));
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericOperating = new System.Windows.Forms.NumericUpDown();
@@ -113,7 +114,7 @@
             // 
             // numericOperating
             // 
-            this.numericOperating.BackColor = System.Drawing.SystemColors.Control;
+            this.numericOperating.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericOperating.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numericOperating.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.numericOperating.Increment = new decimal(new int[] {
@@ -144,7 +145,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDescription.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescription.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtDescription.Location = new System.Drawing.Point(110, 265);
@@ -177,7 +178,7 @@
             // 
             // cboEndMonth
             // 
-            this.cboEndMonth.BackColor = System.Drawing.SystemColors.Control;
+            this.cboEndMonth.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboEndMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEndMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboEndMonth.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -203,7 +204,7 @@
             // 
             // cboStartMonth
             // 
-            this.cboStartMonth.BackColor = System.Drawing.SystemColors.Control;
+            this.cboStartMonth.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboStartMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStartMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboStartMonth.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -229,7 +230,7 @@
             // 
             // cboWeekday
             // 
-            this.cboWeekday.BackColor = System.Drawing.SystemColors.Control;
+            this.cboWeekday.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboWeekday.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWeekday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboWeekday.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -281,7 +282,7 @@
             // 
             // txtRoom
             // 
-            this.txtRoom.BackColor = System.Drawing.SystemColors.Control;
+            this.txtRoom.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRoom.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtRoom.Location = new System.Drawing.Point(107, 88);
@@ -333,7 +334,7 @@
             // 
             // numQuota
             // 
-            this.numQuota.BackColor = System.Drawing.SystemColors.Control;
+            this.numQuota.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numQuota.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numQuota.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.numQuota.Location = new System.Drawing.Point(107, 53);
@@ -344,7 +345,7 @@
             // 
             // txtCourseName
             // 
-            this.txtCourseName.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCourseName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCourseName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCourseName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtCourseName.Location = new System.Drawing.Point(107, 22);
@@ -399,7 +400,7 @@
             // 
             // numericRate
             // 
-            this.numericRate.BackColor = System.Drawing.SystemColors.Control;
+            this.numericRate.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericRate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numericRate.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.numericRate.Increment = new decimal(new int[] {
@@ -430,7 +431,7 @@
             // 
             // cboTeacherName
             // 
-            this.cboTeacherName.BackColor = System.Drawing.SystemColors.Control;
+            this.cboTeacherName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboTeacherName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTeacherName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboTeacherName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -458,21 +459,21 @@
             this.groupBox3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox3.Location = new System.Drawing.Point(339, 113);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(273, 60);
+            this.groupBox3.Size = new System.Drawing.Size(275, 60);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Category";
             // 
             // cboCategory
             // 
-            this.cboCategory.BackColor = System.Drawing.SystemColors.Control;
+            this.cboCategory.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboCategory.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cboCategory.FormattingEnabled = true;
             this.cboCategory.Location = new System.Drawing.Point(78, 21);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(168, 27);
+            this.cboCategory.Size = new System.Drawing.Size(171, 27);
             this.cboCategory.TabIndex = 23;
             this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
@@ -493,9 +494,9 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(497, 307);
+            this.btnSave.Location = new System.Drawing.Point(397, 315);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(88, 28);
+            this.btnSave.Size = new System.Drawing.Size(77, 28);
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -509,7 +510,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(382, 307);
+            this.button2.Location = new System.Drawing.Point(501, 315);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(77, 28);
             this.button2.TabIndex = 22;
@@ -523,9 +524,9 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(497, 307);
+            this.btnAdd.Location = new System.Drawing.Point(397, 315);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(88, 28);
+            this.btnAdd.Size = new System.Drawing.Size(77, 28);
             this.btnAdd.TabIndex = 23;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -534,6 +535,7 @@
             // courseErrProvider
             // 
             this.courseErrProvider.ContainerControl = this;
+            this.courseErrProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("courseErrProvider.Icon")));
             // 
             // MaintainCourse
             // 
@@ -549,7 +551,7 @@
             this.Controls.Add(this.btnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainCourse";
-            this.Text = "MaintainCourse";
+            this.Text = "Maintain Course";
             this.Load += new System.EventHandler(this.MaintainCourse_Load);
             this.TextChanged += new System.EventHandler(this.MaintainCourse_TextChanged);
             this.groupBox1.ResumeLayout(false);

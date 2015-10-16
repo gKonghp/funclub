@@ -47,7 +47,7 @@
             this.Controls.Add(this.containCourseDetail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "CourseDetail";
-            this.Text = "Course Detial - ";
+            this.Text = "Course Detail";
             this.ResumeLayout(false);
 
         }

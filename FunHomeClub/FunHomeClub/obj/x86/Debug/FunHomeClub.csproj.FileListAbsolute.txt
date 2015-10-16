@@ -153,16 +153,6 @@ D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\Microsoft.ReportViewer.Pr
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\Microsoft.SqlServer.Types.dll
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
-D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.AddCoursesForm.resources
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.AddPromotionForm.resources
 D:\VTC\Sem4\GUI\Resp\FunHomeClub\FunHomeClub\obj\x86\Debug\FunHomeClub.AdminMainForm.resources

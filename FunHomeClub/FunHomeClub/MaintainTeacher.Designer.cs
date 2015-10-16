@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaintainTeacher));
             this.fRadio = new System.Windows.Forms.RadioButton();
             this.mRadio = new System.Windows.Forms.RadioButton();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -69,7 +70,7 @@
             // 
             // txtName
             // 
-            this.txtName.BackColor = System.Drawing.SystemColors.Control;
+            this.txtName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtName.Location = new System.Drawing.Point(87, 20);
@@ -110,7 +111,7 @@
             // 
             // txtContact
             // 
-            this.txtContact.BackColor = System.Drawing.SystemColors.Control;
+            this.txtContact.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContact.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtContact.Location = new System.Drawing.Point(87, 51);
@@ -168,6 +169,7 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
             // MaintainTeacher
             // 
@@ -187,7 +189,7 @@
             this.Controls.Add(this.btnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainTeacher";
-            this.Text = "MaintainTeacher";
+            this.Text = "Maintain Teacher";
             this.Load += new System.EventHandler(this.MaintainTeacher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

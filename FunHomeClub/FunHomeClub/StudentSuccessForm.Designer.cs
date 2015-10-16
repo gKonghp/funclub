@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnClose = new XButton();
+            this.btnClose = new FunHomeClub.XButton();
             this.lblMembership_d = new System.Windows.Forms.Label();
             this.lblEmail_d = new System.Windows.Forms.Label();
             this.lblContact_d = new System.Windows.Forms.Label();
@@ -136,6 +136,7 @@
             this.lblEmail_d.AutoSize = true;
             this.lblEmail_d.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblEmail_d.Location = new System.Drawing.Point(128, 126);
+            this.lblEmail_d.MaximumSize = new System.Drawing.Size(265, 0);
             this.lblEmail_d.Name = "lblEmail_d";
             this.lblEmail_d.Size = new System.Drawing.Size(21, 19);
             this.lblEmail_d.TabIndex = 25;
@@ -201,7 +202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(309, 261);
+            this.ClientSize = new System.Drawing.Size(316, 261);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblStudentID_d);
             this.Controls.Add(this.label7);
@@ -216,8 +217,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "StudentSuccessForm";
-            this.Text = "StudentSuccessForm";
+            this.Text = "Successful Student Registration";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentSuccessForm_FormClosed);
             this.Load += new System.EventHandler(this.StudentSuccessForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).EndInit();

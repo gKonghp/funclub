@@ -71,14 +71,20 @@ namespace FunHomeClub
                     }
                     else
                     {
-                        new OleDbCommand("Insert into membership values('" + id + "', '" + txtStatus.Text + "','" + txtDiscount.Text + "')", connection).ExecuteNonQuery();
+                        if(connection.State == ConnectionState.Closed)
+                            connection.Open();
+                        double discount = Convert.ToDouble(txtDiscount.Text);
+                        new OleDbCommand("Insert into membership values('" + id + "', '" + txtStatus.Text + "','" + discount + "')", connection).ExecuteNonQuery();
                         MessageBox.Show("Adding membership successul!");
                         this.DialogResult = DialogResult.OK;
                     }
                 }
                 else
                 {
-                    new OleDbCommand("Update membership set status = '" + txtStatus.Text + "', discount = " + txtDiscount.Text + " WHERE membershipID = '" + msID + "'", connection).ExecuteNonQuery();
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    double discount = Convert.ToDouble(txtDiscount.Text);
+                    new OleDbCommand("Update membership set status = '" + txtStatus.Text + "', discount = " + discount + " WHERE membershipID = '" + msID + "'", connection).ExecuteNonQuery();
                     MessageBox.Show("Changing successul!");
                     this.DialogResult = DialogResult.OK;
                 }

@@ -36,6 +36,12 @@ namespace FunHomeClub
             courseTables = masterDBDataSet1.course.Clone();
             courseTables.Columns.Add("startPeriod");
             courseTables.Columns.Add("endPeriod");
+            courseTables.Columns.Add("cost");
+            DataColumn[] keys = new DataColumn[3];
+            keys[0] = courseTables.Columns["courseID"];
+            keys[1] = courseTables.Columns["startPeriod"];
+            keys[2] = courseTables.Columns["endPeriod"];
+            courseTables.PrimaryKey = keys;
             courseTables.Clear();
 
             ltvRegCourseDetail.Items.Clear();
@@ -59,6 +65,7 @@ namespace FunHomeClub
                     DataRow newRow = courseTables.NewRow();
                     newRow.SetField("startPeriod", startPeriod);
                     newRow.SetField("endPeriod", endPeriod);
+                    newRow.SetField("cost", row["cost"].ToString());
                     newRow.ItemArray = (object[])subRow.ItemArray.Clone();
 
                     courseTables.Rows.Add(newRow);
@@ -90,11 +97,14 @@ namespace FunHomeClub
                 //}
                 item.SubItems.Add(row["name"].ToString());
                 item.SubItems.Add(row["weekday"].ToString());
+                item.SubItems.Add(row["startMonth"].ToString() + "-" + row["endMonth"].ToString());
+                item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["startTime"].ToString())) + "-" + string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
+                //item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())))
+                //item.SubItems.Add(row["endMonth"].ToString());
                 item.SubItems.Add(row["room"].ToString());
-                item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["startTime"].ToString())));
-                item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
-                item.SubItems.Add(row["startMonth"].ToString());
-                item.SubItems.Add(row["endMonth"].ToString());
+                item.SubItems.Add(row["startPeriod"].ToString() + "-" + row["endPeriod"].ToString());
+                //item.SubItems.Add(row["endPeriod"].ToString());
+
 
                 string teacherID = row["teacherID"].ToString();
                 sql = string.Format("SELECT * FROM Teacher WHERE teacherID = '{0}'", teacherID);
@@ -105,8 +115,7 @@ namespace FunHomeClub
                 //{ 
                 item.SubItems.Add(masterDBDataSet1.teacher.Rows[0]["name"].ToString());
                 //}
-                item.SubItems.Add(row["startPeriod"].ToString());
-                item.SubItems.Add(row["endPeriod"].ToString());
+                item.SubItems.Add(row["cost"].ToString());
                 ltvRegCourseDetail.Items.Add(item);
 
             }

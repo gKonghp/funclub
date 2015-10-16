@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaintainMembership));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
@@ -61,7 +62,7 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStatus.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStatus.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtStatus.Location = new System.Drawing.Point(87, 21);
@@ -72,7 +73,7 @@
             // 
             // txtDiscount
             // 
-            this.txtDiscount.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDiscount.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDiscount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDiscount.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtDiscount.Location = new System.Drawing.Point(87, 56);
@@ -115,6 +116,7 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
             // MaintainMembership
             // 
@@ -130,7 +132,7 @@
             this.Controls.Add(this.btnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainMembership";
-            this.Text = "MaintainMembership";
+            this.Text = "Maintain Membership";
             this.Load += new System.EventHandler(this.MaintainMembership_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

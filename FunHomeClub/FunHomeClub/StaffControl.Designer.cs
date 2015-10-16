@@ -33,13 +33,14 @@
             this.usernameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.passwordHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.positionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteStaff = new XButton();
-            this.btnMaintainStaff = new XButton();
-            this.btnAddStaff = new XButton();
+            this.btnDeleteStaff = new FunHomeClub.XButton();
+            this.btnMaintainStaff = new FunHomeClub.XButton();
+            this.btnAddStaff = new FunHomeClub.XButton();
             this.SuspendLayout();
             // 
             // lstStaff
             // 
+            this.lstStaff.AutoArrange = false;
             this.lstStaff.BackColor = System.Drawing.SystemColors.Control;
             this.lstStaff.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.employeeIdHeader,
@@ -73,6 +74,7 @@
             // positionHeader
             // 
             this.positionHeader.Text = "Position";
+            this.positionHeader.Width = 68;
             // 
             // btnDeleteStaff
             // 

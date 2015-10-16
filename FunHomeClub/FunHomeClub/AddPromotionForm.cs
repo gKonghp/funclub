@@ -46,9 +46,9 @@ namespace FunHomeClub
                 ListViewItem item = new ListViewItem(row["promotionID"].ToString());
                 item.SubItems.Add(row["name"].ToString());
                 item.SubItems.Add(row["description"].ToString());
-                item.SubItems.Add(row["startTime"].ToString());
-                item.SubItems.Add(row["endTime"].ToString());
-                item.SubItems.Add(row["additionalDiscount"].ToString());
+                item.SubItems.Add(string.Format("{0:dd/M/yyyy}",Convert.ToDateTime(row["startTime"].ToString())));
+                item.SubItems.Add(string.Format("{0:dd/M/yyyy}", Convert.ToDateTime(row["endTime"].ToString())));
+                item.SubItems.Add((1 - Convert.ToDouble(row["additionalDiscount"].ToString()))*100 +"% OFF");
                 ltvPromotion.Items.Add(item);
             }
         }
@@ -83,7 +83,14 @@ namespace FunHomeClub
                 ListViewItem selectedItem = ltvPromotion.SelectedItems[0];
                 frmCourseReg.lblPromotionID_d.Text = selectedItem.Text;
                 frmCourseReg.lblPromotionName_d.Text = selectedItem.SubItems[name.Index].Text;
-                frmCourseReg.lblPromotionDiscount_d.Text = selectedItem.SubItems[discount.Index].Text;
+                string promotionDiscount_d = selectedItem.SubItems[discount.Index].Text;
+                if (Utility.IsNumeric(promotionDiscount_d))
+                    if (Convert.ToDouble(selectedItem.SubItems[discount.Index].Text) < 1)
+                        frmCourseReg.lblPromotionDiscount_d.Text = (1 - Convert.ToDouble(selectedItem.SubItems[discount.Index].Text)) * 100 + "% OFF";
+                    else
+                        frmCourseReg.lblPromotionDiscount_d.Text = "--";
+                else
+                    frmCourseReg.lblPromotionDiscount_d.Text = promotionDiscount_d;
                 frmCourseReg.updateTotalPrice();
                 Dispose();
             }

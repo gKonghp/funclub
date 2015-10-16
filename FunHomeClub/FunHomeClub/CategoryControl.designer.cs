@@ -32,13 +32,14 @@
             this.categoryHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.categoryNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metrialHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteCategory = new XButton();
-            this.btnMaintainCategory = new XButton();
-            this.btnAddCategory = new XButton();
+            this.btnDeleteCategory = new FunHomeClub.XButton();
+            this.btnMaintainCategory = new FunHomeClub.XButton();
+            this.btnAddCategory = new FunHomeClub.XButton();
             this.SuspendLayout();
             // 
             // lstCategory
             // 
+            this.lstCategory.AutoArrange = false;
             this.lstCategory.BackColor = System.Drawing.SystemColors.Control;
             this.lstCategory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.categoryHeader,
@@ -47,7 +48,7 @@
             this.lstCategory.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstCategory.Location = new System.Drawing.Point(3, 3);
             this.lstCategory.Name = "lstCategory";
-            this.lstCategory.Size = new System.Drawing.Size(532, 240);
+            this.lstCategory.Size = new System.Drawing.Size(290, 240);
             this.lstCategory.TabIndex = 3;
             this.lstCategory.UseCompatibleStateImageBehavior = false;
             this.lstCategory.View = System.Windows.Forms.View.Details;
@@ -65,8 +66,8 @@
             // 
             // metrialHeader
             // 
-            this.metrialHeader.Text = "MetrialCost";
-            this.metrialHeader.Width = 85;
+            this.metrialHeader.Text = "MaterialCost";
+            this.metrialHeader.Width = 92;
             // 
             // btnDeleteCategory
             // 
@@ -76,7 +77,7 @@
             this.btnDeleteCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteCategory.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnDeleteCategory.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteCategory.Location = new System.Drawing.Point(541, 67);
+            this.btnDeleteCategory.Location = new System.Drawing.Point(308, 67);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
             this.btnDeleteCategory.Size = new System.Drawing.Size(97, 26);
             this.btnDeleteCategory.TabIndex = 9;
@@ -92,7 +93,7 @@
             this.btnMaintainCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaintainCategory.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnMaintainCategory.ForeColor = System.Drawing.Color.White;
-            this.btnMaintainCategory.Location = new System.Drawing.Point(541, 35);
+            this.btnMaintainCategory.Location = new System.Drawing.Point(308, 35);
             this.btnMaintainCategory.Name = "btnMaintainCategory";
             this.btnMaintainCategory.Size = new System.Drawing.Size(97, 26);
             this.btnMaintainCategory.TabIndex = 8;
@@ -107,7 +108,7 @@
             this.btnAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCategory.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAddCategory.ForeColor = System.Drawing.Color.White;
-            this.btnAddCategory.Location = new System.Drawing.Point(541, 3);
+            this.btnAddCategory.Location = new System.Drawing.Point(308, 3);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(97, 26);
             this.btnAddCategory.TabIndex = 7;
@@ -119,12 +120,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnDeleteCategory);
             this.Controls.Add(this.btnMaintainCategory);
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.lstCategory);
             this.Name = "CategoryControl";
-            this.Size = new System.Drawing.Size(641, 250);
+            this.Size = new System.Drawing.Size(420, 250);
             this.Load += new System.EventHandler(this.CategoryControl_Load);
             this.ResumeLayout(false);
 

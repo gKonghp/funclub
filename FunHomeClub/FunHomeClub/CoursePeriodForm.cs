@@ -58,7 +58,7 @@ namespace FunHomeClub
         {
             lblCourseID_d.Text = courseID;
             lblCourseName_d.Text = name;
-
+            lblWeekday_d.Text = weekday.ToString();
             string sql = string.Format("SELECT * FROM courseMonth WHERE courseID = '{0}'", courseID);
             masterDBDataSet1.Clear();
             adapter = new OleDbDataAdapter(sql, conn);
@@ -105,6 +105,13 @@ namespace FunHomeClub
                 lblMonthStatus.Text = "";
                 lblMonthStatus.Visible = false;
             }
+            if (cbbPeriodFrom.Items.Count > 0)
+                cbbPeriodFrom.SelectedIndex = 0;
+            else
+            {
+                MessageBox.Show(this, "Quota of this course in all period is empty, please attemp another courses.", "Warning",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Dispose();
+            }
         }
 
         private void cbbPeriodFrom_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,7 +138,10 @@ namespace FunHomeClub
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-
+            if (cbbPeriodFrom.SelectedItem == null)
+            {
+                MessageBox.Show(null, "You have not selected the period yet", "Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
             startPeriod = Convert.ToInt32(((ComboBoxItem)cbbPeriodFrom.SelectedItem).Value);
             endPeriod = Convert.ToInt32(((ComboBoxItem)cbbPeriodTo.SelectedItem).Value);
             //if (frmCourseReg.IsQuotaRemain(lblCourseID_d.Text))
@@ -145,15 +155,16 @@ namespace FunHomeClub
                 item.SubItems.Add(courseID);
                 item.SubItems.Add(name);
                 item.SubItems.Add(weekday.ToString());
-                item.SubItems.Add(startMonth.ToString());
-                item.SubItems.Add(endMonth.ToString());
-                item.SubItems.Add(startTime);
-                item.SubItems.Add(endTime);
+                item.SubItems.Add(startMonth.ToString() + "-" + endMonth.ToString());
+                //item.SubItems.Add(endMonth.ToString());
+                item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(startTime)) + "-" + string.Format("{0:H:mm}", Convert.ToDateTime(endTime)));
+                //item.SubItems.Add(endTime);
+                item.SubItems.Add(startPeriod.ToString() + "-" + endPeriod.ToString());
+                //item.SubItems.Add(endPeriod.ToString());
+
                 item.SubItems.Add(price.ToString());
                 //item.SubItems.Add(quota.ToString());
                 item.SubItems.Add(room);
-                item.SubItems.Add(startPeriod.ToString());
-                item.SubItems.Add(endPeriod.ToString());
                 frmCourseReg.ltvRegCourseList.Items.Add(item);
 
                 frmCourseReg.updateTotalPrice();

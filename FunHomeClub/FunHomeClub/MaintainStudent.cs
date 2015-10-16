@@ -98,6 +98,7 @@ namespace FunHomeClub
                 String sql = "update student set name='" + txtName.Text + "',phoneNumber='" + txtContact.Text + "',email='" + txtEmail.Text + "',membershipID='" + getMembershipIDByName(cboMembership.Text) + "' where studentID='" + this.studentID + "'";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
                 cmd.ExecuteNonQuery();
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -118,9 +119,13 @@ namespace FunHomeClub
         {
             if (checkStringValid(txtContact, txtEmail, txtName, cboMembership))
             {
-                String sql = "insert into student values('" + getNextValidStudentID() + "','" + getMembershipIDByName(cboMembership.Text) + "','" + txtContact.Text + "','" + txtEmail.Text + "','" + lblEnrollDay.Text.Split(' ')[0] + "','" + txtName.Text + "')";
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                string tempStudentID = getNextValidStudentID();
+                String sql = "insert into student values('" + tempStudentID + "','" + getMembershipIDByName(cboMembership.Text) + "','" + txtContact.Text + "','" + txtEmail.Text + "','" + lblEnrollDay.Text.Split(' ')[0] + "','" + txtName.Text + "')";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
                 cmd.ExecuteNonQuery();
+                this.studentID = tempStudentID;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

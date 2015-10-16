@@ -45,7 +45,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(272, 107);
+            this.btnDelete.Location = new System.Drawing.Point(290, 107);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 26);
             this.btnDelete.TabIndex = 13;
@@ -61,7 +61,7 @@
             this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChange.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChange.ForeColor = System.Drawing.Color.White;
-            this.btnChange.Location = new System.Drawing.Point(272, 59);
+            this.btnChange.Location = new System.Drawing.Point(290, 60);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(97, 26);
             this.btnChange.TabIndex = 12;
@@ -76,7 +76,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(272, 14);
+            this.btnAdd.Location = new System.Drawing.Point(290, 14);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(97, 26);
             this.btnAdd.TabIndex = 11;
@@ -86,6 +86,7 @@
             // 
             // lstMembership
             // 
+            this.lstMembership.AutoArrange = false;
             this.lstMembership.BackColor = System.Drawing.SystemColors.Control;
             this.lstMembership.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
@@ -94,7 +95,7 @@
             this.lstMembership.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstMembership.Location = new System.Drawing.Point(22, 14);
             this.lstMembership.Name = "lstMembership";
-            this.lstMembership.Size = new System.Drawing.Size(231, 119);
+            this.lstMembership.Size = new System.Drawing.Size(244, 119);
             this.lstMembership.TabIndex = 10;
             this.lstMembership.UseCompatibleStateImageBehavior = false;
             this.lstMembership.View = System.Windows.Forms.View.Details;
@@ -103,7 +104,7 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Membership ID";
-            this.columnHeader7.Width = 89;
+            this.columnHeader7.Width = 110;
             // 
             // columnHeader8
             // 
@@ -112,6 +113,7 @@
             // columnHeader9
             // 
             this.columnHeader9.Text = "Discount";
+            this.columnHeader9.Width = 69;
             // 
             // MembershipControl
             // 
@@ -123,7 +125,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstMembership);
             this.Name = "MembershipControl";
-            this.Size = new System.Drawing.Size(394, 152);
+            this.Size = new System.Drawing.Size(408, 152);
             this.Load += new System.EventHandler(this.MembershipControl_Load);
             this.ResumeLayout(false);
 

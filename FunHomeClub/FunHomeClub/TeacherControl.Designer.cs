@@ -33,13 +33,14 @@
             this.TeacherNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TeacherGenderHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TeacherContactHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteTeacher = new XButton();
-            this.btnMaintainTeacher = new XButton();
-            this.btnAddTeacher = new XButton();
+            this.btnDeleteTeacher = new FunHomeClub.XButton();
+            this.btnMaintainTeacher = new FunHomeClub.XButton();
+            this.btnAddTeacher = new FunHomeClub.XButton();
             this.SuspendLayout();
             // 
             // lstTeacher
             // 
+            this.lstTeacher.AutoArrange = false;
             this.lstTeacher.BackColor = System.Drawing.SystemColors.Control;
             this.lstTeacher.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.TeacherIDHeader,

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaintainStudent));
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,7 +59,7 @@
             // 
             // txtName
             // 
-            this.txtName.BackColor = System.Drawing.SystemColors.Control;
+            this.txtName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtName.Location = new System.Drawing.Point(118, 16);
@@ -79,7 +80,7 @@
             // 
             // cboMembership
             // 
-            this.cboMembership.BackColor = System.Drawing.SystemColors.Control;
+            this.cboMembership.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboMembership.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMembership.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboMembership.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -102,7 +103,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEmail.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtEmail.Location = new System.Drawing.Point(118, 83);
@@ -113,7 +114,7 @@
             // 
             // txtContact
             // 
-            this.txtContact.BackColor = System.Drawing.SystemColors.Control;
+            this.txtContact.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContact.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtContact.Location = new System.Drawing.Point(118, 50);
@@ -200,13 +201,14 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
             // MaintainStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(310, 261);
+            this.ClientSize = new System.Drawing.Size(310, 246);
             this.Controls.Add(this.lblEnrollDay);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
@@ -222,7 +224,7 @@
             this.Controls.Add(this.btnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainStudent";
-            this.Text = "MaintainStudent";
+            this.Text = "Maintain Student";
             this.Load += new System.EventHandler(this.MaintainStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

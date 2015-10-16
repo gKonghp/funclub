@@ -73,6 +73,10 @@ namespace FunHomeClub
         {
             if (checkStringValid(txtName, numDiscount, txtDescription))
             {
+                if (connection.State == ConnectionState.Closed) 
+                {
+                    connection.Open();
+                }
                 String sql = "insert into promotion values('" + getNextValidPromotionID() + "','" + txtName.Text + "','" + txtDescription.Text + "','" + numDiscount.Value.ToString() + "','" + dtpStartTime.Value.ToString("dd/MM/yyyy") + "','" + dtpEndTime.Value.ToString("dd/MM/yyyy") + "')";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
                 cmd.ExecuteNonQuery();
@@ -85,6 +89,10 @@ namespace FunHomeClub
         {
             if (checkStringValid(txtName, numDiscount, txtDescription))
             {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
                 String sql = "update promotion set name='" + txtName.Text + "',description='" + txtDescription.Text + "',additionalDiscount='" + numDiscount.Value.ToString() + "',startTime='" + dtpStartTime.Value.ToString("dd/MM/yyyy") + "',endTime='" + dtpEndTime.Value.ToString("dd/MM/yyyy") + "' where promotionID = '" + this.promotionID + "'";
                 OleDbCommand cmd = new OleDbCommand(sql, connection);
                 cmd.ExecuteNonQuery();
@@ -159,18 +167,22 @@ namespace FunHomeClub
                             errorProvider1.SetError(cb, "Please choose all combobox first!");
                             //MessageBox.Show("Please choose all combobox first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        else
+                            errorProvider1.SetError(cb, "");
                         break;
                     case "NumericUpDown":
                         NumericUpDown numeric = (NumericUpDown)para[i];
-                        if (numeric.Value == 0)
+                        if (Convert.ToDouble(numeric.Value) == 0.0)
                         {
                             errorProvider1.SetError(numeric, "The number cannot be zero!");
                             // MessageBox.Show("The number cannot be zero!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        else
+                            errorProvider1.SetError(numeric, "");
                         break;
                 }
             }
-            if (dtpStartTime.Value.CompareTo(dtpEndTime.Value)> 0)
+            if (dtpStartTime.Value.ToShortDateString().CompareTo(dtpEndTime.Value.ToShortDateString()) > 0)
             {
                 errorProvider1.SetError(dtpEndTime, "Start time must smaller than end time!!");
             }
@@ -206,6 +218,16 @@ namespace FunHomeClub
         private void numDiscount_ValueChanged(object sender, EventArgs e)
         {
             checkStringValid(numDiscount);
+        }
+
+        private void dtpEndTime_ValueChanged(object sender, EventArgs e)
+        {
+            checkStringValid(dtpEndTime);
+        }
+
+        private void dtpStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            checkStringValid(dtpStartTime);
         }
     }
 }

@@ -31,25 +31,26 @@
             this.lstStudent = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteStudent = new XButton();
-            this.btnMaintainStudent = new XButton();
-            this.btnAddStudent = new XButton();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnDeleteStudent = new FunHomeClub.XButton();
+            this.btnMaintainStudent = new FunHomeClub.XButton();
+            this.btnAddStudent = new FunHomeClub.XButton();
             this.SuspendLayout();
             // 
             // lstStudent
             // 
+            this.lstStudent.AutoArrange = false;
             this.lstStudent.BackColor = System.Drawing.SystemColors.Control;
             this.lstStudent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader6,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader6});
             this.lstStudent.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstStudent.Location = new System.Drawing.Point(8, 6);
             this.lstStudent.Name = "lstStudent";
@@ -62,36 +63,32 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "StudentID";
-            this.columnHeader1.Width = 96;
+            this.columnHeader1.Width = 79;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "MemberShip";
             this.columnHeader2.Width = 95;
             // 
-            // columnHeader6
-            // 
-            this.columnHeader6.DisplayIndex = 5;
-            this.columnHeader6.Text = "Name";
-            this.columnHeader6.Width = 81;
-            // 
             // columnHeader3
             // 
-            this.columnHeader3.DisplayIndex = 2;
             this.columnHeader3.Text = "PhoneNumber";
-            this.columnHeader3.Width = 85;
+            this.columnHeader3.Width = 107;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.DisplayIndex = 3;
             this.columnHeader4.Text = "Email";
             this.columnHeader4.Width = 96;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.DisplayIndex = 4;
             this.columnHeader5.Text = "EnrollMonth";
-            this.columnHeader5.Width = 80;
+            this.columnHeader5.Width = 91;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Name";
+            this.columnHeader6.Width = 81;
             // 
             // btnDeleteStudent
             // 

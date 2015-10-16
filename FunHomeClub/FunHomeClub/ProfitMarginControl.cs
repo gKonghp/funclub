@@ -41,7 +41,7 @@ namespace FunHomeClub
                 }
                 else
                 {
-                    MessageBox.Show("Margin only allow number input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error).ToString();
+                    errorProvider1.SetError(txtMargin, "Margin only allow number input!");
                 }
             }
         }
@@ -52,6 +52,31 @@ namespace FunHomeClub
             dataAdapter = new OleDbDataAdapter(sql, connection);
             dataAdapter.Fill(dt);
             txtMargin.Text = dt.Rows[0]["percentage"].ToString();
+        }
+
+        private void ProfitMarginControl_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtMargin_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(txtMargin.Text, @"^([0-9]|[.][0-9])*$"))
+                errorProvider1.SetError(txtMargin, "");
+            else
+                errorProvider1.SetError(txtMargin, "Margin only allow number input!");
+        }
+
+        private void txtMargin_EnabledChanged(object sender, EventArgs e)
+        {
+            if (txtMargin.Enabled == false)
+            {
+                txtMargin.BackColor = System.Drawing.Color.Silver;
+            }
+            else
+            {
+                txtMargin.BackColor = System.Drawing.SystemColors.ControlLight;
+            }
         }
     }
 }

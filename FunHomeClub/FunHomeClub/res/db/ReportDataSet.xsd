@@ -19,12 +19,12 @@
               <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" />
               <xs:element name="startMonth" msprop:Generator_ColumnVarNameInTable="columnstartMonth" msprop:Generator_ColumnPropNameInRow="startMonth" msprop:Generator_ColumnPropNameInTable="startMonthColumn" msprop:Generator_UserColumnName="startMonth" type="xs:int" minOccurs="0" />
               <xs:element name="endMonth" msprop:Generator_ColumnVarNameInTable="columnendMonth" msprop:Generator_ColumnPropNameInRow="endMonth" msprop:Generator_ColumnPropNameInTable="endMonthColumn" msprop:Generator_UserColumnName="endMonth" type="xs:int" minOccurs="0" />
-              <xs:element name="startTime" msprop:Generator_ColumnVarNameInTable="columnstartTime" msprop:Generator_ColumnPropNameInRow="startTime" msprop:Generator_ColumnPropNameInTable="startTimeColumn" msprop:Generator_UserColumnName="startTime" type="xs:string" minOccurs="0" />
-              <xs:element name="endTime" msprop:Generator_ColumnVarNameInTable="columnendTime" msprop:Generator_ColumnPropNameInRow="endTime" msprop:Generator_ColumnPropNameInTable="endTimeColumn" msprop:Generator_UserColumnName="endTime" type="xs:string" minOccurs="0" />
+              <xs:element name="startTime" msprop:Generator_ColumnVarNameInTable="columnstartTime" msprop:Generator_ColumnPropNameInRow="startTime" msprop:Generator_ColumnPropNameInTable="startTimeColumn" msprop:Generator_UserColumnName="startTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="endTime" msprop:Generator_ColumnVarNameInTable="columnendTime" msprop:Generator_ColumnPropNameInRow="endTime" msprop:Generator_ColumnPropNameInTable="endTimeColumn" msprop:Generator_UserColumnName="endTime" type="xs:dateTime" minOccurs="0" />
               <xs:element name="room" msprop:Generator_ColumnVarNameInTable="columnroom" msprop:Generator_ColumnPropNameInRow="room" msprop:Generator_ColumnPropNameInTable="roomColumn" msprop:Generator_UserColumnName="room" type="xs:string" minOccurs="0" />
               <xs:element name="weekday" msprop:Generator_ColumnVarNameInTable="columnweekday" msprop:Generator_ColumnPropNameInRow="weekday" msprop:Generator_ColumnPropNameInTable="weekdayColumn" msprop:Generator_UserColumnName="weekday" type="xs:int" minOccurs="0" />
-              <xs:element name="startPeriod" msprop:Generator_ColumnVarNameInTable="columnstartPeriod" msprop:Generator_ColumnPropNameInRow="startPeriod" msprop:Generator_ColumnPropNameInTable="startPeriodColumn" msprop:Generator_UserColumnName="startPeriod" type="xs:string" minOccurs="0" />
-              <xs:element name="endPeriod" msprop:Generator_ColumnVarNameInTable="columnendPeriod" msprop:Generator_ColumnPropNameInRow="endPeriod" msprop:Generator_ColumnPropNameInTable="endPeriodColumn" msprop:Generator_UserColumnName="endPeriod" type="xs:string" minOccurs="0" />
+              <xs:element name="startPeriod" msprop:Generator_ColumnVarNameInTable="columnstartPeriod" msprop:Generator_ColumnPropNameInRow="startPeriod" msprop:Generator_ColumnPropNameInTable="startPeriodColumn" msprop:Generator_UserColumnName="startPeriod" type="xs:string" />
+              <xs:element name="endPeriod" msprop:Generator_ColumnVarNameInTable="columnendPeriod" msprop:Generator_ColumnPropNameInRow="endPeriod" msprop:Generator_ColumnPropNameInTable="endPeriodColumn" msprop:Generator_UserColumnName="endPeriod" type="xs:string" />
               <xs:element name="cost" msprop:Generator_ColumnVarNameInTable="columncost" msprop:Generator_ColumnPropNameInRow="cost" msprop:Generator_ColumnPropNameInTable="costColumn" msprop:Generator_UserColumnName="cost" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
@@ -33,6 +33,8 @@
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Course" />
+      <xs:field xpath="mstns:startPeriod" />
+      <xs:field xpath="mstns:endPeriod" />
       <xs:field xpath="mstns:courseID" />
     </xs:unique>
   </xs:element>

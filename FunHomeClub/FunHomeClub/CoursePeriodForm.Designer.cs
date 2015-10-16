@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblPeriodFrom = new System.Windows.Forms.Label();
             this.cbbPeriodTo = new System.Windows.Forms.ComboBox();
-            this.btnOK = new XButton();
-            this.btnCancel = new XButton();
+            this.btnOK = new FunHomeClub.XButton();
+            this.btnCancel = new FunHomeClub.XButton();
             this.lblPeriodTo = new System.Windows.Forms.Label();
             this.lblCourseID = new System.Windows.Forms.Label();
             this.lblCourseName = new System.Windows.Forms.Label();
@@ -41,17 +41,19 @@
             this.lblCourseName_d = new System.Windows.Forms.Label();
             this.lblMonthStatus = new System.Windows.Forms.Label();
             this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
+            this.lblWeekday_d = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbbPeriodFrom
             // 
-            this.cbbPeriodFrom.BackColor = System.Drawing.SystemColors.Control;
+            this.cbbPeriodFrom.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cbbPeriodFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbPeriodFrom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbPeriodFrom.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbbPeriodFrom.FormattingEnabled = true;
-            this.cbbPeriodFrom.Location = new System.Drawing.Point(80, 76);
+            this.cbbPeriodFrom.Location = new System.Drawing.Point(80, 97);
             this.cbbPeriodFrom.Name = "cbbPeriodFrom";
             this.cbbPeriodFrom.Size = new System.Drawing.Size(121, 28);
             this.cbbPeriodFrom.TabIndex = 0;
@@ -61,7 +63,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(12, 44);
+            this.label1.Location = new System.Drawing.Point(12, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(228, 20);
             this.label1.TabIndex = 1;
@@ -71,7 +73,7 @@
             // 
             this.lblPeriodFrom.AutoSize = true;
             this.lblPeriodFrom.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPeriodFrom.Location = new System.Drawing.Point(12, 80);
+            this.lblPeriodFrom.Location = new System.Drawing.Point(12, 101);
             this.lblPeriodFrom.Name = "lblPeriodFrom";
             this.lblPeriodFrom.Size = new System.Drawing.Size(52, 20);
             this.lblPeriodFrom.TabIndex = 2;
@@ -79,12 +81,12 @@
             // 
             // cbbPeriodTo
             // 
-            this.cbbPeriodTo.BackColor = System.Drawing.SystemColors.Control;
+            this.cbbPeriodTo.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cbbPeriodTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbPeriodTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbPeriodTo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cbbPeriodTo.FormattingEnabled = true;
-            this.cbbPeriodTo.Location = new System.Drawing.Point(289, 77);
+            this.cbbPeriodTo.Location = new System.Drawing.Point(289, 98);
             this.cbbPeriodTo.Name = "cbbPeriodTo";
             this.cbbPeriodTo.Size = new System.Drawing.Size(121, 28);
             this.cbbPeriodTo.TabIndex = 4;
@@ -123,7 +125,7 @@
             // 
             this.lblPeriodTo.AutoSize = true;
             this.lblPeriodTo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblPeriodTo.Location = new System.Drawing.Point(230, 80);
+            this.lblPeriodTo.Location = new System.Drawing.Point(230, 101);
             this.lblPeriodTo.Name = "lblPeriodTo";
             this.lblPeriodTo.Size = new System.Drawing.Size(32, 20);
             this.lblPeriodTo.TabIndex = 7;
@@ -174,7 +176,7 @@
             this.lblMonthStatus.AutoSize = true;
             this.lblMonthStatus.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblMonthStatus.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblMonthStatus.Location = new System.Drawing.Point(16, 117);
+            this.lblMonthStatus.Location = new System.Drawing.Point(13, 132);
             this.lblMonthStatus.Name = "lblMonthStatus";
             this.lblMonthStatus.Size = new System.Drawing.Size(20, 17);
             this.lblMonthStatus.TabIndex = 12;
@@ -186,12 +188,34 @@
             this.masterDBDataSet1.DataSetName = "masterDBDataSet";
             this.masterDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // lblWeekday_d
+            // 
+            this.lblWeekday_d.AutoSize = true;
+            this.lblWeekday_d.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblWeekday_d.Location = new System.Drawing.Point(105, 38);
+            this.lblWeekday_d.Name = "lblWeekday_d";
+            this.lblWeekday_d.Size = new System.Drawing.Size(23, 20);
+            this.lblWeekday_d.TabIndex = 14;
+            this.lblWeekday_d.Text = "--";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(12, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Weekday:";
+            // 
             // CoursePeriodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(575, 141);
+            this.ClientSize = new System.Drawing.Size(575, 161);
+            this.Controls.Add(this.lblWeekday_d);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblMonthStatus);
             this.Controls.Add(this.lblCourseName_d);
             this.Controls.Add(this.lblCourseID_d);
@@ -206,7 +230,7 @@
             this.Controls.Add(this.cbbPeriodFrom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CoursePeriodForm";
-            this.Text = "CoursePeriodForm";
+            this.Text = "Select Course Period";
             this.Load += new System.EventHandler(this.CoursePeriodForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).EndInit();
             this.ResumeLayout(false);
@@ -229,5 +253,7 @@
         private System.Windows.Forms.Label lblCourseName_d;
         private System.Windows.Forms.Label lblMonthStatus;
         private res.db.masterDBDataSet masterDBDataSet1;
+        private System.Windows.Forms.Label lblWeekday_d;
+        private System.Windows.Forms.Label label3;
     }
 }

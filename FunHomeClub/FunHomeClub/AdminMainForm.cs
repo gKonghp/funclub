@@ -114,6 +114,8 @@ namespace FunHomeClub
         private void AdminMainForm_Load(object sender, EventArgs e)
         {
             InitializeRights();
+            if (tvControlForm.SelectedNode == null)
+                tvControlForm.SelectedNode = tvControlForm.Nodes["Administration"].Nodes[0];
         }
 
         private void InitializeRights()

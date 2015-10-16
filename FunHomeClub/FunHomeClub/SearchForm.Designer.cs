@@ -30,6 +30,7 @@
         {
             this.lstCourseDetail = new System.Windows.Forms.ListView();
             this.Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CourseID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CourseName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Weekday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartMonth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,13 +41,12 @@
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAdvanced = new XButton();
+            this.btnAdvanced = new FunHomeClub.XButton();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.CourseID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -70,7 +70,7 @@
             this.lstCourseDetail.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstCourseDetail.Location = new System.Drawing.Point(12, 165);
             this.lstCourseDetail.Name = "lstCourseDetail";
-            this.lstCourseDetail.Size = new System.Drawing.Size(720, 236);
+            this.lstCourseDetail.Size = new System.Drawing.Size(755, 236);
             this.lstCourseDetail.TabIndex = 6;
             this.lstCourseDetail.UseCompatibleStateImageBehavior = false;
             this.lstCourseDetail.View = System.Windows.Forms.View.Details;
@@ -80,6 +80,11 @@
             // 
             this.Category.Text = "Category";
             this.Category.Width = 71;
+            // 
+            // CourseID
+            // 
+            this.CourseID.Text = "Course ID";
+            this.CourseID.Width = 72;
             // 
             // CourseName
             // 
@@ -97,35 +102,37 @@
             // 
             this.StartMonth.Text = "Start Month";
             this.StartMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.StartMonth.Width = 75;
+            this.StartMonth.Width = 86;
             // 
             // EndMonth
             // 
             this.EndMonth.Text = "End Month";
             this.EndMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.EndMonth.Width = 73;
+            this.EndMonth.Width = 81;
             // 
             // StartTime
             // 
             this.StartTime.Text = "Start Time";
             this.StartTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.StartTime.Width = 65;
+            this.StartTime.Width = 77;
             // 
             // EndTime
             // 
             this.EndTime.Text = "End Time";
             this.EndTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.EndTime.Width = 63;
+            this.EndTime.Width = 69;
             // 
             // Price
             // 
             this.Price.Text = "Price";
             this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Price.Width = 63;
             // 
             // Room
             // 
             this.Room.Text = "Room";
             this.Room.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Room.Width = 56;
             // 
             // label3
             // 
@@ -168,7 +175,7 @@
             // 
             // txtKeyword
             // 
-            this.txtKeyword.BackColor = System.Drawing.SystemColors.Control;
+            this.txtKeyword.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtKeyword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtKeyword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtKeyword.Location = new System.Drawing.Point(99, 29);
@@ -205,7 +212,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(744, 71);
+            this.panel1.Size = new System.Drawing.Size(779, 71);
             this.panel1.TabIndex = 13;
             // 
             // label1
@@ -220,11 +227,6 @@
             this.label1.Text = "Search Course";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // CourseID
-            // 
-            this.CourseID.Text = "Course ID";
-            this.CourseID.Width = 72;
-            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -232,7 +234,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(744, 445);
+            this.ClientSize = new System.Drawing.Size(779, 445);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);

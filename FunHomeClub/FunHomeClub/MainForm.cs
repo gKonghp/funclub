@@ -51,9 +51,16 @@ namespace FunHomeClub
             frmMenu.Dock = DockStyle.Fill;
             Utility.repaintFrameSize(this, frmMenu, null, 0, 20);
             frmMenu.Show();
-            int frmCount = this.MdiChildren.Count();
-            for(int i=0; i< frmCount-1; i++)
-                this.MdiChildren[i].Dispose();
+            
+            while(this.MdiChildren.Length > 1)
+            {
+                if (this.MdiChildren[0] is MenuForm)
+                {
+                    continue;
+                }
+                this.MdiChildren[0].Dispose();
+
+            }
         }
 
         private void maintainCourseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,36 +114,43 @@ namespace FunHomeClub
             frmCourseReg.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
+            {
+                if (this.MdiChildren[i] is CourseRegForm)
+                {
+                    continue;
+                }
                 this.MdiChildren[i].Dispose();
+            }
         }
 
         public void node2Be(string nodeName)
         {
             //int targetNodeIdx = nodeIdx; // Tab index
             string targetNodeName = nodeName;
-            int frmCount = this.MdiChildren.Count();
-            for (int i = 0; i < frmCount; i++)
+            //int frmCount = this.MdiChildren.Length;
+
+           while(this.MdiChildren.Length > 0)
             {
-                Form frm = this.MdiChildren[i];
-                if (frm is AdminMainForm)
+                //Form frm = this.MdiChildren[i];
+                if (this.MdiChildren[0] is AdminMainForm)
                 {
-                    Utility.repaintFrameSize(this, frm);
-                    frm.Show();
+                    Utility.repaintFrameSize(this, this.MdiChildren[0], null, 0 , 0);
+                    this.MdiChildren[0].Show();
                     frmAdminMain.tvControlForm.SelectedNode = frmAdminMain.tvControlForm.Nodes["Administration"].Nodes[nodeName];
                     //Control ctr = frmAdminMain.Controls.Find("tvControlForm", true)[0];
                     //TreeView tv = ((TreeView)ctr);
                     //tv.SelectedNode = tv.Nodes.Find(targetNodeName, true)[0];
                 }
                 else
-                    frm.Dispose();
+                    this.MdiChildren[0].Dispose();
             }
-            frmCount = this.MdiChildren.Count();
-            if (frmCount < 1)
+            //frmCount = this.MdiChildren.Length;
+            if (this.MdiChildren.Length < 1)
             {
                 frmAdminMain = new AdminMainForm(connection);
                 frmAdminMain.MdiParent = this;
                 frmAdminMain.Dock = DockStyle.Fill;
-                Utility.repaintFrameSize(this, frmAdminMain);
+                Utility.repaintFrameSize(this, frmAdminMain, null, 0, 0);
                 frmAdminMain.Show();
                 frmAdminMain.tvControlForm.SelectedNode = frmAdminMain.tvControlForm.Nodes["Administration"].Nodes[nodeName];
                /*
@@ -158,7 +172,13 @@ namespace FunHomeClub
             frmViewCourse.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
+            {
+                if (this.MdiChildren[i] is ViewCourseForm)
+                {
+                    continue;
+                }
                 this.MdiChildren[i].Dispose();
+            }
         }
 
         private void invoiceHistoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,7 +190,13 @@ namespace FunHomeClub
             frmInvoiceHistory.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
+            {
+                if (this.MdiChildren[i] is InvoiceHistoryForm)
+                {
+                    continue;
+                }
                 this.MdiChildren[i].Dispose();
+            }
         }
 
         private void MainForm_FormClosed_1(object sender, FormClosedEventArgs e)
@@ -234,7 +260,13 @@ namespace FunHomeClub
             frmSearch.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
+            {
+                if (this.MdiChildren[i] is SearchForm)
+                {
+                    continue;
+                }
                 this.MdiChildren[i].Dispose();
+            }
         }
 
         private void membershipSystemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -246,7 +278,13 @@ namespace FunHomeClub
             frmMS.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
+            {
+                if (this.MdiChildren[i] is MembershipForm)
+                {
+                    continue;
+                }
                 this.MdiChildren[i].Dispose();
+            }
         }
 
         private void promotionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -258,7 +296,13 @@ namespace FunHomeClub
             frmPromotion.Show();
             int frmCount = this.MdiChildren.Count();
             for (int i = 0; i < frmCount - 1; i++)
+            {
+                if (this.MdiChildren[i] is PromotionForm)
+                {
+                    continue;
+                }
                 this.MdiChildren[i].Dispose();
+            }
         }
 
         private void maintainCategoryToolStripMenuItem_Click(object sender, EventArgs e)

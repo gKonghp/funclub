@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnReset = new XButton();
-            this.btnSearch = new XButton();
+            this.btnReset = new FunHomeClub.XButton();
+            this.btnSearch = new FunHomeClub.XButton();
             this.txtPromotionID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ltvPromotion = new System.Windows.Forms.ListView();
@@ -40,9 +40,9 @@
             this.startDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.discount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAdd = new XButton();
+            this.btnAdd = new FunHomeClub.XButton();
             this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
-            this.btnCancel = new XButton();
+            this.btnCancel = new FunHomeClub.XButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 49);
+            this.groupBox1.Size = new System.Drawing.Size(489, 49);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Promotion Filter";
@@ -69,7 +69,7 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(262, 16);
+            this.btnReset.Location = new System.Drawing.Point(408, 19);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 3;
@@ -84,7 +84,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(343, 15);
+            this.btnSearch.Location = new System.Drawing.Point(327, 19);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
@@ -94,7 +94,7 @@
             // 
             // txtPromotionID
             // 
-            this.txtPromotionID.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPromotionID.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtPromotionID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPromotionID.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtPromotionID.Location = new System.Drawing.Point(118, 20);
@@ -114,6 +114,7 @@
             // 
             // ltvPromotion
             // 
+            this.ltvPromotion.AutoArrange = false;
             this.ltvPromotion.BackColor = System.Drawing.SystemColors.Control;
             this.ltvPromotion.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.promotionID,
@@ -127,7 +128,7 @@
             this.ltvPromotion.GridLines = true;
             this.ltvPromotion.Location = new System.Drawing.Point(13, 69);
             this.ltvPromotion.Name = "ltvPromotion";
-            this.ltvPromotion.Size = new System.Drawing.Size(424, 97);
+            this.ltvPromotion.Size = new System.Drawing.Size(489, 97);
             this.ltvPromotion.TabIndex = 1;
             this.ltvPromotion.UseCompatibleStateImageBehavior = false;
             this.ltvPromotion.View = System.Windows.Forms.View.Details;
@@ -136,26 +137,32 @@
             // promotionID
             // 
             this.promotionID.Text = "Promotion ID";
+            this.promotionID.Width = 98;
             // 
             // name
             // 
             this.name.Text = "Name";
+            this.name.Width = 66;
             // 
             // description
             // 
             this.description.Text = "Description";
+            this.description.Width = 86;
             // 
             // startDate
             // 
             this.startDate.Text = "Start Date";
+            this.startDate.Width = 78;
             // 
             // endDate
             // 
             this.endDate.Text = "End Date";
+            this.endDate.Width = 72;
             // 
             // discount
             // 
             this.discount.Text = "Discount";
+            this.discount.Width = 70;
             // 
             // btnAdd
             // 
@@ -164,7 +171,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(362, 172);
+            this.btnAdd.Location = new System.Drawing.Point(340, 172);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
@@ -184,7 +191,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(275, 172);
+            this.btnCancel.Location = new System.Drawing.Point(421, 172);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -197,14 +204,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(447, 200);
+            this.ClientSize = new System.Drawing.Size(513, 200);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.ltvPromotion);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddPromotionForm";
-            this.Text = "AddPromotionForm";
+            this.Text = "Select Promotion";
             this.Load += new System.EventHandler(this.AddPromotionForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

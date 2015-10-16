@@ -33,8 +33,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtPrice2 = new System.Windows.Forms.TextBox();
             this.txtPrice1 = new System.Windows.Forms.TextBox();
-            this.btnReset = new XButton();
-            this.btnSearch = new XButton();
+            this.btnReset = new FunHomeClub.XButton();
+            this.btnSearch = new FunHomeClub.XButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.nudQuota = new System.Windows.Forms.NumericUpDown();
@@ -66,7 +66,7 @@
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox1.Location = new System.Drawing.Point(10, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(568, 156);
+            this.groupBox1.Size = new System.Drawing.Size(527, 156);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Filter";
@@ -74,7 +74,7 @@
             // 
             // cboCategory
             // 
-            this.cboCategory.BackColor = System.Drawing.SystemColors.Control;
+            this.cboCategory.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboCategory.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -96,7 +96,7 @@
             // 
             // txtPrice2
             // 
-            this.txtPrice2.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPrice2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtPrice2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrice2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtPrice2.Location = new System.Drawing.Point(429, 28);
@@ -106,7 +106,7 @@
             // 
             // txtPrice1
             // 
-            this.txtPrice1.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPrice1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtPrice1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrice1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtPrice1.Location = new System.Drawing.Point(339, 28);
@@ -148,7 +148,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(273, 65);
+            this.label6.Location = new System.Drawing.Point(273, 70);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 20);
             this.label6.TabIndex = 10;
@@ -165,7 +165,8 @@
             // 
             // nudQuota
             // 
-            this.nudQuota.Location = new System.Drawing.Point(409, 61);
+            this.nudQuota.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.nudQuota.Location = new System.Drawing.Point(429, 64);
             this.nudQuota.Maximum = new decimal(new int[] {
             10,
             0,
@@ -197,7 +198,7 @@
             // 
             // cboMonth
             // 
-            this.cboMonth.BackColor = System.Drawing.SystemColors.Control;
+            this.cboMonth.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboMonth.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -233,7 +234,7 @@
             // 
             // cboWeekday
             // 
-            this.cboWeekday.BackColor = System.Drawing.SystemColors.Control;
+            this.cboWeekday.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cboWeekday.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboWeekday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboWeekday.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -257,11 +258,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(590, 179);
+            this.ClientSize = new System.Drawing.Size(556, 179);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SearchFilterForm";
-            this.Text = "SearchFilterForm";
+            this.Text = "Search Filter";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuota)).EndInit();

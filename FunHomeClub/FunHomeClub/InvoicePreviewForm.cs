@@ -88,6 +88,7 @@ namespace FunHomeClub
             sql = string.Format("SELECT c.courseID as courseID, name, startMonth, endMonth, startTime, endTime, room, weekday, startPeriod, endPeriod, cost FROM Course c, StudentCourse sc, Invoice i WHERE c.courseID = sc.courseID AND sc.studentID = '{0}' AND i.invoiceID = sc.invoiceID AND i.invoiceId= '{1}'",studentID, invoiceID);
             adapter = new OleDbDataAdapter(sql, conn);
             adapter.Fill(this.reportDataSet.Course);
+
             adapter.Dispose();
 
             //ReportParameter p1 = new ReportParameter("invoiceID", "in0001");
@@ -105,7 +106,7 @@ namespace FunHomeClub
                 frmMain.frmMenu = new MenuForm(frmMain.employee, frmMain.connection);
                 frmMain.frmMenu.MdiParent = this.MdiParent;
                 frmMain.frmMenu.Dock = DockStyle.Fill;
-                Utility.repaintFrameSize(this, frmMain.frmMenu);
+                Utility.repaintFrameSize(this.MdiParent, frmMain.frmMenu, null, 0, 20);
                 frmMain.frmMenu.Show();
                 int frmCount = this.MdiChildren.Count();
                 for (int i = 0; i < frmCount - 1; i++)

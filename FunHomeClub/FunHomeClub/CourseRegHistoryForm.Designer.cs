@@ -36,14 +36,12 @@
             this.Weekday_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndMonth_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startPeriod_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.endPeriod_r = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnClose = new FunHomeClub.XButton();
             this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.masterDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,21 +64,19 @@
             this.CourseID_r,
             this.columnHeader2,
             this.Weekday_r,
-            this.columnHeader4,
-            this.columnHeader6,
-            this.columnHeader7,
             this.StartMonth_r,
-            this.EndMonth_r,
-            this.columnHeader10,
+            this.columnHeader6,
             this.startPeriod_r,
-            this.endPeriod_r});
+            this.columnHeader4,
+            this.columnHeader10,
+            this.columnHeader1});
             this.ltvRegCourseDetail.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.ltvRegCourseDetail.FullRowSelect = true;
             this.ltvRegCourseDetail.GridLines = true;
             this.ltvRegCourseDetail.Location = new System.Drawing.Point(14, 33);
             this.ltvRegCourseDetail.MultiSelect = false;
             this.ltvRegCourseDetail.Name = "ltvRegCourseDetail";
-            this.ltvRegCourseDetail.Size = new System.Drawing.Size(887, 81);
+            this.ltvRegCourseDetail.Size = new System.Drawing.Size(751, 81);
             this.ltvRegCourseDetail.TabIndex = 8;
             this.ltvRegCourseDetail.UseCompatibleStateImageBehavior = false;
             this.ltvRegCourseDetail.View = System.Windows.Forms.View.Details;
@@ -108,42 +104,27 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Room";
-            this.columnHeader4.Width = 51;
+            this.columnHeader4.Width = 57;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Start Time";
-            this.columnHeader6.Width = 80;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "End Time";
-            this.columnHeader7.Width = 69;
+            this.columnHeader6.Text = "Time";
+            this.columnHeader6.Width = 100;
             // 
             // StartMonth_r
             // 
-            this.StartMonth_r.Text = "Start Month";
+            this.StartMonth_r.Text = "Month";
             this.StartMonth_r.Width = 87;
-            // 
-            // EndMonth_r
-            // 
-            this.EndMonth_r.Text = "End Month";
-            this.EndMonth_r.Width = 82;
             // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "Teacher";
-            this.columnHeader10.Width = 64;
+            this.columnHeader10.Width = 74;
             // 
             // startPeriod_r
             // 
-            this.startPeriod_r.Text = "Start Period";
-            this.startPeriod_r.Width = 84;
-            // 
-            // endPeriod_r
-            // 
-            this.endPeriod_r.Text = "End Period";
-            this.endPeriod_r.Width = 79;
+            this.startPeriod_r.Text = "Enrolled Period";
+            this.startPeriod_r.Width = 109;
             // 
             // btnClose
             // 
@@ -152,7 +133,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(408, 122);
+            this.btnClose.Location = new System.Drawing.Point(351, 120);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 10;
@@ -165,12 +146,16 @@
             this.masterDBDataSet1.DataSetName = "masterDBDataSet";
             this.masterDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Cost";
+            // 
             // CourseRegHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(913, 155);
+            this.ClientSize = new System.Drawing.Size(779, 152);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblRegCourseDetail);
             this.Controls.Add(this.ltvRegCourseDetail);
@@ -194,13 +179,11 @@
         private System.Windows.Forms.ColumnHeader Weekday_r;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader StartMonth_r;
-        private System.Windows.Forms.ColumnHeader EndMonth_r;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader startPeriod_r;
-        private System.Windows.Forms.ColumnHeader endPeriod_r;
         private XButton btnClose;
         private res.db.masterDBDataSet masterDBDataSet1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

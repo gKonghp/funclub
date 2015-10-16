@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace FunHomeClub
@@ -52,6 +53,8 @@ namespace FunHomeClub
             FillAll(); //fill All records;
             FillListView(); //fill ListView;
 
+            if(cbbSortedBy.Items.Count > 0)
+                cbbSortedBy.SelectedIndex = 0;
             // find the profitMargin
             sql = string.Format("SELECT * FROM profitMargin WHERE profitMarginID = '{0}'", "pm0001");
             adapter = new OleDbDataAdapter(sql, conn);
@@ -78,8 +81,12 @@ namespace FunHomeClub
         }
         public void FillAll()
         {
+            /*
             string sql = string.Format("SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime, ((teacherRate + operatingCharges) * " +
-   profitMargin + ") / 10 as Price, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID");
+   profitMargin + ") / 10 as Price, room, courseID FROM course c, courseCategory cc WHERE c.categoryID = cc.categoryID AND");
+   */
+            string sql = string.Format("SELECT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime, ((teacherRate + operatingCharges) * " +
+            profitMargin + ") / 10 as Price, room, courseID, t.name FROM course c, courseCategory cc, Teacher t WHERE c.categoryID = cc.categoryID AND t.teacherID = c.teacherID " + " ORDER BY cc.name, c.name ");
             adapter = new OleDbDataAdapter(sql, conn);
             coursesList = new DataTable();
             adapter.Fill(coursesList);
@@ -96,25 +103,36 @@ namespace FunHomeClub
                 item.SubItems.Add(row["courseID"].ToString());
                 item.SubItems.Add(row["c.name"].ToString());
                 item.SubItems.Add(row["weekday"].ToString());
-                item.SubItems.Add(row["startMonth"].ToString());
-                item.SubItems.Add(row["endMonth"].ToString());
-                item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["startTime"].ToString())));
-                item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
-                item.SubItems.Add(row["Price"].ToString());
+                item.SubItems.Add(row["startMonth"].ToString() + "-" + row["endMonth"].ToString());
+                //item.SubItems.Add(row["endMonth"].ToString());
+                item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["startTime"].ToString())) + "-" + string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
+                //item.SubItems.Add(string.Format("{0:H:mm}", Convert.ToDateTime(row["endTime"].ToString())));
+                item.SubItems.Add(Convert.ToString(Math.Ceiling(Convert.ToDouble(row["Price"].ToString()))));
                 //item.SubItems.Add(row["quota"].ToString());
                 item.SubItems.Add(row["room"].ToString());
+                item.SubItems.Add(row["t.name"].ToString());
                 lstCourseDetail.Items.Add(item);
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
          {
+            //Check Format
+            if (txtCourseID.Text.Trim().Length>0&!Regex.IsMatch(txtCourseID.Text, @"^[a-zA-Z0-9]+$"))
+            {
+                //txtStudentID.BackColor = Color.IndianRed;
+                MessageBox.Show("CourseID is Alphanumeric.");
+                txtCourseID.Focus();
+                txtCourseID.SelectAll();
+                return;
+            }
+            // End Check Format
             string selectString = "SELECT DISTINCT cc.name, c.name, weekday, startMonth, endMonth, startTime, endTime,  ((teacherRate + operatingCharges) * " +
-               profitMargin + ") / 10 as Price, room, c.courseID FROM course c, courseCategory cc, courseMonth cm WHERE c.categoryID = cc.categoryID" + " AND cm.courseID = c.courseID"
+               profitMargin + ") / 10 as Price, room, c.courseID, t.name FROM course c, courseCategory cc, courseMonth cm, Teacher t WHERE c.categoryID = cc.categoryID" + " AND cm.courseID = c.courseID AND t.TeacherID = c.TeacherID "
                  + " AND quota >= " + Convert.ToInt32(nudQuota.Value.ToString());
 
-            if (txtCourseID.Text.Trim().Length <= 0)
-            {
+            //if (txtCourseID.Text.Trim().Length <= 0)
+           // {
                 if (cbbMonth.SelectedIndex > 0)
                     selectString += " AND " + cbbMonth.SelectedIndex + " BETWEEN startMonth AND endMonth";
 
@@ -131,10 +149,33 @@ namespace FunHomeClub
                     selectString += " AND cc.categoryID = '" + ((ComboBoxItem)cbbCategory.Items[cbbCategory.SelectedIndex]).Value.ToString() + "'";
 
                  selectString += string.Format(" AND startTime >= #{0}# AND endTime <= #{1}#", String.Format("{0:H:mm}", dtpStartTime.Value), String.Format("{0:H:mm}", dtpEndTime.Value));
-            }
+            //}
+            //else
+            //{
+            if(txtCourseID.Text.Trim().Length>0)
+                selectString += " AND  c.courseID ='" + txtCourseID.Text.Trim()+"'";
+            //}
+
+            if (cbbSortedBy.SelectedItem.ToString().Equals("CourseID"))
+                selectString += " ORDER BY c.courseID, cc.name";
             else
             {
-                selectString += " AND  c.courseID ='" + txtCourseID.Text.Trim()+"'";
+                if (cbbSortedBy.SelectedItem.ToString().Equals("Course Name"))
+                    selectString += "ORDER BY c.name";
+                if (cbbSortedBy.SelectedItem.ToString().Equals("Weekday"))
+                    selectString += "ORDER BY weekday";
+                if (cbbSortedBy.SelectedItem.ToString().Equals("Month"))
+                    selectString += "ORDER BY startMonth";
+                if (cbbSortedBy.SelectedItem.ToString().Equals("Time"))
+                    selectString += "ORDER BY startTime";
+                if (cbbSortedBy.SelectedItem.ToString().Equals("Price"))
+                    selectString += "ORDER BY ((teacherRate + operatingCharges) * " +
+               profitMargin + ") / 10";
+                if (cbbSortedBy.SelectedItem.ToString().Equals("Quota"))
+                    selectString += "ORDER BY quota";
+                if(cbbSortedBy.SelectedItem.ToString().Equals("Category"))
+                    selectString += "ORDER BY cc.name";
+                selectString += " , c.courseID";
             }
 
             adapter = new OleDbDataAdapter(selectString, conn);
@@ -160,7 +201,7 @@ namespace FunHomeClub
                     int weekday = Convert.ToInt32(row["weekday"].ToString());
                     string startTime = row["startTime"].ToString();
                     string endTime = row["endTime"].ToString();
-                    double price = Convert.ToDouble(row["price"].ToString());
+                    double price = Convert.ToDouble(Math.Ceiling(Convert.ToDouble(row["price"].ToString())));
                     string room = row["room"].ToString();
                     //int quota = Convert.ToInt32(row["quota"].ToString()); 
 
@@ -205,6 +246,7 @@ namespace FunHomeClub
             txtCourseID.Clear();
             cbbCategory.SelectedIndex = 0;
             cbbCourseName.SelectedIndex = 0;
+            cbbSortedBy.SelectedIndex = 0;
             nudQuota.Value = 0;
             nudPriceFrom.Value = 0;
             nudPriceTo.Value = 0;

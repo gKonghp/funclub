@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnConfirm = new XButton();
-            this.btnCancel = new XButton();
+            this.btnConfirm = new FunHomeClub.XButton();
+            this.btnCancel = new FunHomeClub.XButton();
             this.lblStudentID = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gpbStudentInfo = new System.Windows.Forms.GroupBox();
@@ -49,13 +49,10 @@
             this.CourseName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Weekday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartMonth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndMonth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.startPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.startPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.endPeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.masterDBDataSet1 = new FunHomeClub.res.db.masterDBDataSet();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblPromotionDiscount_d = new System.Windows.Forms.Label();
@@ -94,7 +91,7 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(620, 456);
+            this.btnConfirm.Location = new System.Drawing.Point(539, 456);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 0;
@@ -109,7 +106,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(537, 456);
+            this.btnCancel.Location = new System.Drawing.Point(620, 456);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -267,6 +264,7 @@
             // 
             // ltvRegCourseList
             // 
+            this.ltvRegCourseList.AutoArrange = false;
             this.ltvRegCourseList.BackColor = System.Drawing.SystemColors.Control;
             this.ltvRegCourseList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Category,
@@ -274,13 +272,10 @@
             this.CourseName,
             this.Weekday,
             this.StartMonth,
-            this.EndMonth,
             this.StartTime,
-            this.EndTime,
-            this.Price,
-            this.Room,
             this.startPeriod,
-            this.endPeriod});
+            this.Price,
+            this.Room});
             this.ltvRegCourseList.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.ltvRegCourseList.FullRowSelect = true;
             this.ltvRegCourseList.GridLines = true;
@@ -294,50 +289,47 @@
             // Category
             // 
             this.Category.Text = "Category";
+            this.Category.Width = 68;
             // 
             // CourseID
             // 
             this.CourseID.Text = "CourseID";
+            this.CourseID.Width = 69;
             // 
             // CourseName
             // 
-            this.CourseName.Text = "Name";
+            this.CourseName.Text = "Course Name";
+            this.CourseName.Width = 98;
             // 
             // Weekday
             // 
             this.Weekday.Text = "Week Day";
+            this.Weekday.Width = 73;
             // 
             // StartMonth
             // 
-            this.StartMonth.Text = "Start Month";
-            // 
-            // EndMonth
-            // 
-            this.EndMonth.Text = "End Month";
+            this.StartMonth.Text = "Month";
+            this.StartMonth.Width = 54;
             // 
             // StartTime
             // 
-            this.StartTime.Text = "Start Time";
+            this.StartTime.Text = "Time";
+            this.StartTime.Width = 101;
             // 
-            // EndTime
+            // startPeriod
             // 
-            this.EndTime.Text = "End Time";
+            this.startPeriod.Text = "Enrolled Period";
+            this.startPeriod.Width = 104;
             // 
             // Price
             // 
             this.Price.Text = "Price";
+            this.Price.Width = 46;
             // 
             // Room
             // 
             this.Room.Text = "Room";
-            // 
-            // startPeriod
-            // 
-            this.startPeriod.Text = "Start Period";
-            // 
-            // endPeriod
-            // 
-            this.endPeriod.Text = "End Period";
+            this.Room.Width = 48;
             // 
             // masterDBDataSet1
             // 
@@ -533,7 +525,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(711, 484);
+            this.ClientSize = new System.Drawing.Size(711, 487);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -585,9 +577,7 @@
         private System.Windows.Forms.ColumnHeader CourseName;
         private System.Windows.Forms.ColumnHeader Weekday;
         private System.Windows.Forms.ColumnHeader StartMonth;
-        private System.Windows.Forms.ColumnHeader EndMonth;
         private System.Windows.Forms.ColumnHeader StartTime;
-        private System.Windows.Forms.ColumnHeader EndTime;
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.ColumnHeader Room;
         private System.Windows.Forms.Label lblStudentID_d;
@@ -607,7 +597,6 @@
         public System.Windows.Forms.Label lblOriginalTotal_d;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.ColumnHeader startPeriod;
-        private System.Windows.Forms.ColumnHeader endPeriod;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;

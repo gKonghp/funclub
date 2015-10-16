@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaintainPromotion));
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,7 +60,7 @@
             // 
             // txtName
             // 
-            this.txtName.BackColor = System.Drawing.SystemColors.Control;
+            this.txtName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtName.Location = new System.Drawing.Point(91, 17);
@@ -80,7 +81,7 @@
             // 
             // numDiscount
             // 
-            this.numDiscount.BackColor = System.Drawing.SystemColors.Control;
+            this.numDiscount.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numDiscount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numDiscount.DecimalPlaces = 2;
             this.numDiscount.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -118,6 +119,7 @@
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.Size = new System.Drawing.Size(104, 25);
             this.dtpStartTime.TabIndex = 5;
+            this.dtpStartTime.ValueChanged += new System.EventHandler(this.dtpStartTime_ValueChanged);
             // 
             // label4
             // 
@@ -137,6 +139,7 @@
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.Size = new System.Drawing.Size(105, 25);
             this.dtpEndTime.TabIndex = 7;
+            this.dtpEndTime.ValueChanged += new System.EventHandler(this.dtpEndTime_ValueChanged);
             // 
             // btnSave
             // 
@@ -161,7 +164,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(230, 212);
+            this.btnCancel.Location = new System.Drawing.Point(202, 212);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 26);
             this.btnCancel.TabIndex = 9;
@@ -195,7 +198,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDescription.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescription.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtDescription.Location = new System.Drawing.Point(16, 140);
@@ -208,6 +211,7 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
             // MaintainPromotion
             // 
@@ -230,7 +234,7 @@
             this.Controls.Add(this.btnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainPromotion";
-            this.Text = "MaintainPromotion";
+            this.Text = "Maintain Promotion";
             this.Load += new System.EventHandler(this.MaintainPromotion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

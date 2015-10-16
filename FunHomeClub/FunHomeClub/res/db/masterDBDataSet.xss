@@ -8,18 +8,18 @@
   <Shapes>
     <Shape ID="DesignTable:course" ZOrder="20" X="70" Y="70" Height="305" Width="186" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:courseCategory" ZOrder="19" X="326" Y="70" Height="134" Width="241" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:employee" ZOrder="2" X="1185" Y="70" Height="153" Width="206" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:employee" ZOrder="6" X="1185" Y="70" Height="153" Width="206" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:membership" ZOrder="18" X="893" Y="478" Height="134" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:profitMargin" ZOrder="1" X="1461" Y="70" Height="115" Width="223" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:profitMargin" ZOrder="5" X="1461" Y="70" Height="115" Width="223" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:promotion" ZOrder="17" X="1754" Y="70" Height="172" Width="211" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:student" ZOrder="16" X="630" Y="478" Height="191" Width="193" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
-    <Shape ID="DesignTable:studentCourse" ZOrder="15" X="326" Y="478" Height="210" Width="234" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
-    <Shape ID="DesignTable:teacher" ZOrder="14" X="326" Y="274" Height="153" Width="191" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:invoice" ZOrder="8" X="658" Y="105" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
-    <Shape ID="DesignTable:courseMonth" ZOrder="4" X="423" Y="-18" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:teacher" ZOrder="15" X="326" Y="274" Height="153" Width="191" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:invoice" ZOrder="11" X="658" Y="105" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:courseMonth" ZOrder="8" X="423" Y="-18" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:studentCourse" ZOrder="4" X="2035" Y="-18" Height="210" Width="234" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:courseCategorycourse" ZOrder="13" LineWidth="11">
+    <Connector ID="DesignRelation:courseCategorycourse" ZOrder="14" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>326</X>
@@ -31,7 +31,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:teachercourse" ZOrder="12" LineWidth="11">
+    <Connector ID="DesignRelation:teachercourse" ZOrder="13" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>326</X>
@@ -43,7 +43,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:membershipstudent" ZOrder="11" LineWidth="11">
+    <Connector ID="DesignRelation:membershipstudent" ZOrder="12" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>893</X>
@@ -55,51 +55,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:coursestudentCourse" ZOrder="10" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>239</X>
-          <Y>375</Y>
-        </Point>
-        <Point>
-          <X>239</X>
-          <Y>495</Y>
-        </Point>
-        <Point>
-          <X>326</X>
-          <Y>495</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:studentstudentCourse" ZOrder="9" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>630</X>
-          <Y>545</Y>
-        </Point>
-        <Point>
-          <X>560</X>
-          <Y>545</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:invoicestudentCourse" ZOrder="7" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>675</X>
-          <Y>195</Y>
-        </Point>
-        <Point>
-          <X>675</X>
-          <Y>503</Y>
-        </Point>
-        <Point>
-          <X>560</X>
-          <Y>503</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:employeeinvoice" ZOrder="6" LineWidth="11">
+    <Connector ID="DesignRelation:employeeinvoice" ZOrder="10" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1185</X>
@@ -111,7 +67,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:promotioninvoice" ZOrder="5" LineWidth="11">
+    <Connector ID="DesignRelation:promotioninvoice" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1754</X>
@@ -123,7 +79,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:coursecourseMonth" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:coursecourseMonth" ZOrder="7" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>231</X>
@@ -136,6 +92,46 @@
         <Point>
           <X>423</X>
           <Y>53</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:coursestudentCourse" ZOrder="3" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>256</X>
+          <Y>121</Y>
+        </Point>
+        <Point>
+          <X>2035</X>
+          <Y>121</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:invoicestudentCourse" ZOrder="2" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>816</X>
+          <Y>113</Y>
+        </Point>
+        <Point>
+          <X>2035</X>
+          <Y>113</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:studentstudentCourse" ZOrder="1" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>806</X>
+          <Y>478</Y>
+        </Point>
+        <Point>
+          <X>806</X>
+          <Y>175</Y>
+        </Point>
+        <Point>
+          <X>2035</X>
+          <Y>175</Y>
         </Point>
       </RoutePoints>
     </Connector>

@@ -54,7 +54,7 @@
             // 
             // tvControlForm
             // 
-            this.tvControlForm.BackColor = System.Drawing.SystemColors.Control;
+            this.tvControlForm.BackColor = System.Drawing.SystemColors.ControlLight;
             this.tvControlForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tvControlForm.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tvControlForm.Location = new System.Drawing.Point(11, 82);
@@ -123,7 +123,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.tvControlForm);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";

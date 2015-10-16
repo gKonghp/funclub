@@ -26,6 +26,8 @@ namespace FunHomeClub
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Utility.repaintFrameSize(this.MdiParent, courseReg);
             this.Dispose();
         }
 
@@ -85,8 +87,8 @@ namespace FunHomeClub
 
             // Get the current Time
             DateTime now = DateTime.Now;
-            string nowStr = String.Format("{0:d/M/yyyy}", now);
-
+            //string nowStr = String.Format("{0:d/M/yyyy}", now);
+            string nowStr = now.ToShortDateString();
             //Fetch Course Table
             sql = string.Format("SELECT * FROM Course");
             courseAdapter = new OleDbDataAdapter(sql, conn);
@@ -99,7 +101,14 @@ namespace FunHomeClub
             invoiceRow["invoiceID"] = invoiceID;
             string employeeID = ((MainForm)this.MdiParent.FindForm()).employee.employeeID;
             invoiceRow["employeeID"] = employeeID;
-            invoiceRow["date"] = nowStr;
+            try
+            {
+                invoiceRow["date"] = nowStr;
+            }
+            catch (System.ArgumentException)
+            {
+                MessageBox.Show(this, "The system date is not the correct date Time Format, please check your date/time setting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             string totalCostStr = lblTotal_d.Text.Substring(2, lblTotal_d.Text.Length - 2);
             double totalCost = Math.Round(Convert.ToDouble(totalCostStr));
@@ -124,8 +133,8 @@ namespace FunHomeClub
                     {
 
                     string courseID = item.SubItems[CourseID.Index].Text;
-                    int startPeriod_d = Convert.ToInt32(item.SubItems[startPeriod.Index].Text);
-                    int endPeriod_d = Convert.ToInt32(item.SubItems[endPeriod.Index].Text);
+                    int startPeriod_d = Convert.ToInt32(item.SubItems[startPeriod.Index].Text.Split('-')[0].Trim());
+                    int endPeriod_d = Convert.ToInt32(item.SubItems[startPeriod.Index].Text.Split('-')[1].Trim());
                     //Update course quota
                     //DataRow[] row = courseTable.Select(string.Format("courseID = '{0}'", courseID));
 
@@ -154,15 +163,15 @@ namespace FunHomeClub
                     studentCourseRow["studentID"] = lblStudentID_d.Text;
                     studentCourseRow["courseID"] = courseID;
                     studentCourseRow["enrollDate"] = nowStr;
-                    int numPeriod = Convert.ToInt32(item.SubItems[endPeriod.Index].Text) - Convert.ToInt32(item.SubItems[startPeriod.Index].Text) + 1;
+                    int numPeriod = Convert.ToInt32(item.SubItems[startPeriod.Index].Text.Split('-')[1].Trim()) - Convert.ToInt32(item.SubItems[startPeriod.Index].Text.Split('-')[0].Trim()) + 1;
                     int cost = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(item.SubItems[Price.Index].Text))) * numPeriod;
                     studentCourseRow["cost"] = cost;
                     studentCourseRow["invoiceID"] = invoiceID;
-                    int _startPeriod = Convert.ToInt32(item.SubItems[startPeriod.Index].Text);
-                    int _endPeriod = Convert.ToInt32(item.SubItems[endPeriod.Index].Text);
+                    int _startPeriod = Convert.ToInt32(item.SubItems[startPeriod.Index].Text.Split('-')[0].Trim());
+                    int _endPeriod = Convert.ToInt32(item.SubItems[startPeriod.Index].Text.Split('-')[1].Trim());
                     studentCourseRow["startPeriod"] = _startPeriod;
                     studentCourseRow["endPeriod"] = _endPeriod;
-                    sql = string.Format("INSERT INTO studentCourse VALUES('{0}', '{1}', '{2}', {3}, '{4}', {5}, {6})", lblStudentID_d.Text, courseID, nowStr, cost, invoiceID, _startPeriod, _endPeriod);
+                    sql = string.Format("INSERT INTO studentCourse VALUES('{0}', '{1}', {2}, {3}, '{4}', {5}, '{6}')", lblStudentID_d.Text, courseID, _startPeriod, _endPeriod, nowStr, cost, invoiceID);
                     OleDbCommand studentCourseRowCmd = new OleDbCommand(sql, conn);
                     studentCourseAdapter.InsertCommand = studentCourseRowCmd;
                     studentCourseTable.Rows.Add(studentCourseRow);

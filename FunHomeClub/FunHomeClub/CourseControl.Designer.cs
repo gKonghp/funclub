@@ -42,13 +42,14 @@
             this.startMonthHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endMonthHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.descHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDeleteCourse = new XButton();
-            this.btnMaintainCourse = new XButton();
-            this.btnAddCourse = new XButton();
+            this.btnDeleteCourse = new FunHomeClub.XButton();
+            this.btnMaintainCourse = new FunHomeClub.XButton();
+            this.btnAddCourse = new FunHomeClub.XButton();
             this.SuspendLayout();
             // 
             // lstCourse
             // 
+            this.lstCourse.AutoArrange = false;
             this.lstCourse.BackColor = System.Drawing.SystemColors.Control;
             this.lstCourse.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.CourseHeader,
@@ -67,7 +68,7 @@
             this.lstCourse.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lstCourse.Location = new System.Drawing.Point(13, 11);
             this.lstCourse.Name = "lstCourse";
-            this.lstCourse.Size = new System.Drawing.Size(903, 238);
+            this.lstCourse.Size = new System.Drawing.Size(1076, 238);
             this.lstCourse.TabIndex = 1;
             this.lstCourse.UseCompatibleStateImageBehavior = false;
             this.lstCourse.View = System.Windows.Forms.View.Details;
@@ -76,6 +77,7 @@
             // CourseHeader
             // 
             this.CourseHeader.Text = "CourseID";
+            this.CourseHeader.Width = 73;
             // 
             // nameHeader
             // 
@@ -84,50 +86,57 @@
             // weekdayHeader
             // 
             this.weekdayHeader.Text = "WeekDay";
+            this.weekdayHeader.Width = 71;
             // 
             // roomHeader
             // 
             this.roomHeader.Text = "Room";
+            this.roomHeader.Width = 50;
             // 
             // startTimeHeader
             // 
             this.startTimeHeader.Text = "StartTime";
+            this.startTimeHeader.Width = 73;
             // 
             // endTimeHeader
             // 
             this.endTimeHeader.Text = "EndTime";
+            this.endTimeHeader.Width = 66;
             // 
             // teacherRateHeader
             // 
             this.teacherRateHeader.Text = "TeacherRate";
-            this.teacherRateHeader.Width = 80;
+            this.teacherRateHeader.Width = 88;
             // 
             // operationChargesHeader
             // 
             this.operationChargesHeader.Text = "OperationCharges";
+            this.operationChargesHeader.Width = 130;
             // 
             // categoryHeader
             // 
             this.categoryHeader.Text = "CategoryName";
+            this.categoryHeader.Width = 107;
             // 
             // teacherHeader
             // 
             this.teacherHeader.Text = "TeacherName";
-            this.teacherHeader.Width = 85;
+            this.teacherHeader.Width = 104;
             // 
             // startMonthHeader
             // 
             this.startMonthHeader.Text = "StartMonth";
+            this.startMonthHeader.Width = 87;
             // 
             // endMonthHeader
             // 
             this.endMonthHeader.Text = "EndMonth";
-            this.endMonthHeader.Width = 64;
+            this.endMonthHeader.Width = 78;
             // 
             // descHeader
             // 
             this.descHeader.Text = "Description";
-            this.descHeader.Width = 70;
+            this.descHeader.Width = 83;
             // 
             // btnDeleteCourse
             // 
@@ -137,7 +146,7 @@
             this.btnDeleteCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteCourse.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnDeleteCourse.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteCourse.Location = new System.Drawing.Point(818, 255);
+            this.btnDeleteCourse.Location = new System.Drawing.Point(991, 257);
             this.btnDeleteCourse.Name = "btnDeleteCourse";
             this.btnDeleteCourse.Size = new System.Drawing.Size(97, 26);
             this.btnDeleteCourse.TabIndex = 6;
@@ -153,7 +162,7 @@
             this.btnMaintainCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaintainCourse.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnMaintainCourse.ForeColor = System.Drawing.Color.White;
-            this.btnMaintainCourse.Location = new System.Drawing.Point(715, 255);
+            this.btnMaintainCourse.Location = new System.Drawing.Point(888, 257);
             this.btnMaintainCourse.Name = "btnMaintainCourse";
             this.btnMaintainCourse.Size = new System.Drawing.Size(97, 26);
             this.btnMaintainCourse.TabIndex = 5;
@@ -168,7 +177,7 @@
             this.btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCourse.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAddCourse.ForeColor = System.Drawing.Color.White;
-            this.btnAddCourse.Location = new System.Drawing.Point(612, 255);
+            this.btnAddCourse.Location = new System.Drawing.Point(785, 257);
             this.btnAddCourse.Name = "btnAddCourse";
             this.btnAddCourse.Size = new System.Drawing.Size(97, 26);
             this.btnAddCourse.TabIndex = 4;
@@ -187,7 +196,7 @@
             this.Controls.Add(this.btnAddCourse);
             this.Controls.Add(this.lstCourse);
             this.Name = "CourseControl";
-            this.Size = new System.Drawing.Size(930, 286);
+            this.Size = new System.Drawing.Size(1104, 293);
             this.Load += new System.EventHandler(this.CourseControl_Load);
             this.ResumeLayout(false);
 

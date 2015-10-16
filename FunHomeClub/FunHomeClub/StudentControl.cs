@@ -15,7 +15,7 @@ namespace FunHomeClub
         OleDbConnection connection;
         DataTable dt;
         OleDbDataAdapter dataAdapter;
-        string studentSQL = "select * from student";
+        string studentSQL = "select s.studentID,m.status,s.phoneNumber,s.email,s.enrollMonth,s.name from student s,membership m where s.membershipID = m.membershipID order by s.studentID asc";
 
         public StudentControl(OleDbConnection connection)
         {

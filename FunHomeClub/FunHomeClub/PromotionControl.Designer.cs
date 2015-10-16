@@ -42,6 +42,7 @@
             // 
             // lstPromotion
             // 
+            this.lstPromotion.AutoArrange = false;
             this.lstPromotion.BackColor = System.Drawing.SystemColors.Control;
             this.lstPromotion.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader10,
@@ -62,7 +63,7 @@
             // columnHeader10
             // 
             this.columnHeader10.Text = "PromotionID";
-            this.columnHeader10.Width = 89;
+            this.columnHeader10.Width = 96;
             // 
             // columnHeader13
             // 
@@ -71,19 +72,22 @@
             // columnHeader14
             // 
             this.columnHeader14.Text = "Description";
+            this.columnHeader14.Width = 138;
             // 
             // columnHeader15
             // 
             this.columnHeader15.Text = "AdditionalDiscount";
-            this.columnHeader15.Width = 227;
+            this.columnHeader15.Width = 135;
             // 
             // columnHeader16
             // 
             this.columnHeader16.Text = "StartTime";
+            this.columnHeader16.Width = 74;
             // 
             // columnHeader17
             // 
             this.columnHeader17.Text = "EndTime";
+            this.columnHeader17.Width = 66;
             // 
             // btnDelete
             // 

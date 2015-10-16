@@ -56,7 +56,7 @@ namespace FunHomeClub
             txtStartMonth.Text = dt.Rows[0]["startMonth"].ToString();
             txtEndMonth.Text = dt.Rows[0]["endMonth"].ToString();
             txtTeacher.Text = dt.Rows[0]["t.name"].ToString();
-            txtMaterial.Text = dt.Rows[0]["materialCost"].ToString();
+            txtMaterial.Text ="$ "+ dt.Rows[0]["materialCost"].ToString();
             this.Text = this.Text + txtName.Text;
 
             dt.Clear();
@@ -65,7 +65,7 @@ namespace FunHomeClub
 
             basicMonthFee[1] = basicMonthFee[0] * Convert.ToDouble(dt.Rows[1]["discount"].ToString());
             basicMonthFee[2] = basicMonthFee[0] * Convert.ToDouble(dt.Rows[2]["discount"].ToString());
-            txtFee.Text = basicMonthFee[0].ToString();
+            txtFee.Text = "$ " + basicMonthFee[0].ToString();
             currentBasicPrice = basicMonthFee[0];
             FilllstQuota();
             FilllstPromotion();
@@ -73,21 +73,21 @@ namespace FunHomeClub
 
         private void rdoNone_CheckedChanged(object sender, EventArgs e)
         {
-            txtFee.Text = basicMonthFee[0].ToString();
+            txtFee.Text = "$ "+basicMonthFee[0].ToString();
             currentBasicPrice = basicMonthFee[0];
             FilllstPromotion();
         }
 
         private void rdoNormal_CheckedChanged(object sender, EventArgs e)
         {
-            txtFee.Text = basicMonthFee[1].ToString();
+            txtFee.Text = "$ "+Math.Ceiling(Convert.ToDouble(basicMonthFee[1].ToString())).ToString();
             currentBasicPrice = basicMonthFee[1];
             FilllstPromotion();
         }
 
         private void rdoGold_CheckedChanged(object sender, EventArgs e)
         {
-            txtFee.Text = basicMonthFee[2].ToString();
+            txtFee.Text = "$ " + Math.Ceiling(Convert.ToDouble(basicMonthFee[2].ToString())).ToString();
             currentBasicPrice = basicMonthFee[2];
             FilllstPromotion();
         }
@@ -130,7 +130,7 @@ namespace FunHomeClub
         {
             if (lstPromotion.SelectedItems.Count > 0)
             {
-                txtFee.Text = dt.Rows[lstPromotion.SelectedItems[0].Index]["totalPrice"].ToString();
+                txtFee.Text = "$ "+Math.Ceiling(Convert.ToDouble(dt.Rows[lstPromotion.SelectedItems[0].Index]["totalPrice"].ToString())).ToString();
             }
         }
 
@@ -144,7 +144,7 @@ namespace FunHomeClub
             else
             {
                 lstPromotion.Enabled = false;
-                txtFee.Text = currentBasicPrice.ToString();
+                txtFee.Text = "$ "+currentBasicPrice.ToString();
                 label15.Visible = false;
             }
         }
